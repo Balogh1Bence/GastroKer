@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using login.Services;
 namespace login
 {
     public partial class Rakt : Form
     {
+        RktServ rs = new RktServ();
+
         public Rakt()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource= rs.feltolt();
         }
     }
 }
