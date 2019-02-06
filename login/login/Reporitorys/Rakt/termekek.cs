@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using login.models;
+using login.Services.ConnectToMysqlDatabase;
 namespace login.Reporitorys.Rakt
 {
     class termekek
@@ -21,22 +22,40 @@ namespace login.Reporitorys.Rakt
         {
             
             DataTable cDT = new DataTable();
-            cDT.Columns.Add("Azonosító", typeof(int));
-            cDT.Columns.Add("Vevő név", typeof(string));
-            cDT.Columns.Add("Cím", typeof(string));
+            cDT.Columns.Add("Tkod", typeof(int));
+            cDT.Columns.Add("Tnev", typeof(string));
+            cDT.Columns.Add("Tar", typeof(int));
+            cDT.Columns.Add("Tkeszl", typeof(int));
+            cDT.Columns.Add("Tmert", typeof(string));
+            cDT.Columns.Add("Tkatkod", typeof(int));
+            cDT.Columns.Add("Tvonkod", typeof(int));
+            cDT.Columns.Add("Tszavido", typeof(DateTime));
+            cDT.Columns.Add("Tegalizalte", typeof(bool));
+
+
+
+
+
+
+
+
+
+
+            
+
             foreach (MdTermekek c in ts)
             {
-                c.getAzon();
-                cDT.Rows.Add(, c.getName(), c.getAddress());
+
+                cDT.Rows.Add(c.getTkod(), c.getTNev(), c.getTar(), c.getTkeszl(), c.getMert(), c.getTkatkod(), c.getTvonkod(), c.getSzavido(), c.getTegalizalte());
             }
             return cDT;
         }
 
-        internal bool checkExist(Customer newCustomer)
+        public bool checkExist(MdTermekek newT)
         {
-            foreach (Customer c in customers)
+            foreach (MdTermekek c in ts)
             {
-                if (c.getId() == newCustomer.getId())
+                if (c.getTkod() == newT.getTkod())
                 {
                     return true;
                 }
@@ -46,17 +65,17 @@ namespace login.Reporitorys.Rakt
 
         }
 
-        internal void addCustomer(Customer newCustomer)
+        internal void addCustomer(MdTermekek newCustomer)
         {
-            customers.Add(newCustomer);
+            ts.Add(newCustomer);
         }
 
         private void fillCustomersListFromDatabase()
         {
-            MySQLDatabase md = new MySQLDatabase();
-            MySQLDatabaseInterface mdi = md.getDatabaseInterface();
+            Adatbazis a = new Adatbazis();
+            MySQLDatabaseInterface mdi = a.kapcsolodas();
             mdi.open();
-            string query = "SELECT * FROM pvevo ";
+            string query = "SELECT * FROM termekek ";
             DataTable dtCustomer = mdi.getToDataTable(query);
             mdi.close();
 
@@ -65,8 +84,17 @@ namespace login.Reporitorys.Rakt
                 int customerID = Convert.ToInt32(row["vazon"].ToString());
                 string customerName = row["vnev"].ToString();
                 string customerAddress = row["vcim"].ToString();
-                Customer c = new Customer(customerID, customerName, customerAddress);
-                customers.Add(c);
+                int Tkod;
+                string Tnev;
+                int Tar;
+                int Tkeszl;
+                string Tmert;
+                int Tkatkod;
+                int Tvonkod;
+                DateTime Tszavido;
+                bool Tegalizalte;
+                MdTermekek c = new MdTermekek();
+                ts.Add(c);
             }
         }
     }
