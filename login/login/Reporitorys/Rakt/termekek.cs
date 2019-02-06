@@ -19,13 +19,15 @@ namespace login.Reporitorys.Rakt
 
         public DataTable getTsDataTable()
         {
+            
             DataTable cDT = new DataTable();
             cDT.Columns.Add("Azonosító", typeof(int));
             cDT.Columns.Add("Vevő név", typeof(string));
             cDT.Columns.Add("Cím", typeof(string));
-            foreach (Customer c in customers)
+            foreach (MdTermekek c in ts)
             {
-                cDT.Rows.Add(c.getId(), c.getName(), c.getAddress());
+                c.getAzon();
+                cDT.Rows.Add(, c.getName(), c.getAddress());
             }
             return cDT;
         }
