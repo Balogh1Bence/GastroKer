@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace login.models
 {
-    class MdTermekek
+    public class MdTermekek
     {
 
         int Tkod;
