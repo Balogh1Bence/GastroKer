@@ -30,7 +30,7 @@ namespace login.Reporitorys.Rakt
             cDT.Columns.Add("Tkatkod", typeof(int));
             cDT.Columns.Add("Tvonkod", typeof(int));
             cDT.Columns.Add("Tszavido", typeof(string));
-            cDT.Columns.Add("Tszavido2", typeof(string));
+            cDT.Columns.Add("Tszavido2", typeof(string)); 
             cDT.Columns.Add("Tszavido3", typeof(string));
             cDT.Columns.Add("Tegalizalte", typeof(bool));
 
