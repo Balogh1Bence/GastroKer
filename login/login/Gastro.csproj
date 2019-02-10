@@ -83,6 +83,7 @@
     <Compile Include="Reporitorys\Rakt\termekek.cs" />
     <Compile Include="Reporitorys\Rakt\vevo.cs" />
     <Compile Include="Services\Adatbazis.cs" />
+    <Compile Include="Services\customreader.cs" />
     <Compile Include="Services\fleh\us.cs" />
     <Compile Include="Services\MySQLDatabaseInterface.cs" />
     <Compile Include="Services\RktServ.cs" />

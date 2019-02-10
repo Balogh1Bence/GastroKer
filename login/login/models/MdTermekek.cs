@@ -17,6 +17,7 @@ namespace login.models
         int Tkatkod;
         int Tvonkod;
         DateTime Tszavido;
+  
         bool Tegalizalte;
         public int getTkod() { return Tkod; }
         public string getTNev() { return Tnev; }
@@ -26,6 +27,7 @@ namespace login.models
         public int getTkatkod() { return Tkatkod; }
         public int getTvonkod() { return Tvonkod; }
         public DateTime getSzavido() { return Tszavido; }
+   
         public bool getTegalizalte() { return Tegalizalte; }
         public void setTkod(int Tkod) { this.Tkod = Tkod; }
         public void setTnev(string Tnev) { this.Tnev = Tnev; }
@@ -35,8 +37,8 @@ namespace login.models
         public void setTkatkod(int Tkatkod) { this.Tkatkod = Tkatkod; }
         public void setTvonkod(int Tvonkod) { this.Tvonkod = Tvonkod; }
         public void setTSzavido(DateTime Tszavido) { this.Tszavido = Tszavido; }
-        public void setTegaliz(bool Tegalizalte) { this.Tegalizalte = Tegalizalte; }
 
+        public void setTegaliz(bool Tegalizalte) { this.Tegalizalte = Tegalizalte; }
 
         public MdTermekek(int tkod, string tnev, int tar, int tkeszl, string tmert, int tkatkod, int tvonkod, DateTime tszavido, bool tegalizalte)
         {
@@ -50,9 +52,10 @@ namespace login.models
             Tszavido = tszavido;
             Tegalizalte = tegalizalte;
         }
+
         public override string ToString()
         {
-            return Tkatkod + " " + Tnev + " " + Tar + " " + Tkatkod + " " + Tmert + " " + Tkatkod + " " + Tvonkod + " " + Tszavido + " " + Tegalizalte;
+            return Tkatkod + " " + Tnev + " " + Tar + " " + Tkatkod + " " + Tmert + " " + Tkatkod + " " + Tvonkod + " " + Tszavido+ " " + Tegalizalte;
         }
     }
 }

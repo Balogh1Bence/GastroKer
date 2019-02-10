@@ -29,9 +29,8 @@ namespace login.Reporitorys.Rakt
             cDT.Columns.Add("Tmert", typeof(string));
             cDT.Columns.Add("Tkatkod", typeof(int));
             cDT.Columns.Add("Tvonkod", typeof(int));
-            cDT.Columns.Add("Tszavido", typeof(string));
-            cDT.Columns.Add("Tszavido2", typeof(string)); 
-            cDT.Columns.Add("Tszavido3", typeof(string));
+            cDT.Columns.Add("Tszavido1", typeof(string));
+            
             cDT.Columns.Add("Tegalizalte", typeof(bool));
 
 
@@ -48,7 +47,7 @@ namespace login.Reporitorys.Rakt
             foreach (MdTermekek c in ts)
             {
 
-                cDT.Rows.Add(c.getTkod(), c.getTNev(), c.getTar(), c.getTkeszl(), c.getMert(), c.getTkatkod(), c.getTvonkod(), c.getSzavido(), c.getTegalizalte());
+                cDT.Rows.Add(c.getTkod(), c.getTNev(), c.getTar(), c.getTkeszl(), c.getMert(), c.getTkatkod(), c.getTvonkod(), c.getSzavido(),  c.getTegalizalte());
             }
             return cDT;
         }
@@ -91,7 +90,10 @@ namespace login.Reporitorys.Rakt
                 string Tmert = row["Tmert"].ToString();
                 int Tkatkod= Convert.ToInt32(row["Tkatkod"].ToString());
                 int Tvonkod=Convert.ToInt32(row["Tvonkod"].ToString());
+               
                 DateTime Tszavido= Convert.ToDateTime(row["Tszavido"].ToString());
+                
+                
                 bool Tegalizalte=Convert.ToBoolean(row["Tegalizalte"].ToString());
                 MdTermekek c = new MdTermekek(Tkod, Tnev, Tar, Tkeszl, Tmert, Tkatkod, Tvonkod, Tszavido, Tegalizalte);
                 ts.Add(c);
