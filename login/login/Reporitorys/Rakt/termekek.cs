@@ -52,6 +52,11 @@ namespace login.Reporitorys.Rakt
             return cDT;
         }
 
+        internal void editDataSrc(MdTermekek termekek)
+        {
+            MÓDOSÍTANI!
+        }
+
         public bool checkExist(MdTermekek newT)
         {
             foreach (MdTermekek c in ts)

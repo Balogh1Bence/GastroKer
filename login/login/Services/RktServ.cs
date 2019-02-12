@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using login.Reporitorys.Rakt;
+using login.models;
 namespace login.Services
 {
     class RktServ
@@ -14,6 +15,10 @@ namespace login.Services
         public DataTable feltolt()
         {
             return t.getTsDataTable();
+        }
+        public void modifyData(MdTermekek termekek)
+        {
+            t.editDataSrc(termekek);
         }
     }
 }

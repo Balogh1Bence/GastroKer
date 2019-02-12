@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using login.models;
+using login.Services;
+
 namespace login
 {
     public partial class Szerk : Form
@@ -54,6 +56,8 @@ namespace login
             }
             termekek.setTSzavido(dateTimePicker1.Value);
             termekek.setTegaliz(false);
+            RktServ rkt = new RktServ();
+            rkt.modifyData(termekek);
 
         }
     }
