@@ -36,8 +36,8 @@ namespace login
                 return;
             }
             bool teg = false;
-
-            /*if (dataGridView1.SelectedRows[0].Cells[8].ToString()=="True") { teg = true; }
+            MessageBox.Show(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
+            if (dataGridView1.SelectedRows[0].Cells[8].Value.ToString()=="True") { teg = true; }
             MdTermekek termekek = new MdTermekek(
                 Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
                 ,dataGridView1.SelectedRows[0].Cells[1].Value.ToString()
@@ -49,7 +49,7 @@ namespace login
                 ,Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[7].Value.ToString())
                 ,teg);
             Szerk sz = new Szerk(termekek);
-            sz.Show();*/
+            sz.Show();
         }
     }
 }
