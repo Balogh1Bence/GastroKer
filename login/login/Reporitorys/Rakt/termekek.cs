@@ -26,6 +26,10 @@ namespace login.Reporitorys.Rakt
 
         public DataTable getTsDataTable()
         {
+            int d = 0;
+           
+                
+            
 
             if (cDT.Columns.Count > 0) {
                 int i = 0;
@@ -63,8 +67,11 @@ namespace login.Reporitorys.Rakt
 
                 cDT.Rows.Add(c.getTkod(), c.getTNev(), c.getTar(), c.getTkeszl(), c.getMert(), c.getTkatkod(), c.getTvonkod(), c.getSzavido(),  c.getTegalizalte());
             }
-          
-            
+
+            cDT = cDT.Rows
+    .Cast<DataRow>()
+    .Where(row => !row.ItemArray.All(field => field is DBNull ||string.IsNullOrWhiteSpace(field as string)))
+    .CopyToDataTable();
             return cDT;
         }
 

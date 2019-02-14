@@ -68,12 +68,12 @@ namespace login.Services.DatabaseOperations
             {
                 MySqlCommand cm = new MySqlCommand(query, connect);
                 cm.ExecuteNonQuery();
-                MessageBox.Show(connect.State + "");
+               
 
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show("Test2");
+               
                 Debug.WriteLine(e.Message);
 
 
