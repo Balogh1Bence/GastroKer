@@ -56,7 +56,7 @@ namespace login.Reporitorys.Rakt
         {
            
                 
-                 ts.removeAt(id);
+                 ts.removeAt(id); 
                  ts.Insert(id, termekek);
                    
                        
