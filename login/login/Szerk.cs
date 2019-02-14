@@ -47,6 +47,7 @@ namespace login
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int id=termekek.getTazon();
             termekek.setTar(Convert.ToInt32(textBox1.Text));
             termekek.setTkeszl(Convert.ToInt32(textBox2.Text));
             termekek.setTvonkod(Convert.ToInt32(textBox3.Text));
@@ -57,7 +58,7 @@ namespace login
             termekek.setTSzavido(dateTimePicker1.Value);
             termekek.setTegaliz(false);
             RktServ rkt = new RktServ();
-            rkt.modifyData(termekek);
+            rkt.modifyData(id, termekek);
 
         }
     }
