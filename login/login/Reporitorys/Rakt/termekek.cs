@@ -22,7 +22,15 @@ namespace login.Reporitorys.Rakt
 
         public DataTable getTsDataTable()
         {
-            
+
+            if (cDT.Columns.Count > 0) {
+                int i = 0;
+                MessageBox.Show(cDT.Columns.Count+"");
+                while (i < cDT.Columns.Count)
+                    cDT.Columns.RemoveAt(i);
+                MessageBox.Show(cDT.Columns.Count + "");
+                i++;
+                    }
            
             cDT.Columns.Add("Tkod", typeof(int));
             cDT.Columns.Add("Tnev", typeof(string));
@@ -56,17 +64,24 @@ namespace login.Reporitorys.Rakt
 
         public DataTable editDataSrc( int id,MdTermekek termekek)
         {
-           
-                
-            
-        
-          
+
+            MessageBox.Show(termekek.getTNev());
+
+
+
             foreach (MdTermekek c in ts)
             {
 
                 if (c.getTkod() == id)
                 {
+                   
+                    c.setTkod(id);
+                    c.setTnev(termekek.getTNev());
+
                     c.setTar(termekek.getTar());
+                    c.setTkeszl(termekek.getTkeszl());
+                    c.setTmert(termekek.getMert());
+                    c.setTkatkod(termekek.getTkatkod());
                     c.setTvonkod(termekek.getTvonkod());
                     c.setTSzavido(termekek.getSzavido());
                     c.setTegaliz(termekek.getTegalizalte());
@@ -75,7 +90,7 @@ namespace login.Reporitorys.Rakt
                 }
             }
     
-            return cDT; 
+            return getTsDataTable(); 
                      
                 
                

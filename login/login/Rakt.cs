@@ -54,8 +54,10 @@ namespace login
             {
                 try
                 {
+                    MessageBox.Show("Test8");
                     dataGridView1.DataSource = null;
-                    dataGridView1.DataSource = rs.modifyData(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), termekek);
+                    MessageBox.Show("Test9");
+                    dataGridView1.DataSource = sz.raktnak();
                 }
                 catch(Exception d) { MessageBox.Show(d.Message); }
                 /*rs.modifyData(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), termekek);*/

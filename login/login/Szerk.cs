@@ -15,8 +15,11 @@ namespace login
     public partial class Szerk : Form
     {
         public MdTermekek termekek;
+        RktServ rs;
+        int id;
         public Szerk(MdTermekek termekek)
         {
+            rs = new RktServ();
             this.termekek = termekek;
             InitializeComponent();
             button1.DialogResult = DialogResult.OK;
@@ -47,19 +50,35 @@ namespace login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int id=termekek.getTkod();
+            MessageBox.Show("Test1");
+            id=termekek.getTkod();
+            MessageBox.Show("Test2");
             termekek.setTar(Convert.ToInt32(textBox1.Text));
+            MessageBox.Show("Test3");
             termekek.setTkeszl(Convert.ToInt32(textBox2.Text));
+            MessageBox.Show("Test4");
             termekek.setTvonkod(Convert.ToInt32(textBox3.Text));
-            if(checkBox1.Checked)
+            MessageBox.Show("Test5");
+            if (checkBox1.Checked)
             {
                 termekek.setTegaliz(true);
+                MessageBox.Show("Test6");
             }
+            else { termekek.setTegaliz(false); }
             termekek.setTSzavido(dateTimePicker1.Value);
-            termekek.setTegaliz(false);
+            MessageBox.Show("Test7");
+           
+
+           
+            
+
             this.Close();
             
 
+        }
+        public DataTable raktnak()
+        {
+            return rs.modifyData(id, termekek);
         }
     }
 }
