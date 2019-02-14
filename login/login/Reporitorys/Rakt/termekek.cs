@@ -11,7 +11,7 @@ namespace login.Reporitorys.Rakt
     class termekek
     {
         List<MdTermekek> ts;
-
+        DataTable cDT;
         public termekek()
         {
             ts = new List<MdTermekek>();
@@ -21,7 +21,7 @@ namespace login.Reporitorys.Rakt
         public DataTable getTsDataTable()
         {
             
-            DataTable cDT = new DataTable();
+            cDT = new DataTable();
             cDT.Columns.Add("Tkod", typeof(int));
             cDT.Columns.Add("Tnev", typeof(string));
             cDT.Columns.Add("Tar", typeof(int));
@@ -58,6 +58,11 @@ namespace login.Reporitorys.Rakt
                 
                  ts.removeAt(id); 
                  ts.Insert(id, termekek);
+            foreach (MdTermekek c in ts)
+            {
+
+                cDT.Rows.Add(c.getTkod(), c.getTNev(), c.getTar(), c.getTkeszl(), c.getMert(), c.getTkatkod(), c.getTvonkod(), c.getSzavido(),  c.getTegalizalte());
+            }
                    
                        
                      
