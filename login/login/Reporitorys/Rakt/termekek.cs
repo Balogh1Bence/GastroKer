@@ -52,9 +52,17 @@ namespace login.Reporitorys.Rakt
             return cDT;
         }
 
-        internal void editDataSrc(MdTermekek termekek)
+        public void editDataSrc(int id, MdTermekek termekek)
         {
-            MÓDOSÍTANI!
+           
+                
+                 ts.removeAt(id);
+                 ts.Insert(id, termekek);
+                   
+                       
+                     
+                
+               
         }
 
         public bool checkExist(MdTermekek newT)
