@@ -47,7 +47,7 @@ namespace login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int id=termekek.getTazon();
+            int id=termekek.getTkod();
             termekek.setTar(Convert.ToInt32(textBox1.Text));
             termekek.setTkeszl(Convert.ToInt32(textBox2.Text));
             termekek.setTvonkod(Convert.ToInt32(textBox3.Text));
