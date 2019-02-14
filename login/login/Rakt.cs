@@ -49,7 +49,22 @@ namespace login
                 ,Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[7].Value.ToString())
                 ,teg);
             Szerk sz = new Szerk(termekek);
-            sz.Show();
+            sz.ShowDialog();
+            if (sz.DialogResult == DialogResult.OK)
+            {
+                try
+                {
+                    dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = rs.modifyData(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), termekek);
+                }
+                catch(Exception d) { MessageBox.Show(d.Message); }
+                /*rs.modifyData(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), termekek);*/
+            }
+        }
+
+        private void Rakt_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

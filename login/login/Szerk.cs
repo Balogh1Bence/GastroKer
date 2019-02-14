@@ -57,8 +57,8 @@ namespace login
             }
             termekek.setTSzavido(dateTimePicker1.Value);
             termekek.setTegaliz(false);
-            RktServ rkt = new RktServ();
-            rkt.modifyData(id, termekek);
+            this.Close();
+            
 
         }
     }

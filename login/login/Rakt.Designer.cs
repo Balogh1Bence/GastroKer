@@ -72,6 +72,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Rakt";
             this.Text = "Rakt";
+            this.Load += new System.EventHandler(this.Rakt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

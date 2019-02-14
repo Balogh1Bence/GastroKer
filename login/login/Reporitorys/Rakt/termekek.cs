@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using login.models;
 using login.Services.ConnectToMysqlDatabase;
 namespace login.Reporitorys.Rakt
@@ -14,6 +15,7 @@ namespace login.Reporitorys.Rakt
         DataTable cDT;
         public termekek()
         {
+            cDT = new DataTable();
             ts = new List<MdTermekek>();
             fillCustomersListFromDatabase();
         }
@@ -21,7 +23,7 @@ namespace login.Reporitorys.Rakt
         public DataTable getTsDataTable()
         {
             
-            cDT = new DataTable();
+           
             cDT.Columns.Add("Tkod", typeof(int));
             cDT.Columns.Add("Tnev", typeof(string));
             cDT.Columns.Add("Tar", typeof(int));
@@ -52,19 +54,28 @@ namespace login.Reporitorys.Rakt
             return cDT;
         }
 
-        public void editDataSrc(int id, MdTermekek termekek)
+        public DataTable editDataSrc( int id,MdTermekek termekek)
         {
            
                 
-                 ts.removeAt(id); 
-                 ts.Insert(id, termekek);
+            
+        
+          
             foreach (MdTermekek c in ts)
             {
 
-                cDT.Rows.Add(c.getTkod(), c.getTNev(), c.getTar(), c.getTkeszl(), c.getMert(), c.getTkatkod(), c.getTvonkod(), c.getSzavido(),  c.getTegalizalte());
+                if (c.getTkod() == id)
+                {
+                    c.setTar(termekek.getTar());
+                    c.setTvonkod(termekek.getTvonkod());
+                    c.setTSzavido(termekek.getSzavido());
+                    c.setTegaliz(termekek.getTegalizalte());
+
+              
+                }
             }
-                   
-                       
+    
+            return cDT; 
                      
                 
                
