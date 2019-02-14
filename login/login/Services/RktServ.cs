@@ -16,9 +16,9 @@ namespace login.Services
         {
             return t.getTsDataTable();
         }
-        public void modifyData(MdTermekek termekek)
+        public void modifyData(int id, MdTermekek termekek)
         {
-            t.editDataSrc(termekek);
+            t.editDataSrc(id, termekek);
         }
     }
 }
