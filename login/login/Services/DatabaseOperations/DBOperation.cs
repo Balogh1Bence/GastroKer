@@ -28,6 +28,7 @@ namespace login.Services.DatabaseOperations
             }
             catch (Exception e)
             {
+                System.Windows.Forms.MessageBox.Show("Test");
                 Debug.WriteLine(e.Message);
                 throw new Exception("Sikertelen adatbázismegnyitás.");
             }
@@ -66,6 +67,7 @@ namespace login.Services.DatabaseOperations
             }
             catch (Exception e)
             {
+                System.Windows.Forms.MessageBox.Show("Test2");
                 Debug.WriteLine(e.Message);
 
 
