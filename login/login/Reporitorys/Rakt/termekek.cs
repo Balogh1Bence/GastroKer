@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using login.models;
 using login.Services.ConnectToMysqlDatabase;
+using login.Services.DatabaseOperations;
+
 namespace login.Reporitorys.Rakt
 {
     class termekek
     {
         List<MdTermekek> ts;
         DataTable cDT;
+        DBOperation d;
         public termekek()
         {
+            d= new DBOperation();
             cDT = new DataTable();
             ts = new List<MdTermekek>();
             fillCustomersListFromDatabase();
@@ -59,6 +63,8 @@ namespace login.Reporitorys.Rakt
 
                 cDT.Rows.Add(c.getTkod(), c.getTNev(), c.getTar(), c.getTkeszl(), c.getMert(), c.getTkatkod(), c.getTvonkod(), c.getSzavido(),  c.getTegalizalte());
             }
+          
+            
             return cDT;
         }
 
@@ -86,9 +92,10 @@ namespace login.Reporitorys.Rakt
                     c.setTSzavido(termekek.getSzavido());
                     c.setTegaliz(termekek.getTegalizalte());
 
-              
+                    
                 }
             }
+            d.update(id, termekek);
     
             return getTsDataTable(); 
                      
