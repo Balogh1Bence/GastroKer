@@ -20,7 +20,7 @@ namespace login.Services
         }
         public DataTable modifyData( int id,MdTermekek termekek)
         {
-            MessageBox.Show("Test10");
+            
             DataTable dt = new DataTable();
             dt=t.editDataSrc(id, termekek);
             return dt;

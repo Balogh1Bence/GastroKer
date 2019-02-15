@@ -50,23 +50,23 @@ namespace login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Test1");
+            
             id=termekek.getTkod();
-            MessageBox.Show("Test2");
+            
             termekek.setTar(Convert.ToInt32(textBox1.Text));
-            MessageBox.Show("Test3");
+            
             termekek.setTkeszl(Convert.ToInt32(textBox2.Text));
-            MessageBox.Show("Test4");
+            
             termekek.setTvonkod(Convert.ToInt32(textBox3.Text));
-            MessageBox.Show("Test5");
+            
             if (checkBox1.Checked)
             {
                 termekek.setTegaliz(true);
-                MessageBox.Show("Test6");
+            
             }
             else { termekek.setTegaliz(false); }
             termekek.setTSzavido(dateTimePicker1.Value);
-            MessageBox.Show("Test7");
+            
            
 
            

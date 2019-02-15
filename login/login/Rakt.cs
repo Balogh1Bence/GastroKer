@@ -54,9 +54,9 @@ namespace login
             {
                 try
                 {
-                    MessageBox.Show("Test8");
+                   
                     dataGridView1.DataSource = null;
-                    MessageBox.Show("Test9");
+                   
                     dataGridView1.DataSource = sz.raktnak();
                 }
                 catch(Exception d) { MessageBox.Show(d.Message); }
