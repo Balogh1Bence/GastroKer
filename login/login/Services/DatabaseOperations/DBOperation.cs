@@ -148,5 +148,66 @@ namespace login.Services.DatabaseOperations
             cmd.ExecuteNonQuery();
 
         }
+
+        internal int getLastID()
+        {
+
+            string con = "SERVER=\"localhost\";"
+                 + "DATABASE=\"gastro\";"
+                 + "UID=\"root\";"
+                 + "PASSWORD=\"\";"
+                 + "PORT=\"3306\";";
+            MySqlConnection connect = new MySqlConnection(con);
+            try
+            {
+                connect.Open();
+            }
+            catch (Exception e)
+            {
+
+                Debug.WriteLine(e.Message);
+                throw new Exception("Sikertelen adatbázismegnyitás.");
+            }
+
+           
+
+
+            string query = "select Tkod from termekek order by tkod desc limit 1";
+
+
+
+            int id = 0;
+            try
+            {
+                MySqlCommand cm = new MySqlCommand(query, connect);
+                cm.ExecuteNonQuery();
+                MySqlDataReader dr = cm.ExecuteReader();
+                string remelemnemures = string.Empty;
+              
+
+                    while (dr.Read())
+                    {
+
+                         id= Convert.ToInt32(dr["Tkod"]);
+                    
+
+
+                }
+
+
+
+                
+
+
+            }
+            catch (Exception e)
+            {
+
+                Debug.WriteLine(e.Message);
+
+
+            }
+            return id+1;
+        }
     }
 }

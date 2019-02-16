@@ -91,5 +91,14 @@ namespace login
                 , teg);
             rs.moveToNotImportant(termekek, id);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            
+            int id=rs.getLastId();
+            
+
+        }
     }
 }

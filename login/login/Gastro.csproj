@@ -86,6 +86,7 @@
     <Compile Include="Services\Adatbazis.cs" />
     <Compile Include="Services\DatabaseOperations\DBOperation.cs" />
     <Compile Include="Services\fleh\us.cs" />
+    <Compile Include="Services\fleh\userChecker.cs" />
     <Compile Include="Services\MySQLDatabaseInterface.cs" />
     <Compile Include="Services\RktServ.cs" />
     <Compile Include="Szerk.cs">

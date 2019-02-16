@@ -78,6 +78,11 @@ namespace login.Reporitorys.Rakt
             return cDT;
         }
 
+        internal int getLastID()
+        {
+            return d.getLastID();
+        }
+
         internal DataTable moveTo(MdTermekek termekek, int id)
         {
             d.MoveToOld(termekek, id);

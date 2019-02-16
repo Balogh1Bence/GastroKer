@@ -31,5 +31,9 @@ namespace login.Services
             return t.moveTo(termekek, id);
         }
 
+        internal int getLastId()
+        {
+            return t.getLastID();
+        }
     }
 }
