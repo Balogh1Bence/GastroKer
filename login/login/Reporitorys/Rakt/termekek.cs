@@ -15,10 +15,13 @@ namespace login.Reporitorys.Rakt
     {
         List<MdTermekek> ts;
         DataTable cDT;
+        
+        List<Regitermekek> tr;
         DBOperation d;
         public termekek()
         {
-            d= new DBOperation();
+            tr = new List<Regitermekek>();
+            d = new DBOperation();
             cDT = new DataTable();
             ts = new List<MdTermekek>();
             fillCustomersListFromDatabase();
@@ -73,6 +76,26 @@ namespace login.Reporitorys.Rakt
     .Where(row => !row.ItemArray.All(field => field is DBNull ||string.IsNullOrWhiteSpace(field as string)))
     .CopyToDataTable();
             return cDT;
+        }
+
+        internal DataTable moveTo(MdTermekek termekek, int id)
+        {
+            d.MoveToOld(termekek, id);
+            foreach (MdTermekek c in ts)
+            {
+                if(id==c.getTkod())
+                {
+                    var selected = ts[id];
+                    
+                    tr.Add(new Regitermekek(selected.getTkod(),selected.getTNev(), selected.getTar(), selected.getTkeszl(), selected.getMert(), selected.getTkatkod(), selected.getTvonkod(), selected.getSzavido(), selected.getTegalizalte()));
+                    ts.RemoveAt(id);
+                    
+                    
+                }
+            }
+           
+            
+            return getTsDataTable();
         }
 
         public DataTable editDataSrc( int id,MdTermekek termekek)

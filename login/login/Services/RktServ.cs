@@ -26,5 +26,10 @@ namespace login.Services
             return dt;
 
         }
+        public DataTable moveToNotImportant(MdTermekek termekek, int id)
+        {
+            return t.moveTo(termekek, id);
+        }
+
     }
 }

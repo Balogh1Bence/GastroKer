@@ -40,6 +40,11 @@ namespace login.models
 
         public void setTegaliz(bool Tegalizalte) { this.Tegalizalte = Tegalizalte; }
 
+        public MdTermekek(int tkod)
+        {
+            Tkod = tkod;
+        }
+
         public MdTermekek(int tkod, string tnev, int tar, int tkeszl, string tmert, int tkatkod, int tvonkod, DateTime tszavido, bool tegalizalte)
         {
             Tkod = tkod;

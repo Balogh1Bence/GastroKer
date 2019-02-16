@@ -23,8 +23,8 @@ namespace login
             this.termekek = termekek;
             InitializeComponent();
             button1.DialogResult = DialogResult.OK;
-            //Tazon
-            //Tnev
+            textBox4.Text = termekek.getTNev();
+         
             textBox1.Text =termekek.getTar().ToString();
             textBox2.Text = termekek.getTkeszl().ToString();
             //Tmert

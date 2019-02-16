@@ -36,7 +36,7 @@ namespace login
                 return;
             }
             bool teg = false;
-            MessageBox.Show(dataGridView1.SelectedRows[0].Cells[8].Value.ToString());
+            
             if (dataGridView1.SelectedRows[0].Cells[8].Value.ToString()=="True") { teg = true; }
             MdTermekek termekek = new MdTermekek(
                 Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
@@ -67,6 +67,29 @@ namespace login
         private void Rakt_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                dataGridView1.ClearSelection();
+                return;
+            }
+            bool teg = false;
+            int id = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+            if (dataGridView1.SelectedRows[0].Cells[8].Value.ToString() == "True") { teg = true; }
+            MdTermekek termekek = new MdTermekek(
+                Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
+                , dataGridView1.SelectedRows[0].Cells[1].Value.ToString()
+                , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[2].Value.ToString())
+                , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value.ToString())
+                , dataGridView1.SelectedRows[0].Cells[4].Value.ToString()
+                , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[5].Value.ToString())
+                , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[6].Value.ToString())
+                , Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[7].Value.ToString())
+                , teg);
+            rs.moveToNotImportant(termekek, id);
         }
     }
 }
