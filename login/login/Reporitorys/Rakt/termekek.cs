@@ -81,6 +81,7 @@ namespace login.Reporitorys.Rakt
         internal void addNewItem(int id, MdTermekek t)
         {
             d.addNewItem(id, t);
+            MessageBox.Show("TestTermekek");
         }
 
         internal int getLastID()

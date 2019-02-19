@@ -97,23 +97,13 @@ namespace login
 
             
             int id=rs.getLastId();
-            
+            MessageBox.Show(id+"");
+            MessageBox.Show("TestRakt0");
             Szerk sz = new Szerk(id);
+            MessageBox.Show("TestRakt1");
             sz.ShowDialog();
-            if (sz.DialogResult == DialogResult.OK)
-            {
-                try
-                {
+            MessageBox.Show("TestRakt2");
 
-
-
-
-                    sz.addNewItem();
-                }
-                catch (Exception d) { MessageBox.Show(d.Message); }
-               
-
-            }
 
         }
     }

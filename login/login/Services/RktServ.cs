@@ -38,7 +38,9 @@ namespace login.Services
 
         internal void addNewItem(int id, MdTermekek h)
         {
+            MessageBox.Show("TestRKTServ0");
             t.addNewItem(id, h);
+            MessageBox.Show("TestRktService1");
         }
 
        

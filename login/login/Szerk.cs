@@ -59,7 +59,12 @@ namespace login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            if (id != null)
+            {
+                addNewItem();
+                MessageBox.Show("TestSzerk0");
+                return;
+            }
             id=termekek.getTkod();
             
             termekek.setTar(Convert.ToInt32(PriceHolder.Text));
@@ -92,6 +97,7 @@ namespace login
         public Szerk(int id)
         {
             InitializeComponent();
+            rs = new RktServ();
             NameHolder.PlaceHolderText = "Termék neve";
             PriceHolder.PlaceHolderText = "Termék ára";
             AmmountHolder.PlaceHolderText = "Termék mennyisége";
@@ -111,9 +117,10 @@ namespace login
 
             }
             else { eg = false; }
-       
 
+            MessageBox.Show("TestSzerk1");
             MdTermekek t = new MdTermekek(id,NameHolder.Text,Convert.ToInt32(PriceHolder.Text), Convert.ToInt32(AmmountHolder.Text), UnitHolder.Text,Convert.ToInt32(CodeHolder.Text),Convert.ToInt32(VonCodeHolder.Text), dateTimePicker1.Value,eg);
+            MessageBox.Show("TestSzerk2");
             rs.addNewItem(id, t);
 
 
