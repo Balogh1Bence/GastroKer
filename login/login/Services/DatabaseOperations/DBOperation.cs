@@ -149,6 +149,11 @@ namespace login.Services.DatabaseOperations
 
         }
 
+        internal void addNewItem(DBOperation d)
+        {
+            throw new NotImplementedException();
+        }
+
         internal int getLastID()
         {
 
@@ -192,7 +197,7 @@ namespace login.Services.DatabaseOperations
                     
 
 
-                }
+                    }
 
 
 

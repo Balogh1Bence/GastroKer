@@ -98,6 +98,21 @@ namespace login
             
             int id=rs.getLastId();
             
+            Szerk sz = new Szerk(id);
+            if (sz.DialogResult == DialogResult.OK)
+            {
+                try
+                {
+
+
+
+
+                    sz.addNewItem();
+                }
+                catch (Exception d) { MessageBox.Show(d.Message); }
+               
+
+            }
 
         }
     }

@@ -35,5 +35,10 @@ namespace login.Services
         {
             return t.getLastID();
         }
+
+        internal void addNewItem(int id)
+        {
+            t.addNewItem(id);
+        }
     }
 }

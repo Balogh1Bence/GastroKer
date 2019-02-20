@@ -78,6 +78,11 @@ namespace login.Reporitorys.Rakt
             return cDT;
         }
 
+        internal void addNewItem(int id)
+        {
+            d.addNewItem(d);
+        }
+
         internal int getLastID()
         {
             return d.getLastID();

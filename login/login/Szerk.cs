@@ -19,9 +19,13 @@ namespace login
         int id;
         public Szerk(MdTermekek termekek)
         {
+            
             rs = new RktServ();
             this.termekek = termekek;
             InitializeComponent();
+            NameHolder.PlaceHolderText = "Termék neve";
+            PriceHolder.PlaceHolderText = "Termék ára";
+            textBox5.Visible = false;
             button1.DialogResult = DialogResult.OK;
             textBox4.Text = termekek.getTNev();
          
@@ -79,6 +83,21 @@ namespace login
         public DataTable raktnak()
         {
             return rs.modifyData(id, termekek);
+        }
+        public Szerk(int id)
+        {
+            InitializeComponent();
+            textBox5.Visible = true;
+           
+
+        }
+
+        internal void addNewItem()
+        {
+            MdTermekek t = new MdTermekek(id,, textBox1.Text, textBox2,textBox5.Text,);
+            rs.addNewItem(id);
+
+
         }
     }
 }
