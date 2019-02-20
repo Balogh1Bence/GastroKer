@@ -113,7 +113,7 @@ namespace login
             else { eg = false; }
        
 
-            MdTermekek t = new MdTermekek(id,NameHolder.Text,Convert.PriceHolder.Text, AmmountHolder.Text, UnitHolder.Text, CodeHolder.Text, VonCodeHolder.Text, dateTimePicker1.Value,eg  );
+            MdTermekek t = new MdTermekek(id,NameHolder.Text,Convert.ToInt32(PriceHolder.Text), Convert.ToInt32(AmmountHolder.Text), UnitHolder.Text,Convert.ToInt32(CodeHolder.Text),Convert.ToInt32(VonCodeHolder.Text), dateTimePicker1.Value,eg);
             rs.addNewItem(id, t);
 
 
