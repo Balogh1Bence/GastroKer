@@ -149,9 +149,52 @@ namespace login.Services.DatabaseOperations
 
         }
 
-        internal void addNewItem(int id, MdTermekek t)
+        internal void addNewItem(int id, MdTermekek termekek)
         {
-            throw new NotImplementedException();
+            string con = "SERVER=\"localhost\";"
+                 + "DATABASE=\"gastro\";"
+                 + "UID=\"root\";"
+                 + "PASSWORD=\"\";"
+                 + "PORT=\"3306\";";
+            MySqlConnection connect = new MySqlConnection(con);
+            try
+            {
+                connect.Open();
+            }
+            catch (Exception e)
+            {
+
+                Debug.WriteLine(e.Message);
+                throw new Exception("Sikertelen adatbázismegnyitás.");
+            }
+
+            DateTime dt = termekek.getSzavido();
+
+
+            string st = dt.ToShortDateString();
+
+            st = st.Replace('.', '-');
+            st = st.TrimEnd('-');
+
+
+
+            string uj = "";
+            int i = 0;
+            while (i < st.Length)
+            {
+                if (st[i] != ' ')
+                {
+                    uj += st[i];
+                }
+
+
+
+                i++;
+            }
+
+
+            string query = "INSERT INTO `termekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + termekek.getTkod() + "', '" + termekek.getTNev() + "', '" + termekek.getTar() + "', '" + termekek.getTkeszl() + "', '" + termekek.getMert() + "', '" + termekek.getTkatkod() + "', '" + termekek.getTvonkod() + "', '" + termekek.getSzavido() + "', '" + termekek.getTegalizalte() + "')";
+
         }
 
         internal int getLastID()

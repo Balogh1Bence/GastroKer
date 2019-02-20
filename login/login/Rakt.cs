@@ -99,6 +99,7 @@ namespace login
             int id=rs.getLastId();
             
             Szerk sz = new Szerk(id);
+            sz.ShowDialog();
             if (sz.DialogResult == DialogResult.OK)
             {
                 try

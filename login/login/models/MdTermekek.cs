@@ -31,6 +31,9 @@ namespace login.models
         public bool getTegalizalte() { return Tegalizalte; }
         public void setTkod(int Tkod) { this.Tkod = Tkod; }
         public void setTnev(string Tnev) { this.Tnev = Tnev; }
+
+       
+
         public void setTar(int Tar) { this.Tar = Tar; }
         public void setTkeszl(int Tkeszl) { this.Tkeszl = Tkeszl; }
         public void setTmert(string Tmert) { this.Tmert = Tmert; }
