@@ -78,9 +78,9 @@ namespace login.Reporitorys.Rakt
             return cDT;
         }
 
-        internal void addNewItem(int id)
+        internal void addNewItem(int id, MdTermekek t)
         {
-            d.addNewItem(d);
+            d.addNewItem(id, t);
         }
 
         internal int getLastID()

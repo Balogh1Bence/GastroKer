@@ -36,9 +36,11 @@ namespace login.Services
             return t.getLastID();
         }
 
-        internal void addNewItem(int id)
+        internal void addNewItem(int id, MdTermekek t)
         {
-            t.addNewItem(id);
+            t.addNewItem(id, t);
         }
+
+       
     }
 }

@@ -149,7 +149,7 @@ namespace login.Services.DatabaseOperations
 
         }
 
-        internal void addNewItem(DBOperation d)
+        internal void addNewItem(int id, MdTermekek t)
         {
             throw new NotImplementedException();
         }

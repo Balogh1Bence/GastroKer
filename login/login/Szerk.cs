@@ -25,15 +25,20 @@ namespace login
             InitializeComponent();
             NameHolder.PlaceHolderText = "Termék neve";
             PriceHolder.PlaceHolderText = "Termék ára";
-            textBox5.Visible = false;
+            AmmountHolder.PlaceHolderText = "Termék mennyisége";
+            UnitHolder.PlaceHolderText = "Termék mértékegysége";
+            CodeHolder.PlaceHolderText = "Termék kategória kódja";
+            VonCodeHolder.PlaceHolderText = "Termék vonalkódja";
+
+            
             button1.DialogResult = DialogResult.OK;
-            textBox4.Text = termekek.getTNev();
+            NameHolder.Text = termekek.getTNev();
          
-            textBox1.Text =termekek.getTar().ToString();
-            textBox2.Text = termekek.getTkeszl().ToString();
+            PriceHolder.Text =termekek.getTar().ToString();
+            AmmountHolder.Text = termekek.getTkeszl().ToString();
             //Tmert
             //Tkatkod
-            textBox3.Text = termekek.getTvonkod().ToString();
+            VonCodeHolder.Text = termekek.getTvonkod().ToString();
             dateTimePicker1.Value = termekek.getSzavido();
             bool eg = false;
             if (termekek.getTegalizalte() == true)
@@ -57,11 +62,11 @@ namespace login
             
             id=termekek.getTkod();
             
-            termekek.setTar(Convert.ToInt32(textBox1.Text));
+            termekek.setTar(Convert.ToInt32(PriceHolder.Text));
             
-            termekek.setTkeszl(Convert.ToInt32(textBox2.Text));
+            termekek.setTkeszl(Convert.ToInt32(AmmountHolder.Text));
             
-            termekek.setTvonkod(Convert.ToInt32(textBox3.Text));
+            termekek.setTvonkod(Convert.ToInt32(VonCodeHolder.Text));
             
             if (checkBox1.Checked)
             {
@@ -87,15 +92,29 @@ namespace login
         public Szerk(int id)
         {
             InitializeComponent();
-            textBox5.Visible = true;
-           
+            NameHolder.PlaceHolderText = "Termék neve";
+            PriceHolder.PlaceHolderText = "Termék ára";
+            AmmountHolder.PlaceHolderText = "Termék mennyisége";
+            UnitHolder.PlaceHolderText = "Termék mértékegysége";
+            CodeHolder.PlaceHolderText = "Termék kategória kódja";
+            VonCodeHolder.PlaceHolderText = "Termék vonalkódja";
+
 
         }
 
         internal void addNewItem()
         {
-            MdTermekek t = new MdTermekek(id,, textBox1.Text, textBox2,textBox5.Text,);
-            rs.addNewItem(id);
+            bool eg = false;
+            if (checkBox1.Checked)
+            {
+                eg= true;
+
+            }
+            else { eg = false; }
+       
+
+            MdTermekek t = new MdTermekek(id,NameHolder.Text,Convert.PriceHolder.Text, AmmountHolder.Text, UnitHolder.Text, CodeHolder.Text, VonCodeHolder.Text, dateTimePicker1.Value,eg  );
+            rs.addNewItem(id, t);
 
 
         }
