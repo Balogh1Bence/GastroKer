@@ -13,6 +13,7 @@ namespace login.Misc
         {
             public void styleSetter()
             {
+            
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent; 
             }
@@ -47,8 +48,9 @@ namespace login.Misc
         //when the control loses focus, the placeholder is shown
         private void setPlaceholder()
             {
-            
-                if (string.IsNullOrEmpty(base.Text))
+            /*if (Text != null)
+            { return; }*/
+            if (string.IsNullOrEmpty(base.Text))
                 {
                     base.Text = PlaceHolderText;
                     
@@ -62,6 +64,8 @@ namespace login.Misc
             private void removePlaceHolder()
             {
 
+            /*if (Text != null)
+            { return; }*/
                 if (isPlaceHolder)
                 {
                     base.Text = "";

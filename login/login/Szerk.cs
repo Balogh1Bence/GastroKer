@@ -28,12 +28,12 @@ namespace login
             
            
             backGroundBox1.setImg("hegyek.JPG");
-
+            /*
             foreach (PlaceHolderTextBox p in Controls)
             {
                 p.styleSetter();
-            }
-
+            }*/
+           
             button1.DialogResult = DialogResult.OK;
             NameHolder.Text = termekek.getTNev();
          
@@ -43,9 +43,14 @@ namespace login
             //Tkatkod
             VonCodeHolder.Text = termekek.getTvonkod().ToString();
             dateTimePicker1.Value = termekek.getSzavido();
-         
-         
-           
+            NameHolder.PlaceHolderText = "Termék neve";
+            PriceHolder.PlaceHolderText = "Termék ára";
+            AmmountHolder.PlaceHolderText = "Termék mennyisége";
+            UnitHolder.PlaceHolderText = "Termék mértékegysége";
+            CodeHolder.PlaceHolderText = "Termék kategória kódja";
+            VonCodeHolder.PlaceHolderText = "Termék vonalkódja";
+
+
             bool eg = false;
             if (termekek.getTegalizalte() == true)
             {
@@ -103,11 +108,11 @@ namespace login
         public Szerk(int id)
         {
             InitializeComponent();
-
+            /*
             foreach (PlaceHolderTextBox p in Controls)
             {
                 p.styleSetter();
-            }
+            }*/
             rs = new RktServ();
             NameHolder.PlaceHolderText = "Termék neve";
             PriceHolder.PlaceHolderText = "Termék ára";
