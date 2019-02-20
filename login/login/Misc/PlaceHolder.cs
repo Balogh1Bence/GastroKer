@@ -11,6 +11,11 @@ namespace login.Misc
     
         public class PlaceHolderTextBox : TextBox
         {
+            public void styleSetter()
+            {
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            BackColor = Color.Transparent; 
+            }
 
             bool isPlaceHolder = true;
             string _placeHolderText;
