@@ -38,6 +38,7 @@ namespace login.Misc
            
             Image=Image.FromFile(img);
             SizeMode= PictureBoxSizeMode.StretchImage;
+            Dock = DockStyle.Fill;
             Back();
               
         }
