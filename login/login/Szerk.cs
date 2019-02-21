@@ -23,6 +23,11 @@ namespace login
             rs = new RktServ();
             this.termekek = termekek;
             InitializeComponent();
+           
+            
+           
+            backGroundBox1.setImg("hegyek.JPEG");
+            backGroundBox1.Dock = DockStyle.Fill;
             NameHolder.PlaceHolderText = "Termék neve";
             PriceHolder.PlaceHolderText = "Termék ára";
             AmmountHolder.PlaceHolderText = "Termék mennyisége";
@@ -105,7 +110,7 @@ namespace login
             CodeHolder.PlaceHolderText = "Termék kategória kódja";
             VonCodeHolder.PlaceHolderText = "Termék vonalkódja";
 
-
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
         }
 
         internal void addNewItem()
@@ -123,6 +128,11 @@ namespace login
             MessageBox.Show("TestSzerk2");
             rs.addNewItem(id, t);
 
+
+        }
+
+        private void backGroundBox1_Click(object sender, EventArgs e)
+        {
 
         }
     }

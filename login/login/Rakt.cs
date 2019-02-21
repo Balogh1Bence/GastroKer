@@ -20,6 +20,7 @@ namespace login
         public Rakt()
         {
             InitializeComponent();
+           
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 

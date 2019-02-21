@@ -12,36 +12,41 @@ namespace login.Misc
     {
         bool isPlaceHolder = true;
         string _ImgName;
+        
         public string ImgName
         {
             get { return _ImgName; }
             set
             {
+                
                 _ImgName = value;
-                setImg();
+                
+               
             }
         }
-        public
 
-     
 
-        
 
-        void setImg()
+
+
+         private void Back()
         {
-
-            Image = Image.FromFile(ImgName);
+            SendToBack();
+        }
+        public void setImg(string img)
+        {
+           
+            Image=Image.FromFile(img);
+            SizeMode= PictureBoxSizeMode.StretchImage;
+            Back();
               
         }
-
-         void setTransparency()
-         {   
-
-         }
-         void setSizes()
+        
+         
+         void setSizes(Form f)
          {
-            Height =;
-            Width =;
+            Height =f.Height;
+            Width =f.Width;
          }
         
    

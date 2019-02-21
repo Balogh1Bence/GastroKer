@@ -14,6 +14,7 @@ namespace login.Misc
 
             bool isPlaceHolder = true;
             string _placeHolderText;
+        
             public string PlaceHolderText
             {
                 get { return _placeHolderText; }
@@ -21,21 +22,31 @@ namespace login.Misc
                 {
                     _placeHolderText = value;
                     setPlaceholder();
+               
                 }
-            }
 
+            
+            }
+       
             public new string Text
             {
                 get => isPlaceHolder ? string.Empty : base.Text;
                 set => base.Text = value;
-            }
+        }
 
-            //when the control loses focus, the placeholder is shown
-            private void setPlaceholder()
+
+
+        /*
+        this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+        this.BackColor = Color.Transparent;*/
+        //when the control loses focus, the placeholder is shown
+        private void setPlaceholder()
             {
+            
                 if (string.IsNullOrEmpty(base.Text))
                 {
                     base.Text = PlaceHolderText;
+                    
                     this.ForeColor = Color.Gray;
                     this.Font = new Font(this.Font, FontStyle.Italic);
                     isPlaceHolder = true;
