@@ -113,7 +113,7 @@ namespace login
         private void newPartnerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int id = cs.getLastId();
-            AddUsers au = new AddUsers();
+            AddUsers au = new AddUsers(id);
             au.ShowDialog();
             if (au.DialogResult == DialogResult.OK)
             {

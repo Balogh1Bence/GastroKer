@@ -92,9 +92,15 @@ namespace login.Services.DatabaseOperations
             }
         }
 
-        internal void addNewCustomer(int id, MDVevok vevo)
+        internal void addNewCustomer(int id, MDVevok ujvevo)
         {
             
+            
+            MySqlConnection connect = new MySqlConnection(conG);
+            connect.Open();
+            string query= "INSERT INTO `deskusers` (`azon`, `username`, `password`, `email`, `utols`, `jog`) VALUES('"+id+"', '"+ujvevo.Felh+"', '"+ujvevo.Jelsz+"', '', '', '')";
+            MySqlCommand cm = new MySqlCommand(connect, query);
+            cm.ExecuteNonQuery();
         }
 
         internal void MoveToOld(MdTermekek termekek, int id)
@@ -194,7 +200,7 @@ namespace login.Services.DatabaseOperations
                     uj += st[i];
                 }     
 
-
+                
 
                 i++;
             }

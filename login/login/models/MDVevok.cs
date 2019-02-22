@@ -8,7 +8,7 @@ namespace Gastro
     public class MDVevok
     {
         #region Member Variables
-        protected int _azon;
+        public int _azon;
         protected string _nev;
         protected int _adoazon;
         protected int _banksz;
@@ -64,6 +64,7 @@ namespace Gastro
             get { return _banksz; }
             set { _banksz = value; }
         }
+       
         public virtual int Tel
         {
             get { return _tel; }
