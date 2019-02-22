@@ -99,11 +99,12 @@ namespace login
             
             int id=rs.getLastId();
             MessageBox.Show(id+"");
-            MessageBox.Show("TestRakt0");
+            MessageBox.Show("TestRkt");
+
             Szerk sz = new Szerk(id);
-            MessageBox.Show("TestRakt1");
+           
             sz.ShowDialog();
-            MessageBox.Show("TestRakt2");
+            MessageBox.Show("TestRkt");
 
 
         }

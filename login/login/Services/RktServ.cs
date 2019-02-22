@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace login.Services
 {
-    class RktServ
+    public class RktServ
     {
         termekek t = new termekek();
 

@@ -18,6 +18,7 @@ namespace login
         public MdTermekek termekek;
         RktServ rs;
         int id;
+        int _Sid;
         public Szerk(MdTermekek termekek)
         {
             
@@ -27,29 +28,27 @@ namespace login
            
             
            
-            backGroundBox1.setImg("hegyek.JPEG");
-            
-           
-             
-            
-           
+            backGroundBox1.setImg("hegyek.JPG");
+            foreach (Control p in Controls)
+            { this.ActiveControl = p; }
+
+
+
+
             button1.DialogResult = DialogResult.OK;
             NameHolder.Text = termekek.getTNev();
          
             PriceHolder.Text =termekek.getTar().ToString();
             AmmountHolder.Text = termekek.getTkeszl().ToString();
-            //Tmert
-            //Tkatkod
+            UnitHolder.Text = termekek.getMert();
+            CodeHolder.Text = termekek.getTkatkod().ToString();
+            
+            
             VonCodeHolder.Text = termekek.getTvonkod().ToString();
             dateTimePicker1.Value = termekek.getSzavido();
 
-            //   NameHolder.styleSetter();
-            NameHolder.PlaceHolderText = "Termék neve";
-            PriceHolder.PlaceHolderText = "Termék ára";
-            AmmountHolder.PlaceHolderText = "Termék mennyisége";
-            UnitHolder.PlaceHolderText = "Termék mértékegysége";
-            CodeHolder.PlaceHolderText = "Termék kategória kódja";
-            VonCodeHolder.PlaceHolderText = "Termék vonalkódja";
+            
+         
             
 
             bool eg = false;
@@ -71,12 +70,15 @@ namespace login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (id != null)
+            MessageBox.Show(_Sid+"");
+            MessageBox.Show(rs.getLastId()+"");
+            if (_Sid == rs.getLastId())
             {
+                MessageBox.Show("TestSzerk");
                 addNewItem();
-                MessageBox.Show("TestSzerk0");
                 return;
             }
+            MessageBox.Show("Test");
             id=termekek.getTkod();
             
             termekek.setTar(Convert.ToInt32(PriceHolder.Text));
@@ -106,23 +108,26 @@ namespace login
         {
             return rs.modifyData(id, termekek);
         }
-        public Szerk(int id)
+        public Szerk(int Sid)
         {
+            rs = new RktServ();
+            _Sid = Sid;
             InitializeComponent();
             /*
             foreach (PlaceHolderTextBox p in Controls)
             {
                 p.styleSetter();
             }*/
-            rs = new RktServ();
+            MessageBox.Show("TestRktConst");
+
             NameHolder.PlaceHolderText = "Termék neve";
             PriceHolder.PlaceHolderText = "Termék ára";
             AmmountHolder.PlaceHolderText = "Termék mennyisége";
             UnitHolder.PlaceHolderText = "Termék mértékegysége";
             CodeHolder.PlaceHolderText = "Termék kategória kódja";
             VonCodeHolder.PlaceHolderText = "Termék vonalkódja";
+            MessageBox.Show("TestRktConst2");
 
-            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
         }
 
         internal void addNewItem()
@@ -136,7 +141,7 @@ namespace login
             else { eg = false; }
 
             MessageBox.Show("TestSzerk1");
-            MdTermekek t = new MdTermekek(id,NameHolder.Text,Convert.ToInt32(PriceHolder.Text), Convert.ToInt32(AmmountHolder.Text), UnitHolder.Text,Convert.ToInt32(CodeHolder.Text),Convert.ToInt32(VonCodeHolder.Text), dateTimePicker1.Value,eg);
+            MdTermekek t = new MdTermekek(_Sid,NameHolder.Text,Convert.ToInt32(PriceHolder.Text), Convert.ToInt32(AmmountHolder.Text), UnitHolder.Text,Convert.ToInt32(CodeHolder.Text),Convert.ToInt32(VonCodeHolder.Text), dateTimePicker1.Value,eg);
             MessageBox.Show("TestSzerk2");
             rs.addNewItem(id, t);
 
