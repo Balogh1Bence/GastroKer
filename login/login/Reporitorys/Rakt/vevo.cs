@@ -1,12 +1,34 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
-namespace login.Reporitorys.Rakt
+using login.models;
+using login.Services.DatabaseOperations;
+namespace Gastro
 {
-    class vevo
+    
+    public class vevo
     {
+        List<MDVevok> vevok;
+        DBOperation d;
+      
+        public vevo()
+        {
+            d = new DBOperation();
+            vevok = new List<MDVevok>();
+
+        }
+        public void addNewCustomer(int id, MDVevok vevo)
+        {
+            d.addNewCustomer(id, vevo);
+        }
+        public int getLastID()
+        {
+            return d.getLastCustomerID();
+        }
+
+      
     }
+
+  
 }

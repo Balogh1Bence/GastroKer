@@ -1,4 +1,5 @@
-﻿using login.models;
+﻿using Gastro;
+using login.models;
 using login.Services.ConnectToMysqlDatabase;
 using MySql.Data.MySqlClient;
 using System;
@@ -14,15 +15,26 @@ namespace login.Services.DatabaseOperations
 {
     class DBOperation
     {
-
-        public void update(int id, MdTermekek t)
+        string conG;
+        string conF;
+        public DBOperation()
         {
-            string con = "SERVER=\"localhost\";"
+            string conG = "SERVER=\"localhost\";"
                 + "DATABASE=\"gastro\";"
                 + "UID=\"root\";"
                 + "PASSWORD=\"\";"
                 + "PORT=\"3306\";";
-            MySqlConnection connect = new MySqlConnection(con);
+            string conF = "SERVER=\"localhost\";"
+                + "DATABASE=\"gastro\";"
+                + "UID=\"root\";"
+                + "PASSWORD=\"\";"
+                + "PORT=\"3306\";";
+        }
+
+        public void update(int id, MdTermekek t)
+        {
+            
+            MySqlConnection connect = new MySqlConnection(conG);
             try
             {
                 connect.Open();
@@ -80,14 +92,14 @@ namespace login.Services.DatabaseOperations
             }
         }
 
+        internal void addNewCustomer(int id, MDVevok vevo)
+        {
+            
+        }
+
         internal void MoveToOld(MdTermekek termekek, int id)
         {
-            string con = "SERVER=\"localhost\";"
-                 + "DATABASE=\"gastro\";"
-                 + "UID=\"root\";"
-                 + "PASSWORD=\"\";"
-                 + "PORT=\"3306\";";
-            MySqlConnection connect = new MySqlConnection(con);
+            MySqlConnection connect = new MySqlConnection(conG);
             try
             {
                 connect.Open();
@@ -151,12 +163,7 @@ namespace login.Services.DatabaseOperations
 
         internal void addNewItem(int id, MdTermekek termekek)
         {
-            string con = "SERVER=\"localhost\";"
-                 + "DATABASE=\"gastro\";"
-                 + "UID=\"root\";"
-                 + "PASSWORD=\"\";"
-                 + "PORT=\"3306\";";
-            MySqlConnection connect = new MySqlConnection(con);
+            MySqlConnection connect = new MySqlConnection(conG);
             try
             {
                 connect.Open();
@@ -196,16 +203,111 @@ namespace login.Services.DatabaseOperations
             string query = "INSERT INTO `termekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + termekek.getTkod() + "', '" + termekek.getTNev() + "', '" + termekek.getTar() + "', '" + termekek.getTkeszl() + "', '" + termekek.getMert() + "', '" + termekek.getTkatkod() + "', '" + termekek.getTvonkod() + "', '" + termekek.getSzavido() + "', '" + termekek.getTegalizalte() + "')";
 
         }
+        public int getLastCustomerID()
+        {
+            MySqlConnection connect = new MySqlConnection(conG);
+            try
+            {
+                connect.Open();
+            }
+            catch (Exception e)
+            {
+                
+                throw new Exception("Sikertelen adatbázismegnyitás.");
+            }
+            string query = "select azon from vevok order by azon desc limit 1";
 
+
+
+            int id = 0;
+            try
+            {
+                MySqlCommand cm = new MySqlCommand(query, connect);
+                cm.ExecuteNonQuery();
+                MySqlDataReader dr = cm.ExecuteReader();
+                string remelemnemures = string.Empty;
+
+
+                while (dr.Read())
+                {
+
+                    id = Convert.ToInt32(dr["azon"]);
+
+
+
+                }
+
+
+
+
+
+
+            }
+            catch (Exception e)
+            {
+
+                Debug.WriteLine(e.Message);
+
+
+            }
+            return id + 1;
+
+        }
+        public int getLastUserID()
+        {
+            MySqlConnection connect = new MySqlConnection(conF);
+            try
+            {
+                connect.Open();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception("Sikertelen adatbázismegnyitás.");
+            }
+            string query = "select azon from deskusers order by azon desc limit 1";
+
+
+
+            int id = 0;
+            try
+            {
+                MySqlCommand cm = new MySqlCommand(query, connect);
+                cm.ExecuteNonQuery();
+                MySqlDataReader dr = cm.ExecuteReader();
+                string remelemnemures = string.Empty;
+
+
+                while (dr.Read())
+                {
+
+                    id = Convert.ToInt32(dr["azon"]);
+
+
+
+                }
+
+
+
+
+
+
+            }
+            catch (Exception e)
+            {
+
+                Debug.WriteLine(e.Message);
+
+
+            }
+
+            
+            return id+1;
+        }
         internal int getLastID()
         {
-
-            string con = "SERVER=\"localhost\";"
-                 + "DATABASE=\"gastro\";"
-                 + "UID=\"root\";"
-                 + "PASSWORD=\"\";"
-                 + "PORT=\"3306\";";
-            MySqlConnection connect = new MySqlConnection(con);
+            
+            MySqlConnection connect = new MySqlConnection(conG);
             try
             {
                 connect.Open();

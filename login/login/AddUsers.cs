@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gastro;
+using login.Services;
 
 namespace login
 {
@@ -15,6 +17,16 @@ namespace login
         public AddUsers()
         {
             InitializeComponent();
+            button1.DialogResult = DialogResult.OK;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void addNewUser()
+        {
+
         }
     }
 }

@@ -16,6 +16,7 @@ namespace login
     public partial class Rakt : Form
     {
         RktServ rs = new RktServ();
+        CustomerService cs = new CustomerService();
 
         public Rakt()
         {
@@ -106,6 +107,26 @@ namespace login
             sz.ShowDialog();
             MessageBox.Show("TestRkt");
 
+
+        }
+
+        private void newPartnerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = cs.getLastId();
+            AddUsers au = new AddUsers();
+            au.ShowDialog();
+            if (au.DialogResult == DialogResult.OK)
+            {
+                au.addNewUser();
+                
+
+               
+
+               
+                
+                
+                
+            }
 
         }
     }
