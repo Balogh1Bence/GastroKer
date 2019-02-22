@@ -27,12 +27,11 @@ namespace login
            
             
            
-            backGroundBox1.setImg("hegyek.JPG");
-            /*
-            foreach (PlaceHolderTextBox p in Controls)
-            {
-                p.styleSetter();
-            }*/
+            backGroundBox1.setImg("hegyek.JPEG");
+            
+           
+             
+            
            
             button1.DialogResult = DialogResult.OK;
             NameHolder.Text = termekek.getTNev();
@@ -43,13 +42,15 @@ namespace login
             //Tkatkod
             VonCodeHolder.Text = termekek.getTvonkod().ToString();
             dateTimePicker1.Value = termekek.getSzavido();
+
+            //   NameHolder.styleSetter();
             NameHolder.PlaceHolderText = "Termék neve";
             PriceHolder.PlaceHolderText = "Termék ára";
             AmmountHolder.PlaceHolderText = "Termék mennyisége";
             UnitHolder.PlaceHolderText = "Termék mértékegysége";
             CodeHolder.PlaceHolderText = "Termék kategória kódja";
             VonCodeHolder.PlaceHolderText = "Termék vonalkódja";
-
+            
 
             bool eg = false;
             if (termekek.getTegalizalte() == true)
@@ -143,6 +144,11 @@ namespace login
         }
 
         private void backGroundBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Szerk_Load(object sender, EventArgs e)
         {
 
         }

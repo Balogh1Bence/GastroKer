@@ -71,6 +71,7 @@
             // 
             // NameHolder
             // 
+            this.NameHolder.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.NameHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
             this.NameHolder.ForeColor = System.Drawing.Color.Gray;
             this.NameHolder.Location = new System.Drawing.Point(219, 12);
@@ -81,6 +82,7 @@
             // 
             // PriceHolder
             // 
+            this.PriceHolder.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.PriceHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
             this.PriceHolder.ForeColor = System.Drawing.Color.Gray;
             this.PriceHolder.Location = new System.Drawing.Point(219, 60);
@@ -91,6 +93,7 @@
             // 
             // AmmountHolder
             // 
+            this.AmmountHolder.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.AmmountHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
             this.AmmountHolder.ForeColor = System.Drawing.Color.Gray;
             this.AmmountHolder.Location = new System.Drawing.Point(219, 111);
@@ -101,6 +104,7 @@
             // 
             // UnitHolder
             // 
+            this.UnitHolder.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.UnitHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
             this.UnitHolder.ForeColor = System.Drawing.Color.Gray;
             this.UnitHolder.Location = new System.Drawing.Point(219, 159);
@@ -111,6 +115,7 @@
             // 
             // CodeHolder
             // 
+            this.CodeHolder.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.CodeHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
             this.CodeHolder.ForeColor = System.Drawing.Color.Gray;
             this.CodeHolder.Location = new System.Drawing.Point(219, 206);
@@ -121,6 +126,7 @@
             // 
             // VonCodeHolder
             // 
+            this.VonCodeHolder.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.VonCodeHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
             this.VonCodeHolder.ForeColor = System.Drawing.Color.Gray;
             this.VonCodeHolder.Location = new System.Drawing.Point(219, 252);
@@ -156,6 +162,8 @@
             this.Controls.Add(this.button1);
             this.Name = "Szerk";
             this.Text = "Szerk";
+            this.TransparencyKey = System.Drawing.Color.Gray;
+            this.Load += new System.EventHandler(this.Szerk_Load);
             ((System.ComponentModel.ISupportInitialize)(this.backGroundBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

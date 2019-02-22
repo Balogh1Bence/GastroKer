@@ -13,12 +13,16 @@ namespace login.Misc
         {
             public void styleSetter()
             {
-            
-            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            BackColor = Color.Transparent; 
-            }
 
-            bool isPlaceHolder = true;
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            BackColor = Color.Gray;
+            BackColor = Color.Transparent;
+            BackColor = System.Drawing.SystemColors.InactiveBorder;
+        }
+
+   
+
+        bool isPlaceHolder = true;
             string _placeHolderText;
         
             public string PlaceHolderText
@@ -38,7 +42,7 @@ namespace login.Misc
             {
                 get => isPlaceHolder ? string.Empty : base.Text;
                 set => base.Text = value;
-        }
+            }
 
 
 
@@ -50,6 +54,7 @@ namespace login.Misc
             {
             /*if (Text != null)
             { return; }*/
+          
             if (string.IsNullOrEmpty(base.Text))
                 {
                     base.Text = PlaceHolderText;
@@ -57,28 +62,34 @@ namespace login.Misc
                     this.ForeColor = Color.Gray;
                     this.Font = new Font(this.Font, FontStyle.Italic);
                     isPlaceHolder = true;
+                styleSetter();
                 }
             }
 
             //when the control is focused, the placeholder is removed
             private void removePlaceHolder()
             {
-
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            BackColor = Color.Transparent;
+            
             /*if (Text != null)
             { return; }*/
-                if (isPlaceHolder)
+            if (isPlaceHolder)
                 {
                     base.Text = "";
                     this.ForeColor = System.Drawing.SystemColors.WindowText;
                     this.Font = new Font(this.Font, FontStyle.Regular);
                     isPlaceHolder = false;
+                styleSetter();
                 }
             }
             public PlaceHolderTextBox()
             {
+                
                 GotFocus += removePlaceHolder;
                 LostFocus += setPlaceholder;
-            }
+           
+        }
 
             private void setPlaceholder(object sender, EventArgs e)
             {
