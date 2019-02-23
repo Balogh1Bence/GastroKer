@@ -15,7 +15,7 @@ namespace login.Services.LostPw
         public LostPwEmailSender(string emailTo)
         {
             this.emailTo = emailTo;
-        }
+        }  
         public void send()
         {
             MailMessage mm = new MailMessage("baloghbencefacebook@gmail.com", emailTo);
