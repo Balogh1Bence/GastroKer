@@ -17,14 +17,17 @@ namespace login.Services.DatabaseOperations
     {
         string conG;
         string conF;
+       
+
         public DBOperation()
         {
-            string conG = "SERVER=\"localhost\";"
-                + "DATABASE=\"gastro\";"
-                + "UID=\"root\";"
-                + "PASSWORD=\"\";"
-                + "PORT=\"3306\";";
-            string conF = "SERVER=\"localhost\";"
+         
+            this.conG = "SERVER =\"localhost\";"
+                 + "DATABASE=\"gastro\";"
+                 + "UID=\"root\";"
+                 + "PASSWORD=\"\";"
+                 + "PORT=\"3306\";"; 
+            this.conF = "SERVER=\"localhost\";"
                 + "DATABASE=\"gastro\";"
                 + "UID=\"root\";"
                 + "PASSWORD=\"\";"
@@ -98,8 +101,8 @@ namespace login.Services.DatabaseOperations
             
             MySqlConnection connect = new MySqlConnection(conG);
             connect.Open();
-            string query= "INSERT INTO `deskusers` (`azon`, `username`, `password`, `email`, `utols`, `jog`) VALUES('"+id+"', '"+ujvevo.Felh+"', '"+ujvevo.Jelsz+"', '', '', '')";
-            MySqlCommand cm = new MySqlCommand(connect, query);
+            string query= "INSERT INTO `vevok` (`azon`, `nev`, `adoazon`, `banksz`, `tel`, `dolg`, `torzs`, `vasmenny`, `felh`, `jelsz`, `email`) VALUES ('"+id+"', '', '', '', '', '', '', '', '"+ujvevo.Felh+"', '"+ujvevo.Jelsz+"', '')";
+            MySqlCommand cm = new MySqlCommand(query, connect);
             cm.ExecuteNonQuery();
         }
 
@@ -212,15 +215,13 @@ namespace login.Services.DatabaseOperations
         public int getLastCustomerID()
         {
             MySqlConnection connect = new MySqlConnection(conG);
-            try
-            {
-                connect.Open();
-            }
-            catch (Exception e)
-            {
+            MessageBox.Show(connect.ConnectionString);
+            connect.Open();
+            
+           
                 
-                throw new Exception("Sikertelen adatbázismegnyitás.");
-            }
+               
+            
             string query = "select azon from vevok order by azon desc limit 1";
 
 
@@ -314,16 +315,11 @@ namespace login.Services.DatabaseOperations
         {
             
             MySqlConnection connect = new MySqlConnection(conG);
-            try
-            {
-                connect.Open();
-            }
-            catch (Exception e)
-            {
-
-                Debug.WriteLine(e.Message);
-                throw new Exception("Sikertelen adatbázismegnyitás.");
-            }
+             connect.Open();
+            
+            
+            
+           
 
            
 

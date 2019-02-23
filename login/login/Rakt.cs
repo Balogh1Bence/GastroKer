@@ -129,5 +129,11 @@ namespace login
             }
 
         }
+
+        private void partnersToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Carriers c = new Carriers();
+            c.ShowDialog();
+        }
     }
 }

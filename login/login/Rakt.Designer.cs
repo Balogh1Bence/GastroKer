@@ -127,7 +127,8 @@
             // 
             this.partnersToolStripMenuItem1.Name = "partnersToolStripMenuItem1";
             this.partnersToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.partnersToolStripMenuItem1.Text = "Partners";
+            this.partnersToolStripMenuItem1.Text = "Carriers";
+            this.partnersToolStripMenuItem1.Click += new System.EventHandler(this.partnersToolStripMenuItem1_Click);
             // 
             // newPartnerToolStripMenuItem
             // 
