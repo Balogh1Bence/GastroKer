@@ -16,8 +16,9 @@ namespace login.models
         #endregion
         #region Constructors
         public MDBesz() { }
-        public MDBesz(string nev, int tel, string email, string kapcsnev)
+        public MDBesz(int azon, string nev, int tel, string email, string kapcsnev)
         {
+            this._azon = azon;
             this._nev = nev;
             this._tel = tel;
             this._email = email;

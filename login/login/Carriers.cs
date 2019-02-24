@@ -14,10 +14,12 @@ namespace login
 {
     public partial class Carriers : Form
     {
+        CarrierService cs;
         public Carriers()
         {
+            cs = new CarrierService();
             InitializeComponent();
-            dataGridView1.DataSource = .Load();
+            dataGridView1.DataSource = cs.Load();
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using login.models;
+using login.Services.ConnectToMysqlDatabase;
 
 namespace login.Reporitorys
 {
@@ -86,20 +87,9 @@ namespace login.Reporitorys
             foreach (DataRow row in dtCustomer.Rows)
             {
 
-                int Tkod = Convert.ToInt32(row["Tkod"].ToString());
-                string Tnev = row["Tnev"].ToString();
-                int Tar = Convert.ToInt32(row["Tar"].ToString());
-                int Tkeszl = Convert.ToInt32(row["Tkeszl"].ToString());
-                string Tmert = row["Tmert"].ToString();
-                int Tkatkod = Convert.ToInt32(row["Tkatkod"].ToString());
-                int Tvonkod = Convert.ToInt32(row["Tvonkod"].ToString());
+                MDBesz c = new MDBesz(Convert.ToInt32(row["azon"].ToString()),row["nev"].ToString(),Convert.ToInt32(row["tel"].ToString()),row["email"].ToString(), row["kapcsnev"].ToString());
 
-                DateTime Tszavido = Convert.ToDateTime(row["Tszavido"].ToString());
-
-
-                bool Tegalizalte = Convert.ToBoolean(row["Tegalizalte"].ToString());
-                MdTermekek c = new MdTermekek(Tkod, Tnev, Tar, Tkeszl, Tmert, Tkatkod, Tvonkod, Tszavido, Tegalizalte);
-                ts.Add(c);
+                b.Add(c);
             }
         }
     }
