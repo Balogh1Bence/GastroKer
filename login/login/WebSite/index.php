@@ -2,8 +2,8 @@
 require_once("connect.php");
 if (isset($_POST['email'])){
     $email = $_POST['email'];
-	$header="<h1 name='mail'>'$email'</h1>";
-    echo $header;
+	
+    
 }
 ?>
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ if (isset($_POST['email'])){
 
 </body>
 <form action="jelszo.php" method="post" enctype="multipart/form-data">
-<input type="text" name="jelszo">
+<input type="text" id="pw" name="jelszo">
 <br>
 <input type="text" name="jelszo2">
 <br>
@@ -28,21 +28,22 @@ if (isset($_POST['email'])){
 <script src="jquery-3.3.1.min.js">
 </script>
 <script>
-    function newPW(clicked) {
-        var xhttp;
-		var email=document.getElementsByTagName("mail").value;
-        var newpsw= document.getElementsByTagName("jelszo").value;
-        xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                read();
+    
+	
+        $("button").click(function()
+		{
 
-            }
-        };
-        
-        xhttp.open("POST", "newPW.php", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("pw="+newpsw+"&email="+email+""); 
+			var something=<?php echo json_encode($a); ?>;
+			let jel=document.getElementById("pw").value;
 
-    }
+			  $.post("newPW.php",
+			  {
+				pw: jel,
+				email: something
+			  },
+			  function(data, status){
+				alert("Data: " + data + "\nStatus: " + status);
+			  });
+			});
+		}
 </script>

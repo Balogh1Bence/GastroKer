@@ -6,7 +6,12 @@ if (isset($_POST['pw'])){
     $sql = "UPDATE `deskusers` SET `password`='$jelszo' WHERE email='$email'";
 
 
-		$res=$connect->query($sql);
+		
+		if ($conn->query($sql) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
 		
 
 }
