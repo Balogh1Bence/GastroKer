@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using login.Services;
+using login.Services.ConnectToMysqlDatabase;
 
 namespace login
 {
@@ -15,6 +17,7 @@ namespace login
         public Carriers()
         {
             InitializeComponent();
+            dataGridView1.DataSource = .Load();
         }
     }
 }

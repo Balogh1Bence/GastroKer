@@ -68,6 +68,7 @@
     <Compile Include="Misc\PlaceHolder.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="models\MDBesz.cs" />
     <Compile Include="models\MdTermekek.cs" />
     <Compile Include="models\MDVevok.cs" />
     <Compile Include="newPW.cs">
@@ -100,11 +101,18 @@
     <Compile Include="Reporitorys\Rakt\termekek.cs" />
     <Compile Include="Reporitorys\Rakt\vevo.cs" />
     <Compile Include="Services\Adatbazis.cs" />
+    <Compile Include="Services\CarrierService.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\DatabaseOperations\DBOperation.cs" />
     <Compile Include="Services\fleh\us.cs" />
     <Compile Include="Services\fleh\userChecker.cs" />
     <Compile Include="Services\LostPw\LostPwEmailSender.cs" />
+    <Compile Include="Services\LostPw\NewPw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Services\LostPw\NewPw.Designer.cs">
+      <DependentUpon>NewPw.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\MySQLDatabaseInterface.cs" />
     <Compile Include="Services\RktServ.cs" />
     <Compile Include="Szerk.cs">
@@ -133,6 +141,9 @@
     </Compile>
     <EmbeddedResource Include="Rakt.resx">
       <DependentUpon>Rakt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services\LostPw\NewPw.resx">
+      <DependentUpon>NewPw.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Szerk.resx">
       <DependentUpon>Szerk.cs</DependentUpon>

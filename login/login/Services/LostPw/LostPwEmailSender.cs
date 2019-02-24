@@ -19,7 +19,7 @@ namespace login.Services.LostPw
         public void send()
         {
             MailMessage mm = new MailMessage("baloghbencefacebook@gmail.com", emailTo);
-            mm.Subject = "szia";
+            mm.Subject = "Forgotten Password";
             mm.Body = "<html><h1>szia</h1><p>ez egy üzenet</p> <a href='www.google.com'>kattints ide. google link.</html>";
 
             mm.IsBodyHtml = true;

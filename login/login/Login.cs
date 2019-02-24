@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using login.Services.fleh;
+using login.Services.LostPw;
 namespace login
 {
     public partial class Login : Form
@@ -77,6 +78,13 @@ namespace login
                 }
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NewPw np = new NewPw();
+            np.ShowDialog();
+            
         }
     }
 }
