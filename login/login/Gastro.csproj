@@ -157,6 +157,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="WebSite\connect.php" />
+    <None Include="WebSite\newPW.php" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
