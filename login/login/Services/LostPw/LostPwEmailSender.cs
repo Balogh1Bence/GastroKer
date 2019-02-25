@@ -20,13 +20,13 @@ namespace login.Services.LostPw
         {
             MailMessage mm = new MailMessage("baloghbencefacebook@gmail.com", emailTo);
             mm.Subject = "Forgotten Password";
-            mm.Body = "<html><h1>elfelejtett jelszó</h1><p>Új jelszó megadásához kattintson <a href='www.google.com'>erre </html>a linkre</p>";
+            mm.Body = "<html name="+emailTo+"><h1>elfelejtett jelszó</h1><p>Új jelszó megadásához kattintson <a href='./WebSite/index.html'>erre </html>a linkre</p>";
 
             mm.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;
-            NetworkCredential NetworkCred = new NetworkCredential("baloghbencefacebook", "givemeachance");
+            NetworkCredential NetworkCred = new NetworkCredential("baloghbencefacebook", JELSZÓÓÓÓÓ);
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;

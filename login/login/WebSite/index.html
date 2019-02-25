@@ -6,8 +6,34 @@
     <title></title>
 </head>
 <body>
-    <div id="content">
-        </div>
+
 
 </body>
+<form action="jelszo.php" method="post" enctype="multipart/form-data">
+<input type="text" name="jelszo">
+<br>
+<input type="text" name="jelszo2">
+<br>
+<input type="button" name="kuldes" onclick="send()">
+</form>
 </html>
+<script src="jquery-3.3.1.min.js">
+</script>
+<script>
+    function newPW(clicked) {
+        var xhttp;
+        var newpsw= document.getElementsByTagName("jelszo").value;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                read();
+
+            }
+        };
+        
+        xhttp.open("POST", "newPW.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("pw="+newpsw+"&id="++""); 
+
+    }
+</script>
