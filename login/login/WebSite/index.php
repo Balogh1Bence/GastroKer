@@ -1,5 +1,10 @@
 ﻿<?php
-
+require_once("connect.php");
+if (isset($_POST['email'])){
+    $email = $_POST['email'];
+	$header="<h1 name='mail'>'$email'</h1>";
+    echo $header;
+}
 ?>
 <!DOCTYPE html>
 
@@ -25,6 +30,7 @@
 <script>
     function newPW(clicked) {
         var xhttp;
+		var email=document.getElementsByTagName("mail").value;
         var newpsw= document.getElementsByTagName("jelszo").value;
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -36,7 +42,7 @@
         
         xhttp.open("POST", "newPW.php", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("pw="+newpsw+"&id="++""); 
+        xhttp.send("pw="+newpsw+"&email="+email+""); 
 
     }
 </script>
