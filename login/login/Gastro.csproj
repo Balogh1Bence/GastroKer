@@ -65,6 +65,7 @@
     <Compile Include="Misc\BackGroundBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Misc\mypw.cs" />
     <Compile Include="Misc\PlaceHolder.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -162,7 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MySql.Data.dll" />
-    <Content Include="WebSite\index.html" />
+    <None Include="WebSite\index.php" />
     <Content Include="WebSite\jquery-3.3.1.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
