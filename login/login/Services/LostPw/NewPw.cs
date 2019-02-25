@@ -19,7 +19,8 @@ namespace login.Services.LostPw
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LostPwEmailSender lp = new LostPwEmailSender(placeHolderTextBox1.Text);                
+            LostPwEmailSender lp = new LostPwEmailSender(placeHolderTextBox1.Text);
+            lp.send();
             this.Close();
         }
     }
