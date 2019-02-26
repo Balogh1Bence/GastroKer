@@ -1,8 +1,10 @@
 ﻿<?php
 require_once("connect.php");
+
 if (isset($_GET['email'])){
-    $email = $_GET['email'];
 	
+    $mail = $_GET['email'];
+	echo "vmi";
 	
     
 }
@@ -36,22 +38,21 @@ $toHide="hide";
 </script>
 <script>
 var toCheck=<?php echo json_encode($toHide); ?>;
+console.log(toCheck);
     if(toCheck=="hide")
 	{
 		$("#passworder").hide();
 	}
 
-        $("#button").click(function()
-		{
-				if(document.getElementById("pw").value==document.getElementById("pw2").value)
-				{
-
-				
-				console.log("valami");
-				var something=<?php echo json_encode($email); ?>;
-				let jel=document.getElementById("pw").value;
+    $("#button").click(function()
+	{
+		if(document.getElementById("pw").value==document.getElementById("pw2").value)
+		{	
+			console.log("valami");
+			var something=<?php echo json_encode($mail); ?>;
+			let jel=document.getElementById("pw").value;
 	
-				  $.post("newPW.php",
+			$.post("newPW.php",
 				  {
 					pw: jel,
 					email: something
@@ -59,11 +60,13 @@ var toCheck=<?php echo json_encode($toHide); ?>;
 					  function(data, status){
 					alert("sikeres jelszóváltás erre: "+data );
 				  });
-				}
-			}
-			else{
-				alert("sikertelen jelszóváltás.");
-			}
-		);
+		}
+		else
+		{
+			alert("sikertelen jelszóváltás.");
+		};
 		
+	}
+	)
+
 </script>
