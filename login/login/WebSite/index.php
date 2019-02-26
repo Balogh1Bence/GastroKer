@@ -17,7 +17,8 @@ $toHide="hide";
 <head>
     <meta charset="utf-8" />
     <title></title>
-	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	<link rel="stylesheet" type="text/css" href="css/foundation.css">
+	<link rel="stylesheet" type="text/css" href="css/foundation.min.css">
 </head>
 <body>
 
