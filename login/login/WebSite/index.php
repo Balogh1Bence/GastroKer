@@ -33,7 +33,7 @@ if (isset($_GET['email'])){
 	
         $("#button").click(function()
 		{
-				if(document.getElementById(pw).value==document.getElementById(pw2))
+				if(document.getElementById("pw").value==document.getElementById("pw2").value)
 				{
 
 				
