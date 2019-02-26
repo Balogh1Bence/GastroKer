@@ -19,11 +19,11 @@ if (isset($_GET['email'])){
 
 </body>
 <form action="jelszo.php" method="post" enctype="multipart/form-data">
-<input type="text" id="pw" name="jelszo">
+<input type="text" id="pw" placeholder="jelszó" name="jelszo">
 <br>
-<input type="text" name="jelszo2">
+<input type="text" id="pw2" placeholder="jelszó újra" name="jelszo2">
 <br>
-<input type="button" id="button" name="kuldes">
+<input type="button" value="küldés" id="button" name="kuldes">
 </form>
 </html>
 <script src="jquery-3.3.1.min.js">
@@ -33,20 +33,27 @@ if (isset($_GET['email'])){
 	
         $("#button").click(function()
 		{
-			console.log("valami");
-			var something=<?php echo json_encode($email); ?>;
-			let jel=document.getElementById("pw").value;
+				if(document.getElementById(pw).value==document.getElementById(pw2))
+				{
 
-			  $.post("newPW.php",
-			  {
-				pw: jel,
-				email: something
-			  },
-			  function(data, status){
-				alert("Data: " + data + "\nStatus: " + status);
-			  });
+				
+				console.log("valami");
+				var something=<?php echo json_encode($email); ?>;
+				let jel=document.getElementById("pw").value;
+	
+				  $.post("newPW.php",
+				  {
+					pw: jel,
+					email: something
+				  },
+					  function(data, status){
+					alert("sikeres jelszóváltás erre: "+data );
+				  });
+				}
 			}
-			
+			else{
+				alert("sikertelen jelszóváltás.");
+			}
 		);
 		
 </script>
