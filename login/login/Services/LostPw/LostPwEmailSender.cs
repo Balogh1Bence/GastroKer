@@ -22,17 +22,17 @@ namespace login.Services.LostPw
         {
             MailMessage mm = new MailMessage("baloghbencefacebook@gmail.com", emailTo);
             mm.Subject = "Forgotten Password";
-            mm.Body = "<html><h1>elfelejtett jelszó</h1><p>Új jelszó megadásához kattintson <a href='../WebSite/index.php?email="+emailTo+"'>erre</html>a linkre</p>";
+            mm.Body = "<html><h1>elfelejtett jelszó</h1><p>Új jelszó megadásához kattintson <a href='localhost/website/index.php?email="+emailTo+"'>erre</a></html>a linkre</p>";
 
             mm.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;
-            System.Windows.Forms.MessageBox.Show(n.pw);
+            
             NetworkCredential NetworkCred = new NetworkCredential("baloghbencefacebook", n.pw);
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
-            smtp.Port = 587;
+            smtp.Port = 25;
             smtp.Send(mm);
         }
     }

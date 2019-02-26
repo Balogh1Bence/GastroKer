@@ -1,7 +1,8 @@
 ﻿<?php
 require_once("connect.php");
-if (isset($_POST['email'])){
-    $email = $_POST['email'];
+if (isset($_GET['email'])){
+    $email = $_GET['email'];
+	
 	
     
 }
@@ -22,7 +23,7 @@ if (isset($_POST['email'])){
 <br>
 <input type="text" name="jelszo2">
 <br>
-<input type="button" name="kuldes" onclick="send()">
+<input type="button" id="button" name="kuldes">
 </form>
 </html>
 <script src="jquery-3.3.1.min.js">
@@ -30,10 +31,10 @@ if (isset($_POST['email'])){
 <script>
     
 	
-        $("button").click(function()
+        $("#button").click(function()
 		{
-
-			var something=<?php echo json_encode($a); ?>;
+			console.log("valami");
+			var something=<?php echo json_encode($email); ?>;
 			let jel=document.getElementById("pw").value;
 
 			  $.post("newPW.php",
@@ -44,6 +45,8 @@ if (isset($_POST['email'])){
 			  function(data, status){
 				alert("Data: " + data + "\nStatus: " + status);
 			  });
-			});
-		}
+			}
+			
+		);
+		
 </script>

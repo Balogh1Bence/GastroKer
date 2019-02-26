@@ -7,7 +7,7 @@ if (isset($_POST['pw'])){
 
 
 		
-		if ($conn->query($sql) === TRUE) {
+		if ($connect->query($sql) === TRUE) {
     echo "Record updated successfully";
 } else {
     echo "Error updating record: " . $conn->error;

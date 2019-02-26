@@ -153,6 +153,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="WebSite\connect.php" />
+    <None Include="WebSite\index.php" />
     <None Include="WebSite\newPW.php" />
   </ItemGroup>
   <ItemGroup>
@@ -163,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MySql.Data.dll" />
-    <None Include="WebSite\index.php" />
     <Content Include="WebSite\jquery-3.3.1.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
