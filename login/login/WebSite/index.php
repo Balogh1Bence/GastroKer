@@ -6,6 +6,10 @@ if (isset($_GET['email'])){
 	
     
 }
+else {
+$toHide="hide";
+}
+
 ?>
 <!DOCTYPE html>
 
@@ -13,12 +17,13 @@ if (isset($_GET['email'])){
 <head>
     <meta charset="utf-8" />
     <title></title>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
 <body>
 
 
 </body>
-<form action="jelszo.php" method="post" enctype="multipart/form-data">
+<form action="jelszo.php" id="passworder" method="post" enctype="multipart/form-data">
 <input type="text" id="pw" placeholder="jelszó" name="jelszo">
 <br>
 <input type="text" id="pw2" placeholder="jelszó újra" name="jelszo2">
@@ -29,8 +34,12 @@ if (isset($_GET['email'])){
 <script src="jquery-3.3.1.min.js">
 </script>
 <script>
-    
-	
+var toCheck=<?php echo json_encode($toHide); ?>;
+    if(toCheck=="hide")
+	{
+		$("#passworder").hide();
+	}
+
         $("#button").click(function()
 		{
 				if(document.getElementById("pw").value==document.getElementById("pw2").value)
