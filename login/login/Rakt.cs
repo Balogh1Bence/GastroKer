@@ -105,7 +105,18 @@ namespace login
             Szerk sz = new Szerk(id);
            
             sz.ShowDialog();
-            MessageBox.Show("TestRkt");
+            if (sz.DialogResult == DialogResult.OK)
+            {
+                try
+                {
+
+                    dataGridView1.DataSource = null;
+
+                    dataGridView1.DataSource = sz.addNewItem();
+                }
+                catch (Exception d) { MessageBox.Show(d.Message); }
+                
+            }
 
 
         }

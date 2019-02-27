@@ -43,7 +43,7 @@ namespace login.Services.LostPw
                 {
                     MailMessage mm = new MailMessage("baloghbencefacebook@gmail.com", emailTo);
                     mm.Subject = "Forgotten Password";
-                    mm.Body = "<html><h1>elfelejtett jelszó</h1><p>Új jelszó megadásához kattintson <a href='localhost/website/index.php?email=" + emailTo + "'>erre</a></html>a linkre</p>";
+                    mm.Body = "<html><h1>elfelejtett jelszó</h1><p>Új jelszó megadásához kattintson <a href='../../website/forgottenpw.php?email=" + emailTo + "'>erre</a></html>a linkre</p>";
 
                     mm.IsBodyHtml = true;
                     SmtpClient smtp = new SmtpClient();
@@ -62,7 +62,7 @@ namespace login.Services.LostPw
                     {
                         MailMessage mm = new MailMessage("baloghbencefacebook@gmail.com", emailTo);
                         mm.Subject = "Forgotten Password";
-                        mm.Body = "<html><h1>elfelejtett jelszó</h1><p>Új jelszó megadásához kattintson <a href='localhost/website/index.php?email=" + emailTo + "'>erre</a></html>a linkre</p>";
+                        mm.Body = "<html><h1>elfelejtett jelszó</h1><p>Új jelszó megadásához kattintson <a href='../../website/forgottenpw.php?email=" + emailTo + "'>erre</a></html>a linkre</p>";
 
                         mm.IsBodyHtml = true;
                         SmtpClient smtp = new SmtpClient();

@@ -28,7 +28,7 @@ namespace login
            
             
            
-            backGroundBox1.setImg("hegyek.JPG");
+            //backGroundBox1.setImg("hegyek.JPG");
             foreach (Control p in Controls)
             { this.ActiveControl = p; }
 
@@ -74,11 +74,11 @@ namespace login
             MessageBox.Show(rs.getLastId()+"");
             if (_Sid == rs.getLastId())
             {
-                MessageBox.Show("TestSzerk");
-                addNewItem();
+                MessageBox.Show("WOLOLOOOOOOOOOOO");
                 return;
+                
             }
-            MessageBox.Show("Test");
+            MessageBox.Show("Test WOLOLOOO");
             id=termekek.getTkod();
             
             termekek.setTar(Convert.ToInt32(PriceHolder.Text));
@@ -119,7 +119,7 @@ namespace login
                 p.styleSetter();
             }*/
             MessageBox.Show("TestRktConst");
-
+            button1.DialogResult = DialogResult.OK;
             NameHolder.PlaceHolderText = "Termék neve";
             PriceHolder.PlaceHolderText = "Termék ára";
             AmmountHolder.PlaceHolderText = "Termék mennyisége";
@@ -130,22 +130,20 @@ namespace login
 
         }
 
-        internal void addNewItem()
+       
+        public DataTable addNewItem()
         {
             bool eg = false;
             if (checkBox1.Checked)
             {
-                eg= true;
+                eg = true;
 
             }
             else { eg = false; }
 
-            MessageBox.Show("TestSzerk1");
-            MdTermekek t = new MdTermekek(_Sid,NameHolder.Text,Convert.ToInt32(PriceHolder.Text), Convert.ToInt32(AmmountHolder.Text), UnitHolder.Text,Convert.ToInt32(CodeHolder.Text),Convert.ToInt32(VonCodeHolder.Text), dateTimePicker1.Value,eg);
-            MessageBox.Show("TestSzerk2");
-            rs.addNewItem(id, t);
 
-
+            MdTermekek t = new MdTermekek(_Sid, NameHolder.Text, Convert.ToInt32(PriceHolder.Text), Convert.ToInt32(AmmountHolder.Text), UnitHolder.Text, Convert.ToInt32(CodeHolder.Text), Convert.ToInt32(VonCodeHolder.Text), dateTimePicker1.Value, eg);
+            return rs.addNewItem(id,t);
         }
 
         private void backGroundBox1_Click(object sender, EventArgs e)

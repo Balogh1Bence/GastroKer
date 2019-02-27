@@ -210,7 +210,8 @@ namespace login.Services.DatabaseOperations
 
 
             string query = "INSERT INTO `termekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + termekek.getTkod() + "', '" + termekek.getTNev() + "', '" + termekek.getTar() + "', '" + termekek.getTkeszl() + "', '" + termekek.getMert() + "', '" + termekek.getTkatkod() + "', '" + termekek.getTvonkod() + "', '" + termekek.getSzavido() + "', '" + termekek.getTegalizalte() + "')";
-
+            MySqlCommand cmd = new MySqlCommand(query,connect);
+            cmd.ExecuteNonQuery();
         }
         public int getLastCustomerID()
         {

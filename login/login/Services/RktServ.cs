@@ -36,11 +36,11 @@ namespace login.Services
             return t.getLastID();
         }
 
-        internal void addNewItem(int id, MdTermekek h)
+        internal DataTable addNewItem(int id, MdTermekek h)
         {
             MessageBox.Show("TestRKTServ0");
-            t.addNewItem(id, h);
-            MessageBox.Show("TestRktService1");
+            return t.addNewItem(id, h);
+            
         }
 
        

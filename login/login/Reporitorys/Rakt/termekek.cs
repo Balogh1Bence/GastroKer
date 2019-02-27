@@ -78,10 +78,12 @@ namespace login.Reporitorys.Rakt
             return cDT;
         }
 
-        internal void addNewItem(int id, MdTermekek t)
+        internal DataTable addNewItem(int id, MdTermekek t)
         {
+
             d.addNewItem(id, t);
-            MessageBox.Show("TestTermekek");
+            ts.Add(t);
+            return getTsDataTable();
         }
 
         internal int getLastID()
