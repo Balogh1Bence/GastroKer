@@ -97,7 +97,19 @@ and open the template in the editor.
                 {
                     $('#gombMehet').prop('disabled', true);
                 }
+				$.post("login.php",
+				  {
+					us: document.getElementById("felhNevMezo").value;
+					pw: document.getElementById("jelszo").value;
+				  },
+					  function(data, status){
+					alert(" "+data, "    "+status);
+				  });
             }
+
+
+
+
             
         </script>
     </body>
