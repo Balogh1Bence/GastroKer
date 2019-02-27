@@ -23,7 +23,7 @@ and open the template in the editor.
                     </h1>
             </div>
             <div id="urlapTarolo" class="jumbotron">
-                <form class="urlap" action="belepes.php" method="POST">
+                <form>
                     <div id="formElemek" class="beljebbKezdes">
                         <input name="felhNev" id="felhNevMezo" class="kitoltendoMezo" type='text' placeholder="Felhasználói név" onkeyup="ellenorzes()">
                         <span id="hibaFelh" class="hibaVisszaJelzes">                            
@@ -41,7 +41,7 @@ and open the template in the editor.
                                 Regisztráció
                             </a>
                         </div>
-                        <input id="gombMehet" type="submit" class="btn btn-sm btn-primary" value="Mehet"
+                        <input id="gombMehet" type="button" class="btn btn-sm btn-primary" value="Mehet"
                                    disabled="disabled">
                         <div class="linkTaroloMini">
                             Még nem regisztrált 
@@ -97,15 +97,28 @@ and open the template in the editor.
                 {
                     $('#gombMehet').prop('disabled', true);
                 }
-				$.post("login.php",
+				
+            }
+			
+			$("#gombMehet").click(function()
+	{
+		console.log("valami");
+			
+		
+	
+			$.post("login.php",
 				  {
-					us: document.getElementById("felhNevMezo").value;
-					pw: document.getElementById("jelszo").value;
+					us: document.getElementById("felhNevMezo").value,
+					pw: document.getElementById("jelszo").value
 				  },
 					  function(data, status){
-					alert(" "+data, "    "+status);
+					alert("sfsdfs "+data, "    "+status);
 				  });
-            }
+		
+	
+	}
+	)
+	
 
 
 

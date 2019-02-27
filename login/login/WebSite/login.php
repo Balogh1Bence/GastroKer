@@ -1,4 +1,5 @@
 ﻿<?php
+require_once("connectG.php");
 if (isset($_POST['pw'])){
     $us = $_POST['us'];
 	$pw=$_POST['pw'];	
