@@ -10,10 +10,10 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
 if($row['jelsz']==$pw)
-        header("index.php");
+        echo "jo";
     }
 } else {
-    echo "0 results";
+    echo "0";
 }
 }
 ?>    

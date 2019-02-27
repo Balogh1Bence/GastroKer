@@ -112,8 +112,12 @@ and open the template in the editor.
 					pw: document.getElementById("jelszo").value
 				  },
 					  function(data, status){
-					alert("sfsdfs "+data, "    "+status);
+					alert(""+data, "    "+status);
 				  });
+				  if(data=="jo")
+				  {
+					
+				  }
 		
 	
 	}
