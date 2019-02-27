@@ -1,72 +1,104 @@
-﻿<?php
-require_once("connect.php");
-
-if (isset($_GET['email'])){
-	
-    $mail = $_GET['email'];
-	echo "vmi";
-	
-    
-}
-else {
-$toHide="hide";
-}
-
-?>
-<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-	<link rel="stylesheet" type="text/css" href="css/foundation.css">
-	<link rel="stylesheet" type="text/css" href="css/foundation.min.css">
-</head>
-<body>
-
-
-</body>
-<form action="jelszo.php" id="passworder" method="post" enctype="multipart/form-data">
-<input type="text" id="pw" placeholder="jelszó" name="jelszo">
-<br>
-<input type="text" id="pw2" placeholder="jelszó újra" name="jelszo2">
-<br>
-<input type="button" value="küldés" id="button" name="kuldes">
-</form>
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>3D Labirintus</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name='author' content="Kirsch János Márk">
+        <link rel="stylesheet" href="css/foundation.css"/>
+        <script src="jquery-3.3.1.min.js"></script>
+    </head>
+    <body class="jumbotron">
+        <div class ='kozepre'>
+            <div class="page-header">
+                    <h1 class="beljebbKezdes">
+                        <font class="felkoverSerif">
+                        Bejelentkezés
+                        </font>
+                    </h1>
+            </div>
+            <div id="urlapTarolo" class="jumbotron">
+                <form class="urlap" action="belepes.php" method="POST">
+                    <div id="formElemek" class="beljebbKezdes">
+                        <input name="felhNev" id="felhNevMezo" class="kitoltendoMezo" type='text' placeholder="Felhasználói név" onkeyup="ellenorzes()">
+                        <span id="hibaFelh" class="hibaVisszaJelzes">                            
+                        </span>
+                        <a id="regGomb" href="regisztracio.php" tabindex="4">
+                            Regisztráció
+                        </a>
+                        <br>
+                        <input name="jelszo" id="jelszo" class="kitoltendoMezo" type="password" placeholder="Jelszó" onkeyup="ellenorzes()">
+                        <span id="hibaJelszo" class="hibaVisszaJelzes">                            
+                        </span>
+                        <br>
+                        <div class="linkTaroloKozep">
+                            <a id="regGombKozep" href="regisztracio.php" tabindex="4">
+                                Regisztráció
+                            </a>
+                        </div>
+                        <input id="gombMehet" type="submit" class="btn btn-sm btn-primary" value="Mehet"
+                                   disabled="disabled">
+                        <div class="linkTaroloMini">
+                            Még nem regisztrált 
+                            <br> 
+                            felhasználó? 
+                            <br>
+                            Megteheti itt: 
+                            <a id="regGombMini" href="regisztracio.php" tabindex="4">
+                                Regisztráció
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            function felhNevEllenorzes()
+            {
+                if($('#felhNevMezo').val().length < 4)
+                {
+                    document.getElementById('hibaFelh').innerHTML = "Felhasználónév hossza nem megfelelő!";
+                    return false;
+                }
+                else
+                {
+                    document.getElementById('hibaFelh').innerHTML = "";
+                    return true;
+                }  
+            }
+            
+            function jelszoEllenorzes()
+            {
+                if($('#jelszo').val().length < 4)
+                {
+                    document.getElementById('hibaJelszo').innerHTML = "A jelszó nem megfelelő hosszúságú!";
+                    return false;
+                }
+                else
+                {
+                    document.getElementById('hibaJelszo').innerHTML = "";
+                    return true;
+                }
+            }            
+            
+            
+            function ellenorzes()
+            {
+                if(felhNevEllenorzes() && jelszoEllenorzes())
+                {
+                    $('#gombMehet').prop('disabled', false);
+                }
+                else
+                {
+                    $('#gombMehet').prop('disabled', true);
+                }
+            }
+            
+        </script>
+    </body>
 </html>
-<script src="jquery-3.3.1.min.js">
-</script>
-<script>
-var toCheck=<?php echo json_encode($toHide); ?>;
-console.log(toCheck);
-    if(toCheck=="hide")
-	{
-		$("#passworder").hide();
-	}
-
-    $("#button").click(function()
-	{
-		if(document.getElementById("pw").value==document.getElementById("pw2").value)
-		{	
-			console.log("valami");
-			var something=<?php echo json_encode($mail); ?>;
-			let jel=document.getElementById("pw").value;
-	
-			$.post("newPW.php",
-				  {
-					pw: jel,
-					email: something
-				  },
-					  function(data, status){
-					alert("sikeres jelszóváltás erre: "+data );
-				  });
-		}
-		else
-		{
-			alert("sikertelen jelszóváltás.");
-		};
-		
-	}
-	)
-
-</script>
