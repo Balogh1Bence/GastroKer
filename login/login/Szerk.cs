@@ -25,25 +25,40 @@ namespace login
             rs = new RktServ();
             this.termekek = termekek;
             InitializeComponent();
-           
-            
-           
+
+
+
             //backGroundBox1.setImg("hegyek.JPG");
-            foreach (Control p in Controls)
-            { this.ActiveControl = p; }
-            szándékos hiba. amikor aktívcá teszem, akkor kell a .textet beállítani a szerkesztédhez.
+            /*foreach (Control c in this.Controls)
+
+            {
+
+                if (c.GetType().ToString() == "System.Windows.Form.PlaceHolderTextBox")
+
+                {
+
+                    
+
+                }
+
+            }*///it wont work.....
+            
 
 
 
             button1.DialogResult = DialogResult.OK;
+            
             NameHolder.Text = termekek.getTNev();
-         
+        
             PriceHolder.Text =termekek.getTar().ToString();
+           
             AmmountHolder.Text = termekek.getTkeszl().ToString();
+            
             UnitHolder.Text = termekek.getMert();
+            
             CodeHolder.Text = termekek.getTkatkod().ToString();
-            
-            
+
+           
             VonCodeHolder.Text = termekek.getTvonkod().ToString();
             dateTimePicker1.Value = termekek.getSzavido();
 

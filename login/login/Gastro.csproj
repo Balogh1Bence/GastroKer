@@ -69,6 +69,7 @@
     <Compile Include="Misc\PlaceHolder.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Misc\SetProperties.cs" />
     <Compile Include="models\MDBesz.cs" />
     <Compile Include="models\MdTermekek.cs" />
     <Compile Include="models\MDVevok.cs" />

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using login.Misc;
 using login.Services.fleh;
 using login.Services.LostPw;
 namespace login
@@ -85,6 +86,12 @@ namespace login
             NewPw np = new NewPw();
             np.ShowDialog();
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SetProperties sp = new SetProperties();
+            sp.Copy();
         }
     }
 }
