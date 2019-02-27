@@ -16,9 +16,9 @@ namespace login.Misc
         }
         public void Copy()
         {
-           
-
+            
             DirectoryInfo diSource = new DirectoryInfo(get());
+            System.Windows.Forms.MessageBox.Show(get());
             DirectoryInfo diTarget = new DirectoryInfo(getPath());
 
             CopyAll(diSource, diTarget);
@@ -28,14 +28,13 @@ namespace login.Misc
         {
             Directory.CreateDirectory(target.FullName);
 
-            // Copy each file into the new directory.
+           
             foreach (FileInfo fi in source.GetFiles())
             {
 
                 fi.CopyTo(Path.Combine(target.FullName, fi.Name), true);
             }
 
-            // Copy each subdirectory using recursion.
             foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
             {
                 DirectoryInfo nextTargetSubDir =
@@ -68,12 +67,14 @@ namespace login.Misc
 
             string n = s[1];
             /*n = "@" + '"' + n + '"';*/
+            n+= "\\WebSite";
             return n;
         }
         private string get()
         {
             string wanted_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             /*wanted_path = "@" + '"' + wanted_path + '"';*/
+            wanted_path += "\\WebSite";
             return wanted_path;
         }
     }
