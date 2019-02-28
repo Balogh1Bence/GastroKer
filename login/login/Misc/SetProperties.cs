@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,9 +16,70 @@ namespace login.Misc
         {
 
         }
+        public void setDataBases()
+        {
+            ProcessStartInfo apa = new ProcessStartInfo();
+            apa.Verb = "runas";
+            apa.CreateNoWindow = true;
+            apa.UseShellExecute = false;
+            apa.FileName = "c:\\xampp\\apache_start.bat";
+            apa.WindowStyle = ProcessWindowStyle.Hidden;
+            Process exeProcess = Process.Start(apa);
+            ProcessStartInfo apa2 = new ProcessStartInfo();
+            apa2.Verb = "runas";
+            apa2.CreateNoWindow = true;
+            apa2.UseShellExecute = false;
+            apa2.FileName = "c:\\xampp\\mysql_start.bat";
+            apa2.WindowStyle = ProcessWindowStyle.Hidden;
+            Process exeProces = Process.Start(apa2);
+            
+            
+
+            string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            path += "\\Misc\\felh.sql";
+            string path2 = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            path2 += "\\Misc\\gastro.sql";
+            string text = System.IO.File.ReadAllText(path);
+            
+            string text2 = System.IO.File.ReadAllText(path2);
+            
+            string connStr = "SERVER=\"localhost\";"
+               + "UID=\"root\";"
+               + "PASSWORD=\"\";"
+               + "PORT=\"3306\";";
+            var conn = new MySqlConnection(connStr);
+                var cmd = conn.CreateCommand();
+            
+                conn.Open();
+                cmd.CommandText = "CREATE DATABASE IF NOT EXISTS `felh`;";
+                cmd.ExecuteNonQuery();
+            cmd.CommandText = "CREATE DATABASE IF NOT EXISTS `gastro`;";
+            cmd.ExecuteNonQuery();
+
+
+            string conF = "SERVER =\"localhost\";"
+               + "DATABASE=\"felh\";"
+               + "UID=\"root\";"
+               + "PASSWORD=\"\";"
+               + "PORT=\"3306\";";
+            var conne = new MySqlConnection(conF);
+            conne.Open();
+            cmd.CommandText = text;
+            cmd.ExecuteNonQuery();
+            string conG = "SERVER =\"localhost\";"
+               + "DATABASE=\"gastro\";"
+               + "UID=\"root\";"
+               + "PASSWORD=\"\";"
+               + "PORT=\"3306\";";
+            var connec = new MySqlConnection(conG);
+            connec.Open();
+            cmd.CommandText = text;
+            cmd.ExecuteNonQuery();
+
+        }
         public void Copy()
         {
-            
+            setDataBases();
             DirectoryInfo diSource = new DirectoryInfo(get());
 
             DirectoryInfo diTarget = new DirectoryInfo(getPath());
