@@ -31,7 +31,7 @@ namespace login
             //backGroundBox1.setImg("hegyek.JPG");
             foreach (Control p in Controls)
             { this.ActiveControl = p; }
-
+            szándékos hiba. amikor aktívcá teszem, akkor kell a .textet beállítani a szerkesztédhez.
 
 
 
