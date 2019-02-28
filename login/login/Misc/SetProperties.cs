@@ -56,14 +56,16 @@ namespace login.Misc
             cmd.CommandText = "CREATE DATABASE IF NOT EXISTS `gastro`;";
             cmd.ExecuteNonQuery();
 
-
-            string conF = "SERVER =\"localhost\";"
-               + "DATABASE=\"felh\";"
-               + "UID=\"root\";"
-               + "PASSWORD=\"\";"
-               + "PORT=\"3306\";";
+            System.Threading.Thread.Sleep(5000);
+            string conF = "SERVER=\"localhost\";"
+                + "DATABASE=\"felh\";"
+                + "UID=\"root\";"
+                + "PASSWORD=\"\";"
+                + "PORT=\"3306\";";
             var conne = new MySqlConnection(conF);
+
             conne.Open();
+            cmd = conne.CreateCommand();
             cmd.CommandText = text;
             cmd.ExecuteNonQuery();
             string conG = "SERVER =\"localhost\";"
@@ -72,8 +74,10 @@ namespace login.Misc
                + "PASSWORD=\"\";"
                + "PORT=\"3306\";";
             var connec = new MySqlConnection(conG);
+           
             connec.Open();
-            cmd.CommandText = text;
+            cmd = connec.CreateCommand();
+            cmd.CommandText = text2;
             cmd.ExecuteNonQuery();
 
         }
