@@ -114,10 +114,17 @@ and open the template in the editor.
 					  function(data, status){
 					alert(""+data, "    "+status);
 				  });
-				  if(data=="jo")
+				  if(data!="0")
 				  {
-					
+					 location.reload();
 				  }
+				  else {
+					$.("#urlapTarolo").hide();
+				  }
+
+
+				  
+				  
 		
 	
 	}

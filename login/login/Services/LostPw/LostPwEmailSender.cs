@@ -22,6 +22,7 @@ namespace login.Services.LostPw
         {
             try
             {
+
                 MailMessage mm = new MailMessage("baloghbencefacebook@gmail.com", emailTo);
                 mm.Subject = "Forgotten Password";
                 mm.Body = "<html><h1>elfelejtett jelszó</h1><p>Új jelszó megadásához kattintson <a href='../../website/forgottenpw.php?email=" + emailTo + "'>erre</a></html>a linkre</p>";
@@ -31,13 +32,15 @@ namespace login.Services.LostPw
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
 
+                smtp.Timeout = 30000000;
                 NetworkCredential NetworkCred = new NetworkCredential("baloghbencefacebook", n.pw);
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 25;
                 smtp.Send(mm);
+
             }
-            catch (Exception e)
+            catch
             {
                 try
                 {
@@ -75,12 +78,12 @@ namespace login.Services.LostPw
                         smtp.Port = 465;
                         smtp.Send(mm);
                     }
-                    catch (Exception b)
-                    {
-                        System.Windows.Forms.MessageBox.Show("hálózati hiba/helytelen bemeneti email cím");
-                    }
+                    catch (Exception e)
+                    { System.Windows.Forms.MessageBox.Show(e.Message); }
+
                 }
             }
+            
         }
     }
 }
