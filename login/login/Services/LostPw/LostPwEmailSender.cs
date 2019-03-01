@@ -77,7 +77,7 @@ namespace login.Services.LostPw
                     }
                     catch (Exception b)
                     {
-                        System.Windows.Forms.MessageBox.Show("hálózati hiba/helytelen bemeneti email cím");
+                        System.Windows.Forms.MessageBox.Show("hálózati hiba/ nem létező email cím");
                     }
                 }
             }

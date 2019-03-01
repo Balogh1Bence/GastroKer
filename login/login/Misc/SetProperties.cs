@@ -18,8 +18,9 @@ namespace login.Misc
         {
             
             DirectoryInfo diSource = new DirectoryInfo(get());
-            System.Windows.Forms.MessageBox.Show(get());
+
             DirectoryInfo diTarget = new DirectoryInfo(getPath());
+          
 
             CopyAll(diSource, diTarget);
         }

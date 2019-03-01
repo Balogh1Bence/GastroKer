@@ -16,7 +16,7 @@ and open the template in the editor.
     <body class="jumbotron">
         <div class ='kozepre'>
             <div class="page-header">
-                    <h1 class="beljebbKezdes">
+                    <h1 id="bej" class="beljebbKezdes">
                         <font class="felkoverSerif">
                         Bejelentkezés
                         </font>
@@ -58,6 +58,7 @@ and open the template in the editor.
             </div>
         </div>
         <script>
+		var data="";
             function felhNevEllenorzes()
             {
                 if($('#felhNevMezo').val().length < 4)
@@ -112,18 +113,24 @@ and open the template in the editor.
 					pw: document.getElementById("jelszo").value
 				  },
 					  function(data, status){
-					alert(""+data, "    "+status);
-				  });
-				  if(data=="jo")
+					data=data;
+					alert(data);
+					if(data=="0")
 				  {
-					
+					console.log("nem jo");
 				  }
+				  else{
+				  $("#urlapTarolo").hide();
+				  $("#bej").hide();
+				  function()
+				  }
+				  });
+				  
 		
 	
 	}
 	)
 	
-
 
 
 
