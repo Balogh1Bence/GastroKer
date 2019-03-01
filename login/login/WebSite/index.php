@@ -7,7 +7,6 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>3D Labirintus</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name='author' content="Kirsch János Márk">
         <link rel="stylesheet" href="css/foundation.css"/>
@@ -22,6 +21,8 @@ and open the template in the editor.
                         </font>
                     </h1>
             </div>
+			<div id="tartalom">
+			</div>
             <div id="urlapTarolo" class="jumbotron">
                 <form>
                     <div id="formElemek" class="beljebbKezdes">
@@ -122,10 +123,16 @@ and open the template in the editor.
 				  else{
 				  $("#urlapTarolo").hide();
 				  $("#bej").hide();
-				  $.post("loadall.php")
-				  {
+				    $.post("loadall.php",
+  {
+    us: data
+  },
+  function(t, status){
+   ("#tartalom").text(t); 
+  });
+				  
+
 					
-				  }
 				  }
 				  });
 				  
@@ -133,6 +140,7 @@ and open the template in the editor.
 	
 	}
 	)
+	
 	
 
 
