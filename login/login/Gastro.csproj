@@ -168,6 +168,7 @@
     <Folder Include="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Misc\felh.sql" />
     <Content Include="Misc\gastro.sql" />
     <Content Include="MySql.Data.dll" />
     <Content Include="WebSite\css\foundation.css" />
