@@ -122,7 +122,10 @@ and open the template in the editor.
 				  else{
 				  $("#urlapTarolo").hide();
 				  $("#bej").hide();
-				  function()
+				  $.post("loadall.php")
+				  {
+					
+				  }
 				  }
 				  });
 				  

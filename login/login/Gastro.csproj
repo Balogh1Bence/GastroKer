@@ -117,6 +117,7 @@
     <Compile Include="Szerk.Designer.cs">
       <DependentUpon>Szerk.cs</DependentUpon>
     </Compile>
+    <None Include="WebSite\loadall.php" />
     <None Include="WebSite\connectG.php" />
     <None Include="WebSite\login.php" />
     <None Include="WebSite\ForgottenPw.php" />
