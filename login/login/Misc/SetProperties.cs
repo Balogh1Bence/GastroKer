@@ -42,7 +42,7 @@ namespace login.Misc
             string text = System.IO.File.ReadAllText(path);
             
             string text2 = System.IO.File.ReadAllText(path2);
-            
+            System.Threading.Thread.Sleep(5000);
             string connStr = "SERVER=\"localhost\";"
                + "UID=\"root\";"
                + "PASSWORD=\"\";"
@@ -55,30 +55,34 @@ namespace login.Misc
                 cmd.ExecuteNonQuery();
             cmd.CommandText = "CREATE DATABASE IF NOT EXISTS `gastro`;";
             cmd.ExecuteNonQuery();
+            try
+            {
 
-            System.Threading.Thread.Sleep(5000);
-            string conF = "SERVER=\"localhost\";"
-                + "DATABASE=\"felh\";"
-                + "UID=\"root\";"
-                + "PASSWORD=\"\";"
-                + "PORT=\"3306\";";
-            var conne = new MySqlConnection(conF);
+                string conF = "SERVER=\"localhost\";"
+                    + "DATABASE=\"felh\";"
+                    + "UID=\"root\";"
+                    + "PASSWORD=\"\";"
+                    + "PORT=\"3306\";";
+                var conne = new MySqlConnection(conF);
 
-            conne.Open();
-            cmd = conne.CreateCommand();
-            cmd.CommandText = text;
-            cmd.ExecuteNonQuery();
-            string conG = "SERVER =\"localhost\";"
-               + "DATABASE=\"gastro\";"
-               + "UID=\"root\";"
-               + "PASSWORD=\"\";"
-               + "PORT=\"3306\";";
-            var connec = new MySqlConnection(conG);
-           
-            connec.Open();
-            cmd = connec.CreateCommand();
-            cmd.CommandText = text2;
-            cmd.ExecuteNonQuery();
+                conne.Open();
+                cmd = conne.CreateCommand();
+                cmd.CommandText = text;
+                cmd.ExecuteNonQuery();
+                string conG = "SERVER =\"localhost\";"
+                   + "DATABASE=\"gastro\";"
+                   + "UID=\"root\";"
+                   + "PASSWORD=\"\";"
+                   + "PORT=\"3306\";";
+                var connec = new MySqlConnection(conG);
+
+                connec.Open();
+                cmd = connec.CreateCommand();
+                cmd.CommandText = text2;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            { return; }
 
         }
         public void Copy()

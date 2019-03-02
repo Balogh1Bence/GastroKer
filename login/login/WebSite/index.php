@@ -128,7 +128,8 @@ and open the template in the editor.
     us: data
   },
   function(t, status){
-   ("#tartalom").text(t); 
+  
+   $("#tartalom").html(t); 
   });
 				  
 
