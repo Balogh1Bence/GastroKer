@@ -6,11 +6,10 @@ $html.="<p>random szöveg</p>";
 $html.="</html>";
 $sql = "SELECT * from termekek";
 	$result = $connect->query($sql);
-$table="<table border='1'><tr><th>termék neve</th><th>raktár</th><th>termék ára</th></tr>";
+$table="<table border='1'><tr><th>termék neve</th><th>raktár</th><th>termék ára</th><th></th><th></th><th id='mennyiseg'></th></tr>";
 while($row = $result->fetch_assoc()) {
-$table.="<tr><td>{$row['Tnev']}</td><td>{$row['Tar']}</td><td>{$row['Tkeszl']}</td</tr>";
+$table.="<tr><td>{$row['Tnev']}</td><td>{$row['Tar']}</td><td>{$row['Tkeszl']}</td><td><button id='{$row['Tkod']}' onclick='oneless(this.id)'>-</button></td><td><button id='{$row['Tkod']}' onclick='onemore(this.id)'>+</button></td></tr>";
     }
-
 $table.="</table>";
 echo $table;
     /*

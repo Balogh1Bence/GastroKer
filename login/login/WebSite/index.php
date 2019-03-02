@@ -141,7 +141,14 @@ and open the template in the editor.
 	
 	}
 	)
-	
+	function onemore(termek)
+	{
+		
+	}
+	function oneless(termek)
+	{
+
+	}
 	
 
 
