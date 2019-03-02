@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="Services\MySQLDatabaseInterface.cs" />
     <Compile Include="Services\RktServ.cs" />
+    <Compile Include="Services\UserController.cs" />
     <Compile Include="Szerk.cs">
       <SubType>Form</SubType>
     </Compile>

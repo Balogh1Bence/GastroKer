@@ -10,17 +10,24 @@ using System.Windows.Forms;
 using login.Misc;
 using login.Services.fleh;
 using login.Services.LostPw;
+using login.Services;
 namespace login
 {
     public partial class Login : Form
     {
         ErrorProvider uname = new ErrorProvider();
         ErrorProvider pw = new ErrorProvider();
+        UserController uc;
         public Login()
         {
             InitializeComponent();
             SetProperties sp = new SetProperties();
             sp.Copy();
+            uc = new UserController();
+            uc.getall();
+
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
