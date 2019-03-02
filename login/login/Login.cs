@@ -19,6 +19,8 @@ namespace login
         public Login()
         {
             InitializeComponent();
+            SetProperties sp = new SetProperties();
+            sp.Copy();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -88,10 +90,8 @@ namespace login
             
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            SetProperties sp = new SetProperties();
-            sp.Copy();
-        }
+       
+           
+        
     }
 }
