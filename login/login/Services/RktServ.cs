@@ -43,6 +43,9 @@ namespace login.Services
             
         }
 
-       
+        internal DataTable SzurNevAlapjan(string text)
+        {
+            return t.SzuresNevAlapjan(text);
+        }
     }
 }

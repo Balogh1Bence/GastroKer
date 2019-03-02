@@ -78,6 +78,11 @@ namespace login.Reporitorys.Rakt
             return cDT;
         }
 
+        internal DataTable SzuresNevAlapjan(string text)
+        {
+            return d.SzuresNevAlapjan(text);
+        }
+
         internal DataTable addNewItem(int id, MdTermekek t)
         {
 

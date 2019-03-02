@@ -40,6 +40,7 @@
             this.partnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partnersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.newPartnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.placeHolderTextBox1 = new login.Misc.PlaceHolderTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -126,22 +127,36 @@
             // partnersToolStripMenuItem1
             // 
             this.partnersToolStripMenuItem1.Name = "partnersToolStripMenuItem1";
-            this.partnersToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.partnersToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
             this.partnersToolStripMenuItem1.Text = "Carriers";
             this.partnersToolStripMenuItem1.Click += new System.EventHandler(this.partnersToolStripMenuItem1_Click);
             // 
             // newPartnerToolStripMenuItem
             // 
             this.newPartnerToolStripMenuItem.Name = "newPartnerToolStripMenuItem";
-            this.newPartnerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newPartnerToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.newPartnerToolStripMenuItem.Text = "New Partner";
             this.newPartnerToolStripMenuItem.Click += new System.EventHandler(this.newPartnerToolStripMenuItem_Click);
+            // 
+            // placeHolderTextBox1
+            // 
+            this.placeHolderTextBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.placeHolderTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.placeHolderTextBox1.ForeColor = System.Drawing.Color.Gray;
+            this.placeHolderTextBox1.Location = new System.Drawing.Point(643, 47);
+            this.placeHolderTextBox1.Name = "placeHolderTextBox1";
+            this.placeHolderTextBox1.PlaceHolderText = "szűrés név alapján";
+            this.placeHolderTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.placeHolderTextBox1.TabIndex = 7;
+            this.placeHolderTextBox1.Text = "szűrés név alapján";
+            this.placeHolderTextBox1.TextChanged += new System.EventHandler(this.placeHolderTextBox1_TextChanged);
             // 
             // Rakt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 468);
+            this.Controls.Add(this.placeHolderTextBox1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -173,5 +188,6 @@
         private System.Windows.Forms.ToolStripMenuItem partnersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem partnersToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem newPartnerToolStripMenuItem;
+        private Misc.PlaceHolderTextBox placeHolderTextBox1;
     }
 }

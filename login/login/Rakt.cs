@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using login.Reporitorys.Rakt;
 using login.Services;
 using login.models;
+using login.validator;
 
 namespace login
 {
@@ -21,7 +22,7 @@ namespace login
         public Rakt()
         {
             InitializeComponent();
-           
+            dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
@@ -145,6 +146,19 @@ namespace login
         {
             Carriers c = new Carriers();
             c.ShowDialog();
+        }
+
+        private void placeHolderTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            IgnoreEmptyOrWhiteSpace ieows = new IgnoreEmptyOrWhiteSpace();
+
+            if (ieows.isNull(placeHolderTextBox1.Text))
+            {
+                return;
+            }
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource= rs.SzurNevAlapjan(placeHolderTextBox1.Text);
+            
         }
     }
 }

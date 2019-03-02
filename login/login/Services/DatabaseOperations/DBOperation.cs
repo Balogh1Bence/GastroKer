@@ -95,6 +95,23 @@ namespace login.Services.DatabaseOperations
             }
         }
 
+        internal DataTable SzuresNevAlapjan(string text)
+        {
+            text += "%";
+            MySqlConnection connect = new MySqlConnection(conG);
+            DataTable dt = new DataTable();
+            connect.Open();
+            string query = "SELECT * FROM termekek where Tnev like "+text+"";
+       
+            MySqlCommand cm = new MySqlCommand(query, connect);
+         
+            cm.ExecuteReader();
+    
+            MySqlDataAdapter da = new MySqlDataAdapter(cm);
+            da.Fill(dt);
+            return dt;
+        }
+
         internal void addNewCustomer(int id, MDVevok ujvevo)
         {
             
