@@ -197,6 +197,7 @@ namespace login.Reporitorys.Rakt
                 MdTermekek c = new MdTermekek(Tkod, Tnev, Tar, Tkeszl, Tmert, Tkatkod, Tvonkod, Tszavido, Tegalizalte);
                 ts.Add(c);
             }
+
         }
     }
 }
