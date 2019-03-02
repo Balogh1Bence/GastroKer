@@ -4,11 +4,18 @@ if (isset($_POST['us'])){
 $html="<html>";
 $html.="<p>random szöveg</p>";
 $html.="</html>";
-echo $html;
+$sql = "SELECT * from termekek";
+	$result = $connect->query($sql);
+$table="<table border='1'><tr><th>termék neve</th><th>raktár</th><th>termék ára</th></tr>";
+while($row = $result->fetch_assoc()) {
+$table.="<tr><td>{$row['Tnev']}</td><td>{$row['Tar']}</td><td>{$row['Tkeszl']}</td</tr>";
+    }
+
+$table.="</table>";
+echo $table;
     /*
 	$pw=$_POST['pw'];	
-    $sql = "SELECT jelsz from vevok where felh='" . $us . "'";
-	$result = $connect->query($sql);
+    
 
 if ($result->num_rows > 0) {
     // output data of each row
