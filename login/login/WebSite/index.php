@@ -67,7 +67,8 @@ and open the template in the editor.
 		var ar;
 		var data="";
 		
-		$("#szam").hide();
+			$("#szam").hide();
+
             function felhNevEllenorzes()
             {
                 if($('#felhNevMezo').val().length < 4)
@@ -107,100 +108,81 @@ and open the template in the editor.
                 {
                     $('#gombMehet').prop('disabled', true);
                 }
-				
-            }
+			}
 			
 			$("#gombMehet").click(function()
-	{
-		console.log("valami");
+			{
 			
-		
-	
-			$.post("login.php",
+				$.post("login.php",
 				  {
 					us: document.getElementById("felhNevMezo").value,
 					pw: document.getElementById("jelszo").value
 				  },
-					  function(data, status){
-					data=data;
-					alert(data);
-					if(data=="0")
-				  {
-					console.log("nem jo");
-				  }
-				  else{
-				  $("#urlapTarolo").hide();
-				  $("#bej").hide();
-				  $("#szam").show();
-				    $.post("loadall.php",
-  {
-    us: data
-  },
-  function(t, status){
+						  function(data, status){
+							data=data;
+							alert(data);
+							if(data=="0")
+							{
+								console.log("nem jo");
+							}
+							else{
+								$("#urlapTarolo").hide();
+								$("#bej").hide();
+								$("#szam").show();
+									$.post("loadall.php",
+									{
+										us: data
+									},
+										function(t, status){
   
-   $("#tartalom").html(t); 
-  });
-				  
+											$("#tartalom").html(t);
+											})}
+						  
+						}
+				)
+			})			
+				 
 
 					
-				  }
-				  });
+				
+				 
 				  
-		
 	
-	}
-	)
+	
 	
 	function onemore(termek, vale)
 	{
-	ar=$( "#szamlalo" ).html();
+	
+		console.log(document.getElementsByClassName(termek).value);
+		
 
-	ar=eval(Number(ar)+Number(vale));
+		
+		ar=$( "#szamlalo" ).html();
 
-	$( "#szamlalo" ).html(ar);
+		ar=eval(Number(ar)+Number(vale));
 
-	$.post("counter.php",
-  {
-  id: termek,
-  ertek: vald,
-  vnev: data,
-  muv: kivon
-  },
-  function(data, status){
-    alert("Data: " + data + "\nStatus: " + status);
-  });
+		$( "#szamlalo" ).html(ar);
+	
+
 	}
 
   
-		
 	
 	function oneless(termek, vale)
 	{
-	ar=$( "#szamlalo" ).html();
-	
-	ar=eval(Number(ar)-Number(vale));
-	
-	$( "#szamlalo" ).html(ar);
-	$.post("counter.php",
-  {
-  id: termek,
-  ertek: vald,
-  vnev: data,
-  muv: hozaad
-  },
-  function(data, status){
-    alert("Data: " + data + "\nStatus: " + status);
-  });
- 
 
-
-	
+		console.log(document.getElementsByClassName(termek));
+		ar=$( "#szamlalo" ).html();
+		
+		ar=eval(Number(ar)-Number(vale));
+		
+		$( "#szamlalo" ).html(ar);
 	}
 	
 
 
 
             
-        </script>
+		</script>
     </body>
 </html>
