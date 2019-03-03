@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Feb 26. 16:19
+-- Létrehozás ideje: 2019. Már 03. 08:57
 -- Kiszolgáló verziója: 10.1.37-MariaDB
 -- PHP verzió: 7.3.0
 
@@ -62,8 +62,8 @@ CREATE TABLE `besz` (
 --
 
 INSERT INTO `besz` (`azon`, `nev`, `tel`, `email`, `kapcsnev`) VALUES
-(2000, 'Hertz', 63333333, 'apacshelikopter1998@gmail.com', 'Lakatos Rozália'),
-(2001, 'Fagyok kft', 64444444, 'apacshelikopter1998@gmail.com', 'Zöld István');
+(2000, 'Hertz', 63333333, 'apacshelikopter1998@gmail.com', 'Lakatos Roz?lia'),
+(2001, 'Fagyok kft', 64444444, 'apacshelikopter1998@gmail.com', 'Z?ld Istv?n');
 
 -- --------------------------------------------------------
 
@@ -86,9 +86,9 @@ CREATE TABLE `helyek` (
 
 INSERT INTO `helyek` (`HelyAzon`, `IntAzon`, `irsz`, `varos`, `utca`, `szam`) VALUES
 (1, 1000, 6666, 'Szeged', 'Kis', 45),
-(2, 1001, 9999, 'Kübekháza', 'Nagy', 54),
+(2, 1001, 9999, 'K?bekh?za', 'Nagy', 54),
 (3, 1001, 7777, 'Miskolc', 'Csereszny', 30),
-(4, 1000, 5555, 'Újszentiván', 'Kossuth', 70);
+(4, 1000, 5555, '?jszentiv?n', 'Kossuth', 70);
 
 -- --------------------------------------------------------
 
@@ -106,9 +106,9 @@ CREATE TABLE `kat` (
 --
 
 INSERT INTO `kat` (`Tkatkod`, `Tkatnev`) VALUES
-(1, 'kolbász'),
+(1, 'kolb?sz'),
 (2, 'tej'),
-(3, 'csirkehús');
+(3, 'csirkeh?s');
 
 -- --------------------------------------------------------
 
@@ -134,6 +134,19 @@ CREATE TABLE `regitermekek` (
 
 INSERT INTO `regitermekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES
 (1, 'kolbi', 500, 350, 'kg', 1, 132784678, '0000-00-00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `rend`
+--
+
+CREATE TABLE `rend` (
+  `Tkod` int(11) NOT NULL,
+  `Tmenny` int(11) NOT NULL,
+  `Vnev` varchar(50) NOT NULL,
+  `Vdate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -223,7 +236,7 @@ INSERT INTO `termekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tv
 (1, 'kolbi', 300, 350, 'kg', 1, 121234, '2018-02-03', 1),
 (2, 'kolbika', 400, 450, 'kg', 1, 3456633, '2018-11-01', 1),
 (3, 'fagyos csirkecomb', 900, 300, 'kb', 3, 3452622, '2019-11-01', 1),
-(4, 'félzsíros tej', 150, 20, 'li', 2, 287364, '2019-11-01', 1);
+(4, 'f?lzs?ros tej', 150, 20, 'li', 2, 287364, '2019-11-01', 1);
 
 -- --------------------------------------------------------
 
@@ -250,8 +263,8 @@ CREATE TABLE `vevok` (
 --
 
 INSERT INTO `vevok` (`azon`, `nev`, `adoazon`, `banksz`, `tel`, `dolg`, `torzs`, `vasmenny`, `felh`, `jelsz`, `email`) VALUES
-(1000, 'Kiss Géza', 87623498, 9843716298654585, 701111111, 0, 1, 550, 'KissJozsef', '123456', 'apacshelikopter1998@gmail.com'),
-(1001, 'Nagy Béla', 29832749, 8297465738977561, 302222222, 1, 1, 0, 'NagyBela', '123456', 'apacshelikopter1998@gmail.com');
+(1000, 'Kiss G?za', 87623498, 9843716298654585, 701111111, 0, 1, 550, 'KissJozsef', '123456', 'apacshelikopter1998@gmail.com'),
+(1001, 'Nagy B?la', 29832749, 8297465738977561, 302222222, 1, 1, 0, 'NagyBela', '123456', 'apacshelikopter1998@gmail.com');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -286,6 +299,12 @@ ALTER TABLE `kat`
 --
 ALTER TABLE `regitermekek`
   ADD PRIMARY KEY (`Tkod`);
+
+--
+-- A tábla indexei `rend`
+--
+ALTER TABLE `rend`
+  ADD PRIMARY KEY (`Vnev`,`Tkod`);
 
 --
 -- A tábla indexei `szall`
