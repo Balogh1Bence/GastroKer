@@ -131,13 +131,13 @@ namespace login.Misc
             string file = GetHtdocsDirectory();
 
             string myCapturedText = "";
-            Regex regex = new Regex("(.*):/(.*)/htdocs");
+            Regex regex = new Regex("(.*):/(.*)htdocs");
             int i = 0;
 
             if (regex.IsMatch(file))
             {
                 myCapturedText = regex.Match(file).Groups[i].Value;
-
+                
 
             }
 

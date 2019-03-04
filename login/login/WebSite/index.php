@@ -150,6 +150,7 @@ and open the template in the editor.
 	
 	}
 	)
+	
 	function onemore(termek, vale)
 	{
 	ar=$( "#szamlalo" ).html();
@@ -158,10 +159,20 @@ and open the template in the editor.
 
 	$( "#szamlalo" ).html(ar);
 
-
+	$.post("counter.php",
+  {
+  id: termek,
+  ertek: vald,
+  muv: kivon
+  },
+  function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
   });
-		
 	}
+
+  
+		
+	
 	function oneless(termek, vale)
 	{
 	ar=$( "#szamlalo" ).html();
@@ -169,8 +180,16 @@ and open the template in the editor.
 	ar=eval(Number(ar)-Number(vale));
 	
 	$( "#szamlalo" ).html(ar);
-
+	$.post("counter.php",
+  {
+  id: termek,
+  ertek: vald,
+  muv: hozaad
+  },
+  function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
   });
+ 
 
 
 	
