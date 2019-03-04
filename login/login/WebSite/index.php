@@ -153,7 +153,10 @@ and open the template in the editor.
 	function onemore(termek, vale)
 	{
 	
-		console.log(document.getElementsByClassName(termek).value);
+		var id = document.getElementsByClassName(termek);
+if (id.length > 0) {
+    alert (id[0].value);
+}
 		
 
 		
@@ -171,7 +174,10 @@ and open the template in the editor.
 	function oneless(termek, vale)
 	{
 
-		console.log(document.getElementsByClassName(termek));
+		var id = document.getElementsByClassName(termek);
+if (id.length > 0) {
+    alert (id[0].value);
+}
 		ar=$( "#szamlalo" ).html();
 		
 		ar=eval(Number(ar)-Number(vale));
