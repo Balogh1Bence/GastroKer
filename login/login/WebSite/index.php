@@ -163,6 +163,7 @@ and open the template in the editor.
   {
   id: termek,
   ertek: vald,
+  vnev: data,
   muv: kivon
   },
   function(data, status){
@@ -184,6 +185,7 @@ and open the template in the editor.
   {
   id: termek,
   ertek: vald,
+  vnev: data,
   muv: hozaad
   },
   function(data, status){
