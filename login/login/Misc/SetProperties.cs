@@ -24,6 +24,7 @@ namespace login.Misc
             apa.UseShellExecute = false;
             apa.FileName = "c:\\xampp\\apache_start.bat";
             apa.WindowStyle = ProcessWindowStyle.Hidden;
+
             Process exeProcess = Process.Start(apa);
             ProcessStartInfo apa2 = new ProcessStartInfo();
             apa2.Verb = "runas";

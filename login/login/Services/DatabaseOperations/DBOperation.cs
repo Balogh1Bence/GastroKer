@@ -100,13 +100,13 @@ namespace login.Services.DatabaseOperations
         {
             text += "%";
             text = '"' + text + '"';
-            MessageBox.Show(text);
+            
             
             MySqlConnection connect = new MySqlConnection(conG);
             DataTable dt = new DataTable();
             connect.Open();
             string query = "SELECT * FROM termekek where Tnev like "+text+"";
-            MessageBox.Show(query);
+           
 
             MySqlCommand cm = new MySqlCommand(query, connect);
          

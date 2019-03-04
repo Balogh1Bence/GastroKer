@@ -66,6 +66,7 @@ and open the template in the editor.
         <script>
 		var ar;
 		var data="";
+		
 		$("#szam").hide();
             function felhNevEllenorzes()
             {
@@ -152,18 +153,26 @@ and open the template in the editor.
 	function onemore(termek, vale)
 	{
 	ar=$( "#szamlalo" ).html();
+
 	ar=eval(Number(ar)+Number(vale));
+
 	$( "#szamlalo" ).html(ar);
-		alert(termek+" "+vale)
+
+
+  });
+		
 	}
 	function oneless(termek, vale)
 	{
 	ar=$( "#szamlalo" ).html();
 	
 	ar=eval(Number(ar)-Number(vale));
-	ar=vale;
+	
 	$( "#szamlalo" ).html(ar);
-	alert(termek+" "+vale)
+
+  });
+
+
 	
 	}
 	
