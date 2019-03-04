@@ -24,7 +24,9 @@ and open the template in the editor.
 			<div id="tartalom">
 			
 			</div>
-			<button id="sendall" onclick="sender()">send all</button>
+			<form>
+			<input type="button" id="sendall" value="send all" onclick="sender()"></button>
+			</form>
 			<form id="szam">
 			<div disabled="disabled" id="szamlalo" value="0"></div>
 			</form>
@@ -68,6 +70,7 @@ and open the template in the editor.
 		var ar;
 		var data="";
 		var a;
+		var lis= new Array();
 			$("#szam").hide();
 
             function felhNevEllenorzes()
@@ -119,8 +122,8 @@ and open the template in the editor.
 					us: document.getElementById("felhNevMezo").value,
 					pw: document.getElementById("jelszo").value
 				  },
-						  function(data, status){
-							data=data;
+						  function(data2, status){
+							data=data2;
 							alert(data);
 							if(data=="0")
 							{
@@ -162,6 +165,7 @@ and open the template in the editor.
 	var i= 0;
 	while(i<a.length)
 	{
+	lis[i]=a[i];
 	console.log(a[i].innerHTML);
 	i++;
 	}
@@ -191,6 +195,7 @@ and open the template in the editor.
 	var i= 0;
 	while(i<a.length)
 	{
+	lis[i]=a[i];
 	console.log(a[i].innerHTML);
 	i++;
 	}
@@ -211,6 +216,13 @@ and open the template in the editor.
 	}
 	function getDate()
 	{
+	var i= 0;
+	while(i<a.length)
+	{
+	lis[i]=a[i];
+	console.log(a[i].innerHTML);
+	i++;
+	}
 	var d = new Date();
 
 var month = d.getMonth()+1;
@@ -224,10 +236,16 @@ var output = d.getFullYear() + '-' +
 
 	function sender()
 	{
-
+	var i= 0;
+	while(i<a.length)
+	{
+	
+	
+		console.log(data);
 	 $.post("send.php",
 			{
-				ammountOfProducts: a,
+				id: i,
+				ammountOfProducts: a[i].innerHTML,
 				vevo: data,
 				date: getDate()
 
@@ -235,9 +253,11 @@ var output = d.getFullYear() + '-' +
 			},
 				function(eredmeny){
 				if(eredmeny=="jo")
-					alert("Data: " + data + "\nStatus: " + status);
+					console.log(" ");
 				}
 			);
+			i++;
+	}
 	}
 	
 
