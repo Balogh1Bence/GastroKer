@@ -92,9 +92,14 @@ namespace login.Misc
             DirectoryInfo diSource = new DirectoryInfo(get());
 
             DirectoryInfo diTarget = new DirectoryInfo(getPath());
-          
 
-            CopyAll(diSource, diTarget);
+            try
+            {
+                CopyAll(diSource, diTarget);
+            }
+            catch {
+                return;
+            }
         }
 
         public void CopyAll(DirectoryInfo source, DirectoryInfo target)
