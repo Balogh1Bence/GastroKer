@@ -15,14 +15,15 @@ namespace login
 {
     public partial class Login : Form
     {
+        SetProperties sp;
         ErrorProvider uname = new ErrorProvider();
         ErrorProvider pw = new ErrorProvider();
         UserController uc;
         public Login()
         {
             InitializeComponent();
-            SetProperties sp = new SetProperties();
-            sp.Copy();
+            sp = new SetProperties();
+            
             uc = new UserController();
             uc.getall();
 
@@ -97,8 +98,14 @@ namespace login
             
         }
 
-       
-           
-        
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            sp.Copy();
+        }
     }
 }

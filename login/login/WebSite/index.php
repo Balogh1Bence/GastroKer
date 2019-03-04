@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name='author' content="Kirsch János Márk">
+       
         <link rel="stylesheet" href="css/foundation.css"/>
         <script src="jquery-3.3.1.min.js"></script>
     </head>
@@ -22,7 +22,12 @@ and open the template in the editor.
                     </h1>
             </div>
 			<div id="tartalom">
+			
 			</div>
+			<form id="szam">
+			<div disabled="disabled" id="szamlalo" value="0"></div>
+			</form>
+			
             <div id="urlapTarolo" class="jumbotron">
                 <form>
                     <div id="formElemek" class="beljebbKezdes">
@@ -59,7 +64,9 @@ and open the template in the editor.
             </div>
         </div>
         <script>
+		var ar;
 		var data="";
+		$("#szam").hide();
             function felhNevEllenorzes()
             {
                 if($('#felhNevMezo').val().length < 4)
@@ -123,6 +130,7 @@ and open the template in the editor.
 				  else{
 				  $("#urlapTarolo").hide();
 				  $("#bej").hide();
+				  $("#szam").show();
 				    $.post("loadall.php",
   {
     us: data
@@ -141,13 +149,22 @@ and open the template in the editor.
 	
 	}
 	)
-	function onemore(termek)
+	function onemore(termek, vale)
 	{
-		
+	ar=$( "#szamlalo" ).html();
+	ar=eval(Number(ar)+Number(vale));
+	$( "#szamlalo" ).html(ar);
+		alert(termek+" "+vale)
 	}
-	function oneless(termek)
+	function oneless(termek, vale)
 	{
-		
+	ar=$( "#szamlalo" ).html();
+	
+	ar=eval(Number(ar)-Number(vale));
+	ar=vale;
+	$( "#szamlalo" ).html(ar);
+	alert(termek+" "+vale)
+	
 	}
 	
 
