@@ -26,8 +26,9 @@ namespace login.Services
                 {
                     string[] s = fi.Name.Split('.');
                     forms.Add(s[0]);
+                    
 
-                    }
+                }
               
 
 
