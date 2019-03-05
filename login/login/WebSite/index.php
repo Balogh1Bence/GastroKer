@@ -152,11 +152,8 @@ and open the template in the editor.
 	
 	function onemore(termek, vale)
 	{
-	
-		var id = document.getElementsByClassName(termek);
-if (id.length > 0) {
-    alert (id[0].value);
-}
+	document.getElementsByClassName(termek)[0].value=Number(document.getElementsByClassName(termek)[0].value)+Number(1);
+
 		
 
 		
@@ -173,11 +170,13 @@ if (id.length > 0) {
 	
 	function oneless(termek, vale)
 	{
+	if(document.getElementsByClassName(termek)[0].value==0)
+	{
+	return;
+	}
+	document.getElementsByClassName(termek)[0].value=Number(document.getElementsByClassName(termek)[0].value)-Number(1);
 
-		var id = document.getElementsByClassName(termek);
-if (id.length > 0) {
-    alert (id[0].value);
-}
+
 		ar=$( "#szamlalo" ).html();
 		
 		ar=eval(Number(ar)-Number(vale));
