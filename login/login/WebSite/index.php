@@ -187,6 +187,7 @@ and open the template in the editor.
 	document.getElementsByName(termek)[0].innerHTML=Number(document.getElementsByName(termek)[0].innerHTML)-Number(1);
 
 	a=document.getElementsByTagName("span");
+
 	var i= 0;
 	while(i<a.length)
 	{
