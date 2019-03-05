@@ -119,7 +119,7 @@
       <DependentUpon>Szerk.cs</DependentUpon>
     </Compile>
     <Compile Include="validator\IgnoreEmptyOrWhiteSpace.cs" />
-    <None Include="WebSite\counter.php" />
+    <None Include="WebSite\send.php" />
     <None Include="WebSite\loadall.php" />
     <None Include="WebSite\connectG.php" />
     <None Include="WebSite\login.php" />

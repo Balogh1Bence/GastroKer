@@ -24,6 +24,7 @@ and open the template in the editor.
 			<div id="tartalom">
 			
 			</div>
+			<button id="sendall" onclick="sender">send all</button>
 			<form id="szam">
 			<div disabled="disabled" id="szamlalo" value="0"></div>
 			</form>
@@ -176,12 +177,33 @@ and open the template in the editor.
 	}
 	document.getElementsByClassName(termek)[0].value=Number(document.getElementsByClassName(termek)[0].value)-Number(1);
 
+	 var a=document.getElementsByTagName("textarea");
+	 
 
 		ar=$( "#szamlalo" ).html();
 		
 		ar=eval(Number(ar)-Number(vale));
 		
 		$( "#szamlalo" ).html(ar);
+		var all=document.getElementsByTagName("textbox").value;
+		/*
+		 $.post("send.php",
+			{
+				ammountOfProducts: a,
+				city: "Duckburg"
+			},
+				function(data, status){
+					alert("Data: " + data + "\nStatus: " + status);
+				}
+			);*/
+
+
+
+
+	}
+	function sender()
+	{
+
 	}
 	
 
