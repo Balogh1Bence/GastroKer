@@ -41,6 +41,7 @@
             this.partnersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.newPartnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.placeHolderTextBox1 = new login.Misc.PlaceHolderTextBox();
+            this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -119,7 +120,8 @@
             // 
             this.partnersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.partnersToolStripMenuItem1,
-            this.newPartnerToolStripMenuItem});
+            this.newPartnerToolStripMenuItem,
+            this.customersToolStripMenuItem});
             this.partnersToolStripMenuItem.Name = "partnersToolStripMenuItem";
             this.partnersToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.partnersToolStripMenuItem.Text = "Partners";
@@ -127,14 +129,14 @@
             // partnersToolStripMenuItem1
             // 
             this.partnersToolStripMenuItem1.Name = "partnersToolStripMenuItem1";
-            this.partnersToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
+            this.partnersToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.partnersToolStripMenuItem1.Text = "Carriers";
             this.partnersToolStripMenuItem1.Click += new System.EventHandler(this.partnersToolStripMenuItem1_Click);
             // 
             // newPartnerToolStripMenuItem
             // 
             this.newPartnerToolStripMenuItem.Name = "newPartnerToolStripMenuItem";
-            this.newPartnerToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.newPartnerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newPartnerToolStripMenuItem.Text = "New Partner";
             this.newPartnerToolStripMenuItem.Click += new System.EventHandler(this.newPartnerToolStripMenuItem_Click);
             // 
@@ -150,6 +152,13 @@
             this.placeHolderTextBox1.TabIndex = 7;
             this.placeHolderTextBox1.Text = "szűrés név alapján";
             this.placeHolderTextBox1.TextChanged += new System.EventHandler(this.placeHolderTextBox1_TextChanged);
+            // 
+            // customersToolStripMenuItem
+            // 
+            this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customersToolStripMenuItem.Text = "Customers";
+            this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
             // Rakt
             // 
@@ -189,5 +198,6 @@
         private System.Windows.Forms.ToolStripMenuItem partnersToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem newPartnerToolStripMenuItem;
         private Misc.PlaceHolderTextBox placeHolderTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
     }
 }

@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using login.Misc;
 namespace login.Services.DatabaseOperations
 {
     class DBOperation
@@ -34,6 +34,28 @@ namespace login.Services.DatabaseOperations
                 + "PORT=\"3306\";";
         }
 
+       
+
+        public DataTable customSelector(string vevo)
+        {
+            DataTable dt = new DataTable();
+
+            MySqlConnection connect = new MySqlConnection(conG);
+            vevo = '"' + vevo + '"';
+            connect.Open();
+            string query = "SELECT Tnev, Tmenny, Vnev, Vdate FROM rend, termekek where rend.Tkod=termekek.Tkod and  Vnev = " + vevo + " and Tmenny !=0";
+
+
+            MySqlCommand cm = new MySqlCommand(query, connect);
+
+
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cm);
+            da.Fill(dt);
+            connect.Close();
+
+            return dt;
+        }
         public void update(int id, MdTermekek t)
         {
             
@@ -51,27 +73,8 @@ namespace login.Services.DatabaseOperations
 
             DateTime dt = t.getSzavido();
 
-
-            string st = dt.ToShortDateString();
-
-            st = st.Replace('.', '-');
-            st = st.TrimEnd('-');
-
-
-
-            string uj = "";
-            int i = 0;
-            while (i < st.Length)
-            {
-                if (st[i] != ' ')
-                {
-                    uj += st[i];
-                }
-
-
-
-                i++;
-            }
+            string uj=dt.toMysqlFormat();
+            
 
 
             string query = "UPDATE `termekek` SET `Tkod`=" + t.getTkod() + ",`Tnev`='" + t.getTNev() + "',`Tar`=" + t.getTar() + ",`Tkeszl`=" + t.getTkeszl() + ",`Tmert`='" + t.getMert() + "',`Tkatkod`=" + t.getTkatkod() + ",`Tvonkod`=" + t.getTvonkod() + ",`Tszavido`='" + uj + "',`Tegalizalte`=" + t.getTegalizalte() + " WHERE Tkod=" + id + "";
@@ -148,26 +151,9 @@ namespace login.Services.DatabaseOperations
             DateTime dt = termekek.getSzavido();
 
 
-            string st = dt.ToShortDateString();
+            string uj = dt.toMysqlFormat();
 
-            st = st.Replace('.', '-');
-            st = st.TrimEnd('-');
-
-
-
-            string uj = "";
-            int i = 0;
-            while (i < st.Length)
-            {
-                if (st[i] != ' ')
-                {
-                    uj += st[i];
-                }
-
-
-
-                i++;
-            }
+           
 
 
             string query = "INSERT INTO `regitermekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + termekek.getTkod() + "', '" + termekek.getTNev() + "', '" + termekek.getTar() + "', '" + termekek.getTkeszl() + "', '" + termekek.getMert() + "', '" + termekek.getTkatkod() + "', '" + termekek.getTvonkod() + "', '" + termekek.getSzavido() + "', '" + termekek.getTegalizalte() + "')";
@@ -213,26 +199,9 @@ namespace login.Services.DatabaseOperations
             DateTime dt = termekek.getSzavido();
 
 
-            string st = dt.ToShortDateString();
+            string uj = dt.toMysqlFormat();
 
-            st = st.Replace('.', '-');
-            st = st.TrimEnd('-');
-
-
-
-            string uj = "";
-            int i = 0;
-            while (i < st.Length)
-            {
-                if (st[i] != ' ')
-                {
-                    uj += st[i];
-                }     
-
-                
-
-                i++;
-            }
+         
 
 
             string query = "INSERT INTO `termekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + termekek.getTkod() + "', '" + termekek.getTNev() + "', '" + termekek.getTar() + "', '" + termekek.getTkeszl() + "', '" + termekek.getMert() + "', '" + termekek.getTkatkod() + "', '" + termekek.getTvonkod() + "', '" + termekek.getSzavido() + "', '" + termekek.getTegalizalte() + "')";

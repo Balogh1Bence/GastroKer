@@ -160,5 +160,11 @@ namespace login
             dataGridView1.DataSource= rs.SzurNevAlapjan(placeHolderTextBox1.Text);
             
         }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Customers c = new Customers();
+            c.Show();
+        }
     }
 }

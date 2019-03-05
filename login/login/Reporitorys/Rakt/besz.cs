@@ -80,7 +80,7 @@ namespace login.Reporitorys
             Adatbazis a = new Adatbazis();
             MySQLDatabaseInterface mdi = a.kapcsolodas();
             mdi.open();
-            string query = "SELECT * FROM termekek ";
+            string query = "SELECT * FROM besz ";
             DataTable dtCustomer = mdi.getToDataTable(query);
             mdi.close();
 
