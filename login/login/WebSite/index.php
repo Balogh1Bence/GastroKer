@@ -153,7 +153,7 @@ and open the template in the editor.
 	
 	function onemore(termek, vale)
 	{
-	document.getElementsByClassName(termek)[0].value=Number(document.getElementsByClassName(termek)[0].value)+Number(1);
+	document.getElementsByName(termek)[0].innerHTML=Number(document.getElementsByName(termek)[0].innerHTML)+Number(1);
 
 		
 
@@ -171,11 +171,11 @@ and open the template in the editor.
 	
 	function oneless(termek, vale)
 	{
-	if(document.getElementsByClassName(termek)[0].value==0)
+	if(document.getElementsByName(termek)[0].value==0)
 	{
 	return;
 	}
-	document.getElementsByClassName(termek)[0].value=Number(document.getElementsByClassName(termek)[0].value)-Number(1);
+	document.getElementsByName(termek)[0].innerHTML=Number(document.getElementsByName(termek)[0].innerHTML)-Number(1);
 
 	 var a=document.getElementsByTagName("textarea");
 	 
@@ -186,24 +186,39 @@ and open the template in the editor.
 		
 		$( "#szamlalo" ).html(ar);
 		var all=document.getElementsByTagName("textbox").value;
-		/*
-		 $.post("send.php",
-			{
-				ammountOfProducts: a,
-				city: "Duckburg"
-			},
-				function(data, status){
-					alert("Data: " + data + "\nStatus: " + status);
-				}
-			);*/
+		
+		
 
 
 
 
 	}
+	function getDate()
+	{
+	var d = new Date();
+
+var month = d.getMonth()+1;
+var day = d.getDate();
+
+var output = d.getFullYear() + '-' +
+    (month<10 ? '0' : '') + month + '-' +
+    (day<10 ? '0' : '') + day;
+	return output;
+	}
 	function sender()
 	{
+	 $.post("send.php",
+			{
+				ammountOfProducts: a,
+				vevo: data,
+				date: getDate(),
 
+
+			},
+				function(data, status){
+					alert("Data: " + data + "\nStatus: " + status);
+				}
+			);
 	}
 	
 
