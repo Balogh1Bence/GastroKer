@@ -18,6 +18,7 @@ namespace login
         {
             
             InitializeComponent();
+            dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.DataSource = cs.LoadCustomers();
         }
@@ -31,7 +32,7 @@ namespace login
             }
             
             //jó, de mibe töltsem bele?
-            cs.LoadOrders(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+            /*cs.LoadOrders(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());*/
 
         }
     }

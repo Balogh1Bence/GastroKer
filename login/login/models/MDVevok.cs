@@ -11,8 +11,8 @@ namespace Gastro
         public int _azon;
         protected string _nev;
         protected int _adoazon;
-        protected int _banksz;
-        protected int _tel;
+        protected long _banksz;
+        protected long _tel;
         protected bool _dolg;
         protected bool _torzs;
         protected int _vasmenny;
@@ -28,7 +28,7 @@ namespace Gastro
             this._felh = felh;
             this._jelsz = jelsz;
         }
-        public MDVevok(int azon ,string nev, int adoazon, int banksz, int tel, bool dolg, bool torzs, int vasmenny, string felh, string jelsz, string email)
+        public MDVevok(int azon ,string nev, int adoazon, long banksz, long tel, bool dolg, bool torzs, int vasmenny, string felh, string jelsz, string email)
         {
             this._azon = azon;
             this._nev = nev;
@@ -59,13 +59,13 @@ namespace Gastro
             get { return _adoazon; }
             set { _adoazon = value; }
         }
-        public virtual int Banksz
+        public virtual long Banksz
         {
             get { return _banksz; }
             set { _banksz = value; }
         }
        
-        public virtual int Tel
+        public virtual long Tel
         {
             get { return _tel; }
             set { _tel = value; }

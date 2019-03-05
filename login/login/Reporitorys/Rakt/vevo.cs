@@ -5,6 +5,7 @@ using System.Data;
 using System.Text;
 using login.models;
 using login.Services.DatabaseOperations;
+using login.Services.ConnectToMysqlDatabase;
 namespace Gastro
 {
     
@@ -32,48 +33,49 @@ namespace Gastro
         internal DataTable loadCustomers()
         {
             DataTable cDT = new DataTable();
-            cDT.Columns.Add("Tkod", typeof(int));
-            cDT.Columns.Add("Tnev", typeof(string));
-            cDT.Columns.Add("Tar", typeof(int));
-            cDT.Columns.Add("Tkeszl", typeof(int));
-            cDT.Columns.Add("Tmert", typeof(string));
-            cDT.Columns.Add("Tkatkod", typeof(int));
-            cDT.Columns.Add("Tvonkod", typeof(int));
-            cDT.Columns.Add("Tszavido", typeof(DateTime));
+          
+            cDT.Columns.Add("nev", typeof(string));
+            cDT.Columns.Add("ado azon", typeof(int));
+            cDT.Columns.Add("banksz", typeof(long));
+            cDT.Columns.Add("tel", typeof(long));
+            
 
-            cDT.Columns.Add("Tegalizalte", typeof(bool));
-            foreach (MdTermekek c in ts)
+            
+            foreach (MDVevok vevo in vevok)
             {
 
-                cDT.Rows.Add(c.getTkod(), c.getTNev(), c.getTar(), c.getTkeszl(), c.getMert(), c.getTkatkod(), c.getTvonkod(), c.getSzavido(), c.getTegalizalte());
+                cDT.Rows.Add(vevo.Nev, vevo.Adoazon, vevo.Banksz, vevo.Tel);
             }
+            return cDT;
         }
         private void fillCustomersListFromDatabase()
         {
             Adatbazis a = new Adatbazis();
             MySQLDatabaseInterface mdi = a.kapcsolodas();
             mdi.open();
-            string query = "SELECT * FROM termekek ";
+            string query = "SELECT * FROM vevok ";
             DataTable dtCustomer = mdi.getToDataTable(query);
             mdi.close();
 
             foreach (DataRow row in dtCustomer.Rows)
             {
 
-                int Tkod = Convert.ToInt32(row["Tkod"].ToString());
-                string Tnev = row["Tnev"].ToString();
-                int Tar = Convert.ToInt32(row["Tar"].ToString());
-                int Tkeszl = Convert.ToInt32(row["Tkeszl"].ToString());
-                string Tmert = row["Tmert"].ToString();
-                int Tkatkod = Convert.ToInt32(row["Tkatkod"].ToString());
-                int Tvonkod = Convert.ToInt32(row["Tvonkod"].ToString());
+                int azon = Convert.ToInt32(row["azon"].ToString());
+                string nev = row["nev"].ToString();
+                int adoazon = Convert.ToInt32(row["adoazon"].ToString());
+                long banksz = Convert.ToInt64(row["banksz"].ToString());
+                long tel = Convert.ToInt64(row["tel"].ToString());
+                bool dolg = Convert.ToBoolean(row["dolg"].ToString());
+                bool torzs = Convert.ToBoolean(row["torzs"].ToString());
+                int vasmenny = Convert.ToInt32(row["vasmenny"].ToString());
+                string felh = row["felh"].ToString();
+                string jelsz = row["jelsz"].ToString();
+                string email = row["email"].ToString();
 
-                DateTime Tszavido = Convert.ToDateTime(row["Tszavido"].ToString());
 
-
-                bool Tegalizalte = Convert.ToBoolean(row["Tegalizalte"].ToString());
-                MDVevok v = new MDVevok(Tkod, Tnev, Tar, Tkeszl, Tmert, Tkatkod, Tvonkod, Tszavido, Tegalizalte);
-                ts.Add(c);
+              
+                MDVevok v = new MDVevok(azon, nev, adoazon,banksz,tel, dolg, torzs, vasmenny, felh, jelsz, email);
+                vevok.Add(v);
             }
 
         }
