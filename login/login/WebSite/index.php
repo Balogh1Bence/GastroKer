@@ -24,7 +24,7 @@ and open the template in the editor.
 			<div id="tartalom">
 			
 			</div>
-			<button id="sendall" onclick="sender">send all</button>
+			<button id="sendall" onclick="sender()">send all</button>
 			<form id="szam">
 			<div disabled="disabled" id="szamlalo" value="0"></div>
 			</form>
@@ -67,7 +67,7 @@ and open the template in the editor.
         <script>
 		var ar;
 		var data="";
-		
+		var a;
 			$("#szam").hide();
 
             function felhNevEllenorzes()
@@ -155,8 +155,16 @@ and open the template in the editor.
 	{
 	document.getElementsByName(termek)[0].innerHTML=Number(document.getElementsByName(termek)[0].innerHTML)+Number(1);
 
-		
-
+		a=document.getElementsByTagName("span");
+			
+	
+	
+	var i= 0;
+	while(i<a.length)
+	{
+	console.log(a[i].innerHTML);
+	i++;
+	}
 		
 		ar=$( "#szamlalo" ).html();
 
@@ -171,14 +179,21 @@ and open the template in the editor.
 	
 	function oneless(termek, vale)
 	{
-	if(document.getElementsByName(termek)[0].value==0)
+
+	if(document.getElementsByClassName(termek)[0].innerHTML==0)
 	{
 	return;
 	}
 	document.getElementsByName(termek)[0].innerHTML=Number(document.getElementsByName(termek)[0].innerHTML)-Number(1);
 
-	 var a=document.getElementsByTagName("textarea");
-	 
+	a=document.getElementsByTagName("span");
+	var i= 0;
+	while(i<a.length)
+	{
+	console.log(a[i].innerHTML);
+	i++;
+	}
+
 
 		ar=$( "#szamlalo" ).html();
 		
@@ -205,17 +220,20 @@ var output = d.getFullYear() + '-' +
     (day<10 ? '0' : '') + day;
 	return output;
 	}
+
 	function sender()
 	{
+
 	 $.post("send.php",
 			{
 				ammountOfProducts: a,
 				vevo: data,
-				date: getDate(),
+				date: getDate()
 
 
 			},
-				function(data, status){
+				function(eredmeny){
+				if(eredmeny=="jo")
 					alert("Data: " + data + "\nStatus: " + status);
 				}
 			);
