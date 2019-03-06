@@ -35,15 +35,15 @@ and open the template in the editor.
                 <form>
                     <div id="formElemek" class="beljebbKezdes">
                         <input name="felhNev" id="felhNevMezo" class="kitoltendoMezo" type='text' placeholder="Felhasználói név" onkeyup="ellenorzes()">
-                        <span id="hibaFelh" class="hibaVisszaJelzes">                            
-                        </span>
+                        <div id="hibaFelh" class="hibaVisszaJelzes">                            
+                        </div>
                         <a id="regGomb" href="regisztracio.php" tabindex="4">
                             Regisztráció
                         </a>
                         <br>
                         <input name="jelszo" id="jelszo" class="kitoltendoMezo" type="password" placeholder="Jelszó" onkeyup="ellenorzes()">
-                        <span id="hibaJelszo" class="hibaVisszaJelzes">                            
-                        </span>
+                        <div id="hibaJelszo" class="hibaVisszaJelzes">                            
+                        </div>
                         <br>
                         <div class="linkTaroloKozep">
                             <a id="regGombKozep" href="regisztracio.php" tabindex="4">
@@ -241,7 +241,6 @@ var output = d.getFullYear() + '-' +
 	{
 	
 	
-		console.log(data);
 	 $.post("send.php",
 			{
 				id: i,

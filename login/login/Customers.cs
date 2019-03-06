@@ -14,25 +14,46 @@ namespace login
     public partial class Customers : Form
     {
         CustomerService cs = new CustomerService();
+        BoughtItems bi;
         public Customers()
         {
-            
+           
             InitializeComponent();
+          
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.DataSource = cs.LoadCustomers();
+            
+           
+            
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 1)
+            try
             {
-                dataGridView1.ClearSelection();
-                return;
+                if (dataGridView1 != null)
+                {
+                    if (dataGridView1.SelectedRows.Count > 1)
+                    {
+                        dataGridView1.ClearSelection();
+                        return;
+                    }
+                    if (dataGridView1.SelectedRows.Count == -1)
+                    {
+                        dataGridView1.ClearSelection();
+                        return;
+                    }
+
+                    //jó, de mibe töltsem bele?
+                    bi=new BoughtItems(
+                    cs.LoadOrders(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()));
+                    bi.Show();
+                }
+                else return;
             }
-            
-            //jó, de mibe töltsem bele?
-            /*cs.LoadOrders(dataGridView1.SelectedRows[0].Cells[1].Value.ToString());*/
+            catch
+            { return; }
 
         }
     }

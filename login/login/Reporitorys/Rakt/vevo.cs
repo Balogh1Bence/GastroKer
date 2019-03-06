@@ -38,13 +38,14 @@ namespace Gastro
             cDT.Columns.Add("ado azon", typeof(int));
             cDT.Columns.Add("banksz", typeof(long));
             cDT.Columns.Add("tel", typeof(long));
+            cDT.Columns.Add("felh", typeof(string));
             
 
             
             foreach (MDVevok vevo in vevok)
             {
 
-                cDT.Rows.Add(vevo.Nev, vevo.Adoazon, vevo.Banksz, vevo.Tel);
+                cDT.Rows.Add(vevo.Nev, vevo.Adoazon, vevo.Banksz, vevo.Tel, vevo.Felh);
             }
             return cDT;
         }

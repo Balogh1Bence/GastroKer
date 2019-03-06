@@ -43,7 +43,7 @@ namespace login.Services.DatabaseOperations
             MySqlConnection connect = new MySqlConnection(conG);
             vevo = '"' + vevo + '"';
             connect.Open();
-            string query = "SELECT Tnev, Tmenny, Vnev, Vdate FROM rend, termekek where rend.Tkod=termekek.Tkod and  Vnev = " + vevo + " and Tmenny !=0";
+            string query = "SELECT Tnev, Tmenny, Vnev, Vdate FROM rend, termekek where rend.Tkod=termekek.Tkod and  Vnev = " + vevo + " and Tmenny !=0 order by Vdate desc";
 
 
             MySqlCommand cm = new MySqlCommand(query, connect);
