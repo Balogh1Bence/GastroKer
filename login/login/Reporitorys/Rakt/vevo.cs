@@ -48,9 +48,9 @@ namespace Gastro
                 cDT.Rows.Add(vevo.Nev, vevo.Adoazon, vevo.Banksz, vevo.Tel, vevo.Felh);
             }
             return cDT;
-        }
+        } 
         private void fillCustomersListFromDatabase()
-        {
+        {    
             Adatbazis a = new Adatbazis();
             MySQLDatabaseInterface mdi = a.kapcsolodas();
             mdi.open();
