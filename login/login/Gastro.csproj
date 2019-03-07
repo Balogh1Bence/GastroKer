@@ -78,7 +78,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Misc\date.cs" />
-    <Compile Include="Misc\myDataGridViewExtension.cs" />
     <Compile Include="Misc\mypw.cs" />
     <Compile Include="Misc\PlaceHolder.cs">
       <SubType>Component</SubType>

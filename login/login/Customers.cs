@@ -21,20 +21,21 @@ namespace login
         {
             elso = true;
             InitializeComponent();
-            dataGridView1.NoSelectedRow();
+            
            
             dataGridView1.ReadOnly = true;
            
             dataGridView1.DataSource = cs.LoadCustomers();
-
+           
            
           
             
             
         }
-      
+ 
 
-        private void dgse(object sender, EventArgs e)
+
+        private void changer(object sender, EventArgs e)
         {
             try
             {
@@ -61,6 +62,20 @@ namespace login
             catch
             { return; }
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_Enter(object sender, EventArgs e)
+        {
+           
+            dataGridView1.ClearSelection();
+          
+            dataGridView1.SelectionChanged += changer;
+           
         }
     }
 }
