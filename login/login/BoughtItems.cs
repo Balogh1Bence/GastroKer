@@ -28,6 +28,7 @@ namespace login
         {
             int sum = db.getPriceOfItems(vevoNev);
             string address = db.getAddress(vevoNev);
+
         }
     }
 }

@@ -207,7 +207,6 @@
     <Content Include="bin\Debug\MySql.Data.dll" />
     <Content Include="Misc\felh.sql" />
     <Content Include="Misc\gastro.sql" />
-    <Content Include="Misc\scheme.html" />
     <Content Include="MySql.Data.dll" />
     <Content Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-grid.css" />
     <Content Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-grid.min.css" />
