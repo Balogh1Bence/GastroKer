@@ -9,26 +9,32 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using login.Services.ConnectToMysqlDatabase;
 using login.Services;
+using login.Misc;
 namespace login
 {
     public partial class Customers : Form
     {
         CustomerService cs = new CustomerService();
         BoughtItems bi;
+        bool elso;
         public Customers()
         {
-           
+            elso = true;
             InitializeComponent();
-          
-            dataGridView1.ReadOnly = true;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.DataSource = cs.LoadCustomers();
-            
+            dataGridView1.NoSelectedRow();
            
+            dataGridView1.ReadOnly = true;
+           
+            dataGridView1.DataSource = cs.LoadCustomers();
+
+           
+          
+            
             
         }
+      
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void dgse(object sender, EventArgs e)
         {
             try
             {
