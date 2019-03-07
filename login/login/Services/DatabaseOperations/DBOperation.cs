@@ -34,7 +34,15 @@ namespace login.Services.DatabaseOperations
                 + "PORT=\"3306\";";
         }
 
-       
+        internal string getAddress(string vevoNev)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal int getPriceOfItems(string vevoNev)
+        {
+            throw new NotImplementedException();
+        }
 
         public DataTable customSelector(string vevo)
         {

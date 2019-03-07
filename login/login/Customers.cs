@@ -46,8 +46,8 @@ namespace login
                     }
 
                     //jó, de mibe töltsem bele?
-                    bi=new BoughtItems(
-                    cs.LoadOrders(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()));
+                    bi = new BoughtItems(
+                    cs.LoadOrders(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()), dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
                     bi.Show();
                 }
                 else return;
