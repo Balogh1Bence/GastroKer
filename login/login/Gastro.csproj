@@ -133,6 +133,16 @@
     </Compile>
     <Compile Include="validator\IgnoreEmptyOrWhiteSpace.cs" />
     <None Include="bin\Debug\login.exe.config" />
+    <None Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-grid.css.map" />
+    <None Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-grid.min.css.map" />
+    <None Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-reboot.css.map" />
+    <None Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap.css.map" />
+    <None Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap.min.css.map" />
+    <None Include="WebSite\css\bootstrap-4.3.1-dist\js\bootstrap.bundle.js.map" />
+    <None Include="WebSite\css\bootstrap-4.3.1-dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="WebSite\css\bootstrap-4.3.1-dist\js\bootstrap.js.map" />
+    <None Include="WebSite\css\bootstrap-4.3.1-dist\js\bootstrap.min.js.map" />
     <None Include="WebSite\send.php" />
     <None Include="WebSite\loadall.php" />
     <None Include="WebSite\connectG.php" />
@@ -198,6 +208,16 @@
     <Content Include="Misc\felh.sql" />
     <Content Include="Misc\gastro.sql" />
     <Content Include="MySql.Data.dll" />
+    <Content Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-grid.css" />
+    <Content Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-grid.min.css" />
+    <Content Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-reboot.css" />
+    <Content Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-reboot.min.css" />
+    <Content Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap.css" />
+    <Content Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap.min.css" />
+    <Content Include="WebSite\css\bootstrap-4.3.1-dist\js\bootstrap.bundle.js" />
+    <Content Include="WebSite\css\bootstrap-4.3.1-dist\js\bootstrap.bundle.min.js" />
+    <Content Include="WebSite\css\bootstrap-4.3.1-dist\js\bootstrap.js" />
+    <Content Include="WebSite\css\bootstrap-4.3.1-dist\js\bootstrap.min.js" />
     <Content Include="WebSite\css\foundation.css" />
     <Content Include="WebSite\css\foundation.min.css" />
     <Content Include="WebSite\jquery-3.3.1.min.js" />

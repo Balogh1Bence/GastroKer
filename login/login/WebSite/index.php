@@ -8,7 +8,9 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-       
+          <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css"/>
+		  <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap.css"/>
+		<link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/foundation.css"/>
 	
         <script src="jquery-3.3.1.min.js"></script>
@@ -25,8 +27,9 @@ and open the template in the editor.
 			<div id="tartalom">
 			
 			</div>
-			<form>
-			<input type="button" id="sendall" value="send all" onclick="sender()"></button>
+			<form id="sendall">
+			<input type="button" value="send all" onclick="sender()"></button>
+			<input type="button" id="logout" value="log out" onclick="log()"></button>
 			</form>
 			<form id="szam">
 			<div disabled="disabled" id="szamlalo" value="0"></div>
@@ -38,18 +41,15 @@ and open the template in the editor.
                         <input name="felhNev" id="felhNevMezo" class="kitoltendoMezo" type='text' placeholder="Felhasználói név" onkeyup="ellenorzes()">
                         <div id="hibaFelh" class="hibaVisszaJelzes">                            
                         </div>
-                        <a id="regGomb" href="regisztracio.php" tabindex="4">
-                            Regisztráció
-                        </a>
+                       
                         <br>
                         <input name="jelszo" id="jelszo" class="kitoltendoMezo" type="password" placeholder="Jelszó" onkeyup="ellenorzes()">
+						<input type="checkbox" onclick="myFunction2()">Show Password 
                         <div id="hibaJelszo" class="hibaVisszaJelzes">                            
                         </div>
                         <br>
                         <div class="linkTaroloKozep">
-                            <a id="regGombKozep" href="regisztracio.php" tabindex="4">
-                                Regisztráció
-                            </a>
+                          
                         </div>
                         <input id="gombMehet" type="button" class="btn btn-sm btn-primary" value="Mehet"
                                    disabled="disabled">
@@ -72,8 +72,22 @@ and open the template in the editor.
 		var data="";
 		var a;
 		var lis= new Array();
+	
+			function myFunction2() {
+	  var x = document.getElementById("jelszo");
+	  if (x.type === "password") {
+		x.type = "text";
+	  } else {
+		x.type = "password";
+	  }
+	} 
 			$("#szam").hide();
-
+			$("#sendall").hide();
+				function log()
+		{
+			data="";
+			location.reload();
+		}
             function felhNevEllenorzes()
             {
                 if($('#felhNevMezo').val().length < 4)
@@ -134,6 +148,7 @@ and open the template in the editor.
 								$("#urlapTarolo").hide();
 								$("#bej").hide();
 								$("#szam").show();
+								$("#sendall").show();
 									$.post("loadall.php",
 									{
 										us: data
