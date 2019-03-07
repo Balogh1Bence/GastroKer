@@ -89,12 +89,43 @@ namespace login
             MessageBox.Show(rs.getLastId()+"");
             if (_Sid == rs.getLastId())
             {
-                MessageBox.Show("WOLOLOOOOOOOOOOO");
+                
                 return;
                 
             }
-            MessageBox.Show("Test WOLOLOOO");
-            id=termekek.getTkod();
+            if (NameHolder.hasPlaceHolder)
+            {
+                NameHolder.Focus();
+                NameHolder.Text = termekek.getTNev();
+
+            }
+            if (PriceHolder.hasPlaceHolder)
+            {
+                PriceHolder.Focus();
+                PriceHolder.Text = termekek.getTar().ToString();
+            }
+            if (AmmountHolder.hasPlaceHolder)
+            {
+                AmmountHolder.Focus();
+                AmmountHolder.Text = termekek.getTkeszl().ToString();
+            }
+            if (UnitHolder.hasPlaceHolder)
+            {
+                UnitHolder.Focus();
+                UnitHolder.Text = termekek.getMert();
+            }
+            if (CodeHolder.hasPlaceHolder)
+            {
+                CodeHolder.Focus();
+                CodeHolder.Text = termekek.getTkatkod().ToString();
+            }
+            if (VonCodeHolder.hasPlaceHolder)
+            {
+                VonCodeHolder.Focus();
+                VonCodeHolder.Text = termekek.getTvonkod().ToString();
+            }
+
+            id =termekek.getTkod();
             
             termekek.setTar(Convert.ToInt32(PriceHolder.Text));
             
@@ -155,6 +186,8 @@ namespace login
 
             }
             else { eg = false; }
+
+            
 
 
             MdTermekek t = new MdTermekek(_Sid, NameHolder.Text, Convert.ToInt32(PriceHolder.Text), Convert.ToInt32(AmmountHolder.Text), UnitHolder.Text, Convert.ToInt32(CodeHolder.Text), Convert.ToInt32(VonCodeHolder.Text), dateTimePicker1.Value, eg);

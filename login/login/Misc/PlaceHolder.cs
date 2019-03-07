@@ -89,7 +89,7 @@ namespace login.Misc
                 GotFocus += removePlaceHolder;
                 LostFocus += setPlaceholder;
            
-        }
+            }
 
             private void setPlaceholder(object sender, EventArgs e)
             {
@@ -99,6 +99,10 @@ namespace login.Misc
             private void removePlaceHolder(object sender, EventArgs e)
             {
                 removePlaceHolder();
+            }
+            public bool hasPlaceHolder
+            {
+              get { return isPlaceHolder; }
             }
         }
     

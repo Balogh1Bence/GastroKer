@@ -16,15 +16,14 @@ namespace login
     {
         CustomerService cs = new CustomerService();
         BoughtItems bi;
-        bool elso;
         public Customers()
         {
-            elso = true;
+            
             InitializeComponent();
             
            
             dataGridView1.ReadOnly = true;
-           
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.DataSource = cs.LoadCustomers();
            
            

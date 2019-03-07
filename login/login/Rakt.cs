@@ -156,7 +156,9 @@ namespace login
             {
                 return;
             }
+            
             dataGridView1.DataSource = null;
+            MessageBox.Show("Test");
             dataGridView1.DataSource= rs.SzurNevAlapjan(placeHolderTextBox1.Text);
             
         }
