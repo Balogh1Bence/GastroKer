@@ -104,6 +104,7 @@
     <Compile Include="Reporitorys\Rakt\helyek.cs" />
     <Compile Include="Reporitorys\Rakt\kat.cs" />
     <Compile Include="models\MDRegiTermekek.cs" />
+    <Compile Include="models\MDRend.cs" />
     <Compile Include="Reporitorys\Rakt\szall.cs" />
     <Compile Include="Reporitorys\Rakt\szamla.cs" />
     <Compile Include="Reporitorys\Rakt\szamlatetel.cs" />

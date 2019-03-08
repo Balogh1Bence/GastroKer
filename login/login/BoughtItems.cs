@@ -30,6 +30,7 @@ namespace login
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             List<int> arak = db.getPriceOfItems(vevoNev);
             string address = db.getAddress(vevoNev);
 
