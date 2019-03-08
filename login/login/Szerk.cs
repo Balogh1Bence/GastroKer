@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using login.models;
 using login.Services;
 using login.Misc;
-
+using login.validator;
 namespace login
 {
     public partial class Szerk : Form
@@ -25,27 +25,7 @@ namespace login
             rs = new RktServ();
             this.termekek = termekek;
             InitializeComponent();
-
-
-
-            //backGroundBox1.setImg("hegyek.JPG");
-            /*foreach (Control c in this.Controls)
-
-            {
-
-                if (c.GetType().ToString() == "System.Windows.Form.PlaceHolderTextBox")
-
-                {
-
-                    
-
-                }
-
-            }*///it wont work.....
             
-
-
-
             button1.DialogResult = DialogResult.OK;
             
             NameHolder.Text = termekek.getTNev();
@@ -124,7 +104,7 @@ namespace login
                 VonCodeHolder.Focus();
                 VonCodeHolder.Text = termekek.getTvonkod().ToString();
             }
-
+            
             id =termekek.getTkod();
             
             termekek.setTar(Convert.ToInt32(PriceHolder.Text));
