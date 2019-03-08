@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Már 03. 08:57
--- Kiszolgáló verziója: 10.1.37-MariaDB
--- PHP verzió: 7.3.0
+-- Létrehozás ideje: 2019. Már 08. 11:12
+-- Kiszolgáló verziója: 10.1.30-MariaDB
+-- PHP verzió: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -147,6 +147,16 @@ CREATE TABLE `rend` (
   `Vnev` varchar(50) NOT NULL,
   `Vdate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- A tábla adatainak kiíratása `rend`
+--
+
+INSERT INTO `rend` (`Tkod`, `Tmenny`, `Vnev`, `Vdate`) VALUES
+(1, 4, 'KissJozsef    ', '2019-03-08'),
+(2, 3, 'KissJozsef    ', '2019-03-08'),
+(3, 5, 'KissJozsef    ', '2019-03-08'),
+(4, 3, 'KissJozsef    ', '2019-03-08');
 
 -- --------------------------------------------------------
 
@@ -304,7 +314,7 @@ ALTER TABLE `regitermekek`
 -- A tábla indexei `rend`
 --
 ALTER TABLE `rend`
-  ADD PRIMARY KEY (`Vnev`,`Tkod`);
+  ADD PRIMARY KEY (`Tkod`);
 
 --
 -- A tábla indexei `szall`
@@ -357,6 +367,12 @@ ALTER TABLE `helyek`
 --
 ALTER TABLE `kat`
   MODIFY `Tkatkod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT a táblához `rend`
+--
+ALTER TABLE `rend`
+  MODIFY `Tkod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT a táblához `termekek`

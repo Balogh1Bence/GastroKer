@@ -31,17 +31,18 @@ namespace login
         private void button1_Click(object sender, EventArgs e)
         {
             List<int> arak = db.getPriceOfItems(vevoNev);
-            string address = db.getAddress(vevoNev);
+            /*string address = db.getAddress(vevoNev);*/
             string toScheme = "";
             int i = 0;
             string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             path += "\\Misc\\scheme.txt";
             MessageBox.Show(path);
-          
+
+            toScheme += "Termék neve | Rendelt mennyiség | rendelés dátuma | tétel értéke";
             while (i < dataGridView1.Rows.Count-1)
             {
                 DataRow row = items.Rows[i];
-                toScheme += row[0].ToString() + " | " + row[1].ToString() + " | " + row[2].ToString() + " | " + row[3].ToString();
+                toScheme += row[0].ToString() + " | " + row[1].ToString() + " | " + row[2].ToString() + " | " + row[3].ToString()+" | "+arak[i]+" Forint";
                 toScheme += '\n';
                 toScheme += "____________________________________________________________________________________________";
                 toScheme += '\n';

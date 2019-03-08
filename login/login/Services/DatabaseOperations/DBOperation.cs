@@ -41,21 +41,22 @@ namespace login.Services.DatabaseOperations
 
         internal List<int> getPriceOfItems(string vevoNev)
         {
+            vevoNev = '"' + vevoNev + '"';
             List<int> arak= new List<int>();
             MySqlConnection connect = new MySqlConnection(conG);
             connect.Open();
-            string query = "select Tar from rend, termekek where Vnev="+vevoNev+" and rend.Tkod=termekek.Tkod";
+            string query = "select Tar*Tmenny as ar from rend, termekek where rend.Tkod=termekek.Tkod and rend.Vnev="+vevoNev+" ";
+            MessageBox.Show(query);
             MySqlCommand cm = new MySqlCommand(query, connect);
-            cm.ExecuteReader();
+        
             MySqlDataReader dr = cm.ExecuteReader();
-            string remelemnemures = string.Empty;
 
 
             int i = 0;
             while (dr.Read())
             {
 
-                arak[i] = Convert.ToInt32(dr["azon"]);
+                arak.Add(Convert.ToInt32(dr["ar"].ToString()));
                 i++;
 
 
