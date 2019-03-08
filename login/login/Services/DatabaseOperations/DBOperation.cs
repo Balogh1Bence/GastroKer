@@ -36,7 +36,19 @@ namespace login.Services.DatabaseOperations
 
         internal string getAddress(string vevoNev)
         {
-            throw new NotImplementedException();
+            string address = "";
+            vevoNev = '"' + vevoNev + '"';
+            MySqlConnection connect = new MySqlConnection(conG);
+            connect.Open();
+            string query= "SELECT  concat(irsz,' ', varos,' ', utca,' ', szam) as cim from helyek, vevok where vevok.azon=helyek.IntAzon and vevok.felh="+vevoNev+" limit 1";
+            MySqlCommand cm = new MySqlCommand(query, connect);
+            MySqlDataReader dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                address = dr["cim"].ToString();
+            }
+            return address;
+
         }
 
         internal List<int> getPriceOfItems(string vevoNev)

@@ -1,4 +1,6 @@
-Termék neve | Rendelt mennyiség | rendelés dátuma | tétel értékekolbi | 4 | KissJozsef     | 2019. 03. 08. 0:00:00 | 1200 Forint
+6666 Szeged Kis 45
+Termék neve | Rendelt mennyiség | rendelés dátuma | tétel értéke
+kolbi | 4 | KissJozsef     | 2019. 03. 08. 0:00:00 | 1200 Forint
 ____________________________________________________________________________________________
 f?lzs?ros tej | 3 | KissJozsef     | 2019. 03. 08. 0:00:00 | 1200 Forint
 ____________________________________________________________________________________________

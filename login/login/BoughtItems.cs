@@ -31,8 +31,11 @@ namespace login
         private void button1_Click(object sender, EventArgs e)
         {
             List<int> arak = db.getPriceOfItems(vevoNev);
-            /*string address = db.getAddress(vevoNev);*/
+            string address = db.getAddress(vevoNev);
+
             string toScheme = "";
+            toScheme += address;
+            toScheme += '\n';
             int i = 0;
             string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             path += "\\Misc\\scheme.txt";
