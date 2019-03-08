@@ -39,6 +39,7 @@ namespace login
             MessageBox.Show(path);
 
             toScheme += "Termék neve | Rendelt mennyiség | rendelés dátuma | tétel értéke";
+            toScheme += '\n';
             while (i < dataGridView1.Rows.Count-1)
             {
                 DataRow row = items.Rows[i];
