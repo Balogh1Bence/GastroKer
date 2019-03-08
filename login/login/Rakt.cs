@@ -24,6 +24,7 @@ namespace login
             InitializeComponent();
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -150,15 +151,19 @@ namespace login
 
         private void placeHolderTextBox1_TextChanged(object sender, EventArgs e)
         {
+            
             IgnoreEmptyOrWhiteSpace ieows = new IgnoreEmptyOrWhiteSpace();
-
+            
             if (ieows.isNull(placeHolderTextBox1.Text))
             {
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource =
+                 rs.SzurNevAlapjan("");
                 return;
             }
             
             dataGridView1.DataSource = null;
-            MessageBox.Show("Test");
+            
             dataGridView1.DataSource= rs.SzurNevAlapjan(placeHolderTextBox1.Text);
             
         }
