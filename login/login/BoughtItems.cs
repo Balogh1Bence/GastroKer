@@ -30,8 +30,8 @@ namespace login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*int sum = db.getPriceOfItems(vevoNev);
-            string address = db.getAddress(vevoNev);*/
+            List<int> arak = db.getPriceOfItems(vevoNev);
+            string address = db.getAddress(vevoNev);
             string toScheme = "";
             int i = 0;
             string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));

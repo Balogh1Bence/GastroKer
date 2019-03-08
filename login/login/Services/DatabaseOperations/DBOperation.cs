@@ -39,9 +39,29 @@ namespace login.Services.DatabaseOperations
             throw new NotImplementedException();
         }
 
-        internal int getPriceOfItems(string vevoNev)
+        internal List<int> getPriceOfItems(string vevoNev)
         {
-            throw new NotImplementedException();
+            List<int> arak= new List<int>();
+            MySqlConnection connect = new MySqlConnection(conG);
+            connect.Open();
+            string query = "select Tar from rend, termekek where Vnev="+vevoNev+" and rend.Tkod=termekek.Tkod";
+            MySqlCommand cm = new MySqlCommand(query, connect);
+            cm.ExecuteReader();
+            MySqlDataReader dr = cm.ExecuteReader();
+            string remelemnemures = string.Empty;
+
+
+            int i = 0;
+            while (dr.Read())
+            {
+
+                arak[i] = Convert.ToInt32(dr["azon"]);
+                i++;
+
+
+            }
+            connect.Close();
+            return arak;
         }
 
         public DataTable customSelector(string vevo)
