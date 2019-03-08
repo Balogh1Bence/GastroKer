@@ -37,7 +37,7 @@ namespace login
             string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             path += "\\Misc\\scheme.txt";
             MessageBox.Show(path);
-            
+          
             while (i < dataGridView1.Rows.Count-1)
             {
                 DataRow row = items.Rows[i];

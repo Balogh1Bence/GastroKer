@@ -25,6 +25,7 @@ namespace login
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
            
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,37 +35,43 @@ namespace login
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 1)
+            try
             {
-                dataGridView1.ClearSelection();
-                return;
-            }
-            bool teg = false;
-            
-            if (dataGridView1.SelectedRows[0].Cells[8].Value.ToString()=="True") { teg = true; }
-            MdTermekek termekek = new MdTermekek(
-                Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
-                ,dataGridView1.SelectedRows[0].Cells[1].Value.ToString()
-                ,Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[2].Value.ToString())
-                , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value.ToString())
-                ,dataGridView1.SelectedRows[0].Cells[4].Value.ToString()
-                ,Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[5].Value.ToString())
-                , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[6].Value.ToString())
-                ,Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[7].Value.ToString())
-                ,teg);
-            Szerk sz = new Szerk(termekek);
-            sz.ShowDialog();
-            if (sz.DialogResult == DialogResult.OK)
-            {
-                try
+                if (dataGridView1.SelectedRows.Count > 1)
                 {
-                   
-                    dataGridView1.DataSource = null;
-                   
-                    dataGridView1.DataSource = sz.raktnak();
+                    dataGridView1.ClearSelection();
+                    return;
                 }
-                catch(Exception d) { MessageBox.Show(d.Message); }
-                /*rs.modifyData(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), termekek);*/
+                bool teg = false;
+
+                if (dataGridView1.SelectedRows[0].Cells[8].Value.ToString() == "True") { teg = true; }
+                MdTermekek termekek = new MdTermekek(
+                    Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
+                    , dataGridView1.SelectedRows[0].Cells[1].Value.ToString()
+                    , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[2].Value.ToString())
+                    , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value.ToString())
+                    , dataGridView1.SelectedRows[0].Cells[4].Value.ToString()
+                    , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[5].Value.ToString())
+                    , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[6].Value.ToString())
+                    , Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[7].Value.ToString())
+                    , teg);
+                Szerk sz = new Szerk(termekek);
+                sz.ShowDialog();
+                if (sz.DialogResult == DialogResult.OK)
+                {
+                    try
+                    {
+
+                        dataGridView1.DataSource = null;
+
+                        dataGridView1.DataSource = sz.raktnak();
+                    }
+                    catch (Exception d) { MessageBox.Show(d.Message); }
+                    /*rs.modifyData(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), termekek);*/
+                }
+            }
+            catch (Exception a) { MessageBox.Show("nem jelöltél ki semmit");
+                button1_Click(sender, e);
             }
         }
 
@@ -159,8 +166,11 @@ namespace login
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource =
                  rs.SzurNevAlapjan("");
+
+
                 return;
             }
+            
             
             dataGridView1.DataSource = null;
             
