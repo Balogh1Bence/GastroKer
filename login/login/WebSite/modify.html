@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css"/>
+		  <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap.css"/>
+		<link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/foundation.css"/>
+	
+        <script src="jquery-3.3.1.min.js"></script>
+    </head>
+    <body class="jumbotron">
+        <div class ='kozepre'>
+		<form>
+		<input type="textbox" id="nev" placeholder="név"></input>
+		
+		<input type="textbox" id="adoazon" placeholder="adóazonosító"></input>
+		 
+		<input type="textbox" id="banksz" placeholder="bankszámla száma"></input>
+		
+		<input type="textbox" id="tel" placeholder="telefonszám"></input>
+		
+		<input type="textbox" id="jelsz" placeholder="jelszó"></input>
+		
+		<input type="textbox" id="email" placeholder="email cím"></input>
+		
+		<input type="textbox" id="irsz"  placeholder="az ön neve"></input>
+		
+		<input type="textbox" id="varos" placeholder="város"></input>
+		
+		<input type="textbox" id="utca" placeholder="utca"></input>
+		
+		<input type="textbox" id="szam" placeholder="az ön neve"></input>
+		<input type="button" id="gombMehet" value="mehet"></input>
+		</form>
+
+                  
+        </div>
+
+        <script>
+		function is_ZipCode()
+{
+ regexp = /^\d{4}$/;
+  
+        if (regexp.test(document.getElementById("irsz").value))
+          {
+            return true;
+          }
+        else
+          {
+            return false;
+          }
+}
+		$("#gombMehet").click(function()
+			{
+
+			
+				$.post("modifyUserData.php",
+				  {
+					us: document.getElementById("felhNevMezo").value,
+					pw: document.getElementById("jelszo").value
+				  },
+						
+			})					
+		</script>
+    </body>
+</html>

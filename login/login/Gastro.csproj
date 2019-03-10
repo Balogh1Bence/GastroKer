@@ -134,6 +134,7 @@
     </Compile>
     <Compile Include="validator\IgnoreEmptyOrWhiteSpace.cs" />
     <Compile Include="validator\NoNumber.cs" />
+    <None Include="WebSite\modifyUserData.php" />
     <None Include="bin\Debug\login.exe.config" />
     <None Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-grid.css.map" />
     <None Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-grid.min.css.map" />
@@ -223,6 +224,7 @@
     <Content Include="WebSite\css\foundation.css" />
     <Content Include="WebSite\css\foundation.min.css" />
     <Content Include="WebSite\jquery-3.3.1.min.js" />
+    <Content Include="WebSite\modify.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
