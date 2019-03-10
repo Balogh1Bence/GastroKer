@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Már 08. 11:12
--- Kiszolgáló verziója: 10.1.30-MariaDB
--- PHP verzió: 7.2.1
+-- Létrehozás ideje: 2019. Már 10. 10:07
+-- Kiszolgáló verziója: 10.1.37-MariaDB
+-- PHP verzió: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -22,6 +22,22 @@ SET time_zone = "+00:00";
 -- Adatbázis: `gastro`
 --
 
+DELIMITER $$
+--
+-- Eljárások
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `doWhile` ()  BEGIN
+DECLARE i INT DEFAULT 0; 
+DECLARE a INT DEFAULT 1;
+WHILE (i <= (select Tkod from rend where Vnev="KissJozsef" order by Tkod desc limit 1)) DO
+  INSERT INTO `szamlatetel`(`szamlatetel`,`nyugtaszam`, `Tkod`, `menny`) VALUES ('', (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.azon="1000" limit 1),(select Tkod from rend where Vnev ="KissJozsef" limit 1),(SELECT Tmenny from rend where Tkod=a));
+    SET i = i+1;
+    set a=a+1;
+END WHILE;
+END$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -30,18 +46,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bej` (
   `IntAzon` int(11) NOT NULL,
-  `Tkod` int(11) NOT NULL
+  `Tkod` int(11) NOT NULL,
+  `Tmenny` int(11) NOT NULL,
+  `Bdate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- A tábla adatainak kiíratása `bej`
 --
 
-INSERT INTO `bej` (`IntAzon`, `Tkod`) VALUES
-(2000, 3),
-(2000, 4),
-(2001, 1),
-(2001, 2);
+INSERT INTO `bej` (`IntAzon`, `Tkod`, `Tmenny`, `Bdate`) VALUES
+(2000, 3, 0, '0000-00-00'),
+(2000, 4, 0, '0000-00-00'),
+(2001, 1, 0, '0000-00-00'),
+(2001, 2, 0, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -85,10 +103,7 @@ CREATE TABLE `helyek` (
 --
 
 INSERT INTO `helyek` (`HelyAzon`, `IntAzon`, `irsz`, `varos`, `utca`, `szam`) VALUES
-(1, 1000, 6666, 'Szeged', 'Kis', 45),
-(2, 1001, 9999, 'K?bekh?za', 'Nagy', 54),
-(3, 1001, 7777, 'Miskolc', 'Csereszny', 30),
-(4, 1000, 5555, '?jszentiv?n', 'Kossuth', 70);
+(1, 1000, 6666, 'Szeged', 'Kis', 45);
 
 -- --------------------------------------------------------
 
@@ -198,7 +213,8 @@ CREATE TABLE `szamla` (
 --
 
 INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES
-(1234123, '2018-01-01', 1001, 234123);
+(1, '2014-02-02', 1000, 500),
+(2, '2018-01-01', 1001, 234123);
 
 -- --------------------------------------------------------
 
@@ -207,6 +223,7 @@ INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES
 --
 
 CREATE TABLE `szamlatetel` (
+  `szamlatetel` int(11) NOT NULL,
   `nyugtaszam` int(50) NOT NULL,
   `Tkod` int(6) NOT NULL,
   `menny` int(7) NOT NULL
@@ -216,9 +233,13 @@ CREATE TABLE `szamlatetel` (
 -- A tábla adatainak kiíratása `szamlatetel`
 --
 
-INSERT INTO `szamlatetel` (`nyugtaszam`, `Tkod`, `menny`) VALUES
-(1234123, 1, 3),
-(1234123, 2, 45);
+INSERT INTO `szamlatetel` (`szamlatetel`, `nyugtaszam`, `Tkod`, `menny`) VALUES
+(1, 1, 1, 3),
+(2, 1, 2, 45),
+(15, 1, 1, 4),
+(16, 1, 1, 3),
+(17, 1, 1, 5),
+(18, 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -296,7 +317,7 @@ ALTER TABLE `besz`
 -- A tábla indexei `helyek`
 --
 ALTER TABLE `helyek`
-  ADD PRIMARY KEY (`HelyAzon`);
+  ADD PRIMARY KEY (`IntAzon`);
 
 --
 -- A tábla indexei `kat`
@@ -326,13 +347,13 @@ ALTER TABLE `szall`
 -- A tábla indexei `szamla`
 --
 ALTER TABLE `szamla`
-  ADD PRIMARY KEY (`Vkod`);
+  ADD PRIMARY KEY (`nyugtaszam`);
 
 --
 -- A tábla indexei `szamlatetel`
 --
 ALTER TABLE `szamlatetel`
-  ADD PRIMARY KEY (`nyugtaszam`,`Tkod`);
+  ADD PRIMARY KEY (`szamlatetel`);
 
 --
 -- A tábla indexei `termekek`
@@ -360,7 +381,7 @@ ALTER TABLE `besz`
 -- AUTO_INCREMENT a táblához `helyek`
 --
 ALTER TABLE `helyek`
-  MODIFY `HelyAzon` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `IntAzon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 
 --
 -- AUTO_INCREMENT a táblához `kat`
@@ -373,6 +394,18 @@ ALTER TABLE `kat`
 --
 ALTER TABLE `rend`
   MODIFY `Tkod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT a táblához `szamla`
+--
+ALTER TABLE `szamla`
+  MODIFY `nyugtaszam` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1234124;
+
+--
+-- AUTO_INCREMENT a táblához `szamlatetel`
+--
+ALTER TABLE `szamlatetel`
+  MODIFY `szamlatetel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT a táblához `termekek`
