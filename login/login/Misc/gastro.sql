@@ -26,11 +26,11 @@ DELIMITER $$
 --
 -- Eljárások
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `doWhile` ()  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `doWhile` (IN vevoNev varchar(255))  BEGIN
 DECLARE i INT DEFAULT 0; 
 DECLARE a INT DEFAULT 1;
-WHILE (i <= (select Tkod from rend where Vnev="KissJozsef" order by Tkod desc limit 1)) DO
-  INSERT INTO `szamlatetel`(`szamlatetel`,`nyugtaszam`, `Tkod`, `menny`) VALUES ('', (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.azon="1000" limit 1),(select Tkod from rend where Vnev ="KissJozsef" limit 1),(SELECT Tmenny from rend where Tkod=a));
+WHILE (i <= (select Tkod from rend where Vnev=vevoNev order by Tkod desc limit 1)) DO
+  INSERT INTO `szamlatetel`(`szamlatetel`,`nyugtaszam`, `Tkod`, `menny`) VALUES ('', (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.azon="1000" limit 1),(select Tkod from rend where Vnev =vevoNev limit 1),(SELECT Tmenny from rend where Tkod=a));
     SET i = i+1;
     set a=a+1;
 END WHILE;

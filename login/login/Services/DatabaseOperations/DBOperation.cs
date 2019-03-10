@@ -77,7 +77,8 @@ namespace login.Services.DatabaseOperations
             MySqlCommand cm = new MySqlCommand(query, connect);
             cm.ExecuteNonQuery();
             cm = new MySqlCommand(query, connect);
-            query = "call doWhile()";
+            direkt hiba | vevok.azon=? illetve vevok.nev="KissJozsef" üres értéket ad vissza a procedurában. 
+            query = "call doWhile("+vevoNev+")";
             cm = new MySqlCommand(query, connect);
             cm.ExecuteNonQuery();
             query = "";
