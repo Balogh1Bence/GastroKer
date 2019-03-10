@@ -81,7 +81,7 @@ namespace login.Services.DatabaseOperations
             query = "call doWhile("+vevoNev+")";
             cm = new MySqlCommand(query, connect);
             cm.ExecuteNonQuery();
-            query = "";
+            query = "itt kéne üríteni a rendelést, de lehet, hogy a dowhile ciklusba lesz benne";
             cm = new MySqlCommand(query, connect);
             cm.ExecuteNonQuery();
             //vevőnév alapján a rendelés kiütése, abból számla készítése, és a rendelés alapján pedig a termékek csökkentése;    
