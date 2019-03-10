@@ -39,5 +39,14 @@ namespace login.Services
             return db.customSelector(vevoNev);
         }
 
+        internal void printTax(string vevoNev, DataTable items)
+        {
+            v.printTax(vevoNev, items);
+        }
+
+        internal void reduceTermekek(string vevoNev)
+        {
+            v.reduceTermekek(vevoNev);
+        }
     }
 }

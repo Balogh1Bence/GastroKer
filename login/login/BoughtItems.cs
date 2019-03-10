@@ -11,11 +11,14 @@ using System.Web;
 using login.Services.DatabaseOperations;
 using System.IO;
 using login.Misc;
+using login.Services;
+
 namespace login
 {
     public partial class BoughtItems : Form
     {
         DataTable items;
+        CustomerService cs;
         string vevoNev;
         DBOperation db = new DBOperation();
         public BoughtItems(DataTable _items, string _vevoNev)
@@ -23,37 +26,16 @@ namespace login
             items = _items;
             vevoNev = _vevoNev;
             InitializeComponent();
-           
+            cs = new CustomerService();
             dataGridView1.DataSource = items;
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            List<int> arak = db.getPriceOfItems(vevoNev);
-            string address = db.getAddress(vevoNev);
 
-            string toScheme = "";
-            toScheme += address;
-            toScheme += '\n';
-            int i = 0;
-            string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-            path += "\\Misc\\scheme.txt";
-            MessageBox.Show(path);
-
-            toScheme += "Termék neve | Rendelt mennyiség | rendelés dátuma | tétel értéke";
-            toScheme += '\n';
-            while (i < dataGridView1.Rows.Count-1)
-            {
-                DataRow row = items.Rows[i];
-                toScheme += row[0].ToString() + " | " + row[1].ToString() + " | " + row[2].ToString() + " | " + row[3].ToString()+" | "+arak[i]+" Forint";
-                toScheme += '\n';
-                toScheme += "____________________________________________________________________________________________";
-                toScheme += '\n';
-                i++;
-            }
-            System.IO.File.WriteAllText(path, toScheme);
+            cs.printTax(vevoNev, items);
+            cs.reduceTermekek(vevoNev);
 
             
         }

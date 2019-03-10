@@ -48,7 +48,19 @@ namespace Gastro
                 cDT.Rows.Add(vevo.Nev, vevo.Adoazon, vevo.Banksz, vevo.Tel, vevo.Felh);
             }
             return cDT;
-        } 
+        }
+
+        internal void reduceTermekek(string vevoNev)
+        {
+            d.reduceTermekek(vevoNev);
+        }
+
+        internal void printTax(string vevoNev, DataTable items)
+        {
+
+            d.createTaxbill(vevoNev, items);
+        }
+
         private void fillCustomersListFromDatabase()
         {    
             Adatbazis a = new Adatbazis();

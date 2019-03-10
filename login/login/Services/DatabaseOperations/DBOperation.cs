@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using login.Misc;
+using System.IO;
+
 namespace login.Services.DatabaseOperations
 {
     class DBOperation
@@ -33,7 +35,39 @@ namespace login.Services.DatabaseOperations
                 + "PASSWORD=\"\";"
                 + "PORT=\"3306\";";
         }
+        public void createTaxbill(string vevoNev, DataTable items)
+        {
+            List<int> arak = getPriceOfItems(vevoNev);
+            string address = getAddress(vevoNev);
 
+            string toScheme = "";
+            toScheme += address;
+            toScheme += '\n';
+            int i = 0;
+            string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+            path += "\\Misc\\scheme.txt";
+            MessageBox.Show(path);
+
+            toScheme += "Termék neve | Rendelt mennyiség | rendelés dátuma | tétel értéke";
+            toScheme += '\n';
+            while (i < items.Rows.Count - 1)
+            {
+                DataRow row = items.Rows[i];
+                toScheme += row[0].ToString() + " | " + row[1].ToString() + " | " + row[2].ToString() + " | " + row[3].ToString() + " | " + arak[i] + " Forint";
+                toScheme += '\n';
+                toScheme += "____________________________________________________________________________________________";
+                toScheme += '\n';
+                i++;
+
+            }
+            System.IO.File.WriteAllText(path, toScheme);
+        }
+        
+        public void reduceTermekek(string vevoNev)
+        {
+            //vevőnév alapján a rendelés kiütése, abból számla készítése, és a rendelés alapján pedig a termékek csökkentése;    
+
+        }
         internal string getAddress(string vevoNev)
         {
             string address = "";
