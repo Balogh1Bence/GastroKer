@@ -224,7 +224,7 @@
     <Content Include="WebSite\css\foundation.css" />
     <Content Include="WebSite\css\foundation.min.css" />
     <Content Include="WebSite\jquery-3.3.1.min.js" />
-    <Content Include="WebSite\modify.html" />
+    <None Include="WebSite\modify.php" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

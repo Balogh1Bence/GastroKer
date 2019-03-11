@@ -1,4 +1,14 @@
-﻿<!DOCTYPE html>
+﻿<?php
+if(isset['user'])
+{
+$data=$_GET['user'];
+}
+else
+{
+$re="re";
+}
+?>
+<!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -18,25 +28,25 @@ and open the template in the editor.
     <body class="jumbotron">
         <div class ='kozepre'>
 		<form>
-		<input type="text" id="nev" placeholder="név">
+		<input type="text" id="nev" placeholder="név" required>
 		
-		<input type="text" id="adoazon" placeholder="adóazonosító">
+		<input type="text" id="adoazon" placeholder="adóazonosító" required>
 		 
-		<input type="text" id="banksz" placeholder="bankszámla száma">
+		<input type="text" id="banksz" placeholder="bankszámla száma" required>
 		
-		<input type="text" id="tel" placeholder="telefonszám">
+		<input type="text" id="tel" placeholder="telefonszám" required>
 		
-		<input type="text" id="jelsz" placeholder="jelszó">
+		<input type="text" id="jelsz" placeholder="jelszó" required>
 		
-		<input type="text" id="email" placeholder="email cím">
+		<input type="text" id="email" placeholder="email cím" required>
 		
-		<input type="text" id="irsz"  placeholder="az ön neve">
+		<input type="text" id="irsz"  placeholder="az ön neve" required>
 		
-		<input type="text" id="varos" placeholder="város">
+		<input type="text" id="varos" placeholder="város" required>
 		
-		<input type="text" id="utca" placeholder="utca">
+		<input type="text" id="utca" placeholder="utca" required>
 		
-		<input type="text" id="szam" placeholder="az ön neve">
+		<input type="text" id="szam" placeholder="az ön neve" required>
 		<input type="button" id="gombMehet" value="mehet" >
 		</form>
 
@@ -44,6 +54,10 @@ and open the template in the editor.
         </div>
 
         <script>
+    if(re=="re")
+	{
+		windows.location("index.php");
+	}
 		function is_ZipCode()
 {
  regexp = /^\d{4}$/;
@@ -63,8 +77,12 @@ and open the template in the editor.
 			
 				$.post("modifyUserData.php",
 				  {
-					us: document.getElementById("felhNevMezo").value,
-					pw: document.getElementById("jelszo").value
+				  felhnev: <?php echo $data?>, 
+
+				    nev: document.getElementById("nev").value,
+					adoazon,
+					banksz,
+				
 				  },
 						
 			})					

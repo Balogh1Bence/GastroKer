@@ -27,6 +27,7 @@ and open the template in the editor.
 			<div id="tartalom">
 			
 			</div>
+		
 			<form id="sendall">
 			<input type="button" value="send all" onclick="sender()"></button>
 			<input type="button" id="logout" value="log out" onclick="log()"></button>
