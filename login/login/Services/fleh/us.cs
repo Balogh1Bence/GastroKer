@@ -46,7 +46,7 @@ namespace login.Services.fleh
                 }
 
 
-                MessageBox.Show(mail);
+
 
             }
             catch (Exception e)

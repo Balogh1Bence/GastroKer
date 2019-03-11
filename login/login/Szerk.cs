@@ -65,8 +65,7 @@ namespace login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(_Sid+"");
-            MessageBox.Show(rs.getLastId()+"");
+      
             if (_Sid == rs.getLastId())
             {
                 
@@ -144,7 +143,7 @@ namespace login
             {
                 p.styleSetter();
             }*/
-            MessageBox.Show("TestRktConst");
+      
             button1.DialogResult = DialogResult.OK;
             NameHolder.PlaceHolderText = "Termék neve";
             PriceHolder.PlaceHolderText = "Termék ára";
@@ -152,7 +151,7 @@ namespace login
             UnitHolder.PlaceHolderText = "Termék mértékegysége";
             CodeHolder.PlaceHolderText = "Termék kategória kódja";
             VonCodeHolder.PlaceHolderText = "Termék vonalkódja";
-            MessageBox.Show("TestRktConst2");
+
 
         }
 

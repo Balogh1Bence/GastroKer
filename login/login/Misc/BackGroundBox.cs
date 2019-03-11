@@ -35,9 +35,9 @@ namespace login.Misc
         }
         public void setImg(string img)
         {
-            MessageBox.Show("Test1");
+           
             Image=Image.FromFile(img);
-            MessageBox.Show("Test2");
+           
             SizeMode= PictureBoxSizeMode.StretchImage;
             Dock = DockStyle.Fill;
             Back();

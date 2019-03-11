@@ -36,10 +36,10 @@ namespace login.Reporitorys.Rakt
 
             if (cDT.Columns.Count > 0) {
                 int i = 0;
-                MessageBox.Show(cDT.Columns.Count+"");
+    
                 while (i < cDT.Columns.Count)
                     cDT.Columns.RemoveAt(i);
-                MessageBox.Show(cDT.Columns.Count + "");
+        
                 i++;
                     }
            
@@ -119,7 +119,7 @@ namespace login.Reporitorys.Rakt
         public DataTable editDataSrc( int id,MdTermekek termekek)
         {
 
-            MessageBox.Show(termekek.getTNev());
+
 
 
 

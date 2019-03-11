@@ -40,7 +40,7 @@ namespace login
         {
             us u = new us();
             Rakt rakt = new Rakt();
-            MessageBox.Show(textBox1.Text);
+           
             if (textBox1.Text == "" || textBox1.Text == null)
             {
                 uname.SetError(textBox1, "üres felhasználónév mező");

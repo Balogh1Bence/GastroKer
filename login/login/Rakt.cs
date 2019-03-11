@@ -66,7 +66,7 @@ namespace login
 
                         dataGridView1.DataSource = sz.raktnak();
                     }
-                    catch (Exception d) { MessageBox.Show(d.Message); }
+                    catch (Exception d) {  }
                     /*rs.modifyData(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), termekek);*/
                 }
             }
@@ -108,8 +108,7 @@ namespace login
 
             
             int id=rs.getLastId();
-            MessageBox.Show(id+"");
-            MessageBox.Show("TestRkt");
+          
 
             Szerk sz = new Szerk(id);
            
@@ -123,7 +122,7 @@ namespace login
 
                     dataGridView1.DataSource = sz.addNewItem();
                 }
-                catch (Exception d) { MessageBox.Show(d.Message); }
+                catch (Exception d) {  }
                 
             }
 

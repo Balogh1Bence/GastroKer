@@ -38,7 +38,7 @@ namespace login.Services
 
         internal DataTable addNewItem(int id, MdTermekek h)
         {
-            MessageBox.Show("TestRKTServ0");
+
             return t.addNewItem(id, h);
             
         }

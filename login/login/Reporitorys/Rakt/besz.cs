@@ -31,10 +31,10 @@ namespace login.Reporitorys
             if (cDT.Columns.Count > 0)
             {
                 int i = 0;
-                MessageBox.Show(cDT.Columns.Count + "");
+    
                 while (i < cDT.Columns.Count)
                     cDT.Columns.RemoveAt(i);
-                MessageBox.Show(cDT.Columns.Count + "");
+               
                 i++;
             }
 
