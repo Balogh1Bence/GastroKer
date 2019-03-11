@@ -74,14 +74,29 @@ and open the template in the editor.
 		$("#gombMehet").click(function()
 			{
 
+			if(!is_ZipCode())
+			{
+			   return;
+			}
 			
+	
+
+
+
 				$.post("modifyUserData.php",
 				  {
-				  felhnev: <?php echo $data?>, 
+				    us: <?php echo $data?>, 
 
 				    nev: document.getElementById("nev").value,
-					adoazon,
-					banksz,
+					adoazon: document.getElementById("adoazon").value,
+					banksz: document.getElementById("banksz").value,
+					tel: document.getElementById("tel").value,
+					jelsz: document.getElementById("jelsz").value,
+					email : document.getElementById("email").value,
+					irsz: document.getElementById("irsz").value,
+					varos: document.getElementById("varos").value,
+					utca: document.getElementById("utca").value,
+					szam: document.getElementById("szam").value
 				
 				  },
 						

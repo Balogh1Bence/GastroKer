@@ -77,7 +77,7 @@ namespace login.Services.DatabaseOperations
                 cm.ExecuteNonQuery();
                 cm = new MySqlCommand(query, connect);
                 vevoNev = '"' + vevoNev + '"';
-                query = "call doWhile(" + vevoNev + ")";
+                query = "call mozgatas(" + vevoNev + ")";
 
                 cm = new MySqlCommand(query, connect);
                 cm.ExecuteNonQuery();
