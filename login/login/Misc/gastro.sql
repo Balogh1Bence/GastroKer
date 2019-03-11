@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Már 10. 10:07
--- Kiszolgáló verziója: 10.1.37-MariaDB
--- PHP verzió: 7.3.0
+-- Létrehozás ideje: 2019. Már 11. 09:15
+-- Kiszolgáló verziója: 10.1.30-MariaDB
+-- PHP verzió: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -26,11 +26,11 @@ DELIMITER $$
 --
 -- Eljárások
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `doWhile` (IN vevoNev varchar(255))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `doWhile` (IN `vevoNev` VARCHAR(255))  BEGIN
 DECLARE i INT DEFAULT 0; 
 DECLARE a INT DEFAULT 1;
 WHILE (i <= (select Tkod from rend where Vnev=vevoNev order by Tkod desc limit 1)) DO
-  INSERT INTO `szamlatetel`(`szamlatetel`,`nyugtaszam`, `Tkod`, `menny`) VALUES ('', (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.azon="1000" limit 1),(select Tkod from rend where Vnev =vevoNev limit 1),(SELECT Tmenny from rend where Tkod=a));
+  INSERT INTO `szamlatetel`(`szamlatetel`,`nyugtaszam`, `Tkod`, `menny`) VALUES (0, (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.felh=vevoNev                                                                                  limit 1),(select Tkod from rend where Vnev =vevoNev limit 1),(SELECT Tmenny from rend where Tkod=a));
     SET i = i+1;
     set a=a+1;
 END WHILE;
@@ -234,12 +234,13 @@ CREATE TABLE `szamlatetel` (
 --
 
 INSERT INTO `szamlatetel` (`szamlatetel`, `nyugtaszam`, `Tkod`, `menny`) VALUES
+(0, 1, 1, 4),
 (1, 1, 1, 3),
 (2, 1, 2, 45),
-(15, 1, 1, 4),
-(16, 1, 1, 3),
-(17, 1, 1, 5),
-(18, 1, 1, 3);
+(19, 1, 1, 4),
+(20, 1, 1, 3),
+(21, 1, 1, 5),
+(22, 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -405,7 +406,7 @@ ALTER TABLE `szamla`
 -- AUTO_INCREMENT a táblához `szamlatetel`
 --
 ALTER TABLE `szamlatetel`
-  MODIFY `szamlatetel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `szamlatetel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT a táblához `termekek`
