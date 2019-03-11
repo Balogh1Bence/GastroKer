@@ -134,6 +134,7 @@
     </Compile>
     <Compile Include="validator\IgnoreEmptyOrWhiteSpace.cs" />
     <Compile Include="validator\NoNumber.cs" />
+    <None Include="WebSite\elsoe.php" />
     <None Include="WebSite\modifyUserData.php" />
     <None Include="bin\Debug\login.exe.config" />
     <None Include="WebSite\css\bootstrap-4.3.1-dist\css\bootstrap-grid.css.map" />

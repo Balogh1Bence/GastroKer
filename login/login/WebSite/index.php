@@ -73,8 +73,7 @@ and open the template in the editor.
 		var data="";
 		var a;
 		var lis= new Array();
-	
-			function myFunction2() {
+		function myFunction2() {
 	  var x = document.getElementById("jelszo");
 	  if (x.type === "password") {
 		x.type = "text";
@@ -146,6 +145,12 @@ and open the template in the editor.
 								console.log("nem jo");
 							}
 							else{
+										 $.post( "elsoe.php", {us: data}, function( uj ) {
+											  if(uj=="1")
+											  {
+												windows.location.replace("modify.php?user="+data+"");
+											  }
+										});
 								$("#urlapTarolo").hide();
 								$("#bej").hide();
 								$("#szam").show();
