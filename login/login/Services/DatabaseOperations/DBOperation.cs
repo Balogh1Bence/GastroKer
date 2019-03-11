@@ -65,21 +65,24 @@ namespace login.Services.DatabaseOperations
         
         public void reduceTermekek(string vevoNev)
         {
-            MySqlConnection connect = new MySqlConnection(conG);
-            connect.Open();
-            DateTime dt = DateTime.Today;
-      
-            string date =dt.toMysqlFormat();        
-            string query = "INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES ('', "+date+", '(select azon from vevok where felh = "+vevoNev+ ")', '(select SUM(Tar*Tmenny) as ar from rend, termekek where rend.Tkod=termekek.Tkod and rend.Vnev="+vevoNev+")')";
-            MySqlCommand cm = new MySqlCommand(query, connect);
-            cm.ExecuteNonQuery();
-            cm = new MySqlCommand(query, connect);
-            vevoNev = '"' + vevoNev + '"';
-            query = "call doWhile("+vevoNev+")";
-           
-            cm = new MySqlCommand(query, connect);
-            cm.ExecuteNonQuery();
-  
+            try
+            {
+                MySqlConnection connect = new MySqlConnection(conG);
+                connect.Open();
+                DateTime dt = DateTime.Today;
+
+                string date = dt.toMysqlFormat();
+                string query = "INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES ('', " + date + ", '(select azon from vevok where felh = " + vevoNev + ")', '(select SUM(Tar*Tmenny) as ar from rend, termekek where rend.Tkod=termekek.Tkod and rend.Vnev=" + vevoNev + ")')";
+                MySqlCommand cm = new MySqlCommand(query, connect);
+                cm.ExecuteNonQuery();
+                cm = new MySqlCommand(query, connect);
+                vevoNev = '"' + vevoNev + '"';
+                query = "call doWhile(" + vevoNev + ")";
+
+                cm = new MySqlCommand(query, connect);
+                cm.ExecuteNonQuery();
+            }
+            catch { }
            
 
         }

@@ -14,10 +14,14 @@ namespace login
         [STAThread]
         static void Main()
         {
-          
+            try
+            {
+
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Login());
+            }
+            catch { }
 
         }
     }
