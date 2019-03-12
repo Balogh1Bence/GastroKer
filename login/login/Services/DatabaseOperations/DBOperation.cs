@@ -63,6 +63,7 @@ namespace login.Services.DatabaseOperations
 
             }
             System.IO.File.WriteAllText(path, toScheme);
+           
             btnPrint_Click(toScheme);
 
         }
