@@ -45,7 +45,7 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `szamla` (IN `vevoNev` VARCHAR(255))  NO SQL
 INSERT INTO `szamla`( `datum`, `Vkod`, `osszeg`) VALUES (CURRENT_DATE(),(select azon from vevok where felh=vevoNev                                                                                                                                                                         ), 
- (select sum((termekek.Tar*rend.Tmenny)) as osszeg from termekek, rend where termekek.Tkod=rend.Tkod ))$$
+ (select sum((termekek.Tar*rend.Tmenny)) as osszeg from termekek, rend where termekek.Tkod=rend.Tkod ));$$
 
 DELIMITER ;
 
