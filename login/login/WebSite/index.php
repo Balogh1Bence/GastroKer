@@ -269,7 +269,7 @@ var output = d.getFullYear() + '-' +
 	
 	 $.post("send.php",
 			{
-				id: i,
+				id: Number(i+1),
 				ammountOfProducts: a[i].innerHTML,
 				vevo: data,
 				date: getDate()

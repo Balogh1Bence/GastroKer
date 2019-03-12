@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Már 12. 11:25
+-- Létrehozás ideje: 2019. Már 12. 13:10
 -- Kiszolgáló verziója: 10.1.34-MariaDB
 -- PHP verzió: 7.2.8
 
@@ -29,7 +29,7 @@ DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mozgatas` (IN `vevoNev` VARCHAR(255))  BEGIN
 DECLARE i INT DEFAULT 0; 
 DECLARE a INT DEFAULT 1;
-  DELETE FROM `rend` WHERE rend.Vkod=vevok.azon and Vnev=vevoNev; 
+
  
 WHILE (i <= (select Tkod from rend where Vnev=vevoNev order by Tkod desc limit 1)-1) DO
   INSERT INTO `szamlatetel`(`szamlatetel`,`nyugtaszam`, `Tkod`, `menny`) VALUES
@@ -38,7 +38,9 @@ WHILE (i <= (select Tkod from rend where Vnev=vevoNev order by Tkod desc limit 1
 
     SET i = i+1;
     set a=a+1;
+    
 END WHILE;
+  DELETE FROM `rend` WHERE rend.Vnev=vevoNev;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `szamla` (IN `vevoNev` VARCHAR(255))  NO SQL
@@ -207,6 +209,13 @@ CREATE TABLE `szamla` (
   `osszeg` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_hungarian_ci;
 
+--
+-- A tábla adatainak kiíratása `szamla`
+--
+
+INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES
+(5, '2019-03-12', 1000, 5550);
+
 -- --------------------------------------------------------
 
 --
@@ -370,16 +379,10 @@ ALTER TABLE `kat`
   MODIFY `Tkatkod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT a táblához `rend`
---
-ALTER TABLE `rend`
-  MODIFY `Tkod` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT a táblához `szamla`
 --
 ALTER TABLE `szamla`
-  MODIFY `nyugtaszam` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `nyugtaszam` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `szamlatetel`
