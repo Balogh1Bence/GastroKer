@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Már 11. 10:26
--- Kiszolgáló verziója: 10.1.30-MariaDB
--- PHP verzió: 7.2.1
+-- Létrehozás ideje: 2019. Már 12. 11:25
+-- Kiszolgáló verziója: 10.1.34-MariaDB
+-- PHP verzió: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -26,7 +26,6 @@ DELIMITER $$
 --
 -- Eljárások
 --
-
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mozgatas` (IN `vevoNev` VARCHAR(255))  BEGIN
 DECLARE i INT DEFAULT 0; 
 DECLARE a INT DEFAULT 1;
@@ -42,11 +41,10 @@ WHILE (i <= (select Tkod from rend where Vnev=vevoNev order by Tkod desc limit 1
 END WHILE;
 END$$
 
-create DEFINER=`root`@`localhost` PROCEDURE 'szamla'(IN 'vevoNev' varchar(255)) BEGIN 
- INSERT into 'szamla'('nyugtaszam', 'datum', 'Vkod', 'osszeg') VALUES (0, CURDATE(),
- (select vkod from vevok where felh=vevoNev), 
- (select sum((termekek.Tar*rend.Tmenny)) as osszeg from termekek, rend where termekek.Tkod=rend.Tkod  ));
- END $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `szamla` (IN `vevoNev` VARCHAR(255))  NO SQL
+INSERT INTO `szamla`( `datum`, `Vkod`, `osszeg`) VALUES (CURRENT_DATE(),(select azon from vevok where felh=vevoNev                                                                                                                                                                         ), 
+ (select sum((termekek.Tar*rend.Tmenny)) as osszeg from termekek, rend where termekek.Tkod=rend.Tkod ))$$
+
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -174,16 +172,6 @@ CREATE TABLE `rend` (
   `Vdate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- A tábla adatainak kiíratása `rend`
---
-
-INSERT INTO `rend` (`Tkod`, `Tmenny`, `Vnev`, `Vdate`) VALUES
-(1, 4, 'KissJozsef    ', '2019-03-08'),
-(2, 3, 'KissJozsef    ', '2019-03-08'),
-(3, 5, 'KissJozsef    ', '2019-03-08'),
-(4, 3, 'KissJozsef    ', '2019-03-08');
-
 -- --------------------------------------------------------
 
 --
@@ -219,19 +207,6 @@ CREATE TABLE `szamla` (
   `osszeg` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_hungarian_ci;
 
---
--- A tábla adatainak kiíratása `szamla`
---
-
-INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES
-(1, '2014-02-02', 1000, 500),
-(2, '2018-01-01', 1001, 234123),
-(1234124, '0000-00-00', 0, 0),
-(1234125, '0000-00-00', 0, 0),
-(1234126, '0000-00-00', 0, 0),
-(1234127, '0000-00-00', 0, 0),
-(1234128, '0000-00-00', 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -244,19 +219,6 @@ CREATE TABLE `szamlatetel` (
   `Tkod` int(6) NOT NULL,
   `menny` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_hungarian_ci;
-
---
--- A tábla adatainak kiíratása `szamlatetel`
---
-
-INSERT INTO `szamlatetel` (`szamlatetel`, `nyugtaszam`, `Tkod`, `menny`) VALUES
-(0, 1, 1, 4),
-(1, 1, 1, 3),
-(2, 1, 2, 45),
-(27, 1, 1, 4),
-(28, 1, 1, 3),
-(29, 1, 1, 5),
-(30, 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -411,19 +373,19 @@ ALTER TABLE `kat`
 -- AUTO_INCREMENT a táblához `rend`
 --
 ALTER TABLE `rend`
-  MODIFY `Tkod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Tkod` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT a táblához `szamla`
 --
 ALTER TABLE `szamla`
-  MODIFY `nyugtaszam` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1234129;
+  MODIFY `nyugtaszam` int(50) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT a táblához `szamlatetel`
 --
 ALTER TABLE `szamlatetel`
-  MODIFY `szamlatetel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `szamlatetel` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT a táblához `termekek`

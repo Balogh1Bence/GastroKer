@@ -64,7 +64,7 @@ namespace login.Services.DatabaseOperations
             }
             System.IO.File.WriteAllText(path, toScheme);
            
-            btnPrint_Click(toScheme);
+            //btnPrint_Click(toScheme);
 
         }
         private void btnPrint_Click(string asd)
