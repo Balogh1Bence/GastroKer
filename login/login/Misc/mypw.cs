@@ -11,8 +11,8 @@ namespace login.Misc
         string _pw;
         public virtual string pw
         {
-            get { return _pw="givemeachance"; }
-            
+            get { return _pw=""; }
+            //mivel az iskolában nem működik, ezért inkább kiszedem innen.
         }
     }
 }
