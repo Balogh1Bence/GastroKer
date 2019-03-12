@@ -30,7 +30,7 @@ DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mozgatas` (IN `vevoNev` VARCHAR(255))  BEGIN
 DECLARE i INT DEFAULT 0; 
 DECLARE a INT DEFAULT 1;
-  DELETE FROM `rend` WHERE Vnev=vevoNev;
+  DELETE FROM `rend` WHERE rend.Vkod=vevok.azon and Vnev=vevoNev; 
   INSERT into 'szamla'('nyugtaszam', 'datum', 'Vkod', 'osszeg') VALUES (0, CURDATE(), (select vkod from vevok where felh=vevoNev), (select sum((termekek.Tar*rend.Tmenny)) as osszeg from termekek, rend where termekek.Tkod=rend.Tkod  ))
 WHILE (i <= (select Tkod from rend where Vnev=vevoNev order by Tkod desc limit 1)-1) DO
   INSERT INTO `szamlatetel`(`szamlatetel`,`nyugtaszam`, `Tkod`, `menny`) VALUES
