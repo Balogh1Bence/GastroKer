@@ -139,7 +139,11 @@ and open the template in the editor.
 				  },
 						  function(data2, status){
 							data=data2;
-							alert(data);
+							
+							if(data=="sikertelen bejelentkezés")
+							{
+								windows.location.replace("index.php");
+							}
 							if(data=="0")
 							{
 								console.log("nem jo");

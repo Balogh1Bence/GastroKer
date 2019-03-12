@@ -13,7 +13,7 @@ if($row['jelsz']==$pw)
         echo $us;
     }
 } else {
-    echo "0";
+    die("sikertelen bejelentkezés");
 }
 }
 ?>    

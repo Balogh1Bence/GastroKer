@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using login.Misc;
 using System.IO;
+using System.Drawing.Printing;
+using System.Drawing;
 
 namespace login.Services.DatabaseOperations
 {
@@ -61,8 +63,29 @@ namespace login.Services.DatabaseOperations
 
             }
             System.IO.File.WriteAllText(path, toScheme);
+            btnPrint_Click(toScheme);
+
         }
-        
+        private void btnPrint_Click(string asd)
+        {
+            string s = asd;
+
+            PrintDocument p = new PrintDocument();
+            p.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
+            {
+                e1.Graphics.DrawString(s, new Font("Times New Roman", 12), new SolidBrush(Color.Black), new RectangleF(0, 0, p.DefaultPageSettings.PrintableArea.Width, p.DefaultPageSettings.PrintableArea.Height));
+
+            };
+            try
+            {
+                p.Print();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Exception Occured While Printing", ex);
+            }
+        }
+
         public void reduceTermekek(string vevoNev)
         {
             try
