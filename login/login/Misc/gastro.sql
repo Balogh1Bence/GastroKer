@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Már 12. 13:10
+-- Létrehozás ideje: 2019. Már 13. 13:19
 -- Kiszolgáló verziója: 10.1.34-MariaDB
 -- PHP verzió: 7.2.8
 
@@ -31,7 +31,7 @@ DECLARE i INT DEFAULT 0;
 DECLARE a INT DEFAULT 1;
 
  
-WHILE (i <= (select Tkod from rend where Vnev=vevoNev order by Tkod desc limit 1)-1) DO
+WHILE (i <= (select Tkod-1 from rend where Vnev=vevoNev order by Tkod desc limit 1)) DO
   INSERT INTO `szamlatetel`(`szamlatetel`,`nyugtaszam`, `Tkod`, `menny`) VALUES
   (0, (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.felh=vevoNev
   limit 1),(select Tkod from rend where Vnev =vevoNev limit 1),(SELECT Tmenny from rend where Tkod=a));
@@ -45,7 +45,7 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `szamla` (IN `vevoNev` VARCHAR(255))  NO SQL
 INSERT INTO `szamla`( `datum`, `Vkod`, `osszeg`) VALUES (CURRENT_DATE(),(select azon from vevok where felh=vevoNev                                                                                                                                                                         ), 
- (select sum((termekek.Tar*rend.Tmenny)) as osszeg from termekek, rend where termekek.Tkod=rend.Tkod ));$$
+ (select sum((termekek.Tar*rend.Tmenny)) as osszeg from termekek, rend where termekek.Tkod=rend.Tkod ))$$
 
 DELIMITER ;
 
@@ -214,7 +214,7 @@ CREATE TABLE `szamla` (
 --
 
 INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES
-(5, '2019-03-12', 1000, 5550);
+(9, '2019-03-13', 1000, 4400);
 
 -- --------------------------------------------------------
 
@@ -228,6 +228,16 @@ CREATE TABLE `szamlatetel` (
   `Tkod` int(6) NOT NULL,
   `menny` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `szamlatetel`
+--
+
+INSERT INTO `szamlatetel` (`szamlatetel`, `nyugtaszam`, `Tkod`, `menny`) VALUES
+(1, 9, 1, 1),
+(2, 9, 1, 2),
+(3, 9, 1, 3),
+(4, 9, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -382,13 +392,13 @@ ALTER TABLE `kat`
 -- AUTO_INCREMENT a táblához `szamla`
 --
 ALTER TABLE `szamla`
-  MODIFY `nyugtaszam` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `nyugtaszam` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT a táblához `szamlatetel`
 --
 ALTER TABLE `szamlatetel`
-  MODIFY `szamlatetel` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `szamlatetel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT a táblához `termekek`

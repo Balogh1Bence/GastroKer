@@ -1,8 +1,8 @@
 6666 Szeged Kis 45
 Termék neve | Rendelt mennyiség | rendelés dátuma | tétel értéke
-kolbi | 1 | KissJozsef     | 2019. 03. 13. 0:00:00 | 300 Forint
+f?lzs?ros tej | 4 | KissJozsef     | 2019. 03. 13. 0:00:00 | 300 Forint
 ____________________________________________________________________________________________
-f?lzs?ros tej | 4 | KissJozsef     | 2019. 03. 13. 0:00:00 | 800 Forint
+fagyos csirkecomb | 3 | KissJozsef     | 2019. 03. 13. 0:00:00 | 800 Forint
 ____________________________________________________________________________________________
-fagyos csirkecomb | 3 | KissJozsef     | 2019. 03. 13. 0:00:00 | 2700 Forint
+kolbika | 2 | KissJozsef     | 2019. 03. 13. 0:00:00 | 2700 Forint
 ____________________________________________________________________________________________
