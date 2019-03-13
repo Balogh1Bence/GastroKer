@@ -71,6 +71,10 @@ and open the template in the editor.
         <script>
 		var ar;
 		var data="";
+		/*if(!localStorage.getItem(us))
+		{
+		data=localStorage.getItem(us);
+		}*/
 		var a;
 		var lis= new Array();
 		function myFunction2() {

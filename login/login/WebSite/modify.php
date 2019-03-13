@@ -102,7 +102,10 @@ and open the template in the editor.
 					utca: document.getElementById("utca").value,
 					szam: document.getElementById("szam").value
 				
-				  });
+				  },function( us ) {
+						window.location.replace("index.php");
+						localStorage.setItem("us","<?php echo $data?>");})
+				  ;
 						
 			}					
 		</script>
