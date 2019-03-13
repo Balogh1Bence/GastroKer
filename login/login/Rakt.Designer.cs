@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-    
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();

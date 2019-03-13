@@ -2,16 +2,6 @@
 {
     partial class Szerk
     {
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private Misc.PlaceHolderTextBox NameHolder;
-        private Misc.PlaceHolderTextBox PriceHolder;
-        private Misc.PlaceHolderTextBox AmmountHolder;
-        private Misc.PlaceHolderTextBox UnitHolder;
-        private Misc.PlaceHolderTextBox CodeHolder;
-        private Misc.PlaceHolderTextBox VonCodeHolder;
-        private Misc.BackGroundBox backGroundBox1;
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -38,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -134,7 +123,17 @@
             this.CodeHolder.PlaceHolderText = null;
             this.CodeHolder.Size = new System.Drawing.Size(100, 20);
             this.CodeHolder.TabIndex = 21;
-          
+            // 
+            // VonCodeHolder
+            // 
+            this.VonCodeHolder.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.VonCodeHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.VonCodeHolder.ForeColor = System.Drawing.Color.Gray;
+            this.VonCodeHolder.Location = new System.Drawing.Point(219, 252);
+            this.VonCodeHolder.Name = "VonCodeHolder";
+            this.VonCodeHolder.PlaceHolderText = null;
+            this.VonCodeHolder.Size = new System.Drawing.Size(100, 20);
+            this.VonCodeHolder.TabIndex = 22;
             // 
             // backGroundBox1
             // 
@@ -172,20 +171,16 @@
         }
 
         #endregion
-        public void initializeCustomComponents()
-        {
-            // 
-            // VonCodeHolder
-            // 
-            this.VonCodeHolder.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.VonCodeHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
-            this.VonCodeHolder.ForeColor = System.Drawing.Color.Gray;
-            this.VonCodeHolder.Location = new System.Drawing.Point(219, 252);
-            this.VonCodeHolder.Name = "VonCodeHolder";
-            this.VonCodeHolder.PlaceHolderText = null;
-            this.VonCodeHolder.Size = new System.Drawing.Size(100, 20);
-            this.VonCodeHolder.TabIndex = 22;
-        }
-       
+
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private Misc.PlaceHolderTextBox NameHolder;
+        private Misc.PlaceHolderTextBox PriceHolder;
+        private Misc.PlaceHolderTextBox AmmountHolder;
+        private Misc.PlaceHolderTextBox UnitHolder;
+        private Misc.PlaceHolderTextBox CodeHolder;
+        private Misc.PlaceHolderTextBox VonCodeHolder;
+        private Misc.BackGroundBox backGroundBox1;
     }
 }
