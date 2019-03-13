@@ -38,12 +38,16 @@ namespace login.Misc
 
             string path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             path += "\\Misc\\felh.sql";
+          
             string path2 = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             path2 += "\\Misc\\gastro.sql";
             string text = System.IO.File.ReadAllText(path);
-            
+      
             string text2 = System.IO.File.ReadAllText(path2);
+            System.Windows.Forms.MessageBox.Show(text);
+         
             System.Threading.Thread.Sleep(5000);
+
             string connStr = "SERVER=\"localhost\";"
                + "UID=\"root\";"
                + "PASSWORD=\"\";"
@@ -56,8 +60,7 @@ namespace login.Misc
                 cmd.ExecuteNonQuery();
             cmd.CommandText = "CREATE DATABASE IF NOT EXISTS `gastro`;";
             cmd.ExecuteNonQuery();
-            try
-            {
+         
 
                 string conF = "SERVER=\"localhost\";"
                     + "DATABASE=\"felh\";"
@@ -81,9 +84,8 @@ namespace login.Misc
                 cmd = connec.CreateCommand();
                 cmd.CommandText = text2;
                 cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            { return; }
+            
+            
 
         }
         public void Copy()

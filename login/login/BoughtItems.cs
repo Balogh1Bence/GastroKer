@@ -40,5 +40,9 @@ namespace login
             
         }
 
+        private void BoughtItems_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

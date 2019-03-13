@@ -64,28 +64,10 @@ namespace login.Services.DatabaseOperations
             }
             System.IO.File.WriteAllText(path, toScheme);
            
-            //btnPrint_Click(toScheme);
+           
 
         }
-        private void btnPrint_Click(string asd)
-        {
-            string s = asd;
-
-            PrintDocument p = new PrintDocument();
-            p.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
-            {
-                e1.Graphics.DrawString(s, new Font("Times New Roman", 12), new SolidBrush(Color.Black), new RectangleF(0, 0, p.DefaultPageSettings.PrintableArea.Width, p.DefaultPageSettings.PrintableArea.Height));
-
-            };
-            try
-            {
-                p.Print();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Exception Occured While Printing", ex);
-            }
-        }
+     
 
         public void reduceTermekek(string vevoNev)
         {
@@ -96,9 +78,9 @@ namespace login.Services.DatabaseOperations
                 DateTime dt = DateTime.Today;
 
                 string date = dt.toMysqlFormat();
-                string query = "INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES ('', " + date + ", '(select azon from vevok where felh = " + vevoNev + ")', '(select SUM(Tar*Tmenny) as ar from rend, termekek where rend.Tkod=termekek.Tkod and rend.Vnev=" + vevoNev + ")')";
+                string query = "";
                 MySqlCommand cm = new MySqlCommand(query, connect);
-                cm.ExecuteNonQuery();
+        
                 cm = new MySqlCommand(query, connect);
                 vevoNev = '"' + vevoNev + '"';
                 query="call szamla("+vevoNev+");";
