@@ -1,4 +1,5 @@
 ﻿<?php
+require_once("connectG.php");
 if(isset($_POST["us"]))
 {
 					 $us=$_POST["us"];
@@ -13,9 +14,10 @@ if(isset($_POST["us"]))
 					$varos=$_POST["varos"];
 					$utca=$_POST["utca"];
 					$szam=$_POST["szam"];
-	$sql="update vevok";
-	$sql="insert into helyek";
-
+	$sql="UPDATE `vevok` SET `nev`=".$nev.",`adoazon`=".$adoazon.",`banksz`=".$banksz.",`tel`=".$tel.",`jelsz`=".$jelsz.",`email`=".$email.",`uj`=".1." WHERE felh=".$us."";
+	$connect->query($sql);
+	$sql="INSERT INTO `helyek`(`IntAzon`, `irsz`, `varos`, `utca`, `szam`) VALUES ((select azon from vevok where felh=".$us."),".$irsz.",".$varos.",".$utca.",".$szam.")";
+	$connect->query($sql);
 				
 }
 ?>
