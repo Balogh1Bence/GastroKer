@@ -23,12 +23,12 @@ namespace login
         {
             InitializeComponent();
             sp = new SetProperties();
-            
+            button3.Hide();
             uc = new UserController();
             uc.getall();
 
 
-
+              
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
