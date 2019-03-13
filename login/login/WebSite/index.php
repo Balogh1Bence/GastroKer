@@ -142,7 +142,7 @@ and open the template in the editor.
 							
 							if(data=="sikertelen bejelentkezés")
 							{
-								windows.location.replace("index.php");
+								window.location.replace("index.php");
 							}
 							if(data=="0")
 							{
@@ -150,9 +150,10 @@ and open the template in the editor.
 							}
 							else{
 										 $.post( "elsoe.php", {us: data}, function( uj ) {
-											  if(uj=="1")
+											  if(uj=="0")
 											  {
-												windows.location.replace("modify.php?user="+data+"");
+											  console.log("uj");
+												window.location.replace("modify.php?user="+data+"");
 											  }
 										});
 								$("#urlapTarolo").hide();

@@ -1,5 +1,5 @@
 ﻿<?php
-if(isset['user'])
+if(isset($_GET['user']))
 {
 $data=$_GET['user'];
 }
@@ -40,44 +40,48 @@ and open the template in the editor.
 		
 		<input type="text" id="email" placeholder="email cím" required>
 		
-		<input type="text" id="irsz"  placeholder="az ön neve" required>
+		<input type="text" id="irsz"  placeholder="irsz" required>
 		
 		<input type="text" id="varos" placeholder="város" required>
 		
 		<input type="text" id="utca" placeholder="utca" required>
 		
-		<input type="text" id="szam" placeholder="az ön neve" required>
-		<input type="button" id="gombMehet" value="mehet" >
+		<input type="text" id="szam" placeholder="házszám" required>
+		<input type="button" id="gombMehet" onclick="meh()" value="mehet" >
 		</form>
 
                   
         </div>
-
+	  <script src="jquery-3.3.1.min.js"></script>
         <script>
+		/*var re=<?php echo $re ?>;
     if(re=="re")
 	{
-		windows.location("index.php");
-	}
+		window.location("index.php");
+	}*/
+
 		function is_ZipCode()
-{
- regexp = /^\d{4}$/;
+		{
+        regexp = /^\d{4}$/;
   
-        if (regexp.test(document.getElementById("irsz").value))
-          {
-            return true;
-          }
-        else
-          {
-            return false;
-          }
-}
-		$("#gombMehet").click(function()
+			if (regexp.test(document.getElementById("irsz").value))
+			  {
+				return true;
+			  }
+			else
+			  {
+				return false;
+			  }
+		}
+
+		function meh()
 			{
 
-			if(!is_ZipCode())
-			{
-			   return;
-			}
+				if(!is_ZipCode())
+				{
+				console.log("nem irsz");
+				   return;
+				}
 			
 	
 
@@ -85,7 +89,7 @@ and open the template in the editor.
 
 				$.post("modifyUserData.php",
 				  {
-				    us: <?php echo $data?>, 
+				    us: "<?php echo $data?>", 
 
 				    nev: document.getElementById("nev").value,
 					adoazon: document.getElementById("adoazon").value,
@@ -98,9 +102,9 @@ and open the template in the editor.
 					utca: document.getElementById("utca").value,
 					szam: document.getElementById("szam").value
 				
-				  },
+				  });
 						
-			})					
+			}					
 		</script>
     </body>
 </html>
