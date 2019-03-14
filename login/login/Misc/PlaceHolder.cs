@@ -8,8 +8,9 @@ using System.Windows.Forms;
 
 namespace login.Misc
 {
-    
-        public class PlaceHolderTextBox : TextBox
+
+   
+    public class PlaceHolderTextBox : TextBox
         {
             public void styleSetter()
             {
@@ -19,8 +20,8 @@ namespace login.Misc
             BackColor = Color.Transparent;
             BackColor = System.Drawing.SystemColors.InactiveBorder;
         }
+        private System.ComponentModel.IContainer components = null;
 
-   
 
         bool isPlaceHolder = true;
             string _placeHolderText;

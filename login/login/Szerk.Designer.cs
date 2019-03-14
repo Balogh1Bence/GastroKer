@@ -2,6 +2,16 @@
 {
     partial class Szerk
     {
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private Misc.PlaceHolderTextBox NameHolder;
+        private Misc.PlaceHolderTextBox PriceHolder;
+        private Misc.PlaceHolderTextBox AmmountHolder;
+        private Misc.PlaceHolderTextBox UnitHolder;
+        private Misc.PlaceHolderTextBox CodeHolder;
+        private Misc.PlaceHolderTextBox VonCodeHolder;
+        private Misc.BackGroundBox backGroundBox1;
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,6 +38,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -172,15 +183,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private Misc.PlaceHolderTextBox NameHolder;
-        private Misc.PlaceHolderTextBox PriceHolder;
-        private Misc.PlaceHolderTextBox AmmountHolder;
-        private Misc.PlaceHolderTextBox UnitHolder;
-        private Misc.PlaceHolderTextBox CodeHolder;
-        private Misc.PlaceHolderTextBox VonCodeHolder;
-        private Misc.BackGroundBox backGroundBox1;
+       
     }
 }
