@@ -25,7 +25,7 @@ namespace login
             rs = new RktServ();
             this.termekek = termekek;
             InitializeComponent();
-            
+            initializeCustomComponents();
             button1.DialogResult = DialogResult.OK;
             
             NameHolder.Text = termekek.getTNev();

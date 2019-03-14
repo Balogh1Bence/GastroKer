@@ -134,17 +134,7 @@
             this.CodeHolder.PlaceHolderText = null;
             this.CodeHolder.Size = new System.Drawing.Size(100, 20);
             this.CodeHolder.TabIndex = 21;
-            // 
-            // VonCodeHolder
-            // 
-            this.VonCodeHolder.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.VonCodeHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
-            this.VonCodeHolder.ForeColor = System.Drawing.Color.Gray;
-            this.VonCodeHolder.Location = new System.Drawing.Point(219, 252);
-            this.VonCodeHolder.Name = "VonCodeHolder";
-            this.VonCodeHolder.PlaceHolderText = null;
-            this.VonCodeHolder.Size = new System.Drawing.Size(100, 20);
-            this.VonCodeHolder.TabIndex = 22;
+          
             // 
             // backGroundBox1
             // 
@@ -182,7 +172,20 @@
         }
 
         #endregion
-
+        public void initializeCustomComponents()
+        {
+            // 
+            // VonCodeHolder
+            // 
+            this.VonCodeHolder.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.VonCodeHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.VonCodeHolder.ForeColor = System.Drawing.Color.Gray;
+            this.VonCodeHolder.Location = new System.Drawing.Point(219, 252);
+            this.VonCodeHolder.Name = "VonCodeHolder";
+            this.VonCodeHolder.PlaceHolderText = null;
+            this.VonCodeHolder.Size = new System.Drawing.Size(100, 20);
+            this.VonCodeHolder.TabIndex = 22;
+        }
        
     }
 }
