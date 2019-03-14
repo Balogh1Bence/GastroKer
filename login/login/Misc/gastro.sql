@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Már 13. 13:19
+-- Létrehozás ideje: 2019. Már 14. 10:17
 -- Kiszolgáló verziója: 10.1.34-MariaDB
 -- PHP verzió: 7.2.8
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `gastro`
+-- Adatbázis: `egyezike`
 --
 
 DELIMITER $$
@@ -28,16 +28,16 @@ DELIMITER $$
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `mozgatas` (IN `vevoNev` VARCHAR(255))  BEGIN
 DECLARE i INT DEFAULT 0; 
-DECLARE a INT DEFAULT 1;
+DECLARE Watcher INT DEFAULT 1;
 
  
 WHILE (i <= (select Tkod-1 from rend where Vnev=vevoNev order by Tkod desc limit 1)) DO
   INSERT INTO `szamlatetel`(`szamlatetel`,`nyugtaszam`, `Tkod`, `menny`) VALUES
   (0, (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.felh=vevoNev
-  limit 1),(select Tkod from rend where Vnev =vevoNev limit 1),(SELECT Tmenny from rend where Tkod=a));
+  limit 1),(select Tkod from rend where Vnev =vevoNev limit 1),(SELECT Tmenny from rend where Tkod=Watcher));
 
     SET i = i+1;
-    set a=a+1;
+    set Watcher=Watcher+1;
     
 END WHILE;
   DELETE FROM `rend` WHERE rend.Vnev=vevoNev;
@@ -101,7 +101,6 @@ INSERT INTO `besz` (`azon`, `nev`, `tel`, `email`, `kapcsnev`) VALUES
 --
 
 CREATE TABLE `helyek` (
-  `HelyAzon` int(10) NOT NULL,
   `IntAzon` int(11) NOT NULL,
   `irsz` int(4) NOT NULL,
   `varos` text NOT NULL,
@@ -113,8 +112,8 @@ CREATE TABLE `helyek` (
 -- A tábla adatainak kiíratása `helyek`
 --
 
-INSERT INTO `helyek` (`HelyAzon`, `IntAzon`, `irsz`, `varos`, `utca`, `szam`) VALUES
-(1, 1000, 6666, 'Szeged', 'Kis', 45);
+INSERT INTO `helyek` (`IntAzon`, `irsz`, `varos`, `utca`, `szam`) VALUES
+(1000, 6666, 'Szeged', 'Kis', 45);
 
 -- --------------------------------------------------------
 

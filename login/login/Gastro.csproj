@@ -21,7 +21,8 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>1</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -114,8 +115,8 @@
     <Compile Include="Services\CarrierService.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\DatabaseOperations\DBOperation.cs" />
-    <Compile Include="Services\fleh\us.cs" />
-    <Compile Include="Services\fleh\userChecker.cs" />
+    <Compile Include="Services\felh\us.cs" />
+    <Compile Include="Services\felh\userChecker.cs" />
     <Compile Include="Services\LostPw\LostPwEmailSender.cs" />
     <Compile Include="Services\LostPw\NewPw.cs">
       <SubType>Form</SubType>

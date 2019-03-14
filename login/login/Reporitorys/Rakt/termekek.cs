@@ -13,46 +13,46 @@ namespace login.Reporitorys.Rakt
 {
     class termekek
     {
-        List<MdTermekek> ts;
-        DataTable cDT;
+        List<MdTermekek> productsList;
+        DataTable productsTable;
         
-        List<Regitermekek> tr;
-        DBOperation d;
+        List<Regitermekek> oldProductsList;
+        DBOperation ops;
         public termekek()
         {
-            tr = new List<Regitermekek>();
-            d = new DBOperation();
-            cDT = new DataTable();
-            ts = new List<MdTermekek>();
-            fillCustomersListFromDatabase();
+            oldProductsList = new List<Regitermekek>();
+            ops = new DBOperation();
+            productsTable = new DataTable();
+            productsList = new List<MdTermekek>();
+            fillProductListFromDataTable();
         }
 
-        public DataTable getTsDataTable()
+        public DataTable getToDataTable()
         {
-            int d = 0;
+        
            
                 
             
 
-            if (cDT.Columns.Count > 0) {
+            if (productsTable.Columns.Count > 0) {
                 int i = 0;
     
-                while (i < cDT.Columns.Count)
-                    cDT.Columns.RemoveAt(i);
+                while (i < productsTable.Columns.Count)
+                    productsTable.Columns.RemoveAt(i);
         
                 i++;
                     }
            
-            cDT.Columns.Add("Tkod", typeof(int));
-            cDT.Columns.Add("Tnev", typeof(string));
-            cDT.Columns.Add("Tar", typeof(int));
-            cDT.Columns.Add("Tkeszl", typeof(int));
-            cDT.Columns.Add("Tmert", typeof(string));
-            cDT.Columns.Add("Tkatkod", typeof(int));
-            cDT.Columns.Add("Tvonkod", typeof(int));
-            cDT.Columns.Add("Tszavido", typeof(DateTime));
+            productsTable.Columns.Add("Tkod", typeof(int));
+            productsTable.Columns.Add("Tnev", typeof(string));
+            productsTable.Columns.Add("Tar", typeof(int));
+            productsTable.Columns.Add("Tkeszl", typeof(int));
+            productsTable.Columns.Add("Tmert", typeof(string));
+            productsTable.Columns.Add("Tkatkod", typeof(int));
+            productsTable.Columns.Add("Tvonkod", typeof(int));
+            productsTable.Columns.Add("Tszavido", typeof(DateTime));
             
-            cDT.Columns.Add("Tegalizalte", typeof(bool));
+            productsTable.Columns.Add("Tegalizalte", typeof(bool));
 
 
 
@@ -65,55 +65,55 @@ namespace login.Reporitorys.Rakt
 
             
 
-            foreach (MdTermekek c in ts)
+            foreach (MdTermekek c in productsList)
             {
 
-                cDT.Rows.Add(c.getTkod(), c.getTNev(), c.getTar(), c.getTkeszl(), c.getMert(), c.getTkatkod(), c.getTvonkod(), c.getSzavido(),  c.getTegalizalte());
+                productsTable.Rows.Add(c.getTkod(), c.getTNev(), c.getTar(), c.getTkeszl(), c.getMert(), c.getTkatkod(), c.getTvonkod(), c.getSzavido(),  c.getTegalizalte());
             }
 
-            cDT = cDT.Rows
+            productsTable = productsTable.Rows
     .Cast<DataRow>()
     .Where(row => !row.ItemArray.All(field => field is DBNull ||string.IsNullOrWhiteSpace(field as string)))
     .CopyToDataTable();
-            return cDT;
+            return productsTable;
         }
 
         internal DataTable SzuresNevAlapjan(string text)
         {
-            return d.SzuresNevAlapjan(text);
+            return ops.SzuresNevAlapjan(text);
         }
 
         internal DataTable addNewItem(int id, MdTermekek t)
         {
 
-            d.addNewItem(id, t);
-            ts.Add(t);
-            return getTsDataTable();
+            ops.addNewItem(id, t);
+            productsList.Add(t);
+            return getToDataTable();
         }
 
         internal int getLastID()
         {
-            return d.getLastID();
+            return ops.getLastID();
         }
 
         internal DataTable moveTo(MdTermekek termekek, int id)
         {
-            d.MoveToOld(termekek, id);
-            foreach (MdTermekek c in ts)
+            ops.MoveToOld(termekek, id);
+            foreach (MdTermekek c in productsList)
             {
                 if(id==c.getTkod())
                 {
-                    var selected = ts[id];
+                    var selected = productsList[id];
                     
-                    tr.Add(new Regitermekek(selected.getTkod(),selected.getTNev(), selected.getTar(), selected.getTkeszl(), selected.getMert(), selected.getTkatkod(), selected.getTvonkod(), selected.getSzavido(), selected.getTegalizalte()));
-                    ts.RemoveAt(id);
+                    oldProductsList.Add(new Regitermekek(selected.getTkod(),selected.getTNev(), selected.getTar(), selected.getTkeszl(), selected.getMert(), selected.getTkatkod(), selected.getTvonkod(), selected.getSzavido(), selected.getTegalizalte()));
+                    productsList.RemoveAt(id);
                     
                     
                 }
             }
            
             
-            return getTsDataTable();
+            return getToDataTable();
         }
 
         public DataTable editDataSrc( int id,MdTermekek termekek)
@@ -123,37 +123,34 @@ namespace login.Reporitorys.Rakt
 
 
 
-            foreach (MdTermekek c in ts)
+            foreach (MdTermekek product in productsList)
             {
 
-                if (c.getTkod() == id)
+                if (product.getTkod() == id)
                 {
                    
-                    c.setTkod(id);
-                    c.setTnev(termekek.getTNev());
+                    product.setTkod(id);
+                    product.setTnev(termekek.getTNev());
 
-                    c.setTar(termekek.getTar());
-                    c.setTkeszl(termekek.getTkeszl());
-                    c.setTmert(termekek.getMert());
-                    c.setTkatkod(termekek.getTkatkod());
-                    c.setTvonkod(termekek.getTvonkod());
-                    c.setTSzavido(termekek.getSzavido());
-                    c.setTegaliz(termekek.getTegalizalte());
+                    product.setTar(termekek.getTar());
+                    product.setTkeszl(termekek.getTkeszl());
+                    product.setTmert(termekek.getMert());
+                    product.setTkatkod(termekek.getTkatkod());
+                    product.setTvonkod(termekek.getTvonkod());
+                    product.setTSzavido(termekek.getSzavido());
+                    product.setTegaliz(termekek.getTegalizalte());
 
                     
                 }
             }
-            d.update(id, termekek);
+            ops.update(id, termekek);
     
-            return getTsDataTable(); 
-                     
-                
-               
+            return getToDataTable();                                                
         }
 
         public bool checkExist(MdTermekek newT)
         {
-            foreach (MdTermekek c in ts)
+            foreach (MdTermekek c in productsList)
             {
                 if (c.getTkod() == newT.getTkod())
                 {
@@ -165,12 +162,12 @@ namespace login.Reporitorys.Rakt
 
         }
 
-        internal void addCustomer(MdTermekek newCustomer)
+        internal void addProduct(MdTermekek newCustomer)
         {
-            ts.Add(newCustomer);
+            productsList.Add(newCustomer);
         }
 
-        private void fillCustomersListFromDatabase()
+        private void fillProductListFromDataTable()
         {
             Adatbazis a = new Adatbazis();
             MySQLDatabaseInterface mdi = a.kapcsolodas();
@@ -195,7 +192,7 @@ namespace login.Reporitorys.Rakt
                 
                 bool Tegalizalte=Convert.ToBoolean(row["Tegalizalte"].ToString());
                 MdTermekek c = new MdTermekek(Tkod, Tnev, Tar, Tkeszl, Tmert, Tkatkod, Tvonkod, Tszavido, Tegalizalte);
-                ts.Add(c);
+                productsList.Add(c);
             }
 
         }

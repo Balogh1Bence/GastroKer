@@ -11,13 +11,13 @@ namespace Gastro
     
     public class vevo
     {
-        List<MDVevok> vevok;
+        List<MDVevok> customers;
         DBOperation d;
       
         public vevo()
         {
             d = new DBOperation();
-            vevok = new List<MDVevok>();
+            customers = new List<MDVevok>();
             fillCustomersListFromDatabase();
 
         }
@@ -32,22 +32,22 @@ namespace Gastro
 
         internal DataTable loadCustomers()
         {
-            DataTable cDT = new DataTable();
+            DataTable customersDataTable = new DataTable();
           
-            cDT.Columns.Add("nev", typeof(string));
-            cDT.Columns.Add("ado azon", typeof(int));
-            cDT.Columns.Add("banksz", typeof(long));
-            cDT.Columns.Add("tel", typeof(long));
-            cDT.Columns.Add("felh", typeof(string));
+            customersDataTable.Columns.Add("nev", typeof(string));
+            customersDataTable.Columns.Add("ado azon", typeof(int));
+            customersDataTable.Columns.Add("banksz", typeof(long));
+            customersDataTable.Columns.Add("tel", typeof(long));
+            customersDataTable.Columns.Add("felh", typeof(string));
             
 
             
-            foreach (MDVevok vevo in vevok)
+            foreach (MDVevok vevo in customers)
             {
 
-                cDT.Rows.Add(vevo.Nev, vevo.Adoazon, vevo.Banksz, vevo.Tel, vevo.Felh);
+                customersDataTable.Rows.Add(vevo.Nev, vevo.Adoazon, vevo.Banksz, vevo.Tel, vevo.Felh);
             }
-            return cDT;
+            return customersDataTable;
         }
 
         internal void reduceTermekek(string vevoNev)
@@ -88,7 +88,7 @@ namespace Gastro
 
               
                 MDVevok v = new MDVevok(azon, nev, adoazon,banksz,tel, dolg, torzs, vasmenny, felh, jelsz, email);
-                vevok.Add(v);
+                customers.Add(v);
             }
 
         }

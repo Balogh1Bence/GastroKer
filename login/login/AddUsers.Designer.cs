@@ -35,6 +35,9 @@
             // 
             // placeHolderTextBox1
             // 
+            this.placeHolderTextBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.placeHolderTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.placeHolderTextBox1.ForeColor = System.Drawing.Color.Gray;
             this.placeHolderTextBox1.Location = new System.Drawing.Point(110, 24);
             this.placeHolderTextBox1.Name = "placeHolderTextBox1";
             this.placeHolderTextBox1.PlaceHolderText = null;
@@ -43,6 +46,9 @@
             // 
             // placeHolderTextBox2
             // 
+            this.placeHolderTextBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.placeHolderTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.placeHolderTextBox2.ForeColor = System.Drawing.Color.Gray;
             this.placeHolderTextBox2.Location = new System.Drawing.Point(110, 70);
             this.placeHolderTextBox2.Name = "placeHolderTextBox2";
             this.placeHolderTextBox2.PlaceHolderText = null;
@@ -55,7 +61,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
+            this.button1.Text = "hozzáadás";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -63,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(320, 203);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.placeHolderTextBox2);
             this.Controls.Add(this.placeHolderTextBox1);

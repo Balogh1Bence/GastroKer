@@ -16,7 +16,7 @@ namespace login.Services
 
         public DataTable feltolt()
         {
-            return t.getTsDataTable();
+            return t.getToDataTable();
         }
         public DataTable modifyData( int id,MdTermekek termekek)
         {
