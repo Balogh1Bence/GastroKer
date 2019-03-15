@@ -84,14 +84,14 @@ namespace login.Services.DatabaseOperations
 
 
 
-            string query = "select vasmenny from vevok where veveok.felh="+vevoNev+"";
+            string query = "select vasmenny from vevok where vevok.felh="+vevoNev+"";
             int torzsMenny = 550;
             int jelenlegi = 0;
             MySqlCommand cm = new MySqlCommand(query, connect);
             MySqlDataReader dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                jelenlegi= Convert.ToInt32(dr["cim"].ToString());
+                jelenlegi= Convert.ToInt32(dr["vasmenny"].ToString());
             }
             if (jelenlegi < torzsMenny)
             {
@@ -142,11 +142,15 @@ namespace login.Services.DatabaseOperations
 
                 cm = new MySqlCommand(query, connect);
                 cm.ExecuteNonQuery();
+                MessageBox.Show("Test");
                 if (has550BoughtItems(vevoNev))
                 {
+                    MessageBox.Show("Test2");
                     query = "UPDATE `vevok` SET `torzs`=true WHERE felh=" + vevoNev + "";
                 }
+                MessageBox.Show("Test3");
                 increaseVasMenny(vevoNev);
+
             }
             catch(Exception e) { MessageBox.Show("hiba történt az adatok mozgatása közben: "+e.Message+""); return; }
            

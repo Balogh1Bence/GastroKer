@@ -30,10 +30,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `mozgatas` (IN `vevoNev` VARCHAR(255
 DECLARE i INT DEFAULT 0; 
 DECLARE Watcher INT DEFAULT 1;
 
- 
 WHILE (i <= (select Tkod-1 from rend where Vnev=vevoNev order by Tkod desc limit 1)) DO
   INSERT INTO `szamlatetel`(`nyugtaszam`, `Tkod`, `menny`) VALUES
-  ( (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.felh=vevoNev
+  ( (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.felh=vevoNev order by nyugtaszam desc 
   limit 1),(select Tkod from rend where Vnev =vevoNev limit 1),(SELECT Tmenny from rend where Tkod=Watcher));
 
     SET i = i+1;
