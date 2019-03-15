@@ -11,6 +11,7 @@ using login.Reporitorys.Rakt;
 using login.Services;
 using login.models;
 using login.validator;
+using login.Services.fleh;
 
 namespace login
 {
@@ -18,13 +19,13 @@ namespace login
     {
         RktServ rs = new RktServ();
         CustomerService cs = new CustomerService();
-
-        public Rakt()
+        string uname;
+        public Rakt(string uname)
         {
             InitializeComponent();
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-           
+            this.uname = uname;
            
         }
 
@@ -180,6 +181,8 @@ namespace login
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Customers c = new Customers();
+            us user = new us();
+            if(user.getRights(uname)=="rak")
             c.Show();
         }
     }

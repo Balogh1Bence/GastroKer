@@ -57,6 +57,51 @@ namespace login.Services.fleh
             }
             return mail;
         }
+        public string getRights(string uname)
+        {
+            string con = "SERVER=\"localhost\";"
+               + "DATABASE=\"felh\";"
+               + "UID=\"root\";"
+               + "PASSWORD=\"\";"
+               + "PORT=\"3306\";";
+            MySqlConnection connect = new MySqlConnection(con);
+            try
+            {
+                connect.Open();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                throw new Exception("Sikertelen adatbázismegnyitás.");
+            }
+            string priv = "";
+            string query = "SELECT jog from deskusers where username='" + uname + "'";
+            MySqlCommand cmd = new MySqlCommand(query, connect);
+            MySqlDataReader dr = cmd.ExecuteReader();
+            string remelemnemures = string.Empty;
+            try
+            {
+
+                while (dr.Read())
+                {
+
+                    priv= dr["jog"].ToString();
+
+                   
+                }
+
+
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+
+
+            }
+            return priv;
+
+        }
 
         public int belep(string username, string password)
         {

@@ -70,7 +70,7 @@ namespace login.Reporitorys.Rakt
 
                 productsTable.Rows.Add(c.getTkod(), c.getTNev(), c.getTar(), c.getTkeszl(), c.getMert(), c.getTkatkod(), c.getTvonkod(), c.getSzavido(),  c.getTegalizalte());
             }
-
+            //ezt egyáltalán nem értem, de pont azt csinálja, ami nekem kellett.
             productsTable = productsTable.Rows
     .Cast<DataRow>()
     .Where(row => !row.ItemArray.All(field => field is DBNull ||string.IsNullOrWhiteSpace(field as string)))

@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace login.Services
 {
-    public class UserController
+    public class variableChecker
     {
         string allText;
 
-        public UserController()
+        public variableChecker()
         {
             getallText();
          
@@ -41,8 +41,8 @@ namespace login.Services
 
             }
             
-            
 
+            
 
 
             

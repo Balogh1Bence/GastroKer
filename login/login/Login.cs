@@ -18,13 +18,13 @@ namespace login
         SetProperties sp;
         ErrorProvider uname = new ErrorProvider();
         ErrorProvider pw = new ErrorProvider();
-        UserController uc;
+        variableChecker uc;
         public Login()
         {
             InitializeComponent();
             sp = new SetProperties();
         
-            uc = new UserController();
+            uc = new variableChecker();
           
 
 
@@ -39,7 +39,7 @@ namespace login
         private void button1_Click(object sender, EventArgs e)
         {
             us u = new us();
-            Rakt rakt = new Rakt();
+            Rakt rakt = new Rakt(textBox1.Text);
            
             if (textBox1.Text == "" || textBox1.Text == null)
             {
@@ -49,6 +49,7 @@ namespace login
             {
                 if (u.belep(textBox1.Text, textBox2.Text) == 0)
                 {
+
                     rakt.Show();
 
                 }
