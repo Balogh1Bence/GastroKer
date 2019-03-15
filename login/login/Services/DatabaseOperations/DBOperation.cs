@@ -139,7 +139,8 @@ namespace login.Services.DatabaseOperations
                 cm = new MySqlCommand(query, connect);
                 cm.ExecuteNonQuery();
                 query = "call mozgatas(" + vevoNev + ");";
-
+                ez a lekérdezés valamiért nem jó....és ezt a pár sort még be kell fejezni. a nyomtatvae-t igazra kell állítani, hogy ne nyomtassa azokat, amik már voltal.
+                query = "UPDATE `szamlatetel` SET nyomtatvae=1 WHERE szamlatetel.nyugtaszam=szamla.nyugtaszam and szamla.Vkod=vevok.azon and vevok.felh=" + vevoNev + "";
                 cm = new MySqlCommand(query, connect);
                 cm.ExecuteNonQuery();
                 MessageBox.Show("Test");
