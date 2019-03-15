@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="login.Services.RktServ">
-    <Position X="4.25" Y="1.25" Width="1.5" />
+    <Position X="2.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAGAAAAAAAQAAAAAAAAAAAAAAAAAAABAQAQQAAAAA=</HashCode>
       <FileName>Services\RktServ.cs</FileName>
@@ -11,10 +11,52 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="login.Reporitorys.Rakt.termekek">
-    <Position X="7.75" Y="1.25" Width="1.5" />
+    <Position X="8" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAABDAAAAAAAAAAAAEAAQEAADAAIQAAAECA=</HashCode>
       <FileName>Reporitorys\Rakt\termekek.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="ops" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.Rakt" Collapsed="true">
+    <Position X="1.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BYAAAAAAACAAAAAgAADFAAgCAFg4QAAIgHAIAAAAAAA=</HashCode>
+      <FileName>Rakt.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="cs" />
+      <Field Name="rs" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.Services.CustomerService" Collapsed="true">
+    <Position X="3.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAQAAAAAAAQAAAEAAAABAAAAAAAAAAAABAAQAAAAAE=</HashCode>
+      <FileName>Services\CustomerService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="v" />
+      <Field Name="db" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gastro.vevo">
+    <Position X="5.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAQAAABAAAAAAAEAAAAAAAAAAAAAAAEAAAAQQAAAAA=</HashCode>
+      <FileName>Reporitorys\Rakt\vevo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="d" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.Services.DatabaseOperations.DBOperation" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAQAAAAAgIAAAAEBAAMAAAAEAAQQAAABAAAQgAEAAA=</HashCode>
+      <FileName>Services\DatabaseOperations\DBOperation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

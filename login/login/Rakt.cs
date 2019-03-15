@@ -182,8 +182,9 @@ namespace login
         {
             Customers c = new Customers();
             us user = new us();
-            if(user.getRights(uname)=="rak")
-            c.Show();
+            if (user.getRights(uname) == "rak")
+                c.Show();
+            else return;
         }
     }
 }

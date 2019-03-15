@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="validator\IgnoreEmptyOrWhiteSpace.cs" />
     <Compile Include="validator\NoNumber.cs" />
+    <None Include="WebSite\szur.php" />
     <None Include="ClassDiagram1.cd" />
     <None Include="WebSite\elsoe.php" />
     <None Include="WebSite\modifyUserData.php" />

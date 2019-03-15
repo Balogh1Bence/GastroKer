@@ -54,13 +54,14 @@ namespace login.Misc
                + "PORT=\"3306\";";
             var conn = new MySqlConnection(connStr);
                 var cmd = conn.CreateCommand();
-            
+            try
+            {
                 conn.Open();
                 cmd.CommandText = "CREATE DATABASE IF NOT EXISTS `felh`;";
                 cmd.ExecuteNonQuery();
-            cmd.CommandText = "CREATE DATABASE IF NOT EXISTS `gastro`;";
-            cmd.ExecuteNonQuery();
-         
+                cmd.CommandText = "CREATE DATABASE IF NOT EXISTS `gastro`;";
+                cmd.ExecuteNonQuery();
+
 
                 string conF = "SERVER=\"localhost\";"
                     + "DATABASE=\"felh\";"
@@ -84,7 +85,8 @@ namespace login.Misc
                 cmd = connec.CreateCommand();
                 cmd.CommandText = text2;
                 cmd.ExecuteNonQuery();
-            
+            }
+            catch{ return; }
             
 
         }

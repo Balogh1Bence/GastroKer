@@ -14,8 +14,8 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/foundation.css"/>
 	
         <script src="jquery-3.3.1.min.js"></script>
-    </head>
-    <body class="jumbotron">
+		</head>
+	<body class="jumbotron">
         <div class ='kozepre'>
             <div class="page-header">
                     <h1 id="bej" class="beljebbKezdes">
@@ -31,6 +31,10 @@ and open the template in the editor.
 			<form id="sendall">
 			<input type="button" value="send all" onclick="sender()"></button>
 			<input type="button" id="logout" value="log out" onclick="log()"></button>
+			<input type="button" id="termekek.Tkatkod" value="összes" onclick="loadNewContent(this.id)"></button>
+			<input type="button" id="1" value="kolbászok" onclick="loadNewContent(this.id)">
+			<input type="button" id="2" value="tej" onclick="loadNewContent(this.id)">
+			<input type="button" id="3" value="fagyasztott" onclick="loadNewContent(this.id)">
 			</form>
 			<form id="szam">
 			<div disabled="disabled" id="szamlalo" value="0"></div>
@@ -54,16 +58,7 @@ and open the template in the editor.
                         </div>
                         <input id="gombMehet" type="button" class="btn btn-sm btn-primary" value="Mehet"
                                    disabled="disabled">
-                        <div class="linkTaroloMini">
-                            Még nem regisztrált 
-                            <br> 
-                            felhasználó? 
-                            <br>
-                            Megteheti itt: 
-                            <a id="regGombMini" href="regisztracio.php" tabindex="4">
-                                Regisztráció
-                            </a>
-                        </div>
+                        
                     </div>
                 </form>
             </div>
@@ -87,6 +82,7 @@ and open the template in the editor.
 	} 
 			$("#szam").hide();
 			$("#sendall").hide();
+			$("#logout").hide();
 				function log()
 		{
 			data="";
@@ -120,7 +116,22 @@ and open the template in the editor.
                 }
             }            
             
-            
+            function unloadconten()
+			{
+			document.getElementById('tartalom').innerHTML = "";
+			}
+			function loadNewContent(kategoria)
+			{
+				unloadconten();
+				$.post("szur.php",
+  {
+    kat: kategoria
+  },
+  function(cont){
+  	document.getElementById('tartalom').innerHTML = cont;
+  });
+			
+			}
             function ellenorzes()
             {
                 if(felhNevEllenorzes() && jelszoEllenorzes())
@@ -156,7 +167,7 @@ and open the template in the editor.
 										 $.post( "elsoe.php", {us: data}, function( uj ) {
 											  if(uj=="0")
 											  {
-											  console.log("uj");
+											  console.log("uj"); 
 												window.location.replace("modify.php?user="+data+"");
 											  }
 										});
@@ -164,6 +175,7 @@ and open the template in the editor.
 								$("#bej").hide();
 								$("#szam").show();
 								$("#sendall").show();
+								$("#logout").show();
 									$.post("loadall.php",
 									{
 										us: data

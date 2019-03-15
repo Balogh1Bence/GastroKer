@@ -106,10 +106,11 @@ namespace login
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show( uc.getOne("int")+"");
+            sp.Copy();
+           /* MessageBox.Show( uc.getOne("int")+"");
             MessageBox.Show(uc.getOne("long") + "");
             MessageBox.Show(uc.getOne("string") + "");
-            MessageBox.Show(uc.getOne("var") + "");
+            MessageBox.Show(uc.getOne("var") + "");*/
 
             
         }
