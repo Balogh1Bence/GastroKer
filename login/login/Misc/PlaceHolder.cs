@@ -11,6 +11,9 @@ namespace login.Misc
     
         public class PlaceHolderTextBox : TextBox
         {
+        /// <summary>
+        /// megpróbáltam átlátszóvá tenni. Színek sikerültek, de átlátszó nem lett.
+        /// </summary>
             public void styleSetter()
             {
 
@@ -18,13 +21,15 @@ namespace login.Misc
             BackColor = Color.Gray;
             BackColor = Color.Transparent;
             BackColor = System.Drawing.SystemColors.InactiveBorder;
-        }
+             }
 
    
 
         bool isPlaceHolder = true;
             string _placeHolderText;
-        
+        /// <summary>
+        /// a placeholdertext változó, és annak a settere és gettere
+        /// </summary>
             public string PlaceHolderText
             {
                 get { return _placeHolderText; }
@@ -37,24 +42,27 @@ namespace login.Misc
 
             
             }
-       
+       /// <summary>
+       /// ha a placeholdertext üres, akkor a get tulajdonsága a szülőobjektum Text tulajdonsága.
+       /// </summary>
             public new string Text
             {
                 get => isPlaceHolder ? string.Empty : base.Text;
                 set => base.Text = value;
             }
 
+       
 
-
-        /*
-        this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-        this.BackColor = Color.Transparent;*/
-        //when the control loses focus, the placeholder is shown
-        private void setPlaceholder()
+        
+        /// <summary>
+        /// ha a szülőosztálytól örökölt Text tulajdonság üres, akkor a Textet beállítja a placeholderben megadott értékre.
+        /// a Text stílusát beállítja szürkére és döltre.
+        /// </summary>
+            private void setPlaceholder()
             {
             /*if (Text != null)
             { return; }*/
-          
+         
             if (string.IsNullOrEmpty(base.Text))
                 {
                     base.Text = PlaceHolderText;
@@ -66,7 +74,9 @@ namespace login.Misc
                 }
             }
 
-            //when the control is focused, the placeholder is removed
+           /// <summary>
+           /// ha megkapja a focust, és van "placeholdere", akkor a Text tulajdonságot üresre állítja. visszaállítja a szöveg stílusát az eredetire.
+           /// </summary>
             private void removePlaceHolder()
             {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -83,6 +93,9 @@ namespace login.Misc
                 styleSetter();
                 }
             }
+        /// <summary>
+        /// hozzáadja a gotfocus és lostfocus eseményt, az eseményekre a removeplaceholderrt és a setplaceholdert hívja meg.
+        /// </summary>
             public PlaceHolderTextBox()
             {
                 
@@ -100,6 +113,9 @@ namespace login.Misc
             {
                 removePlaceHolder();
             }
+        /// <summary>
+        /// tulajdonság, van-e placeholdere. kívülről is elérhető.
+        /// </summary>
             public bool hasPlaceHolder
             {
               get { return isPlaceHolder; }

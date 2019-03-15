@@ -9,10 +9,14 @@ using System.Windows.Forms;
 namespace login.Misc
 {
     public class BackGroundBox : PictureBox
-    {
+    {/// <summary>
+    /// az osztályt azért hoztam létre, hogy ne kelljen mindent beállítani egy pictureboxnak.
+    /// </summary>
         bool isPlaceHolder = true;
         string _ImgName;
-        
+        /// <summary>
+        /// beállítja képnek a kapott útvonal képét.
+        /// </summary>
         public string ImgName
         {
             get { return _ImgName; }
@@ -28,7 +32,9 @@ namespace login.Misc
 
 
 
-
+        /// <summary>
+        /// hátra küldi
+        /// </summary>
          private void Back()
         {
             SendToBack();
@@ -45,12 +51,6 @@ namespace login.Misc
         }
         
          
-         void setSizes(Form f)
-         {
-            Height =f.Height;
-            Width =f.Width;
-         }
-        
    
       
 
