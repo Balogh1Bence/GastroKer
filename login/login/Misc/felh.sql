@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Már 01. 12:33
--- Kiszolgáló verziója: 10.1.30-MariaDB
--- PHP verzió: 7.2.1
+-- Létrehozás ideje: 2019. Már 15. 09:12
+-- Kiszolgáló verziója: 10.1.37-MariaDB
+-- PHP verzió: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,7 +42,8 @@ CREATE TABLE `deskusers` (
 --
 
 INSERT INTO `deskusers` (`azon`, `username`, `password`, `email`, `utols`, `jog`) VALUES
-(1, 'abrlin', '123456', 'baloghbencefacebook@gmail.com', '2001-01-01', 'vez');
+(1, 'abrlin', '123456', 'baloghbencefacebook@gmail.com', '2001-01-01', 'vez'),
+(2, 'nagcso', '123456', 'lujzza08@gmail.com', '2019-01-01', 'rak');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -62,7 +63,7 @@ ALTER TABLE `deskusers`
 -- AUTO_INCREMENT a táblához `deskusers`
 --
 ALTER TABLE `deskusers`
-  MODIFY `azon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `azon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

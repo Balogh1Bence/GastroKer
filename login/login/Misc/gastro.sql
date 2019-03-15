@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Már 14. 10:17
--- Kiszolgáló verziója: 10.1.34-MariaDB
--- PHP verzió: 7.2.8
+-- Létrehozás ideje: 2019. Már 15. 09:13
+-- Kiszolgáló verziója: 10.1.37-MariaDB
+-- PHP verzió: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,33 +19,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `egyezike`
+-- Adatbázis: `gastro`
 --
 
 DELIMITER $$
 --
 -- Eljárások
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `mozgatas` (IN `vevoNev` VARCHAR(255))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `doWhile` ()  BEGIN
 DECLARE i INT DEFAULT 0; 
-DECLARE Watcher INT DEFAULT 1;
-
- 
-WHILE (i <= (select Tkod-1 from rend where Vnev=vevoNev order by Tkod desc limit 1)) DO
-  INSERT INTO `szamlatetel`(`szamlatetel`,`nyugtaszam`, `Tkod`, `menny`) VALUES
-  (0, (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.felh=vevoNev
-  limit 1),(select Tkod from rend where Vnev =vevoNev limit 1),(SELECT Tmenny from rend where Tkod=Watcher));
-
+DECLARE a INT DEFAULT 1;
+WHILE (i <= (select Tkod from rend where Vnev="KissJozsef" order by Tkod desc limit 1)) DO
+  INSERT INTO `szamlatetel`(`szamlatetel`,`nyugtaszam`, `Tkod`, `menny`) VALUES ('', (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.azon="1000" limit 1),(select Tkod from rend where Vnev ="KissJozsef" limit 1),(SELECT Tmenny from rend where Tkod=a));
     SET i = i+1;
-    set Watcher=Watcher+1;
-    
+    set a=a+1;
 END WHILE;
-  DELETE FROM `rend` WHERE rend.Vnev=vevoNev;
 END$$
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `szamla` (IN `vevoNev` VARCHAR(255))  NO SQL
-INSERT INTO `szamla`( `datum`, `Vkod`, `osszeg`) VALUES (CURRENT_DATE(),(select azon from vevok where felh=vevoNev                                                                                                                                                                         ), 
- (select sum((termekek.Tar*rend.Tmenny)) as osszeg from termekek, rend where termekek.Tkod=rend.Tkod ))$$
 
 DELIMITER ;
 
@@ -101,6 +90,7 @@ INSERT INTO `besz` (`azon`, `nev`, `tel`, `email`, `kapcsnev`) VALUES
 --
 
 CREATE TABLE `helyek` (
+  `HelyAzon` int(10) NOT NULL,
   `IntAzon` int(11) NOT NULL,
   `irsz` int(4) NOT NULL,
   `varos` text NOT NULL,
@@ -112,8 +102,8 @@ CREATE TABLE `helyek` (
 -- A tábla adatainak kiíratása `helyek`
 --
 
-INSERT INTO `helyek` (`IntAzon`, `irsz`, `varos`, `utca`, `szam`) VALUES
-(1000, 6666, 'Szeged', 'Kis', 45);
+INSERT INTO `helyek` (`HelyAzon`, `IntAzon`, `irsz`, `varos`, `utca`, `szam`) VALUES
+(1, 1000, 6666, 'Szeged', 'Kis', 45);
 
 -- --------------------------------------------------------
 
@@ -173,6 +163,16 @@ CREATE TABLE `rend` (
   `Vdate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- A tábla adatainak kiíratása `rend`
+--
+
+INSERT INTO `rend` (`Tkod`, `Tmenny`, `Vnev`, `Vdate`) VALUES
+(1, 4, 'KissJozsef    ', '2019-03-08'),
+(2, 3, 'KissJozsef    ', '2019-03-08'),
+(3, 5, 'KissJozsef    ', '2019-03-08'),
+(4, 3, 'KissJozsef    ', '2019-03-08');
+
 -- --------------------------------------------------------
 
 --
@@ -213,7 +213,8 @@ CREATE TABLE `szamla` (
 --
 
 INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES
-(9, '2019-03-13', 1000, 4400);
+(1, '2014-02-02', 1000, 500),
+(2, '2018-01-01', 1001, 234123);
 
 -- --------------------------------------------------------
 
@@ -233,10 +234,8 @@ CREATE TABLE `szamlatetel` (
 --
 
 INSERT INTO `szamlatetel` (`szamlatetel`, `nyugtaszam`, `Tkod`, `menny`) VALUES
-(1, 9, 1, 1),
-(2, 9, 1, 2),
-(3, 9, 1, 3),
-(4, 9, 1, 4);
+(1, 1, 1, 3),
+(2, 1, 2, 45);
 
 -- --------------------------------------------------------
 
@@ -264,7 +263,9 @@ INSERT INTO `termekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tv
 (1, 'kolbi', 300, 350, 'kg', 1, 121234, '2018-02-03', 1),
 (2, 'kolbika', 400, 450, 'kg', 1, 3456633, '2018-11-01', 1),
 (3, 'fagyos csirkecomb', 900, 300, 'kb', 3, 3452622, '2019-11-01', 1),
-(4, 'f?lzs?ros tej', 150, 20, 'li', 2, 287364, '2019-11-01', 1);
+(4, 'f?lzs?ros tej', 150, 20, 'li', 2, 287364, '2019-11-01', 1),
+(5, 'pulyka vörös apróhús', 400, 450, 'kg', 3, 4526222, '2019-11-01', 0),
+(6, 'joghurt', 500, 400, 'l', 2, 3452456, '2019-11-01', 1);
 
 -- --------------------------------------------------------
 
@@ -283,17 +284,16 @@ CREATE TABLE `vevok` (
   `vasmenny` int(11) NOT NULL,
   `felh` varchar(30) COLLATE utf16_hungarian_ci NOT NULL,
   `jelsz` varchar(30) COLLATE utf16_hungarian_ci NOT NULL,
-  `email` varchar(30) COLLATE utf16_hungarian_ci NOT NULL,
-  `uj` int(11) NOT NULL DEFAULT '1'
+  `email` varchar(30) COLLATE utf16_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `vevok`
 --
 
-INSERT INTO `vevok` (`azon`, `nev`, `adoazon`, `banksz`, `tel`, `dolg`, `torzs`, `vasmenny`, `felh`, `jelsz`, `email`, `uj`) VALUES
-(1000, 'Kiss G?za', 87623498, 9843716298654585, 701111111, 0, 1, 550, 'KissJozsef', '123456', 'apacshelikopter1998@gmail.com', 1),
-(1001, 'Nagy B?la', 29832749, 8297465738977561, 302222222, 1, 1, 0, 'NagyBela', '123456', 'apacshelikopter1998@gmail.com', 1);
+INSERT INTO `vevok` (`azon`, `nev`, `adoazon`, `banksz`, `tel`, `dolg`, `torzs`, `vasmenny`, `felh`, `jelsz`, `email`) VALUES
+(1000, 'Kiss G?za', 87623498, 9843716298654585, 701111111, 0, 1, 550, 'KissJozsef', '123456', 'apacshelikopter1998@gmail.com'),
+(1001, 'Nagy B?la', 29832749, 8297465738977561, 302222222, 1, 1, 0, 'NagyBela', '123456', 'apacshelikopter1998@gmail.com');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -388,22 +388,28 @@ ALTER TABLE `kat`
   MODIFY `Tkatkod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT a táblához `rend`
+--
+ALTER TABLE `rend`
+  MODIFY `Tkod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT a táblához `szamla`
 --
 ALTER TABLE `szamla`
-  MODIFY `nyugtaszam` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `nyugtaszam` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `szamlatetel`
 --
 ALTER TABLE `szamlatetel`
-  MODIFY `szamlatetel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `szamlatetel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `termekek`
 --
 ALTER TABLE `termekek`
-  MODIFY `Tkod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Tkod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT a táblához `vevok`
