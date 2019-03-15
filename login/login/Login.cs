@@ -23,9 +23,9 @@ namespace login
         {
             InitializeComponent();
             sp = new SetProperties();
-            button3.Hide();
+        
             uc = new UserController();
-            uc.getall();
+          
 
 
               
@@ -105,7 +105,12 @@ namespace login
 
         private void button3_Click(object sender, EventArgs e)
         {
-            sp.Copy();
+            MessageBox.Show( uc.getOne("int")+"");
+            MessageBox.Show(uc.getOne("long") + "");
+            MessageBox.Show(uc.getOne("string") + "");
+            MessageBox.Show(uc.getOne("var") + "");
+
+            
         }
     }
 }
