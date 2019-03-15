@@ -67,7 +67,61 @@ namespace login.Services.DatabaseOperations
            
 
         }
-     
+        public bool has550BoughtItems(string vevoNev)
+        {
+
+            MySqlConnection connect = new MySqlConnection(conG);
+            try
+            {
+                connect.Open();
+            }
+            catch (Exception e)
+            {
+
+                Debug.WriteLine(e.Message);
+                throw new Exception("Sikertelen adatbázismegnyitás.");
+            }
+
+
+
+            string query = "select vasmenny from vevok where veveok.felh="+vevoNev+"";
+            int torzsMenny = 550;
+            int jelenlegi = 0;
+            MySqlCommand cm = new MySqlCommand(query, connect);
+            MySqlDataReader dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                jelenlegi= Convert.ToInt32(dr["cim"].ToString());
+            }
+            if (jelenlegi < torzsMenny)
+            {
+                return false;
+            }
+            else
+                {
+
+
+
+                connect.Close();
+                return true;
+            }
+        }
+        public void increaseVasMenny(string vevoNev)
+        {
+            try
+            {
+                MySqlConnection connect = new MySqlConnection(conG);
+                connect.Open();
+      
+                string query = "UPDATE `vevok` SET `vasmenny`=vasmenny+ (select sum(rend.Tmenny) as osszeg from rend where rend.Vnev="+vevoNev+" ) WHERE vevok.felh="+vevoNev+" ";
+                MySqlCommand cm = new MySqlCommand(query, connect);
+
+
+
+            }
+            catch {return; }
+
+        }
 
         public void reduceTermekek(string vevoNev)
         {
@@ -75,9 +129,7 @@ namespace login.Services.DatabaseOperations
             {
                 MySqlConnection connect = new MySqlConnection(conG);
                 connect.Open();
-                DateTime dt = DateTime.Today;
-
-                string date = dt.toMysqlFormat();
+            
                 string query = "";
                 MySqlCommand cm = new MySqlCommand(query, connect);
         
@@ -90,8 +142,13 @@ namespace login.Services.DatabaseOperations
 
                 cm = new MySqlCommand(query, connect);
                 cm.ExecuteNonQuery();
+                if (has550BoughtItems(vevoNev))
+                {
+                    query = "UPDATE `vevok` SET `torzs`=true WHERE felh=" + vevoNev + "";
+                }
+                increaseVasMenny(vevoNev);
             }
-            catch { }
+            catch(Exception e) { MessageBox.Show("hiba történt az adatok mozgatása közben: "+e.Message+""); return; }
            
 
         }
