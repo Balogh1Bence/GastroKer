@@ -279,11 +279,11 @@ var output = d.getFullYear() + '-' +
 
 	function sender()
 	{
+
 	var i= 0;
 	while(i<a.length)
 	{
-	if(a[i].innerHTML!='0')
-	{
+
 	
 	 $.post("send.php",
 			{
@@ -299,9 +299,12 @@ var output = d.getFullYear() + '-' +
 					console.log(" ");
 				}
 			);
+				i++;
 			}
-			i++;
-	}
+		
+			
+	
+
 	}
 	
 

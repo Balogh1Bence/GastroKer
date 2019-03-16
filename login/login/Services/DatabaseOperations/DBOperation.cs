@@ -115,6 +115,7 @@ namespace login.Services.DatabaseOperations
       
                 string query = "UPDATE `vevok` SET `vasmenny`=vasmenny+ (select sum(rend.Tmenny) as osszeg from rend where rend.Vnev="+vevoNev+" ) WHERE vevok.felh="+vevoNev+" ";
                 MySqlCommand cm = new MySqlCommand(query, connect);
+                cm.ExecuteNonQuery();
 
 
 
@@ -125,9 +126,10 @@ namespace login.Services.DatabaseOperations
 
         public void reduceTermekek(string vevoNev)
         {
-            try
-            {
-                MySqlConnection connect = new MySqlConnection(conG);
+            /*try
+            {*/
+           
+            MySqlConnection connect = new MySqlConnection(conG);
                 connect.Open();
             
                 string query = "";
@@ -135,25 +137,29 @@ namespace login.Services.DatabaseOperations
         
                 cm = new MySqlCommand(query, connect);
                 vevoNev = '"' + vevoNev + '"';
-                query="call szamla("+vevoNev+");";
+            increaseVasMenny(vevoNev);
+            query ="call szamla("+vevoNev+");";
                 cm = new MySqlCommand(query, connect);
                 cm.ExecuteNonQuery();
                 query = "call mozgatas(" + vevoNev + ");";
-                ez a lekérdezés valamiért nem jó....és ezt a pár sort még be kell fejezni. a nyomtatvae-t igazra kell állítani, hogy ne nyomtassa azokat, amik már voltal.
-                query = "UPDATE `szamlatetel` SET nyomtatvae=1 WHERE szamlatetel.nyugtaszam=szamla.nyugtaszam and szamla.Vkod=vevok.azon and vevok.felh=" + vevoNev + "";
+            cm = new MySqlCommand(query, connect);
+            cm.ExecuteNonQuery();
+
+
+            query = "UPDATE `szamlatetel` SET nyomtatvae=1 WHERE szamlatetel.vevo="+vevoNev+"";
                 cm = new MySqlCommand(query, connect);
                 cm.ExecuteNonQuery();
-                MessageBox.Show("Test");
+
                 if (has550BoughtItems(vevoNev))
                 {
                     MessageBox.Show("Test2");
                     query = "UPDATE `vevok` SET `torzs`=true WHERE felh=" + vevoNev + "";
                 }
                 MessageBox.Show("Test3");
-                increaseVasMenny(vevoNev);
+                
 
-            }
-            catch(Exception e) { MessageBox.Show("hiba történt az adatok mozgatása közben: "+e.Message+""); return; }
+            /*}
+            catch(Exception e) { MessageBox.Show("hiba történt az adatok mozgatása közben: "+e.Message+""); return; }*/
            
 
         }

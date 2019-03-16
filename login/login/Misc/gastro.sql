@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Már 15. 09:00
+-- Létrehozás ideje: 2019. Már 16. 10:39
 -- Kiszolgáló verziója: 10.1.37-MariaDB
 -- PHP verzió: 7.3.0
 
@@ -30,16 +30,16 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `mozgatas` (IN `vevoNev` VARCHAR(255
 DECLARE i INT DEFAULT 0; 
 DECLARE Watcher INT DEFAULT 1;
 
+ 
 WHILE (i <= (select Tkod-1 from rend where Vnev=vevoNev order by Tkod desc limit 1)) DO
-  INSERT INTO `szamlatetel`(`nyugtaszam`, `Tkod`, `menny`) VALUES
-  ( (SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.felh=vevoNev order by nyugtaszam desc 
-  limit 1),(select Tkod from rend where Vnev =vevoNev limit 1),(SELECT Tmenny from rend where Tkod=Watcher));
+  INSERT INTO `szamlatetel`(`nyugtaszam`, `Tkod`, `menny`, `vevo`) VALUES
+  ((SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.felh=vevoNev order by nyugtaszam desc 
+  limit 1),watcher,(SELECT Tmenny from rend where Tkod=Watcher), vevoNev);
 
     SET i = i+1;
     set Watcher=Watcher+1;
-    
 END WHILE;
-  DELETE FROM `rend` WHERE rend.Vnev=vevoNev;
+ DELETE FROM `rend` WHERE rend.Vnev=vevoNev;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `szamla` (IN `vevoNev` VARCHAR(255))  NO SQL
@@ -172,18 +172,6 @@ CREATE TABLE `rend` (
   `Vdate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- A tábla adatainak kiíratása `rend`
---
-
-INSERT INTO `rend` (`Tkod`, `Tmenny`, `Vnev`, `Vdate`) VALUES
-(1, 1, 'KissJozsef    ', '2019-03-15'),
-(2, 2, 'KissJozsef    ', '2019-03-15'),
-(3, 3, 'KissJozsef    ', '2019-03-15'),
-(4, 4, 'KissJozsef    ', '2019-03-15'),
-(5, 5, 'KissJozsef    ', '2019-03-15'),
-(6, 7, 'KissJozsef    ', '2019-03-15');
-
 -- --------------------------------------------------------
 
 --
@@ -224,8 +212,11 @@ CREATE TABLE `szamla` (
 --
 
 INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES
-(9, '2019-03-13', 1000, 4400),
-(10, '2019-03-15', 1000, 9900);
+(1, '2019-03-16', 1000, 9900),
+(2, '2019-03-16', 1000, 9900),
+(3, '2019-03-16', 1000, 9900),
+(4, '2019-03-16', 1000, 9900),
+(5, '2019-03-16', 1001, 8200);
 
 -- --------------------------------------------------------
 
@@ -234,27 +225,49 @@ INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES
 --
 
 CREATE TABLE `szamlatetel` (
-  `szamlatetel` int(11) NOT NULL,
+  `szamlakivonat` int(11) NOT NULL,
   `nyugtaszam` int(50) NOT NULL,
   `Tkod` int(6) NOT NULL,
-  `menny` int(7) NOT NULL
+  `menny` int(7) NOT NULL,
+  `nyomtatvae` int(11) NOT NULL DEFAULT '0',
+  `vevo` varchar(255) COLLATE utf16_hungarian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `szamlatetel`
 --
 
-INSERT INTO `szamlatetel` (`szamlatetel`, `nyugtaszam`, `Tkod`, `menny`) VALUES
-(1, 9, 1, 1),
-(2, 9, 1, 2),
-(3, 9, 1, 3),
-(4, 9, 1, 4),
-(5, 9, 1, 1),
-(6, 9, 1, 2),
-(7, 9, 1, 3),
-(8, 9, 1, 4),
-(9, 9, 1, 5),
-(10, 9, 1, 7);
+INSERT INTO `szamlatetel` (`szamlakivonat`, `nyugtaszam`, `Tkod`, `menny`, `nyomtatvae`, `vevo`) VALUES
+(1, 1, 1, 1, 1, 'KissJozsef'),
+(2, 1, 2, 2, 1, 'KissJozsef'),
+(3, 1, 3, 3, 1, 'KissJozsef'),
+(4, 1, 4, 4, 1, 'KissJozsef'),
+(5, 1, 5, 5, 1, 'KissJozsef'),
+(6, 1, 6, 7, 1, 'KissJozsef'),
+(7, 2, 1, 1, 1, 'KissJozsef'),
+(8, 2, 2, 2, 1, 'KissJozsef'),
+(9, 2, 3, 3, 1, 'KissJozsef'),
+(10, 2, 4, 4, 1, 'KissJozsef'),
+(11, 2, 5, 5, 1, 'KissJozsef'),
+(12, 2, 6, 7, 1, 'KissJozsef'),
+(13, 3, 1, 1, 1, 'KissJozsef'),
+(14, 3, 2, 2, 1, 'KissJozsef'),
+(15, 3, 3, 3, 1, 'KissJozsef'),
+(16, 3, 4, 4, 1, 'KissJozsef'),
+(17, 3, 5, 5, 1, 'KissJozsef'),
+(18, 3, 6, 7, 1, 'KissJozsef'),
+(19, 4, 1, 1, 1, 'KissJozsef'),
+(20, 4, 2, 2, 1, 'KissJozsef'),
+(21, 4, 3, 3, 1, 'KissJozsef'),
+(22, 4, 4, 4, 1, 'KissJozsef'),
+(23, 4, 5, 5, 1, 'KissJozsef'),
+(24, 4, 6, 7, 1, 'KissJozsef'),
+(25, 5, 1, 1, 1, 'NagyBela'),
+(26, 5, 2, 4, 1, 'NagyBela'),
+(27, 5, 3, 3, 1, 'NagyBela'),
+(28, 5, 4, 2, 1, 'NagyBela'),
+(29, 5, 5, 2, 1, 'NagyBela'),
+(30, 5, 6, 5, 1, 'NagyBela');
 
 -- --------------------------------------------------------
 
@@ -312,8 +325,8 @@ CREATE TABLE `vevok` (
 --
 
 INSERT INTO `vevok` (`azon`, `nev`, `adoazon`, `banksz`, `tel`, `dolg`, `torzs`, `vasmenny`, `felh`, `jelsz`, `email`, `uj`) VALUES
-(1000, 'Kiss G?za', 87623498, 9843716298654585, 701111111, 0, 1, 572, 'KissJozsef', '123456', 'apacshelikopter1998@gmail.com', 1),
-(1001, 'Nagy B?la', 29832749, 8297465738977561, 302222222, 1, 1, 0, 'NagyBela', '123456', 'apacshelikopter1998@gmail.com', 1);
+(1000, 'Kiss G?za', 87623498, 9843716298654585, 701111111, 0, 1, 44, 'KissJozsef', '123456', 'apacshelikopter1998@gmail.com', 1),
+(1001, 'Nagy B?la', 29832749, 8297465738977561, 302222222, 1, 1, 17, 'NagyBela', '123456', 'apacshelikopter1998@gmail.com', 1);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -371,7 +384,7 @@ ALTER TABLE `szamla`
 -- A tábla indexei `szamlatetel`
 --
 ALTER TABLE `szamlatetel`
-  ADD PRIMARY KEY (`szamlatetel`);
+  ADD PRIMARY KEY (`szamlakivonat`);
 
 --
 -- A tábla indexei `termekek`
@@ -411,13 +424,13 @@ ALTER TABLE `kat`
 -- AUTO_INCREMENT a táblához `szamla`
 --
 ALTER TABLE `szamla`
-  MODIFY `nyugtaszam` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `nyugtaszam` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `szamlatetel`
 --
 ALTER TABLE `szamlatetel`
-  MODIFY `szamlatetel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `szamlakivonat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT a táblához `termekek`
