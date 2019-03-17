@@ -8,12 +8,16 @@ if (isset($_POST['vevo'])){
 	$i=0;
 	$sql="select * from rend where Vnev=".$vnev."";
 	$result = $connect->query($sql);
-	if (mysql_num_rows($result)==0) {  $sql="INSERT INTO `rend` (`Tkod`, `Tmenny`, `Vnev`, `Vdate`) VALUES ('$id', '$ertek', '$vnev', '$dat')";
+
+	if ($result!="") {  $sql="INSERT INTO `rend` (`Tkod`, `Tmenny`, `Vnev`, `Vdate`) VALUES ('$id', '$ertek', '$vnev', '$dat')";
+	echo $sql;
 	$connect->query($sql);
 	echo "sikeresen leadva a rendelés";
 	}  
 	else {
-	sql="update rend where Vnev=".$vnev."";
+	$sql="UPDATE `rend` SET `Tmenny`=".$ertek." WHERE Vnev='".$vnev."' and Tkod=".$id."";
+		$connect->query($sql);
+		echo $sql;
 	echo "sikeresen hozzáadva a rendeléshez";
 	}
 	
