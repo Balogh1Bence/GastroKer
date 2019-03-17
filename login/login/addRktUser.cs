@@ -24,10 +24,12 @@ namespace login
 
         internal void addNewUser()
         {
-            MySqlConnection con = new MySqlConnection("svr='localhost';db='felh';uid='root';pwd='';");
+            MySqlConnection con = new MySqlConnection("server='localhost';database='felh';uid='root';pwd='';");
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO `deskusers`(`username`, `password`, `email`, `utols`, `jog`) VALUES ("+placeHolderTextBox1.Text+","+placeHolderTextBox2.Text+","+placeHolderTextBox3.Text+","+"2019-01-01"+", "+comboBox1.SelectedText+")", con);
-
+            string query = "INSERT INTO `deskusers`(`username`, `password`, `email`, `utols`, `jog`) VALUES ('" + placeHolderTextBox1.Text + "','" + placeHolderTextBox2.Text + "','" + placeHolderTextBox3.Text + "','" + "2019-01-01" + "', '" + comboBox1.SelectedItem + "')";
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MessageBox.Show(query);
+            cmd.ExecuteNonQuery();
         }
 
         private void button1_Click(object sender, EventArgs e)

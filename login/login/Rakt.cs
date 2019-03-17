@@ -194,9 +194,10 @@ namespace login
         {
             addRktUser aru = new addRktUser();
 
-
+            
             if (user.getRights(uname) == "admin")
             {
+                aru.ShowDialog();
                 if (aru.DialogResult == DialogResult.OK)
                 {
                     aru.addNewUser();
