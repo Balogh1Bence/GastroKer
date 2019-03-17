@@ -41,6 +41,7 @@
             this.partnersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.newPartnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.placeHolderTextBox1 = new login.Misc.PlaceHolderTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -147,11 +148,24 @@
             this.customersToolStripMenuItem.Text = "Customers";
             this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
+            // placeHolderTextBox1
+            // 
+            this.placeHolderTextBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.placeHolderTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.placeHolderTextBox1.ForeColor = System.Drawing.Color.Gray;
+            this.placeHolderTextBox1.Location = new System.Drawing.Point(629, 57);
+            this.placeHolderTextBox1.Name = "placeHolderTextBox1";
+            this.placeHolderTextBox1.PlaceHolderText = null;
+            this.placeHolderTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.placeHolderTextBox1.TabIndex = 7;
+            this.placeHolderTextBox1.TextChanged += new System.EventHandler(this.placeHolderTextBox1_TextChanged);
+            // 
             // Rakt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 468);
+            this.Controls.Add(this.placeHolderTextBox1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -183,7 +197,8 @@
         private System.Windows.Forms.ToolStripMenuItem partnersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem partnersToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem newPartnerToolStripMenuItem;
-        private Misc.PlaceHolderTextBox placeHolderTextBox1;
+      
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
+        private Misc.PlaceHolderTextBox placeHolderTextBox1;
     }
 }

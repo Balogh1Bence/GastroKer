@@ -28,6 +28,7 @@ namespace login
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.uname = uname;
+            placeHolderTextBox1.setPlaceHolder("keresés név alapján");
            
         }
 
