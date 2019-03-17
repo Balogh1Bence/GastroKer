@@ -17,11 +17,13 @@ namespace login
 {
     public partial class Rakt : Form
     {
+        us user;
         RktServ rs = new RktServ();
         CustomerService cs = new CustomerService();
         string uname;
         public Rakt(string uname)
         {
+            user = new us();
             InitializeComponent();
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -181,9 +183,32 @@ namespace login
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Customers c = new Customers();
-            us user = new us();
+           
             if (user.getRights(uname) == "rak")
                 c.Show();
+            else return;
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addRktUser aru = new addRktUser();
+
+
+            if (user.getRights(uname) == "admin")
+            {
+                if (aru.DialogResult == DialogResult.OK)
+                {
+                    aru.addNewUser();
+
+
+
+
+
+
+
+
+                }
+            }
             else return;
         }
     }
