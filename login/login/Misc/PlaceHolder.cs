@@ -8,48 +8,65 @@ using System.Windows.Forms;
 
 namespace login.Misc
 {
-    
-        public class PlaceHolderTextBox : TextBox
-        {
+
+    public class PlaceHolderTextBox : TextBox
+    {
         /// <summary>
         /// megpróbáltam átlátszóvá tenni. Színek sikerültek, de átlátszó nem lett.
         /// </summary>
-            public void styleSetter()
-            {
+        public void styleSetter()
+        {
 
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Gray;
             BackColor = Color.Transparent;
             BackColor = System.Drawing.SystemColors.InactiveBorder;
-             }
+        }
 
-   
+
 
         bool isPlaceHolder = true;
-            string _placeHolderText;
+        string _placeHolderText;
+        
         /// <summary>
         /// a placeholdertext változó, és annak a settere és gettere
         /// </summary>
-            public string PlaceHolderText
+        public string PlaceHolderText
+        {
+            get { return _placeHolderText; }
+            set
             {
-                get { return _placeHolderText; }
-                set
-                {
-                    _placeHolderText = value;
-                    setPlaceholder();
-               
-                }
+                _placeHolderText = value;
+                setPlaceholder();
 
-            
             }
-       /// <summary>
-       /// ha a placeholdertext üres, akkor a get tulajdonsága a szülőobjektum Text tulajdonsága.
-       /// </summary>
-            public new string Text
-            {
-                get => isPlaceHolder ? string.Empty : base.Text;
+
+
+        }
+        /// <summary>
+        /// ha a placeholdertext üres, akkor a get tulajdonsága a szülőobjektum Text tulajdonsága.
+        /// </summary>
+        public new string Text
+        {
+            get => isPlaceHolder ? string.Empty : base.Text; 
+                    
+           
+
                 set => base.Text = value;
             }
+        public string getText()
+        {
+            if (isPlaceHolder)
+            { return string.Empty; }
+            else
+            { return base.Text; }
+
+        }
+        public void setPlaceHolder(string placehold)
+        {
+            base.Text = placehold;
+        }
+
 
        
 

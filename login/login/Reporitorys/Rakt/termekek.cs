@@ -73,13 +73,15 @@ namespace login.Reporitorys.Rakt
             //ezt egyáltalán nem értem, de pont azt csinálja, ami nekem kellett.
             productsTable = productsTable.Rows
     .Cast<DataRow>()
-    .Where(row => !row.ItemArray.All(field => field is DBNull ||string.IsNullOrWhiteSpace(field as string)))
+    .Where(row => !row.ItemArray.All(field => field is DBNull ||
+    string.IsNullOrWhiteSpace(field as string)))
     .CopyToDataTable();
             return productsTable;
         }
 
         internal DataTable SzuresNevAlapjan(string text)
         {
+         
             return ops.SzuresNevAlapjan(text);
         }
 
