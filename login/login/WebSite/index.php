@@ -279,7 +279,7 @@ var output = d.getFullYear() + '-' +
 
 	function sender()
 	{
-
+	var eredmeny;
 	var i= 0;
 	while(i<a.length)
 	{
@@ -302,7 +302,7 @@ var output = d.getFullYear() + '-' +
 				i++;
 			}
 		
-			
+			alert(eredmeny);
 	
 
 	}
