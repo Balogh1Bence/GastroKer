@@ -317,7 +317,7 @@ CREATE TABLE `vevok` (
   `felh` varchar(30) COLLATE utf16_hungarian_ci NOT NULL,
   `jelsz` varchar(30) COLLATE utf16_hungarian_ci NOT NULL,
   `email` varchar(30) COLLATE utf16_hungarian_ci NOT NULL,
-  `uj` int(11) NOT NULL DEFAULT '1'
+  `uj` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_hungarian_ci;
 
 --
