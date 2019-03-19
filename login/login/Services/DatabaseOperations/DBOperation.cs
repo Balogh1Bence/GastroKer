@@ -345,7 +345,7 @@ namespace login.Services.DatabaseOperations
 
 
             }
-            string dquery = "DELETE FROM `termekek` WHERE id=" + termekek.getTkod() + "";
+            string dquery = "DELETE FROM `termekek` WHERE Tkod=" + termekek.getTkod() + "";
             MySqlCommand cmd = new MySqlCommand(dquery, connect);
             cmd.ExecuteNonQuery();
             connect.Close();
@@ -374,7 +374,7 @@ namespace login.Services.DatabaseOperations
          
 
 
-            string query = "INSERT INTO `termekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + termekek.getTkod() + "', '" + termekek.getTNev() + "', '" + termekek.getTar() + "', '" + termekek.getTkeszl() + "', '" + termekek.getMert() + "', '" + termekek.getTkatkod() + "', '" + termekek.getTvonkod() + "', '" + termekek.getSzavido() + "', '" + termekek.getTegalizalte() + "')";
+            string query = "INSERT INTO `termekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + termekek.getTkod() + "', '" + termekek.getTNev() + "', '" + termekek.getTar() + "', '" + termekek.getTkeszl() + "', '" + termekek.getMert() + "', '" + termekek.getTkatkod() + "', '" + termekek.getTvonkod() + "', '" + uj + "', '" + termekek.getTegalizalte() + "')";
             MySqlCommand cmd = new MySqlCommand(query,connect);
             cmd.ExecuteNonQuery();
             connect.Close();

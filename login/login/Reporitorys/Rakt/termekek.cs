@@ -29,10 +29,8 @@ namespace login.Reporitorys.Rakt
 
         public DataTable getToDataTable()
         {
-        
-           
-                
-            
+            productsList.Clear();
+            fillProductListFromDataTable();
 
             if (productsTable.Columns.Count > 0) {
                 int i = 0;
@@ -105,10 +103,11 @@ namespace login.Reporitorys.Rakt
             {
                 if(id==c.getTkod())
                 {
-                    var selected = productsList[id];
                     
+                    var selected = productsList[id-1];
+       
                     oldProductsList.Add(new Regitermekek(selected.getTkod(),selected.getTNev(), selected.getTar(), selected.getTkeszl(), selected.getMert(), selected.getTkatkod(), selected.getTvonkod(), selected.getSzavido(), selected.getTegalizalte()));
-                    productsList.RemoveAt(id);
+                    productsList.RemoveAt(id-1);
                     
                     
                 }

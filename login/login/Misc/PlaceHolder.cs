@@ -46,22 +46,22 @@ namespace login.Misc
         /// <summary>
         /// ha a placeholdertext üres, akkor a get tulajdonsága a szülőobjektum Text tulajdonsága.
         /// </summary>
-        public new string Text
+        /*public new string Text
         {
             get => isPlaceHolder ? string.Empty : base.Text; 
                     
            
 
                 set => base.Text = value;
-            }
-       /* public string getText()
+            }*/
+        public string getText()
         {
             if (isPlaceHolder)
             { return string.Empty; }
             else
             { return base.Text; }
 
-        }*/
+        }
         public void setPlaceHolder(string placehold)
         {
             base.Text = placehold;
