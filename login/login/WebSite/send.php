@@ -9,7 +9,7 @@ if (isset($_POST['vevo'])){
 	$sql="select * from rend where Vnev=".$vnev."";
 	$result = $connect->query($sql);
 
-	if ($result!="") {  $sql="INSERT INTO `rend` (`Tkod`, `Tmenny`, `Vnev`, `Vdate`) VALUES ('$id', '$ertek', '$vnev', '$dat')";
+	if (!$result) {  $sql="INSERT INTO `rend` (`Tkod`, `Tmenny`, `Vnev`, `Vdate`) VALUES ('$id', '$ertek', '$vnev', '$dat')";
 	echo $sql;
 	$connect->query($sql);
 	echo "sikeresen leadva a rendelés";
