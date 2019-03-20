@@ -85,6 +85,7 @@
     <Compile Include="Misc\BackGroundBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Misc\connections.cs" />
     <Compile Include="Misc\date.cs" />
     <Compile Include="Misc\mypw.cs" />
     <Compile Include="Misc\PlaceHolder.cs">
@@ -142,6 +143,7 @@
     </Compile>
     <Compile Include="validator\IgnoreEmptyOrWhiteSpace.cs" />
     <Compile Include="validator\NoNumber.cs" />
+    <None Include="Misc\App.config" />
     <None Include="WebSite\filterGenerator.php" />
     <None Include="WebSite\szur.php" />
     <None Include="ClassDiagram1.cd" />
