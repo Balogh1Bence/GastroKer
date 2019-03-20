@@ -24,6 +24,7 @@ and open the template in the editor.
                         </font>
                     </h1>
             </div>
+
 			<div id="tartalom">
 			
 			</div>
@@ -32,10 +33,12 @@ and open the template in the editor.
 			<input type="button" value="send all" onclick="sender()"></button>
 			<input type="button" id="logout" value="log out" onclick="log()"></button>
 			<input type="button" id="termekek.Tkatkod" value="összes" onclick="loadNewContent(this.id)"></button>
-			<input type="button" id="1" value="kolbászok" onclick="loadNewContent(this.id)">
-			<input type="button" id="2" value="tej" onclick="loadNewContent(this.id)">
-			<input type="button" id="3" value="fagyasztott" onclick="loadNewContent(this.id)">
+
+		
+				<div id="filters">
+			</div>
 			</form>
+		
 			<form id="szam">
 			<div disabled="disabled" id="szamlalo" value="0"></div>
 			</form>
@@ -64,6 +67,9 @@ and open the template in the editor.
             </div>
         </div>
         <script>
+		  $.get("filterGenerator.php", function(filter, status){
+	document.getElementById("filters").innerHTML=filter;
+  });
 		var ar;
 		var data="";
 		/*if(!localStorage.getItem(us))
