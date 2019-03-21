@@ -138,19 +138,23 @@ namespace login
         {
             int id = cs.getLastId();
             AddUsers au = new AddUsers(id);
-            au.ShowDialog();
-            if (au.DialogResult == DialogResult.OK)
+            if (user.getRights(uname) == "ugy")
             {
-                au.addNewUser();
-                
+                au.ShowDialog();
+                if (au.DialogResult == DialogResult.OK)
+                {
+                    au.addNewUser();
 
-               
 
-               
-                
-                
-                
+
+
+
+
+
+
+                }
             }
+            else { return; }
 
         }
 
