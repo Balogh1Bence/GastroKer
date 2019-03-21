@@ -21,8 +21,11 @@ namespace login
         RktServ rs = new RktServ();
         CustomerService cs = new CustomerService();
         string uname;
+
+
         public Rakt(string uname)
         {
+
             user = new us();
             InitializeComponent();
             dataGridView1.ReadOnly = true;
@@ -30,7 +33,37 @@ namespace login
             this.uname = uname;
             dataGridView1.MultiSelect = false;
             placeHolderTextBox1.setPlaceHolder("keresés név alapján");
-            
+
+            const string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
+            const string REGISTY_VALUE = "FirstRun";
+            if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
+            {
+
+                addRktUser au = new addRktUser(true);
+                
+                if (user.getRights(uname) == "admin")
+                {
+                    au.ShowDialog();
+                    if (au.DialogResult == DialogResult.OK)
+                    {
+                        au.addNewUser();
+
+
+
+
+
+
+
+
+                    }
+                }
+                else { return; }
+                Microsoft.Win32.Registry.SetValue(REGISTRY_KEY, REGISTY_VALUE, 1, Microsoft.Win32.RegistryValueKind.DWord);
+            }
+
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -127,7 +160,7 @@ namespace login
 
                     dataGridView1.DataSource = sz.addNewItem();
                 }
-                catch (Exception d) {  }
+                catch (Exception d) { return; }
                 
             }
 

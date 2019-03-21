@@ -30,6 +30,8 @@
         {
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.placeHolderTextBox4 = new login.Misc.PlaceHolderTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.placeHolderTextBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -55,16 +57,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // placeHolderTextBox4
+            // 
+            this.placeHolderTextBox4.Location = new System.Drawing.Point(172, 312);
+            this.placeHolderTextBox4.Name = "placeHolderTextBox4";
+            this.placeHolderTextBox4.PlaceHolderText = null;
+            this.placeHolderTextBox4.Size = new System.Drawing.Size(100, 20);
+            this.placeHolderTextBox4.TabIndex = 2;
+            // 
             // addRktUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.placeHolderTextBox4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Name = "addRktUser";
             this.Text = "addRktUser";
+            ((System.ComponentModel.ISupportInitialize)(this.placeHolderTextBox4)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -76,5 +89,6 @@
         private Misc.PlaceHolderTextBox placeHolderTextBox1;
         private Misc.PlaceHolderTextBox placeHolderTextBox2;
         private Misc.PlaceHolderTextBox placeHolderTextBox3;
+        private Misc.PlaceHolderTextBox placeHolderTextBox4;
     }
 }
