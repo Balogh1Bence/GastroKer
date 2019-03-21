@@ -32,7 +32,7 @@ namespace login.Services.DatabaseOperations
                  + "PASSWORD=\"\";"
                  + "PORT=\"3306\";"; 
             this.conF = "SERVER=\"localhost\";"
-                + "DATABASE=\"gastro\";"
+                + "DATABASE=\"felh\";"
                 + "UID=\"root\";"
                 + "PASSWORD=\"\";"
                 + "PORT=\"3306\";";
