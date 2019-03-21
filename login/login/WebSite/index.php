@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+?>
+<!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -91,6 +94,10 @@ and open the template in the editor.
 			$("#logout").hide();
 				function log()
 		{
+
+			session_unset(); 
+
+			session_destroy(); 
 			data="";
 			location.reload();
 		}
@@ -173,6 +180,7 @@ and open the template in the editor.
 										 $.post( "elsoe.php", {us: data}, function( uj ) {
 											  if(uj=="0")
 											  {
+
 											  console.log("uj"); 
 												window.location.replace("modify.php?user="+data+"");
 											  }
