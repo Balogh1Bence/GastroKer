@@ -20,6 +20,9 @@ namespace login
             cs = new CarrierService();
             InitializeComponent();
             dataGridView1.DataSource = cs.Load();
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
         }
     }
 }

@@ -26,8 +26,13 @@ namespace login
             items = _items;
             vevoNev = _vevoNev;
             InitializeComponent();
+
             cs = new CustomerService();
             dataGridView1.DataSource = items;
+            dataGridView1.DataSource = cs.Load();
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
 
         }
 
