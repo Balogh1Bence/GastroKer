@@ -20,6 +20,11 @@ namespace login
         us user;
         RktServ rs = new RktServ();
         CustomerService cs = new CustomerService();
+        Carriers c;
+        Customers ct;
+        addRktUser aru;
+        AddUsers au;
+        Szerk sz;
         string uname;
 
 
@@ -39,7 +44,7 @@ namespace login
             if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
             {
 
-                addRktUser au = new addRktUser(true);
+                aru = new addRktUser(true);
                 
                 if (user.getRights(uname) == "admin")
                 {
@@ -93,7 +98,7 @@ namespace login
                     , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[6].Value.ToString())
                     , Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[7].Value.ToString())
                     , teg);
-                Szerk sz = new Szerk(termekek);
+                 sz = new Szerk(termekek);
                 sz.ShowDialog();
                 if (sz.DialogResult == DialogResult.OK)
                 {
@@ -148,7 +153,7 @@ namespace login
             int id=rs.getLastId();
           
 
-            Szerk sz = new Szerk(id);
+             sz = new Szerk(id);
            
             sz.ShowDialog();
             if (sz.DialogResult == DialogResult.OK)
@@ -170,7 +175,7 @@ namespace login
         private void newPartnerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int id = cs.getLastId();
-            AddUsers au = new AddUsers(id);
+            au = new AddUsers(id);
             if (user.getRights(uname) == "ugy")
             {
                 au.ShowDialog();
@@ -193,7 +198,7 @@ namespace login
 
         private void partnersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Carriers c = new Carriers();
+             c = new Carriers();
             c.ShowDialog();
         }
 
@@ -221,7 +226,7 @@ namespace login
 
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Customers c = new Customers();
+            ct = new Customers();
            
             if (user.getRights(uname) == "rak")
                 c.Show();

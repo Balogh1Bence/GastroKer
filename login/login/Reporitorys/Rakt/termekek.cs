@@ -13,6 +13,7 @@ namespace login.Reporitorys.Rakt
 {
     class termekek
     {
+        MdTermekek mdt;
         List<MdTermekek> productsList;
         DataTable productsTable;
         

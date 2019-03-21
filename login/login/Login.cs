@@ -18,7 +18,9 @@ namespace login
         SetProperties sp;
         ErrorProvider uname = new ErrorProvider();
         ErrorProvider pw = new ErrorProvider();
-        variableChecker uc;
+        Rakt rakt;
+        us u;
+variableChecker uc;
         public Login()
         {
             InitializeComponent();
@@ -38,8 +40,8 @@ namespace login
 
         private void button1_Click(object sender, EventArgs e)
         {
-            us u = new us();
-            Rakt rakt = new Rakt(textBox1.Text);
+            u = new us(); ;
+    rakt = new Rakt(textBox1.Text);
            
             if (textBox1.Text == "" || textBox1.Text == null)
             {

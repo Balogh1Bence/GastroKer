@@ -144,6 +144,7 @@
     </Compile>
     <Compile Include="validator\IgnoreEmptyOrWhiteSpace.cs" />
     <Compile Include="validator\NoNumber.cs" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Misc\App.config" />
     <None Include="WebSite\filterGenerator.php" />
     <None Include="WebSite\szur.php" />

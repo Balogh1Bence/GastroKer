@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="login.Login" Collapsed="true">
+    <Position X="0.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACCEAAAAACAAAAAAAACAAAgSAIA4gAAAEHIAgAAAAAA=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="rakt" />
+      <Field Name="u" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.Rakt" Collapsed="true">
+    <Position X="2.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BYAAAAAQACAAAAAgAAHFAAgCgFg4QACIoHAKAAAAAQA=</HashCode>
+      <FileName>Rakt.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="cs" />
+      <Field Name="rs" />
+      <Field Name="user" />
+      <Field Name="aru" />
+      <Field Name="au" />
+      <Field Name="sz" />
+      <Field Name="c" />
+      <Field Name="ct" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.Szerk" Collapsed="true">
+    <Position X="4.5" Y="10.75" Width="1.5" />
+    <AssociationLine Name="termekek" Type="login.models.MdTermekek" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="11.096" />
+        <Point X="6.375" Y="11.096" />
+        <Point X="6.375" Y="12.062" />
+        <Point X="6.435" Y="12.062" Type="JumpStart" />
+        <Point X="6.602" Y="12.062" Type="JumpEnd" />
+        <Point X="7" Y="12.062" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>CAQACEAAACEAAAECABCAAAACAIEIAQgIBECAAAEAAgE=</HashCode>
+      <FileName>Szerk.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="termekek" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.Customers" Collapsed="true">
+    <Position X="4.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAIAAAAAACQAAACAAhAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Customers.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="bi" />
+      <Field Name="cs" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.Carriers" Collapsed="true">
+    <Position X="4.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAgAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Carriers.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="cs" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.BoughtItems" Collapsed="true">
+    <Position X="1.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAACAQAAEAAAiAAAACAAgIAAAAAFAAAAAAAAA=</HashCode>
+      <FileName>BoughtItems.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="login.AddUsers" Collapsed="true">
+    <Position X="4.5" Y="9.75" Width="1.5" />
+    <AssociationLine Name="vevo" Type="Gastro.MDVevok" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6" Y="10.096" />
+        <Point X="6.375" Y="10.096" />
+        <Point X="6.375" Y="11.062" />
+        <Point X="6.435" Y="11.062" Type="JumpStart" />
+        <Point X="6.602" Y="11.062" Type="JumpEnd" />
+        <Point X="7" Y="11.062" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAABgAACAAAECAAAIAAAAAFAAABAAAgA=</HashCode>
+      <FileName>AddUsers.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="cs" />
+      <Field Name="vevo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.addRktUser" Collapsed="true">
+    <Position X="4.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAACAAAADxAACAAAECAAAIAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>addRktUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="login.Services.CarrierService" Collapsed="true">
+    <Position X="6.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Services\CarrierService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="b" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.Services.connectionManager" Collapsed="true">
+    <Position X="0.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAYAAAAAAIAAAAAAEAAAwCAAA=</HashCode>
+      <FileName>Services\connectionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="login.Services.CustomerService" Collapsed="true">
+    <Position X="6.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAQAAAAAAAQAAAEAAAABAAAAAAAAAAAABAAQAAAAAE=</HashCode>
+      <FileName>Services\CustomerService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="v" />
+      <Field Name="db" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.Services.RktServ" Collapsed="true">
+    <Position X="4.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAGAAAAAAAQAAAAAAAAAAAAAAAAAAABAQAQQAAAAA=</HashCode>
+      <FileName>Services\RktServ.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="t" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gastro.vevo" Collapsed="true">
+    <Position X="8" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAQAAABAAAAAAAEAAAAAAAAAAAAAAAEAAAAQQAAAAA=</HashCode>
+      <FileName>Reporitorys\Rakt\vevo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="d" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.Reporitorys.Rakt.termekek" Collapsed="true">
+    <Position X="7.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAABDAAAAAAAAAAAAEAAQEAADAAIQAAgECA=</HashCode>
+      <FileName>Reporitorys\Rakt\termekek.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mdt" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="login.models.MdTermekek" Collapsed="true">
+    <Position X="7" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACIBCgABAAgAAAEAAAQgISgAARAAAAGAAAAAkAACAY=</HashCode>
+      <FileName>models\MdTermekek.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gastro.MDVevok" Collapsed="true">
+    <Position X="7" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEAoAwQAMCAAgCABAAAAAAAAACACAAAAAAJAAQaAAAE=</HashCode>
+      <FileName>models\MDVevok.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="login.Services.fleh.us" Collapsed="true">
+    <Position X="1" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAhAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\felh\us.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="login.Reporitorys.besz" Collapsed="true">
+    <Position X="8" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAEAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Reporitorys\Rakt\besz.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="login.Services.DatabaseOperations.DBOperation" Collapsed="true">
+    <Position X="8" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAQAAAAAgIAAAAEBEAMAAAAEAAQQAAABAAAQgQEAAA=</HashCode>
+      <FileName>Services\DatabaseOperations\DBOperation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
