@@ -5,12 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Drawing;
+using System.ComponentModel;
 namespace login.Misc
 {
 
-    public class PlaceHolderTextBox : TextBox
+
+    public class PlaceHolderTextBox : TextBox, ISupportInitialize
     {
+        //az ISupportInitialize az határozza meg, hogy a designer kezdheti-e ezzel a controllal a betöltést. 
+        //Ez kell ahhoz, hogy a formok ne mutassanak hibát, ha csak fehúztam a placeholdereket.
         /// <summary>
         /// megpróbáltam átlátszóvá tenni. Színek sikerültek, de átlátszó nem lett.
         /// </summary>
@@ -20,7 +24,7 @@ namespace login.Misc
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Gray;
             BackColor = Color.Transparent;
-            BackColor = System.Drawing.SystemColors.InactiveBorder;
+            BackColor = SystemColors.InactiveBorder;
         }
 
 
@@ -44,16 +48,9 @@ namespace login.Misc
 
         }
         /// <summary>
-        /// ha a placeholdertext üres, akkor a get tulajdonsága a szülőobjektum Text tulajdonsága.
+        /// ha a placeholdertext üres, akkor a get a szülőobjektum Text tulajdonságát adja vissza.
         /// </summary>
-        /*public new string Text
-        {
-            get => isPlaceHolder ? string.Empty : base.Text; 
-                    
-           
-
-                set => base.Text = value;
-            }*/
+     
         public string getText()
         {
             if (isPlaceHolder)
@@ -78,8 +75,7 @@ namespace login.Misc
         /// </summary>
             private void setPlaceholder()
             {
-            /*if (Text != null)
-            { return; }*/
+          
          
             if (string.IsNullOrEmpty(base.Text))
                 {
@@ -100,13 +96,12 @@ namespace login.Misc
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             BackColor = Color.Transparent;
             
-            /*if (Text != null)
-            { return; }*/
+           
             if (isPlaceHolder)
                 {
                     base.Text = "";
-                    this.ForeColor = System.Drawing.SystemColors.WindowText;
-                    this.Font = new Font(this.Font, FontStyle.Regular);
+                    ForeColor = SystemColors.WindowText;
+                    Font = new Font(Font, FontStyle.Regular);
                     isPlaceHolder = false;
                 styleSetter();
                 }
@@ -131,10 +126,21 @@ namespace login.Misc
             {
                 removePlaceHolder();
             }
+
+        public void BeginInit()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EndInit()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// tulajdonság, van-e placeholdere. kívülről is elérhető.
         /// </summary>
-            public bool hasPlaceHolder
+        public bool hasPlaceHolder
             {
               get { return isPlaceHolder; }
             }

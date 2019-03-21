@@ -12,6 +12,9 @@
   </Class>
   <Class Name="login.Reporitorys.Rakt.termekek">
     <Position X="6.75" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAABDAAAAAAAAAAAAEAAQEAADAAIQAAAECA=</HashCode>
       <FileName>Reporitorys\Rakt\termekek.cs</FileName>
