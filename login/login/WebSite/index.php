@@ -140,10 +140,12 @@ and open the template in the editor.
             
             function unloadconten()
 			{
+			console.log("valami");
 			document.getElementById('tartalom').innerHTML = "";
 			}
 			function loadNewContent(kategoria)
 			{
+			console.log("valami");
 				unloadconten();
 				$.post("szur.php",
   {
@@ -331,6 +333,14 @@ var output = d.getFullYear() + '-' +
 
 	}
 	
+
+
+
+
+
+
+
+
 
 
 
