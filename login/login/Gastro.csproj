@@ -85,7 +85,6 @@
     <Compile Include="Misc\BackGroundBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Misc\connections.cs" />
     <Compile Include="Misc\date.cs" />
     <Compile Include="Misc\mypw.cs" />
     <Compile Include="Misc\PlaceHolder.cs">
