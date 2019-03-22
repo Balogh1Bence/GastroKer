@@ -127,16 +127,20 @@ namespace login.Reporitorys.Rakt
 
             foreach (MdTermekek product in productsList)
             {
+                
 
                 if (product.getTkod() == id)
                 {
-                   
+
+                    MessageBox.Show("Test");
+
                     product.setTkod(id);
                     product.setTnev(termekek.getTNev());
 
                     product.setTar(termekek.getTar());
                     product.setTkeszl(termekek.getTkeszl());
                     product.setTmert(termekek.getMert());
+         
                     product.setTkatkod(termekek.getTkatkod());
                     product.setTvonkod(termekek.getTvonkod());
                     product.setTSzavido(termekek.getSzavido());

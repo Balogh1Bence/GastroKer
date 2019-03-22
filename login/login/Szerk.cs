@@ -95,6 +95,7 @@ namespace login
             }
             if (CodeHolder.hasPlaceHolder)
             {
+  
                 CodeHolder.Focus();
                 CodeHolder.Text = termekek.getTkatkod().ToString();
             }
@@ -109,7 +110,7 @@ namespace login
             termekek.setTar(Convert.ToInt32(PriceHolder.Text));
             
             termekek.setTkeszl(Convert.ToInt32(AmmountHolder.Text));
-            
+            termekek.setTkatkod(Convert.ToInt32(CodeHolder.Text));
             termekek.setTvonkod(Convert.ToInt32(VonCodeHolder.Text));
             
             if (checkBox1.Checked)

@@ -1,5 +1,6 @@
 ﻿<?php
 session_start();
+
 ?>
 <!DOCTYPE html>
 <!--
@@ -14,11 +15,19 @@ and open the template in the editor.
           <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css"/>
 		  <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap.css"/>
 		<link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
+		<link rel = "stylesheet" href ="https://www.w3schools.com/w3css/4/w3.css">
+<link rel = "stylesheet" href ="w3style.css">
         <link rel="stylesheet" href="css/foundation.css"/>
 	
         <script src="jquery-3.3.1.min.js"></script>
 		</head>
 	<body class="jumbotron">
+	<nav class = "w3-bar w3-red" id="bar">
+					<div class = "w3-bar-item w3-button w3-mobile">Főoldal</div>
+	
+					<div  type="button", class="w3-bar-item w3-button w3-mobile", id="logout", onclick="log()" >kijelentkezés</div>	
+					<div class = "w3-bar-item w3-button w3-mobile">Kapcsolat</div>
+</nav>
         <div class ='kozepre'>
             <div class="page-header">
                     <h1 id="bej" class="beljebbKezdes">
@@ -27,16 +36,16 @@ and open the template in the editor.
                         </font>
                     </h1>
             </div>
-
+			
 			<div id="tartalom">
 			
 			</div>
 		
 			<form id="sendall">
 			<input type="button" value="send all" onclick="sender()"></button>
-			<input type="button" id="logout" value="log out" onclick="log()"></button>
+			
 			<input type="button" id="termekek.Tkatkod" value="összes" onclick="loadNewContent(this.id)"></button>
-
+			
 		
 				<div id="filters">
 			</div>
@@ -89,16 +98,16 @@ and open the template in the editor.
 		x.type = "password";
 	  }
 	} 
+			$("#bar").hide();
 			$("#szam").hide();
 			$("#sendall").hide();
 			$("#logout").hide();
 				function log()
 		{
 
-			session_unset(); 
-
-			session_destroy(); 
-			data="";
+			
+			$.get("logout.php");
+		
 			location.reload();
 		}
             function felhNevEllenorzes()
@@ -190,6 +199,7 @@ and open the template in the editor.
 								$("#szam").show();
 								$("#sendall").show();
 								$("#logout").show();
+								$("#bar").show();
 									$.post("loadall.php",
 									{
 										us: data

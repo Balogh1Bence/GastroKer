@@ -230,16 +230,12 @@ namespace login.Services.DatabaseOperations
         {
             
             MySqlConnection connect = new MySqlConnection(conG);
-            try
-            {
+         
                 connect.Open();
-            }
-            catch (Exception e)
-            {
-
-                Debug.WriteLine(e.Message);
-                throw new Exception("Sikertelen adatbázismegnyitás.");
-            }
+            
+           
+     
+            
 
             DateTime dt = t.getSzavido();
 
@@ -252,20 +248,16 @@ namespace login.Services.DatabaseOperations
 
 
 
-            try
-            {
-                MySqlCommand cm = new MySqlCommand(query, connect);
+         MySqlCommand cm = new MySqlCommand(query, connect);
                 cm.ExecuteNonQuery();
 
 
-            }
-            catch (Exception e)
-            {
-
-                Debug.WriteLine(e.Message);
+            
+         
+            
 
 
-            }
+            
             connect.Close();
         }
 
