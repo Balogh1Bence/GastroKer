@@ -61,7 +61,7 @@ namespace login
                             Microsoft.Win32.Registry.SetValue(REGISTRY_KEY, REGISTY_VALUE, 1, Microsoft.Win32.RegistryValueKind.DWord);
                         }
 
-
+                          
 
 
 
