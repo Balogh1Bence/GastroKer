@@ -44,7 +44,7 @@ and open the template in the editor.
 			<form id="sendall">
 			<input type="button" value="send all" onclick="sender()"></button>
 			
-			<input type="button" id="termekek.Tkatkod" value="összes" onclick="loadNewContent(this.id)"></button>
+			
 			
 		
 				<div id="filters">

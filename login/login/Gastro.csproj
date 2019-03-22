@@ -148,7 +148,7 @@
       <DependentUpon>Szerk.cs</DependentUpon>
     </Compile>
     <Compile Include="validator\IgnoreEmptyOrWhiteSpace.cs" />
-    <Compile Include="validator\NoNumber.cs" />
+    <Compile Include="validator\validateInput.cs" />
     <None Include="WebSite\logout.php" />
     <Content Include="WebSite\w3style.css" />
     <None Include="ClassDiagram2.cd" />
