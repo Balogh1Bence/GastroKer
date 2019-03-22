@@ -40,7 +40,7 @@ WHILE (i <= (select Tkod-1 from rend where Vnev=vevoNev order by Tkod desc limit
     set Watcher=Watcher+1;
 END WHILE;
  DELETE FROM `rend` WHERE rend.Vnev=vevoNev;
-END$$
+END$$   
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `szamla` (IN `vevoNev` VARCHAR(255))  NO SQL
 INSERT INTO `szamla`( `datum`, `Vkod`, `osszeg`) VALUES (CURRENT_DATE(),(select azon from vevok where felh=vevoNev), 
