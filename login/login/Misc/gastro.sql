@@ -34,7 +34,7 @@ DECLARE Watcher INT DEFAULT 1;
 WHILE (i <= (select Tkod-1 from rend where Vnev=vevoNev order by Tkod desc limit 1)) DO
   INSERT INTO `szamlatetel`(`nyugtaszam`, `Tkod`, `menny`, `vevo`) VALUES
   ((SELECT nyugtaszam from szamla, vevok where vevok.azon=szamla.Vkod and vevok.felh=vevoNev order by nyugtaszam desc 
-  limit 1),watcher,(SELECT Tmenny from rend where Tkod=Watcher), vevoNev);
+  limit 1),watcher,(SELECT Tmenny from rend where Tkod=Watcher  and Vnev=vevoNev), vevoNev);
 
     SET i = i+1;
     set Watcher=Watcher+1;
