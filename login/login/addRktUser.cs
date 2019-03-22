@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+
 namespace login
 {
     public partial class addRktUser : Form
@@ -17,9 +18,10 @@ namespace login
         public addRktUser()
         {
             elsoe = false;
-            placeHolderTextBox4.Hide();
+
             InitializeComponent();
             button1.DialogResult = DialogResult.OK;
+            placeHolderTextBox4.Hide();
             placeHolderTextBox1.PlaceHolderText = "felhasználónév";
             placeHolderTextBox2.PlaceHolderText = "jelszó";
             placeHolderTextBox3.PlaceHolderText = "email cím";
@@ -36,7 +38,7 @@ namespace login
             placeHolderTextBox1.PlaceHolderText = "felhasználónév";
             placeHolderTextBox2.PlaceHolderText = "jelszó";
             placeHolderTextBox3.PlaceHolderText = "email cím";
-            
+
         }
 
         internal void addNewUser()
@@ -57,14 +59,14 @@ namespace login
             con.Open();
             string query = "INSERT INTO `deskusers`(`username`, `password`, `email`, `utols`, `jog`) VALUES ('" + placeHolderTextBox1.Text + "','" + placeHolderTextBox2.Text + "','" + placeHolderTextBox3.Text + "','" + "2019-01-01" + "', '" + comboBox1.SelectedItem + "')";
             MySqlCommand cmd = new MySqlCommand(query, con);
-         
+
             cmd.ExecuteNonQuery();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            
+
         }
     }
 }

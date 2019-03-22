@@ -44,7 +44,8 @@ CREATE TABLE `deskusers` (
 INSERT INTO `deskusers` (`azon`, `username`, `password`, `email`, `utols`, `jog`) VALUES
 (1, 'abrlin', '123456', 'baloghbencefacebook@gmail.com', '2001-01-01', 'vez'),
 (2, 'nagcso', '123456', 'lujzza08@gmail.com', '2019-01-01', 'rak'),
-(3, 'admin', 'admin', 'baloghbencefacebook@gmail.com', '2001-01-01', 'admin');
+(3, 'admin', 'admin', 'baloghbencefacebook@gmail.com', '2001-01-01', 'admin'),
+(4, 'kirmar', '123456', 'lujzza08@gmail.com', '2019-01-01', 'ugy');
 
 --
 -- Indexek a kiírt táblákhoz

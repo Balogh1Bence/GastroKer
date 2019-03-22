@@ -51,12 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addRktUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="addRktUser.Designer.cs">
-      <DependentUpon>addRktUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +68,12 @@
     </Compile>
     <Compile Include="Customers.Designer.cs">
       <DependentUpon>Customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addRktUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addRktUser.Designer.cs">
+      <DependentUpon>addRktUser.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Login.cs">
@@ -166,9 +166,6 @@
     <None Include="WebSite\connectG.php" />
     <None Include="WebSite\login.php" />
     <None Include="WebSite\ForgottenPw.php" />
-    <EmbeddedResource Include="addRktUser.resx">
-      <DependentUpon>addRktUser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddUsers.resx">
       <DependentUpon>AddUsers.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addRktUser.resx">
+      <DependentUpon>addRktUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

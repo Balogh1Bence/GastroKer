@@ -48,7 +48,7 @@ namespace login
                 
                 if (user.getRights(uname) == "admin")
                 {
-                    au.ShowDialog();
+                    aru.ShowDialog();
                     if (au.DialogResult == DialogResult.OK)
                     {
                         au.addNewUser();

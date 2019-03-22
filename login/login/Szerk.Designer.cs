@@ -38,7 +38,7 @@
             this.CodeHolder = new login.Misc.PlaceHolderTextBox();
             this.VonCodeHolder = new login.Misc.PlaceHolderTextBox();
             this.backGroundBox1 = new login.Misc.BackGroundBox();
-            ((System.ComponentModel.ISupportInitialize)(this.backGroundBox1)).BeginInit();
+          
             this.SuspendLayout();
             // 
             // button1
@@ -164,7 +164,7 @@
             this.Text = "Szerk";
             this.TransparencyKey = System.Drawing.Color.Gray;
             this.Load += new System.EventHandler(this.Szerk_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.backGroundBox1)).EndInit();
+ 
             this.ResumeLayout(false);
             this.PerformLayout();
 

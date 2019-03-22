@@ -11,7 +11,7 @@ namespace login.Misc
 {
 
 
-    public class PlaceHolderTextBox : TextBox, ISupportInitialize
+    public class PlaceHolderTextBox : TextBox
     {
         //az ISupportInitialize az határozza meg, hogy a designer kezdheti-e ezzel a controllal a betöltést. 
         //Ez kell ahhoz, hogy a formok ne mutassanak hibát, ha csak fehúztam a placeholdereket.
@@ -127,15 +127,7 @@ namespace login.Misc
                 removePlaceHolder();
             }
 
-        public void BeginInit()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void EndInit()
-        {
-            throw new NotImplementedException();
-        }
+    
 
         /// <summary>
         /// tulajdonság, van-e placeholdere. kívülről is elérhető.
