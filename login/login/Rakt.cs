@@ -229,7 +229,7 @@ namespace login
             ct = new Customers();
            
             if (user.getRights(uname) == "rak")
-                c.Show();
+                ct.Show();
             else return;
         }
 
