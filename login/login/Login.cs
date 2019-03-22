@@ -41,7 +41,7 @@ variableChecker uc;
         private void button1_Click(object sender, EventArgs e)
         {
             u = new us(); ;
-    rakt = new Rakt(textBox1.Text);
+    
            
             if (textBox1.Text == "" || textBox1.Text == null)
             {
@@ -51,7 +51,7 @@ variableChecker uc;
             {
                 if (u.belep(textBox1.Text, textBox2.Text) == 0)
                 {
-
+                    rakt = new Rakt(textBox1.Text);
                     rakt.Show();
 
                 }

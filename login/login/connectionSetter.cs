@@ -18,15 +18,21 @@ namespace login
         {
             InitializeComponent();
             cm = new connectionManager();
+            button1.DialogResult = DialogResult.OK;
             placeHolderTextBox1.PlaceHolderText = "felhasználók adatbázis IP címe";
             placeHolderTextBox2.PlaceHolderText = "Raktár adatbázis IP címe";
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+        }
+        public void setCons()
+        {
             cm.connectServerF = placeHolderTextBox1.Text;
             cm.connectServerG = placeHolderTextBox2.Text;
-            this.Close();
+            
         }
     }
 }

@@ -26,7 +26,7 @@ namespace login
         AddUsers au;
         Szerk sz;
         string uname;
-
+        connectionSetter cst;
 
         public Rakt(string uname)
         {
@@ -40,7 +40,7 @@ namespace login
             placeHolderTextBox1.setPlaceHolder("keresés név alapján");
 
             const string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
-            const string REGISTY_VALUE = "FirstRun";
+            const string REGISTY_VALUE = "secondRun";
             if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
             {
 
@@ -49,21 +49,26 @@ namespace login
                 if (user.getRights(uname) == "admin")
                 {
                     aru.ShowDialog();
-                    if (au.DialogResult == DialogResult.OK)
+                    if (aru.DialogResult == DialogResult.OK)
                     {
-                        au.addNewUser();
+                        aru.addNewUser();
+
+                        cst = new connectionSetter();
+                        if (cst.DialogResult == DialogResult.OK)
+                        {
+                            cst.setCons();
+                            Microsoft.Win32.Registry.SetValue(REGISTRY_KEY, REGISTY_VALUE, 1, Microsoft.Win32.RegistryValueKind.DWord);
+                        }
 
 
 
 
 
-
-
-
+                        
                     }
                 }
                 else { return; }
-                Microsoft.Win32.Registry.SetValue(REGISTRY_KEY, REGISTY_VALUE, 1, Microsoft.Win32.RegistryValueKind.DWord);
+                
             }
 
 
