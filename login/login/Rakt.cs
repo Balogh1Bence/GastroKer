@@ -256,5 +256,11 @@ namespace login
             }
             else return;
         }
+
+        private void adatbáziskapcsolatokKezeléseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            connectionSetter cst = new connectionSetter();
+            cst.Show();
+        }
     }
 }

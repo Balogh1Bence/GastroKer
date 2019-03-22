@@ -42,6 +42,7 @@
             this.newPartnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.placeHolderTextBox1 = new login.Misc.PlaceHolderTextBox();
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +113,8 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.fileToolStripMenuItem.Text = "Administration";
@@ -160,6 +163,13 @@
             this.placeHolderTextBox1.TabIndex = 7;
             this.placeHolderTextBox1.TextChanged += new System.EventHandler(this.placeHolderTextBox1_TextChanged);
             // 
+            // adatbáziskapcsolatokKezeléseToolStripMenuItem
+            // 
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Name = "adatbáziskapcsolatokKezeléseToolStripMenuItem";
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Text = "adatbáziskapcsolatok kezelése";
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Click += new System.EventHandler(this.adatbáziskapcsolatokKezeléseToolStripMenuItem_Click);
+            // 
             // Rakt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,5 +210,6 @@
       
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
         private Misc.PlaceHolderTextBox placeHolderTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem adatbáziskapcsolatokKezeléseToolStripMenuItem;
     }
 }

@@ -14,10 +14,7 @@ namespace login.Services
 
         
 
-        
 
-            private string Glocal;
-            private string Flocal;
             private string Gserver;
             private string Fserver;
 
@@ -25,19 +22,7 @@ namespace login.Services
             {
 
             }
-            /// <summary>
-            /// get = a teljes connection string
-            /// set = a server értékét átállítja (lehet fölösleges, mert az ugye mindíg localhost....)
-            /// </summary>
-            public string connectLocalG
-            {
-                get => Glocal;
-                set => Glocal = "SERVER =\"" + value + "\";"
-                    + "DATABASE=\"gastro\";"
-                    + "UID=\"root\";"
-                    + "PASSWORD=\"\";"
-                    + "PORT=\"3306\";";
-            }
+      
             /// <summary>
             /// get = a teljes connection string
             /// set = a server értékét átállítja 
@@ -51,19 +36,7 @@ namespace login.Services
                     + "PASSWORD=\"\";"
                     + "PORT=\"3306\";";
             }
-            /// <summary>
-            /// get = a teljes connection string
-            /// set = a server értékét átállítja (lehet fölösleges, mert az ugye mindíg localhost....)
-            /// </summary>
-            public string connectLocalF
-            {
-                get => Flocal;
-                set => Flocal = "SERVER =\"" + value + "\";"
-                    + "DATABASE=\"felh\";"
-                    + "UID=\"root\";"
-                    + "PASSWORD=\"\";"
-                    + "PORT=\"3306\";";
-            }
+     
             /// <summary>
             /// get = a teljes connection string
             /// set = a server értékét átállítja 
