@@ -28,18 +28,18 @@ namespace login
            
             button1.DialogResult = DialogResult.OK;
             
-            NameHolder.Text = termekek.getTNev();
-        
-            PriceHolder.Text =termekek.getTar().ToString();
+            NameHolder.setText(termekek.getTNev());
+
+            PriceHolder.setText(termekek.getTar().ToString());
            
-            AmmountHolder.Text = termekek.getTkeszl().ToString();
+            AmmountHolder.setText(termekek.getTkeszl().ToString());
             
-            UnitHolder.Text = termekek.getMert();
+            UnitHolder.setText(termekek.getMert());
             
-            CodeHolder.Text = termekek.getTkatkod().ToString();
+            CodeHolder.setText(termekek.getTkatkod().ToString());
 
            
-            VonCodeHolder.Text = termekek.getTvonkod().ToString();
+            VonCodeHolder.setText(termekek.getTvonkod().ToString());
             dateTimePicker1.Value = termekek.getSzavido();
 
             
@@ -72,38 +72,25 @@ namespace login
                 return;
                 
             }
-            if (NameHolder.hasPlaceHolder)
-            {
-                NameHolder.Focus();
+          
+         
                 NameHolder.Text = termekek.getTNev();
 
-            }
-            if (PriceHolder.hasPlaceHolder)
-            {
-                PriceHolder.Focus();
-                PriceHolder.Text = termekek.getTar().ToString();
-            }
-            if (AmmountHolder.hasPlaceHolder)
-            {
-                AmmountHolder.Focus();
+             PriceHolder.Text = termekek.getTar().ToString();
+            
+        
                 AmmountHolder.Text = termekek.getTkeszl().ToString();
-            }
-            if (UnitHolder.hasPlaceHolder)
-            {
-                UnitHolder.Focus();
+          
+    
                 UnitHolder.Text = termekek.getMert();
-            }
-            if (CodeHolder.hasPlaceHolder)
-            {
+          
   
-                CodeHolder.Focus();
+    
                 CodeHolder.Text = termekek.getTkatkod().ToString();
-            }
-            if (VonCodeHolder.hasPlaceHolder)
-            {
-                VonCodeHolder.Focus();
+
+  
                 VonCodeHolder.Text = termekek.getTvonkod().ToString();
-            }
+            
             
             id =termekek.getTkod();
             

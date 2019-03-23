@@ -59,9 +59,17 @@ namespace login.Misc
             { return base.Text; }
 
         }
-        public string setText(string text)
+        public void setText(string text)
         {
-            return base.Text= text;
+            if (isPlaceHolder)
+            {
+                ForeColor = SystemColors.WindowText;
+                Font = new Font(Font, FontStyle.Regular);
+                isPlaceHolder = false;
+                base.Text = text;
+
+            }
+             
         }
         public void setPlaceHolder(string placehold)
         {
