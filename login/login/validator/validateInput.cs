@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace login.validator
 {
     public static class validateInput
@@ -27,7 +26,7 @@ namespace login.validator
             int i = 0;
             while (i < st.Text.Length)
             {
-                if (Char.IsLetter(st.Text[i]))
+                if (!char.IsNumber(st.Text[i]))
                 {
                     return false;
                 }

@@ -59,6 +59,10 @@ namespace login.Misc
             { return base.Text; }
 
         }
+        public string setText(string text)
+        {
+            return base.Text= text;
+        }
         public void setPlaceHolder(string placehold)
         {
             base.Text = placehold;
