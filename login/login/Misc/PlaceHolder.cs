@@ -59,6 +59,10 @@ namespace login.Misc
             { return base.Text; }
 
         }
+        /// <summary>
+        ///ezt a metódust használva a placeholder felülírható úgy, hogy nem marad meg a placeholder kinézete
+        /// </summary>
+        /// <param name="text"></param>
         public void setText(string text)
         {
             if (isPlaceHolder)
