@@ -73,7 +73,7 @@ namespace login
                 
             }
           
-         
+         /*
                 NameHolder.Text = termekek.getTNev();
 
              PriceHolder.Text = termekek.getTar().ToString();
@@ -90,16 +90,40 @@ namespace login
 
   
                 VonCodeHolder.Text = termekek.getTvonkod().ToString();
-            
+           */ 
             
             id =termekek.getTkod();
-            
-            termekek.setTar(Convert.ToInt32(PriceHolder.Text));
-            
-            termekek.setTkeszl(Convert.ToInt32(AmmountHolder.Text));
-            termekek.setTkatkod(Convert.ToInt32(CodeHolder.Text));
-            termekek.setTvonkod(Convert.ToInt32(VonCodeHolder.Text));
-            
+            termekek.setTnev(NameHolder.Text);
+            if (PriceHolder.onlyNumber())
+            {
+                termekek.setTar(Convert.ToInt32(PriceHolder.Text));
+            }
+            else {
+                
+            }
+            if (AmmountHolder.onlyNumber())
+            {
+                termekek.setTkeszl(Convert.ToInt32(AmmountHolder.Text));
+            }
+            else
+            {
+                //errorprovider
+            }
+            if (CodeHolder.onlyNumber())
+            {
+
+                termekek.setTkatkod(Convert.ToInt32(CodeHolder.Text));
+            }
+            else
+            {
+                //errorprovider
+            }
+
+            if (VonCodeHolder.onlyNumber())
+            {
+                termekek.setTvonkod(Convert.ToInt32(VonCodeHolder.Text));
+            }
+            else { }
             if (checkBox1.Checked)
             {
                 termekek.setTegaliz(true);

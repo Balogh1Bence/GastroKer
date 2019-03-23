@@ -25,8 +25,11 @@ and open the template in the editor.
 	<nav class = "w3-bar w3-red" id="bar">
 					<div class = "w3-bar-item w3-button w3-mobile">Főoldal</div>
 	
-					<div  type="button", class="w3-bar-item w3-button w3-mobile", id="logout", onclick="log()" >kijelentkezés</div>	
+					<div   class="w3-bar-item w3-button w3-mobile", id="logout", onclick="log()" >kijelentkezés</div>	
 					<div class = "w3-bar-item w3-button w3-mobile">Kapcsolat</div>
+					
+				<div id="filters">
+			</div>
 </nav>
         <div class ='kozepre'>
             <div class="page-header">
@@ -42,13 +45,11 @@ and open the template in the editor.
 			</div>
 		
 			<form id="sendall">
-			<input type="button" value="send all" onclick="sender()"></button>
+			<input type="button" value="rendelés küldése" onclick="sender()"></button>
 			
 			
 			
 		
-				<div id="filters">
-			</div>
 			</form>
 		
 			<form id="szam">
