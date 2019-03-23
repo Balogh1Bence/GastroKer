@@ -1,13 +1,13 @@
 ﻿<?php
 session_start();
-
+if(!isset($_SESSION['name']))
+{
+$_SESSION['name']="";
+}
 ?>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -27,6 +27,7 @@ and open the template in the editor.
 	
 					<div   class="w3-bar-item w3-button w3-mobile", id="logout", onclick="log()" >kijelentkezés</div>	
 					<div class = "w3-bar-item w3-button w3-mobile">Kapcsolat</div>
+					<a href="about.php", style="color:#FFFFFF;"><div class = "w3-bar-item w3-button w3-mobile">a rendelés folyamatáról</div></a>
 					
 				<div id="filters">
 			</div>
@@ -80,11 +81,13 @@ and open the template in the editor.
             </div>
         </div>
         <script>
+		var data="";
+		
 		  $.get("filterGenerator.php", function(filter, status){
 	document.getElementById("filters").innerHTML=filter;
   });
 		var ar;
-		var data="";
+		
 		/*if(!localStorage.getItem(us))
 		{
 		data=localStorage.getItem(us);
@@ -103,6 +106,25 @@ and open the template in the editor.
 			$("#szam").hide();
 			$("#sendall").hide();
 			$("#logout").hide();
+			if("<?php echo $_SESSION['name'];?>"!="")
+		{
+		data="<?php echo $_SESSION['name'];?>";
+		
+			$("#urlapTarolo").hide();
+								$("#bej").hide();
+								$("#szam").show();
+								$("#sendall").show();
+								$("#logout").show();
+								$("#bar").show();
+									$.post("loadall.php",
+									{
+										us: data
+									},
+										function(t, status){
+  
+											$("#tartalom").html(t);
+											})
+		}
 				function log()
 		{
 

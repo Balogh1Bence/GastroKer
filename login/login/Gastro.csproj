@@ -150,6 +150,7 @@
     <Compile Include="validator\IgnoreEmptyOrWhiteSpace.cs" />
     <Compile Include="validator\validateInput.cs" />
     <None Include="WebSite\logout.php" />
+    <None Include="WebSite\about.php" />
     <Content Include="WebSite\w3style.css" />
     <None Include="ClassDiagram2.cd" />
     <None Include="Misc\App.config" />
