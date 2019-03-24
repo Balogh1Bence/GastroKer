@@ -1,7 +1,7 @@
 ﻿<?php
 if(isset($_SESSION['name']))
 {
-echo $_SESSION['user'];
+
 }
 if(isset($_GET['user']))
 {
