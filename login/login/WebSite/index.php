@@ -40,7 +40,7 @@ $_SESSION['name']="";
                         </font>
                     </h1>
             </div>
-			
+			<br>
 			<div id="tartalom">
 			
 			</div>
