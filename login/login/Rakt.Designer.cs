@@ -37,12 +37,14 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partnersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.newPartnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.placeHolderTextBox1 = new login.Misc.PlaceHolderTextBox();
-            this.adatbáziskapcsolatokKezeléseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.termékekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.régiTermékekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,41 +59,41 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(668, 130);
+            this.button1.Location = new System.Drawing.Point(629, 130);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(114, 23);
             this.button1.TabIndex = 1;
-            this.button1.Text = "load";
+            this.button1.Text = "Termékek mutatása";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(668, 204);
+            this.button2.Location = new System.Drawing.Point(629, 204);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(114, 23);
             this.button2.TabIndex = 2;
-            this.button2.Text = "edit";
+            this.button2.Text = "szerkesztés";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(668, 269);
+            this.button3.Location = new System.Drawing.Point(629, 269);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(114, 23);
             this.button3.TabIndex = 3;
-            this.button3.Text = "delete";
+            this.button3.Text = "törlés";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(668, 335);
+            this.button4.Location = new System.Drawing.Point(629, 335);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(114, 23);
             this.button4.TabIndex = 4;
-            this.button4.Text = "add";
+            this.button4.Text = "hozzáadás";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -104,7 +106,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.partnersToolStripMenuItem});
+            this.partnersToolStripMenuItem,
+            this.termékekToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -117,8 +120,15 @@
             this.adatbáziskapcsolatokKezeléseToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
-            this.fileToolStripMenuItem.Text = "Administration";
+            this.fileToolStripMenuItem.Text = "Adminisztráció";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            // 
+            // adatbáziskapcsolatokKezeléseToolStripMenuItem
+            // 
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Name = "adatbáziskapcsolatokKezeléseToolStripMenuItem";
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Text = "adatbáziskapcsolatok kezelése";
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Click += new System.EventHandler(this.adatbáziskapcsolatokKezeléseToolStripMenuItem_Click);
             // 
             // partnersToolStripMenuItem
             // 
@@ -127,28 +137,28 @@
             this.newPartnerToolStripMenuItem,
             this.customersToolStripMenuItem});
             this.partnersToolStripMenuItem.Name = "partnersToolStripMenuItem";
-            this.partnersToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.partnersToolStripMenuItem.Text = "Partners";
+            this.partnersToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.partnersToolStripMenuItem.Text = "Partnerek";
             // 
             // partnersToolStripMenuItem1
             // 
             this.partnersToolStripMenuItem1.Name = "partnersToolStripMenuItem1";
-            this.partnersToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
-            this.partnersToolStripMenuItem1.Text = "Carriers";
+            this.partnersToolStripMenuItem1.Size = new System.Drawing.Size(189, 22);
+            this.partnersToolStripMenuItem1.Text = "Beszállítól";
             this.partnersToolStripMenuItem1.Click += new System.EventHandler(this.partnersToolStripMenuItem1_Click);
             // 
             // newPartnerToolStripMenuItem
             // 
             this.newPartnerToolStripMenuItem.Name = "newPartnerToolStripMenuItem";
-            this.newPartnerToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.newPartnerToolStripMenuItem.Text = "New Partner";
+            this.newPartnerToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.newPartnerToolStripMenuItem.Text = "Új partner hozzáadása";
             this.newPartnerToolStripMenuItem.Click += new System.EventHandler(this.newPartnerToolStripMenuItem_Click);
             // 
             // customersToolStripMenuItem
             // 
             this.customersToolStripMenuItem.Name = "customersToolStripMenuItem";
-            this.customersToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.customersToolStripMenuItem.Text = "Customers";
+            this.customersToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.customersToolStripMenuItem.Text = "Vásárlók";
             this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
             // placeHolderTextBox1
@@ -163,12 +173,20 @@
             this.placeHolderTextBox1.TabIndex = 7;
             this.placeHolderTextBox1.TextChanged += new System.EventHandler(this.placeHolderTextBox1_TextChanged);
             // 
-            // adatbáziskapcsolatokKezeléseToolStripMenuItem
+            // termékekToolStripMenuItem
             // 
-            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Name = "adatbáziskapcsolatokKezeléseToolStripMenuItem";
-            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Text = "adatbáziskapcsolatok kezelése";
-            this.adatbáziskapcsolatokKezeléseToolStripMenuItem.Click += new System.EventHandler(this.adatbáziskapcsolatokKezeléseToolStripMenuItem_Click);
+            this.termékekToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.régiTermékekToolStripMenuItem});
+            this.termékekToolStripMenuItem.Name = "termékekToolStripMenuItem";
+            this.termékekToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.termékekToolStripMenuItem.Text = "Termékek";
+            // 
+            // régiTermékekToolStripMenuItem
+            // 
+            this.régiTermékekToolStripMenuItem.Name = "régiTermékekToolStripMenuItem";
+            this.régiTermékekToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.régiTermékekToolStripMenuItem.Text = "Régi termékek";
+            this.régiTermékekToolStripMenuItem.Click += new System.EventHandler(this.régiTermékekToolStripMenuItem_Click);
             // 
             // Rakt
             // 
@@ -211,5 +229,7 @@
         private System.Windows.Forms.ToolStripMenuItem customersToolStripMenuItem;
         private Misc.PlaceHolderTextBox placeHolderTextBox1;
         private System.Windows.Forms.ToolStripMenuItem adatbáziskapcsolatokKezeléseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem termékekToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem régiTermékekToolStripMenuItem;
     }
 }

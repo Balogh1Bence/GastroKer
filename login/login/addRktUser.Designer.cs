@@ -42,11 +42,14 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Küldés";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // placeHolderTextBox1
             // 
+            this.placeHolderTextBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.placeHolderTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.placeHolderTextBox1.ForeColor = System.Drawing.Color.Gray;
             this.placeHolderTextBox1.Location = new System.Drawing.Point(256, 74);
             this.placeHolderTextBox1.Name = "placeHolderTextBox1";
             this.placeHolderTextBox1.PlaceHolderText = null;
@@ -55,6 +58,9 @@
             // 
             // placeHolderTextBox2
             // 
+            this.placeHolderTextBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.placeHolderTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.placeHolderTextBox2.ForeColor = System.Drawing.Color.Gray;
             this.placeHolderTextBox2.Location = new System.Drawing.Point(256, 152);
             this.placeHolderTextBox2.Name = "placeHolderTextBox2";
             this.placeHolderTextBox2.PlaceHolderText = null;
@@ -63,6 +69,9 @@
             // 
             // placeHolderTextBox3
             // 
+            this.placeHolderTextBox3.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.placeHolderTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.placeHolderTextBox3.ForeColor = System.Drawing.Color.Gray;
             this.placeHolderTextBox3.Location = new System.Drawing.Point(256, 100);
             this.placeHolderTextBox3.Name = "placeHolderTextBox3";
             this.placeHolderTextBox3.PlaceHolderText = null;
@@ -71,6 +80,9 @@
             // 
             // placeHolderTextBox4
             // 
+            this.placeHolderTextBox4.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.placeHolderTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.placeHolderTextBox4.ForeColor = System.Drawing.Color.Gray;
             this.placeHolderTextBox4.Location = new System.Drawing.Point(256, 126);
             this.placeHolderTextBox4.Name = "placeHolderTextBox4";
             this.placeHolderTextBox4.PlaceHolderText = null;

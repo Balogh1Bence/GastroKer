@@ -12,6 +12,7 @@ using login.Services;
 using login.models;
 using login.validator;
 using login.Services.fleh;
+using login.WebSite;
 
 namespace login
 {
@@ -267,6 +268,13 @@ namespace login
         {
             connectionSetter cst = new connectionSetter();
             cst.Show();
+        }
+
+        private void régiTermékekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            oldProducts oP = new oldProducts();
+            oP.Show();
+            
         }
     }
 }

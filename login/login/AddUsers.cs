@@ -16,6 +16,8 @@ namespace login
     {
         MDVevok vevo;
         CustomerService cs;
+        ErrorProvider Ru;
+        ErrorProvider Rp;
         int id;
         public AddUsers(int id)
         {
@@ -25,10 +27,24 @@ namespace login
             button1.DialogResult = DialogResult.OK;
             placeHolderTextBox1.PlaceHolderText = "felhasználónév";
             placeHolderTextBox2.PlaceHolderText = "jelszó";
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Ru = new ErrorProvider();
+            Rp = new ErrorProvider();
+            if (string.IsNullOrWhiteSpace(placeHolderTextBox1.Text))
+            {
+                Ru.SetError(placeHolderTextBox1, "üres felhasználónév");
+
+             
+            }
+            if (string.IsNullOrWhiteSpace(placeHolderTextBox2.Text))
+            {
+                Rp.SetError(placeHolderTextBox2, "üres jelszó");
+                return;
+            }
             vevo = new MDVevok(id, placeHolderTextBox1.Text, placeHolderTextBox2.Text);
         }
         public void addNewUser()

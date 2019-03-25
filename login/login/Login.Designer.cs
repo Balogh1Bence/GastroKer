@@ -1,6 +1,6 @@
 ﻿namespace login
 {
-    partial class Login
+    partial class bejelentkezés
     {
         /// <summary>
         /// Required designer variable.
@@ -37,17 +37,17 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(306, 292);
+            this.button1.Location = new System.Drawing.Point(28, 156);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(111, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "log in";
+            this.button1.Text = "Bejelentkezés";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(281, 99);
+            this.textBox1.Location = new System.Drawing.Point(28, 53);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
@@ -55,18 +55,18 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(281, 154);
+            this.textBox2.Location = new System.Drawing.Point(28, 99);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 2;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(516, 292);
+            this.button2.Location = new System.Drawing.Point(251, 156);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(128, 23);
             this.button2.TabIndex = 3;
-            this.button2.Text = "forgotten password";
+            this.button2.Text = "Elfelejtett jelszó";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -80,18 +80,18 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Login
+            // bejelentkezés
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(443, 201);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Name = "Login";
-            this.Text = "Form1";
+            this.Name = "bejelentkezés";
+            this.Text = "Bejelentkezés";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

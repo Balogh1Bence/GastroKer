@@ -13,7 +13,7 @@ using login.Services.LostPw;
 using login.Services;
 namespace login
 {
-    public partial class Login : Form
+    public partial class bejelentkezés : Form
     {
         SetProperties sp;
         ErrorProvider uname = new ErrorProvider();
@@ -21,9 +21,10 @@ namespace login
         Rakt rakt;
         us u;
 variableChecker uc;
-        public Login()
+        public bejelentkezés()
         {
             InitializeComponent();
+            button3.Hide();
             sp = new SetProperties();
         
             uc = new variableChecker();

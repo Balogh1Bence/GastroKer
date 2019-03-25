@@ -38,7 +38,7 @@
             this.CodeHolder = new login.Misc.PlaceHolderTextBox();
             this.VonCodeHolder = new login.Misc.PlaceHolderTextBox();
             this.backGroundBox1 = new login.Misc.BackGroundBox();
-          
+            ((System.ComponentModel.ISupportInitialize)(this.backGroundBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -47,7 +47,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Feltöltés";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -164,7 +164,7 @@
             this.Text = "Szerk";
             this.TransparencyKey = System.Drawing.Color.Gray;
             this.Load += new System.EventHandler(this.Szerk_Load);
- 
+            ((System.ComponentModel.ISupportInitialize)(this.backGroundBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -438,6 +438,8 @@ ALTER TABLE `szamlatetel`
 ALTER TABLE `termekek`
   MODIFY `Tkod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
+  ALTER TABLE `regitermekek`
+  MODIFY `Tkod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT a táblához `vevok`
 --

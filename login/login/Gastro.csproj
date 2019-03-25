@@ -119,6 +119,7 @@
     <Compile Include="Reporitorys\Rakt\kat.cs" />
     <Compile Include="models\MDRegiTermekek.cs" />
     <Compile Include="models\MDRend.cs" />
+    <Compile Include="Reporitorys\Rakt\oldProductRepo.cs" />
     <Compile Include="Reporitorys\Rakt\szall.cs" />
     <Compile Include="Reporitorys\Rakt\szamla.cs" />
     <Compile Include="Reporitorys\Rakt\szamlatetel.cs" />
@@ -139,6 +140,7 @@
       <DependentUpon>NewPw.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\MySQLDatabaseInterface.cs" />
+    <Compile Include="Services\oldProductServ.cs" />
     <Compile Include="Services\RktServ.cs" />
     <Compile Include="Services\variableChecker.cs" />
     <Compile Include="Szerk.cs">
@@ -149,6 +151,15 @@
     </Compile>
     <Compile Include="validator\IgnoreEmptyOrWhiteSpace.cs" />
     <Compile Include="validator\validateInput.cs" />
+    <Compile Include="oldProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="oldProducts.Designer.cs">
+      <DependentUpon>oldProducts.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="oldProducts.resx">
+      <DependentUpon>oldProducts.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="WebSite\logout.php" />
     <None Include="WebSite\about.php" />
     <Content Include="WebSite\w3style.css" />

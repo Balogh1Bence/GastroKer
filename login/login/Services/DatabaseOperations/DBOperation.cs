@@ -106,6 +106,12 @@ namespace login.Services.DatabaseOperations
                 return true;
             }
         }
+
+        internal void addNewOldItem(Regitermekek regitermek)
+        {
+            throw new NotImplementedException();
+        }
+
         public void increaseVasMenny(string vevoNev)
         {
             try

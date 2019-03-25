@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using login.models;
 using login.Services.ConnectToMysqlDatabase;
 using login.Services.DatabaseOperations;
+using login.WebSite;
 
 namespace login.Reporitorys.Rakt
 {
@@ -16,12 +17,12 @@ namespace login.Reporitorys.Rakt
         MdTermekek mdt;
         List<MdTermekek> productsList;
         DataTable productsTable;
+        oldProducts od;
         
-        List<Regitermekek> oldProductsList;
         DBOperation ops;
         public termekek()
         {
-            oldProductsList = new List<Regitermekek>();
+            od = new oldProducts();
             ops = new DBOperation();
             productsTable = new DataTable();
             productsList = new List<MdTermekek>();
@@ -91,7 +92,7 @@ namespace login.Reporitorys.Rakt
                     
                     var selected = productsList[id-1];
        
-                    oldProductsList.Add(new Regitermekek(selected.getTkod(),selected.getTNev(), selected.getTar(), selected.getTkeszl(), selected.getMert(), selected.getTkatkod(), selected.getTvonkod(), selected.getSzavido(), selected.getTegalizalte()));
+                    od.AddNew(new Regitermekek(selected.getTkod(),selected.getTNev(), selected.getTar(), selected.getTkeszl(), selected.getMert(), selected.getTkatkod(), selected.getTvonkod(), selected.getSzavido(), selected.getTegalizalte()));
                     productsList.RemoveAt(id-1);
                     
                     
