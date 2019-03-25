@@ -152,7 +152,7 @@ namespace login
                 , Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[6].Value.ToString())
                 , Convert.ToDateTime(dataGridView1.SelectedRows[0].Cells[7].Value.ToString())
                 , teg);
-            rs.moveToNotImportant(termekek, id);
+            dataGridView1.DataSource= rs.moveToNotImportant(termekek, id);
         }
 
         private void button4_Click(object sender, EventArgs e)
