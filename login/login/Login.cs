@@ -53,7 +53,11 @@ variableChecker uc;
                 if (u.belep(textBox1.Text, textBox2.Text) == 0)
                 {
                     rakt = new Rakt(textBox1.Text);
-                    rakt.Show();
+                    try
+                    {
+                        rakt.Show();
+                    }
+                    catch { return; }
 
                 }
 
