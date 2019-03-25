@@ -139,6 +139,18 @@ namespace login.Services.DatabaseOperations
             }
         }
 
+        internal DataTable getPrdcts()
+        {
+            string query = "select * from termekek";
+            MySqlConnection con = new MySqlConnection(conG);
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlDataAdapter dp = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+                dp.Fill(dt);
+            return dt;
+        }
+
         public void increaseVasMenny(string vevoNev)
         {
             try

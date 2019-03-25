@@ -18,7 +18,7 @@ namespace login.Reporitorys.Rakt
         List<MdTermekek> productsList;
         DataTable productsTable;
         oldProducts od;
-        
+        DataTable dtCustomer;
         DBOperation ops;
         public termekek()
         {
@@ -104,9 +104,8 @@ namespace login.Reporitorys.Rakt
                 }
                 i++;
             }
-          
 
-                return getToDataTable();
+            return ops.getPrdcts(); 
         }
 
         public DataTable editDataSrc( int id,MdTermekek termekek)
@@ -170,7 +169,7 @@ namespace login.Reporitorys.Rakt
             MySQLDatabaseInterface mdi = a.kapcsolodas();
             mdi.open();
             string query = "SELECT * FROM termekek ";
-            DataTable dtCustomer = mdi.getToDataTable(query);
+             dtCustomer = mdi.getToDataTable(query);
             mdi.close();
 
             foreach (DataRow row in dtCustomer.Rows)
