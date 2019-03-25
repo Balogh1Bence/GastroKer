@@ -17,15 +17,19 @@ namespace login.Reporitorys.Rakt
         DBOperation ops;
         public oldProductRepo()
         {
+            oldproductsTable = new DataTable();
             oldProductsList = new List<Regitermekek>();
             ops = new DBOperation();
             fillProductListFromDataTable();
+ 
         }
         public DataTable getToDataTable()
         {
+
             oldProductsList.Clear();
             fillProductListFromDataTable();
-
+            if (oldProductsList.Count == 0)
+            { return null; }
             if (oldproductsTable.Columns.Count > 0)
             {
                 int i = 0;
@@ -46,6 +50,7 @@ namespace login.Reporitorys.Rakt
             oldproductsTable.Columns.Add("Tszavido", typeof(DateTime));
             
             oldproductsTable.Columns.Add("Tegalizalte", typeof(bool));
+         
             foreach (Regitermekek c in oldProductsList)
             {
 
@@ -67,8 +72,9 @@ namespace login.Reporitorys.Rakt
             Adatbazis a = new Adatbazis();
             MySQLDatabaseInterface mdi = a.kapcsolodas();
             mdi.open();
-            string query = "SELECT * FROM termekek ";
+            string query = "SELECT * FROM regitermekek ";
             DataTable dtCustomer = mdi.getToDataTable(query);
+           
             mdi.close();
 
             foreach (DataRow row in dtCustomer.Rows)

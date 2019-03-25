@@ -11,11 +11,16 @@ namespace login.Services
 {
     class oldProductServ
     {
-        oldProductRepo OPR;
+        oldProductRepo OPR = new oldProductRepo();
         internal DataTable addNewItem(Regitermekek regitermek)
         {
-           OPR = new oldProductRepo();
+           
             return OPR.addNewItem(regitermek);
+        }
+
+        internal DataTable getAll()
+        {
+            return OPR.getToDataTable();
         }
     }
 }

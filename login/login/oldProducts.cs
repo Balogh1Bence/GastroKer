@@ -19,6 +19,8 @@ namespace login.WebSite
         {
             InitializeComponent();
            OPS =  new oldProductServ();
+            dataGridView1.DataSource = OPS.getAll();
+            
         }
 
         internal void AddNew(Regitermekek regitermek)

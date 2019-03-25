@@ -84,23 +84,29 @@ namespace login.Reporitorys.Rakt
 
         internal DataTable moveTo(MdTermekek termekek, int id)
         {
-            ops.MoveToOld(termekek, id);
-            foreach (MdTermekek c in productsList)
+            int i=0;
+            while (i < productsList.Count)
             {
-                if(id==c.getTkod())
+                if (termekek.getTkod() == productsList[i].getTkod())
                 {
-                    
-                    var selected = productsList[id-1];
-       
-                    od.AddNew(new Regitermekek(selected.getTkod(),selected.getTNev(), selected.getTar(), selected.getTkeszl(), selected.getMert(), selected.getTkatkod(), selected.getTvonkod(), selected.getSzavido(), selected.getTegalizalte()));
-                    productsList.RemoveAt(id-1);
-                    
-                    
+                    MessageBox.Show("Test");
+
+                    var selected = termekek;
+
+
+                    od.AddNew(new Regitermekek(selected.getTkod(), selected.getTNev(), selected.getTar(), selected.getTkeszl(), selected.getMert(), selected.getTkatkod(), selected.getTvonkod(), selected.getSzavido(), selected.getTegalizalte()));
+
+                    ops.MoveToOld(termekek);
+                    productsList.RemoveAt(id - 1);
+
+
+
                 }
+                i++;
             }
-           
-            
-            return getToDataTable();
+          
+
+                return getToDataTable();
         }
 
         public DataTable editDataSrc( int id,MdTermekek termekek)

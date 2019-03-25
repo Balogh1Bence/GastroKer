@@ -109,7 +109,34 @@ namespace login.Services.DatabaseOperations
 
         internal void addNewOldItem(Regitermekek regitermek)
         {
-            throw new NotImplementedException();
+            DateTime dt = regitermek.Tszavido;
+
+
+            string uj = dt.toMysqlFormat();
+
+
+
+
+            string query = "INSERT INTO `regitermekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + regitermek.Tkod + "', '" + regitermek.Tnev + "', '" + regitermek.Tar + "', '" + regitermek.Tkeszl + "', '" + regitermek.Tmert + "', '" + regitermek.Tkatkod + "', '" + regitermek.Tvonkod + "', '" + uj + "', '" + regitermek.Tegalizalte + "')";
+
+
+
+            MySqlConnection connect = new MySqlConnection(conG);
+            connect.Open();
+            try
+            {
+                MySqlCommand cm = new MySqlCommand(query, connect);
+                cm.ExecuteNonQuery();
+
+
+            }
+            catch (Exception e)
+            {
+
+                Debug.WriteLine(e.Message);
+
+
+            }
         }
 
         public void increaseVasMenny(string vevoNev)
@@ -302,7 +329,7 @@ namespace login.Services.DatabaseOperations
             connect.Close();
         }
 
-        internal void MoveToOld(MdTermekek termekek, int id)
+        internal void MoveToOld(MdTermekek termekek)
         {
             MySqlConnection connect = new MySqlConnection(conG);
             try
@@ -321,28 +348,9 @@ namespace login.Services.DatabaseOperations
 
             string uj = dt.toMysqlFormat();
 
-           
+            
 
 
-            string query = "INSERT INTO `regitermekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + termekek.getTkod() + "', '" + termekek.getTNev() + "', '" + termekek.getTar() + "', '" + termekek.getTkeszl() + "', '" + termekek.getMert() + "', '" + termekek.getTkatkod() + "', '" + termekek.getTvonkod() + "', '" + termekek.getSzavido() + "', '" + termekek.getTegalizalte() + "')";
-
-
-
-
-            try
-            {
-                MySqlCommand cm = new MySqlCommand(query, connect);
-                cm.ExecuteNonQuery();
-
-
-            }
-            catch (Exception e)
-            {
-
-                Debug.WriteLine(e.Message);
-
-
-            }
             string dquery = "DELETE FROM `termekek` WHERE Tkod=" + termekek.getTkod() + "";
             MySqlCommand cmd = new MySqlCommand(dquery, connect);
             cmd.ExecuteNonQuery();
