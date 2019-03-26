@@ -168,7 +168,8 @@ namespace login.Services.fleh
                     return 0;
                 }
             }
-            else return 3;
+            if (string.IsNullOrEmpty(password))
+            { return 3; }
             if (string.IsNullOrEmpty(remelemnemures))
             {
                 return 2;

@@ -8,9 +8,15 @@ require_once("connectG.php");
 if (isset($_POST['us'])){
 $sql = "SELECT * from termekek";
 	$result = $connect->query($sql);
-$table="<div class='table-responsive'><table id='table' class='table  table-striped'><thead><tr><th>termék neve</th><th>raktár</th><th>termék ára</th><th></th><th id='mennyiseg'></th></tr></thead><tbody>";
+$table="<div class='table-responsive'><table id='table' class='table  table-striped'>
+<thead><tr><th>termék neve</th><th>raktár</th><th>termék ára</th><th>
+</th><th id='mennyiseg'></th></tr></thead><tbody>";
 while($row = $result->fetch_assoc()) {
-$table.="<tr><td>{$row['Tnev']}</td><td>{$row['Tkeszl']}</td><td>{$row['Tar']}</td><td><button id='{$row['Tkod']}' class='btn'  onclick='oneless(this.id, {$row['Tar']})'>-</button></td><td><button class='btn'  id='{$row['Tkod']}' onclick='onemore(this.id, {$row['Tar']})'>+</button></td><td><span  cols='1'  name='{$row['Tkod']}' class='{$row['Tkod']}'>0</span></td></tr>";
+$table.="<tr><td>{$row['Tnev']}</td><td>{$row['Tkeszl']}</td><td>{$row['Tar']}</td><td>
+<button id='{$row['Tkod']}' class='btn'  onclick='oneless(this.id, {$row['Tar']})'>-</button>
+</td><td><button class='btn'  id='{$row['Tkod']}' onclick='onemore(this.id, {$row['Tar']})'>+
+</button></td><td><span  cols='1'  name='{$row['Tkod']}' class='{$row['Tkod']}'>0</span></td>
+</tr>";
     }
 $table.="</tbody></table></div>";
 echo $table;

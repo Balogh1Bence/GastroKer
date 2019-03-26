@@ -23,6 +23,24 @@ namespace login.Reporitorys.Rakt
             fillProductListFromDataTable();
  
         }
+
+        internal DataTable restore(Regitermekek oldOne)
+        {
+
+            int i = 0;
+            while (i < oldProductsList.Count)
+            {
+                if (oldProductsList[i].Tkod==oldOne.Tkod)
+                {
+                    oldProductsList.RemoveAt(i);
+                }
+                i++;
+            }
+            ops.moveFromOld(oldOne);
+            return getToDataTable();
+
+        }
+
         public DataTable getToDataTable()
         {
 

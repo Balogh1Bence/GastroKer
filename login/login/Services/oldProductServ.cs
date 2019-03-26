@@ -22,5 +22,10 @@ namespace login.Services
         {
             return OPR.getToDataTable();
         }
+
+        internal DataTable restore(Regitermekek oldOne)
+        {
+            return OPR.restore(oldOne);
+        }
     }
 }

@@ -67,6 +67,20 @@ namespace login.Services.DatabaseOperations
            
 
         }
+
+        internal void moveFromOld(Regitermekek oldOne)
+        {
+            string query = "delete from regitermekek where Tkod="+oldOne.Tkod+"";
+            MySqlConnection con = new MySqlConnection(conG);
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            string uj = oldOne.Tszavido.toMysqlFormat();
+            query = "INSERT INTO `termekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + oldOne.Tkod + "', '" + oldOne.Tnev + "', '" + oldOne.Tar + "', '" + oldOne.Tkeszl + "', '" + oldOne.Tmert + "', '" + oldOne.Tkatkod + "', '" + oldOne.Tvonkod + "', '" + uj + "', '" + oldOne.Tegalizalte + "')";
+            cmd = new MySqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+        }
+
         public bool has550BoughtItems(string vevoNev)
         {
 
