@@ -20,7 +20,7 @@ namespace login
         DataTable items;
         CustomerService cs;
         string vevoNev;
-        DBOperation db = new DBOperation();
+ 
         public BoughtItems(DataTable _items, string _vevoNev)
         {
             items = _items;

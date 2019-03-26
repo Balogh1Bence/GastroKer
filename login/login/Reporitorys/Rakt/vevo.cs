@@ -16,17 +16,19 @@ namespace Gastro
       
         public vevo()
         {
-            d = new DBOperation();
+
             customers = new List<MDVevok>();
             fillCustomersListFromDatabase();
 
         }
         public void addNewCustomer(int id, MDVevok vevo)
         {
+            d = new DBOperation();
             d.addNewCustomer(id, vevo);
         }
         public int getLastID()
         {
+            d = new DBOperation();
             return d.getLastCustomerID();
         }
 
@@ -52,17 +54,19 @@ namespace Gastro
 
         internal void reduceTermekek(string vevoNev)
         {
+            d = new DBOperation();
             d.reduceTermekek(vevoNev);
         }
 
         internal void printTax(string vevoNev, DataTable items)
         {
-
+            d = new DBOperation();
             d.createTaxbill(vevoNev, items);
         }
 
         private void fillCustomersListFromDatabase()
-        {    
+        {
+            d = new DBOperation();
             Adatbazis a = new Adatbazis();
             MySQLDatabaseInterface mdi = a.kapcsolodas();
             mdi.open();

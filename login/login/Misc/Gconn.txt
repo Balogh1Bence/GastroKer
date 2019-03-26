@@ -1,0 +1,1 @@
+SERVER ="localhost";DATABASE="gastro";UID="root";PASSWORD="";PORT="3306";

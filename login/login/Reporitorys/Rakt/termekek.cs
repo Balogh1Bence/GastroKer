@@ -23,7 +23,7 @@ namespace login.Reporitorys.Rakt
         public termekek()
         {
             od = new oldProducts();
-            ops = new DBOperation();
+
             productsTable = new DataTable();
             productsList = new List<MdTermekek>();
             fillProductListFromDataTable();
@@ -31,6 +31,7 @@ namespace login.Reporitorys.Rakt
 
         public DataTable getToDataTable()
         {
+            ops = new DBOperation();
             productsList.Clear();
             fillProductListFromDataTable();
 
@@ -65,12 +66,13 @@ namespace login.Reporitorys.Rakt
 
         internal DataTable SzuresNevAlapjan(string text)
         {
-         
+            ops = new DBOperation();
             return ops.SzuresNevAlapjan(text);
         }
 
         internal DataTable addNewItem(int id, MdTermekek t)
         {
+            ops = new DBOperation();
 
             ops.addNewItem(id, t);
             productsList.Add(t);
@@ -79,11 +81,13 @@ namespace login.Reporitorys.Rakt
 
         internal int getLastID()
         {
+            ops = new DBOperation();
             return ops.getLastID();
         }
 
         internal DataTable moveTo(MdTermekek termekek, int id)
         {
+            ops = new DBOperation();
             int i=0;
             while (i < productsList.Count)
             {
@@ -111,7 +115,7 @@ namespace login.Reporitorys.Rakt
         public DataTable editDataSrc( int id,MdTermekek termekek)
         {
 
-
+            ops = new DBOperation();
 
 
 
@@ -146,6 +150,7 @@ namespace login.Reporitorys.Rakt
 
         public bool checkExist(MdTermekek newT)
         {
+            ops = new DBOperation();
             foreach (MdTermekek c in productsList)
             {
                 if (c.getTkod() == newT.getTkod())
@@ -160,11 +165,13 @@ namespace login.Reporitorys.Rakt
 
         internal void addProduct(MdTermekek newCustomer)
         {
+            ops = new DBOperation();
             productsList.Add(newCustomer);
         }
 
         private void fillProductListFromDataTable()
         {
+            ops = new DBOperation();
             Adatbazis a = new Adatbazis();
             MySQLDatabaseInterface mdi = a.kapcsolodas();
             mdi.open();

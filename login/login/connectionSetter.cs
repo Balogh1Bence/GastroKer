@@ -32,6 +32,7 @@ namespace login
         {
             cm.connectServerF = placeHolderTextBox1.Text;
             cm.connectServerG = placeHolderTextBox2.Text;
+            cm.write();
             
         }
     }

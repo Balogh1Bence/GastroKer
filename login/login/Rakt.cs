@@ -39,11 +39,12 @@ namespace login
             this.uname = uname;
             dataGridView1.MultiSelect = false;
             placeHolderTextBox1.setPlaceHolder("keresés név alapján");
-
+            
             const string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
-            const string REGISTY_VALUE = "xtxhRun";
+            const string REGISTY_VALUE = "x";
             if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
             {
+                MessageBox.Show("TestRkt");
 
                 aru = new addRktUser(true);
                 
@@ -236,17 +237,21 @@ namespace login
         private void customersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ct = new Customers();
-           
+
             if (user.getRights(uname) == "rak")
                 ct.Show();
-            else return;
+            else
+            {
+                MessageBox.Show("nincs jozzá jogosultsága");
+                return;
+            } 
         }
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addRktUser aru = new addRktUser();
 
-            
+
             if (user.getRights(uname) == "admin")
             {
                 aru.ShowDialog();
@@ -263,7 +268,11 @@ namespace login
 
                 }
             }
-            else return;
+            else
+            {
+                MessageBox.Show("nincs jozzá jogosultsága");
+                return;
+            }
         }
 
         private void adatbáziskapcsolatokKezeléseToolStripMenuItem_Click(object sender, EventArgs e)

@@ -42,9 +42,9 @@
             this.partnersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.newPartnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.placeHolderTextBox1 = new login.Misc.PlaceHolderTextBox();
             this.termékekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.régiTermékekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.placeHolderTextBox1 = new login.Misc.PlaceHolderTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -144,7 +144,7 @@
             // 
             this.partnersToolStripMenuItem1.Name = "partnersToolStripMenuItem1";
             this.partnersToolStripMenuItem1.Size = new System.Drawing.Size(189, 22);
-            this.partnersToolStripMenuItem1.Text = "Beszállítól";
+            this.partnersToolStripMenuItem1.Text = "Beszállítók";
             this.partnersToolStripMenuItem1.Click += new System.EventHandler(this.partnersToolStripMenuItem1_Click);
             // 
             // newPartnerToolStripMenuItem
@@ -161,18 +161,6 @@
             this.customersToolStripMenuItem.Text = "Vásárlók";
             this.customersToolStripMenuItem.Click += new System.EventHandler(this.customersToolStripMenuItem_Click);
             // 
-            // placeHolderTextBox1
-            // 
-            this.placeHolderTextBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.placeHolderTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
-            this.placeHolderTextBox1.ForeColor = System.Drawing.Color.Gray;
-            this.placeHolderTextBox1.Location = new System.Drawing.Point(629, 57);
-            this.placeHolderTextBox1.Name = "placeHolderTextBox1";
-            this.placeHolderTextBox1.PlaceHolderText = null;
-            this.placeHolderTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.placeHolderTextBox1.TabIndex = 7;
-            this.placeHolderTextBox1.TextChanged += new System.EventHandler(this.placeHolderTextBox1_TextChanged);
-            // 
             // termékekToolStripMenuItem
             // 
             this.termékekToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -187,6 +175,18 @@
             this.régiTermékekToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.régiTermékekToolStripMenuItem.Text = "Régi termékek";
             this.régiTermékekToolStripMenuItem.Click += new System.EventHandler(this.régiTermékekToolStripMenuItem_Click);
+            // 
+            // placeHolderTextBox1
+            // 
+            this.placeHolderTextBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.placeHolderTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic);
+            this.placeHolderTextBox1.ForeColor = System.Drawing.Color.Gray;
+            this.placeHolderTextBox1.Location = new System.Drawing.Point(629, 57);
+            this.placeHolderTextBox1.Name = "placeHolderTextBox1";
+            this.placeHolderTextBox1.PlaceHolderText = null;
+            this.placeHolderTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.placeHolderTextBox1.TabIndex = 7;
+            this.placeHolderTextBox1.TextChanged += new System.EventHandler(this.placeHolderTextBox1_TextChanged);
             // 
             // Rakt
             // 

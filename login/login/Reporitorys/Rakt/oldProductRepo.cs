@@ -19,14 +19,14 @@ namespace login.Reporitorys.Rakt
         {
             oldproductsTable = new DataTable();
             oldProductsList = new List<Regitermekek>();
-            ops = new DBOperation();
+           
             fillProductListFromDataTable();
  
         }
 
         internal DataTable restore(Regitermekek oldOne)
         {
-
+            ops = new DBOperation();
             int i = 0;
             while (i < oldProductsList.Count)
             {
@@ -43,6 +43,7 @@ namespace login.Reporitorys.Rakt
 
         public DataTable getToDataTable()
         {
+            ops = new DBOperation();
 
             oldProductsList.Clear();
             fillProductListFromDataTable();
@@ -81,12 +82,14 @@ namespace login.Reporitorys.Rakt
 
         internal DataTable addNewItem(Regitermekek regitermek)
         {
+            ops = new DBOperation();
             ops.addNewOldItem(regitermek);
             oldProductsList.Add(regitermek);
             return getToDataTable();
         }
         private void fillProductListFromDataTable()
         {
+            ops = new DBOperation();
             Adatbazis a = new Adatbazis();
             MySQLDatabaseInterface mdi = a.kapcsolodas();
             mdi.open();

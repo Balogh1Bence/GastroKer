@@ -12,7 +12,7 @@ namespace login.Services
     class CustomerService
     {
         vevo v= new vevo();
-        DBOperation db = new DBOperation();
+        DBOperation db;
      
       
 
@@ -34,7 +34,7 @@ namespace login.Services
         }
         internal DataTable LoadOrders(string vevoNev)
         {
-           
+          
 
             return db.customSelector(vevoNev);
         }

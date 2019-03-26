@@ -19,23 +19,37 @@ namespace login.Services.DatabaseOperations
 {
     class DBOperation
     {
+        
+        connectionManager cm;
         string conG;
         string conF;
-       
-
         public DBOperation()
         {
-         
-            this.conG = "SERVER =\"localhost\";"
-                 + "DATABASE=\"gastro\";"
-                 + "UID=\"root\";"
-                 + "PASSWORD=\"\";"
-                 + "PORT=\"3306\";"; 
-            this.conF = "SERVER=\"localhost\";"
-                + "DATABASE=\"felh\";"
-                + "UID=\"root\";"
-                + "PASSWORD=\"\";"
-                + "PORT=\"3306\";";
+            cm = new connectionManager();
+            if (cm.readG() == null)
+            {
+                conG = "SERVER =\"localhost\";"
+                  + "DATABASE=\"gastro\";"
+                  + "UID=\"root\";"
+                  + "PASSWORD=\"\";"
+                  + "PORT=\"3306\";";
+            }
+            else
+            {
+                conG = cm.readG();
+            }
+            if (cm.readF() == null)
+            {
+                conF = "SERVER =\"localhost\";"
+                  + "DATABASE=\"felh\";"
+                  + "UID=\"root\";"
+                  + "PASSWORD=\"\";"
+                  + "PORT=\"3306\";";
+            }
+            else
+            {
+                conF = cm.readF();
+            }
         }
         public void createTaxbill(string vevoNev, DataTable items)
         {
@@ -71,6 +85,7 @@ namespace login.Services.DatabaseOperations
         internal void moveFromOld(Regitermekek oldOne)
         {
             string query = "delete from regitermekek where Tkod="+oldOne.Tkod+"";
+
             MySqlConnection con = new MySqlConnection(conG);
             con.Open();
             MySqlCommand cmd = new MySqlCommand(query, con);
@@ -287,7 +302,7 @@ namespace login.Services.DatabaseOperations
         }
         public void update(int id, MdTermekek t)
         {
-            
+            MessageBox.Show(conG);
             MySqlConnection connect = new MySqlConnection(conG);
          
                 connect.Open();
@@ -337,6 +352,7 @@ namespace login.Services.DatabaseOperations
             
             
             MySqlDataAdapter da = new MySqlDataAdapter(cm);
+            MessageBox.Show(connect.ConnectionString);
             da.Fill(dt);
             connect.Close();
             
