@@ -20,7 +20,7 @@ namespace login.WebSite
             InitializeComponent();
            OPS =  new oldProductServ();
             dataGridView1.DataSource = OPS.getAll();
-            
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         internal void AddNew(Regitermekek regitermek)
@@ -37,7 +37,7 @@ namespace login.WebSite
                 return;
             }
             bool teg = false;
-            int id=dataGridView1.
+
             if (dataGridView1.SelectedRows[0].Cells[8].Value.ToString() == "True") { teg = true; }
             Regitermekek oldOne = new Regitermekek(
                 Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
