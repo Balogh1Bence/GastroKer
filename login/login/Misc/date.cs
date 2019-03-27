@@ -11,7 +11,7 @@ namespace login.Misc
         public static string toMysqlFormat(this DateTime dt)
         {
             string st = dt.ToShortDateString();
-
+            
             st = st.Replace('.', '-');
             st = st.TrimEnd('-');
 
@@ -25,6 +25,7 @@ namespace login.Misc
                 {
                     uj += st[i];
                 }
+
 
 
 

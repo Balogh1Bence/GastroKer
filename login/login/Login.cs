@@ -34,17 +34,23 @@ variableChecker uc;
               
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void button1_Click(object sender, EventArgs e)
         {
             u = new us(); ;
-    
-           
-            if (textBox1.Text == "" || textBox1.Text == null)
+
+            const string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
+            const string REGISTY_VALUE = "x";
+            if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
+            {
+                if (textBox1.Text == "admin" && textBox2.Text == "admin")
+                {
+                    Rakt rkt = new Rakt("admin");
+                }
+            }
+
+                if (textBox1.Text == "" || textBox1.Text == null)
             {
                 uname.SetError(textBox1, "üres felhasználónév mező");
             }

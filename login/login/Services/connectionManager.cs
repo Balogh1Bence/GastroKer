@@ -19,12 +19,6 @@ namespace login.Services
 
         private string Gserver;
         private string Fserver;
-
-        public connectionManager()
-        {
-
-        }
-
         /// <summary>
         /// get = a teljes connection string
         /// set = a server értékét átállítja 
@@ -54,12 +48,9 @@ namespace login.Services
 
         }
         public void write()
-        {
-            
-
+        {          
             System.IO.File.WriteAllText(pathG, Gserver);
             System.IO.File.WriteAllText(pathF, Fserver);
-
         }
         public string pathG
         {
