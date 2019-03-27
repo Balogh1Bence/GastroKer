@@ -97,7 +97,6 @@ namespace login.Reporitorys.Rakt
 
                     var selected = termekek;
 
-
                     od.AddNew(new Regitermekek(selected.getTkod(), selected.getTNev(), selected.getTar(), selected.getTkeszl(), selected.getMert(), selected.getTkatkod(), selected.getTvonkod(), selected.getSzavido(), selected.getTegalizalte()));
 
                     ops.MoveToOld(termekek);

@@ -91,7 +91,7 @@ namespace login.Services.DatabaseOperations
             MySqlCommand cmd = new MySqlCommand(query, con);
             cmd.ExecuteNonQuery();
             string uj = oldOne.Tszavido.toMysqlFormat();
-            query = "INSERT INTO `termekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + oldOne.Tkod + "', '" + oldOne.Tnev + "', '" + oldOne.Tar + "', '" + oldOne.Tkeszl + "', '" + oldOne.Tmert + "', '" + oldOne.Tkatkod + "', '" + oldOne.Tvonkod + "', '" + uj + "', '" + oldOne.Tegalizalte + "')";
+            query = "INSERT INTO `termekek` ( `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ("+ oldOne.Tnev + "', '" + oldOne.Tar + "', '" + oldOne.Tkeszl + "', '" + oldOne.Tmert + "', '" + oldOne.Tkatkod + "', '" + oldOne.Tvonkod + "', '" + uj + "', '" + oldOne.Tegalizalte + "')";
             cmd = new MySqlCommand(query, con);
             cmd.ExecuteNonQuery();
         }
@@ -146,7 +146,7 @@ namespace login.Services.DatabaseOperations
 
 
 
-            string query = "INSERT INTO `regitermekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES ('" + regitermek.Tkod + "', '" + regitermek.Tnev + "', '" + regitermek.Tar + "', '" + regitermek.Tkeszl + "', '" + regitermek.Tmert + "', '" + regitermek.Tkatkod + "', '" + regitermek.Tvonkod + "', '" + uj + "', '" + regitermek.Tegalizalte + "')";
+            string query = "INSERT INTO `regitermekek` ( `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES (" + regitermek.Tnev + "', '" + regitermek.Tar + "', '" + regitermek.Tkeszl + "', '" + regitermek.Tmert + "', '" + regitermek.Tkatkod + "', '" + regitermek.Tvonkod + "', '" + uj + "', '" + regitermek.Tegalizalte + "')";
 
 
 

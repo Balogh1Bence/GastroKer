@@ -66,7 +66,7 @@ and open the template in the editor.
 
 		function is_ZipCode()
 		{
-        regexp = /^\d{4}$/;
+        var regexp = /^\d{4}$/;
   
 			if (regexp.test(document.getElementById("irsz").value))
 			  {
@@ -77,7 +77,29 @@ and open the template in the editor.
 				return false;
 			  }
 		}
-
+		function isPhoneNumber()
+		{
+		var regexp=/^[\+]?[(]?[0-9]{2}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+			if (regexp.test(document.getElementById("tel").value))
+			  {
+				return true;
+			  }
+			else
+			  {
+				return false;
+			  }
+		}
+		function isEmail()
+		{var regexp=/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+		if (regexp.test(document.getElementById("email").value))
+			  {
+				return true;
+			  }
+			else
+			  {
+				return false;
+			  }
+		}
 		function meh()
 			{
 
@@ -86,7 +108,10 @@ and open the template in the editor.
 				console.log("nem irsz");
 				   return;
 				}
-			
+				if(!isEmail())
+				{return;}
+				if(!isPhoneNumber())
+				{return;}
 	
 
 
