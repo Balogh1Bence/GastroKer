@@ -31,7 +31,7 @@ namespace login
 
         public Rakt(string uname)
         {
-
+            connectionManager cnt = new connectionManager();
             user = new us();
             InitializeComponent();
             dataGridView1.ReadOnly = true;
@@ -39,12 +39,11 @@ namespace login
             this.uname = uname;
             dataGridView1.MultiSelect = false;
             placeHolderTextBox1.setPlaceHolder("keresés név alapján");
-            
-            const string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
-            const string REGISTY_VALUE = "x";
-            if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
+      string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
+        string REGISTRY_VALUE = cnt.keyValue;
+            if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTRY_VALUE, 0)) == 0)
             {
-                MessageBox.Show("TestRkt");
+           
 
                 aru = new addRktUser(true);
                 
@@ -59,8 +58,15 @@ namespace login
                         cst.ShowDialog();
                         if (cst.DialogResult == DialogResult.OK)
                         {
-                            cst.setCons();
-                            Microsoft.Win32.Registry.SetValue(REGISTRY_KEY, REGISTY_VALUE, 1, Microsoft.Win32.RegistryValueKind.DWord);
+                            if (cst.setCons() == 1)
+                            {
+
+                                Microsoft.Win32.Registry.SetValue(REGISTRY_KEY, REGISTRY_VALUE, 1, Microsoft.Win32.RegistryValueKind.DWord);
+                            }
+                            else
+                            {
+                                MessageBox.Show("nem mukszik");
+                            }
                         }
                      
 
@@ -75,7 +81,7 @@ namespace login
                 
             }
 
-            if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
+            if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTRY_VALUE, 0)) == 0)
                 this.Close();
 
 
@@ -286,6 +292,11 @@ namespace login
             oldProducts oP = new oldProducts();
             oP.Show();
             
+        }
+
+        private void Rakt_MouseEnter(object sender, EventArgs e)
+        {
+            placeHolderTextBox1.TextChanged += placeHolderTextBox1_TextChanged;
         }
     }
 }

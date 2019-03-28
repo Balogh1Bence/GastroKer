@@ -31,6 +31,12 @@
             this.placeHolderTextBox1 = new login.Misc.PlaceHolderTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.placeHolderTextBox2 = new login.Misc.PlaceHolderTextBox();
+            this.placeHolderTextBox3 = new login.Misc.PlaceHolderTextBox();
+            this.placeHolderTextBox4 = new login.Misc.PlaceHolderTextBox();
+            this.placeHolderTextBox5 = new login.Misc.PlaceHolderTextBox();
+            this.placeHolderTextBox6 = new login.Misc.PlaceHolderTextBox();
+            this.placeHolderTextBox7 = new login.Misc.PlaceHolderTextBox();
+            this.placeHolderTextBox8 = new login.Misc.PlaceHolderTextBox();
             this.SuspendLayout();
             // 
             // placeHolderTextBox1
@@ -65,11 +71,65 @@
             this.placeHolderTextBox2.Size = new System.Drawing.Size(100, 20);
             this.placeHolderTextBox2.TabIndex = 2;
             // 
+            // placeHolderTextBox3
+            // 
+            this.placeHolderTextBox3.Location = new System.Drawing.Point(174, 37);
+            this.placeHolderTextBox3.Name = "placeHolderTextBox3";
+            this.placeHolderTextBox3.PlaceHolderText = null;
+            this.placeHolderTextBox3.Size = new System.Drawing.Size(100, 20);
+            this.placeHolderTextBox3.TabIndex = 3;
+            // 
+            // placeHolderTextBox4
+            // 
+            this.placeHolderTextBox4.Location = new System.Drawing.Point(174, 63);
+            this.placeHolderTextBox4.Name = "placeHolderTextBox4";
+            this.placeHolderTextBox4.PlaceHolderText = null;
+            this.placeHolderTextBox4.Size = new System.Drawing.Size(100, 20);
+            this.placeHolderTextBox4.TabIndex = 4;
+            // 
+            // placeHolderTextBox5
+            // 
+            this.placeHolderTextBox5.Location = new System.Drawing.Point(295, 37);
+            this.placeHolderTextBox5.Name = "placeHolderTextBox5";
+            this.placeHolderTextBox5.PlaceHolderText = null;
+            this.placeHolderTextBox5.Size = new System.Drawing.Size(100, 20);
+            this.placeHolderTextBox5.TabIndex = 5;
+            // 
+            // placeHolderTextBox6
+            // 
+            this.placeHolderTextBox6.Location = new System.Drawing.Point(295, 63);
+            this.placeHolderTextBox6.Name = "placeHolderTextBox6";
+            this.placeHolderTextBox6.PlaceHolderText = null;
+            this.placeHolderTextBox6.Size = new System.Drawing.Size(100, 20);
+            this.placeHolderTextBox6.TabIndex = 6;
+            // 
+            // placeHolderTextBox7
+            // 
+            this.placeHolderTextBox7.Location = new System.Drawing.Point(413, 37);
+            this.placeHolderTextBox7.Name = "placeHolderTextBox7";
+            this.placeHolderTextBox7.PlaceHolderText = null;
+            this.placeHolderTextBox7.Size = new System.Drawing.Size(100, 20);
+            this.placeHolderTextBox7.TabIndex = 7;
+            // 
+            // placeHolderTextBox8
+            // 
+            this.placeHolderTextBox8.Location = new System.Drawing.Point(413, 63);
+            this.placeHolderTextBox8.Name = "placeHolderTextBox8";
+            this.placeHolderTextBox8.PlaceHolderText = null;
+            this.placeHolderTextBox8.Size = new System.Drawing.Size(100, 20);
+            this.placeHolderTextBox8.TabIndex = 8;
+            // 
             // connectionSetter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(195, 143);
+            this.ClientSize = new System.Drawing.Size(580, 156);
+            this.Controls.Add(this.placeHolderTextBox8);
+            this.Controls.Add(this.placeHolderTextBox7);
+            this.Controls.Add(this.placeHolderTextBox6);
+            this.Controls.Add(this.placeHolderTextBox5);
+            this.Controls.Add(this.placeHolderTextBox4);
+            this.Controls.Add(this.placeHolderTextBox3);
             this.Controls.Add(this.placeHolderTextBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.placeHolderTextBox1);
@@ -85,5 +145,11 @@
         private Misc.PlaceHolderTextBox placeHolderTextBox1;
         private System.Windows.Forms.Button button1;
         private Misc.PlaceHolderTextBox placeHolderTextBox2;
+        private Misc.PlaceHolderTextBox placeHolderTextBox3;
+        private Misc.PlaceHolderTextBox placeHolderTextBox4;
+        private Misc.PlaceHolderTextBox placeHolderTextBox5;
+        private Misc.PlaceHolderTextBox placeHolderTextBox6;
+        private Misc.PlaceHolderTextBox placeHolderTextBox7;
+        private Misc.PlaceHolderTextBox placeHolderTextBox8;
     }
 }

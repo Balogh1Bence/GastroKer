@@ -343,7 +343,11 @@ namespace login.Services.DatabaseOperations
             
             MySqlConnection connect = new MySqlConnection(conG);
             DataTable dt = new DataTable();
-            connect.Open();
+            try
+            {
+                connect.Open();
+            }
+            catch { return null; }
             string query = "SELECT * FROM termekek where Tnev like "+text+"";
            
 

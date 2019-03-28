@@ -172,7 +172,7 @@
             // régiTermékekToolStripMenuItem
             // 
             this.régiTermékekToolStripMenuItem.Name = "régiTermékekToolStripMenuItem";
-            this.régiTermékekToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.régiTermékekToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.régiTermékekToolStripMenuItem.Text = "Régi termékek";
             this.régiTermékekToolStripMenuItem.Click += new System.EventHandler(this.régiTermékekToolStripMenuItem_Click);
             // 
@@ -204,6 +204,7 @@
             this.Name = "Rakt";
             this.Text = "Rakt";
             this.Load += new System.EventHandler(this.Rakt_Load);
+            this.MouseEnter += new System.EventHandler(this.Rakt_MouseEnter);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

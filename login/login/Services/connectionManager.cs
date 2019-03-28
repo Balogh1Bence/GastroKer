@@ -13,44 +13,38 @@ namespace login.Services
     /// </summary>
     class connectionManager
     {
+        public string FConnection;
+        private string Gconnection;
+        /// <summary>
+        /// get = a teljes connection string
+        /// set = a server értékét átállítja 
+        /// </summary>     
+        public void connectServerF(string Fserver , string Fdb ,string Fuid, string Fpw)
+        {
+            
+            FConnection = "SERVER =\"" + Fserver+ "\";"
+                + "DATABASE=\""+Fdb+"\";"
+                + "UID=\""+Fuid+"\";"
+                + "PASSWORD=\""+Fpw+"\";"
+                + "PORT=\"3306\";";
+        }
+        public void connectServerG(string Gserver, string Gdb, string Guid, string Gpw)
+        {
 
-
-
-
-        private string Gserver;
-        private string Fserver;
+            Gconnection = "SERVER =\"" + Gserver + "\";"
+                + "DATABASE=\"" + Gdb + "\";"
+                + "UID=\"" + Guid + "\";"
+                + "PASSWORD=\"" + Gpw + "\";"
+                + "PORT=\"3306\";";
+        }
         /// <summary>
         /// get = a teljes connection string
         /// set = a server értékét átállítja 
         /// </summary>
-        public string connectServerG
-        {
-            get => Gserver;
-            set => Gserver = "SERVER =\"" + value + "\";"
-                + "DATABASE=\"gastro\";"
-                + "UID=\"root\";"
-                + "PASSWORD=\"\";"
-                + "PORT=\"3306\";";
-        }
-
-        /// <summary>
-        /// get = a teljes connection string
-        /// set = a server értékét átállítja 
-        /// </summary>
-        public string connectServerF
-        {
-            get => Fserver;
-            set => Fserver = "SERVER =\"" + value + "\";"
-                + "DATABASE=\"felh\";"
-                + "UID=\"root\";"
-                + "PASSWORD=\"\";"
-                + "PORT=\"3306\";";
-
-        }
         public void write()
         {          
-            System.IO.File.WriteAllText(pathG, Gserver);
-            System.IO.File.WriteAllText(pathF, Fserver);
+            System.IO.File.WriteAllText(pathG, Gconnection);
+            System.IO.File.WriteAllText(pathF, FConnection);
         }
         public string pathG
         {
@@ -63,8 +57,8 @@ namespace login.Services
     
         public string readG()
         {
-            const string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
-            const string REGISTY_VALUE = "x";
+            /*string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
+             string REGISTY_VALUE = keyValue;
             if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
             {
 
@@ -74,14 +68,14 @@ namespace login.Services
                   + "PASSWORD=\"\";"
                   + "PORT=\"3306\";";
                     }
-            else
+            else*/
                 return File.ReadAllText(pathG);
             
         }
         public string readF()
         {
-            const string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
-            const string REGISTY_VALUE = "xx";
+            /*string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
+            string REGISTY_VALUE = keyValue;
             if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
             {
 
@@ -91,10 +85,13 @@ namespace login.Services
                   + "PASSWORD=\"\";"
                   + "PORT=\"3306\";";
             }
-            else
+            else*/
                 return File.ReadAllText(pathF);
         }
-
+        public  string keyValue
+        {
+            get => "tiz";
+        }
         
     }
 }

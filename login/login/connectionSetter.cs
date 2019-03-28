@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
 namespace login
 {
     public partial class connectionSetter : Form
@@ -22,6 +22,12 @@ namespace login
             button1.DialogResult = DialogResult.OK;
             placeHolderTextBox1.PlaceHolderText = "felhasználók adatbázis IP címe";
             placeHolderTextBox2.PlaceHolderText = "Raktár adatbázis IP címe";
+            placeHolderTextBox3.PlaceHolderText = "adatbázis név Felhasználók számára";
+            placeHolderTextBox4.PlaceHolderText = "adatbázis név Raktár számára";
+            placeHolderTextBox5.PlaceHolderText = "adatbázis felhasználónév felhasználók számára";
+            placeHolderTextBox6.PlaceHolderText = "adatbázis felhasználónév Raktár számára";
+            placeHolderTextBox7.PlaceHolderText = "adatbázis jelszó felhasználók számára";
+            placeHolderTextBox8.PlaceHolderText = "adatbázis jelszó Raktár számára";
 
         }
 
@@ -47,12 +53,42 @@ namespace login
                 }
             }
         }
-        public void setCons()
+        public int setCons()
         {
-            cm.connectServerF = placeHolderTextBox1.Text;
-            cm.connectServerG = placeHolderTextBox2.Text;
+            if (placeHolderTextBox8.Text == placeHolderTextBox8.PlaceHolderText)
+            {
+                placeHolderTextBox8.setText("");
+            }
+            if (placeHolderTextBox7.Text == placeHolderTextBox7.PlaceHolderText)
+            {
+                placeHolderTextBox7.setText("");
+            }
+
+            cm.connectServerF (placeHolderTextBox1.Text,placeHolderTextBox3.Text,placeHolderTextBox5.Text, placeHolderTextBox7.Text);
+            cm.connectServerG (placeHolderTextBox2.Text,placeHolderTextBox4.Text,placeHolderTextBox6.Text,placeHolderTextBox8.Text);
             cm.write();
-            
+            MySqlConnection cnG = new MySqlConnection(cm.readG());
+            MySqlConnection cnF = new MySqlConnection(cm.readF());
+            try
+            {
+                MessageBox.Show(cnG.ConnectionString);
+                cnG.Open();
+                MessageBox.Show("cnG mukszik");
+            }
+            catch {
+                return 0;
+            }
+
+            try
+            {
+                MessageBox.Show(cnF.ConnectionString);
+                cnF.Open();
+                MessageBox.Show("cnF mukszik");
+            }
+            catch {
+                return 0;
+            }
+            return 1;
         }
     }
 }

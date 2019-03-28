@@ -40,9 +40,10 @@ variableChecker uc;
         {
             u = new us(); ;
 
-            const string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
-            const string REGISTY_VALUE = "x";
-            if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
+            connectionManager cnt = new connectionManager();
+          string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
+            string REGISTRY_VALUE = cnt.keyValue;
+            if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTRY_VALUE, 0)) == 0)
             {
                 if (textBox1.Text == "admin" && textBox2.Text == "admin")
                 {
