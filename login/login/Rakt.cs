@@ -49,10 +49,10 @@ namespace login
                 
                 if (user.getRights(uname) == "admin")
                 {
-                    aru.ShowDialog();
+                    /*aru.ShowDialog();
                     if (aru.DialogResult == DialogResult.OK)
-                    {
-                        aru.addNewUser();
+                    {*/
+                       
 
                         cst = new connectionSetter();
                         cst.ShowDialog();
@@ -62,6 +62,7 @@ namespace login
                             {
 
                                 Microsoft.Win32.Registry.SetValue(REGISTRY_KEY, REGISTRY_VALUE, 1, Microsoft.Win32.RegistryValueKind.DWord);
+                               
                             }
                             else
                             {
@@ -75,7 +76,7 @@ namespace login
 
 
                         
-                    }
+                   /* }*/
                 }
                 else { return; }
                 
@@ -253,7 +254,33 @@ namespace login
             } 
         }
 
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+    
+
+        private void adatbáziskapcsolatokKezeléseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            connectionSetter cst = new connectionSetter();
+            cst.Show();
+        }
+
+        private void régiTermékekToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            oldProducts oP = new oldProducts();
+            if (user.getRights(uname) == "admin")
+            {
+
+                oP.Show();
+            }
+            else return;
+            
+        }
+
+        private void Rakt_MouseEnter(object sender, EventArgs e)
+        {
+            placeHolderTextBox1.TextChanged += placeHolderTextBox1_TextChanged;
+        }
+
+        private void felhasználóHozzáadásaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addRktUser aru = new addRktUser();
 
@@ -279,24 +306,6 @@ namespace login
                 MessageBox.Show("nincs jozzá jogosultsága");
                 return;
             }
-        }
-
-        private void adatbáziskapcsolatokKezeléseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            connectionSetter cst = new connectionSetter();
-            cst.Show();
-        }
-
-        private void régiTermékekToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            oldProducts oP = new oldProducts();
-            oP.Show();
-            
-        }
-
-        private void Rakt_MouseEnter(object sender, EventArgs e)
-        {
-            placeHolderTextBox1.TextChanged += placeHolderTextBox1_TextChanged;
         }
     }
 }

@@ -45,6 +45,7 @@
             this.termékekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.régiTermékekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.placeHolderTextBox1 = new login.Misc.PlaceHolderTextBox();
+            this.felhasználóHozzáadásaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -117,11 +118,12 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adatbáziskapcsolatokKezeléseToolStripMenuItem});
+            this.adatbáziskapcsolatokKezeléseToolStripMenuItem,
+            this.felhasználóHozzáadásaToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.fileToolStripMenuItem.Text = "Adminisztráció";
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            
             // 
             // adatbáziskapcsolatokKezeléseToolStripMenuItem
             // 
@@ -188,6 +190,13 @@
             this.placeHolderTextBox1.TabIndex = 7;
             this.placeHolderTextBox1.TextChanged += new System.EventHandler(this.placeHolderTextBox1_TextChanged);
             // 
+            // felhasználóHozzáadásaToolStripMenuItem
+            // 
+            this.felhasználóHozzáadásaToolStripMenuItem.Name = "felhasználóHozzáadásaToolStripMenuItem";
+            this.felhasználóHozzáadásaToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.felhasználóHozzáadásaToolStripMenuItem.Text = "felhasználó hozzáadása";
+            this.felhasználóHozzáadásaToolStripMenuItem.Click += new System.EventHandler(this.felhasználóHozzáadásaToolStripMenuItem_Click);
+            // 
             // Rakt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,5 +241,6 @@
         private System.Windows.Forms.ToolStripMenuItem adatbáziskapcsolatokKezeléseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem termékekToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem régiTermékekToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem felhasználóHozzáadásaToolStripMenuItem;
     }
 }
