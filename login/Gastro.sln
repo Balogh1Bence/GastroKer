@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastro", "login\Gastro.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GastroTests1", "GastroTests1\GastroTests1.csproj", "{909CCBBF-8A9D-4E96-A9FE-DA1182F1174A}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{10CA2CEF-A76A-43D9-82C6-861F0D3AB6F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{909CCBBF-8A9D-4E96-A9FE-DA1182F1174A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{909CCBBF-8A9D-4E96-A9FE-DA1182F1174A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{909CCBBF-8A9D-4E96-A9FE-DA1182F1174A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10CA2CEF-A76A-43D9-82C6-861F0D3AB6F4}.Debug|Any CPU.ActiveCfg = Debug
+		{10CA2CEF-A76A-43D9-82C6-861F0D3AB6F4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
