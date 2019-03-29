@@ -30,7 +30,7 @@ namespace login.Tests
             p.setText("csirke1");
             Assert.IsFalse(p.NotContainsNumber(), "Van benne szám, mégis kivételt dob.");
 
-
+               
 
         }
         [TestMethod()]
