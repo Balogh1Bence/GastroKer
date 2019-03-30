@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:GK_telepítő"
+"ProjectName" = "8:GK"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -40,13 +40,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_32036027855759C6F0F13B015E1C14F4"
+        "OwnerKey" = "8:_C688F39D27E24693989562C2EE7C2B63"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C688F39D27E24693989562C2EE7C2B63"
+        "OwnerKey" = "8:_32036027855759C6F0F13B015E1C14F4"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -67,6 +67,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -83,6 +91,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -281,15 +297,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:GK_telepítő"
-        "ProductCode" = "8:{C082BF29-099E-4137-9804-4421E184945B}"
-        "PackageCode" = "8:{CDBD05E5-9C56-45A3-BBC5-EEB2ED23B20E}"
+        "ProductCode" = "8:{19F99007-A82D-48FE-BF17-3052439BA20E}"
+        "PackageCode" = "8:{1456B35A-80B1-4E4F-A63E-EE88AB98223C}"
         "UpgradeCode" = "8:{FB41A6BF-9868-4114-9071-D6E31C4EB523}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.3"
+        "ProductVersion" = "8:1.1.4"
         "Manufacturer" = "8:BB"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
