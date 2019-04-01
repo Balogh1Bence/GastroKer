@@ -42,10 +42,7 @@ CREATE TABLE `deskusers` (
 --
 
 INSERT INTO `deskusers` (`azon`, `username`, `password`, `email`, `utols`, `jog`) VALUES
-(1, 'abrlin', '123456', 'baloghbencefacebook@gmail.com', '2001-01-01', 'vez'),
-(2, 'nagcso', '123456', 'lujzza08@gmail.com', '2019-01-01', 'rak'),
-(3, 'admin', 'admin', 'baloghbencefacebook@gmail.com', '2001-01-01', 'admin'),
-(4, 'kirmar', '123456', 'lujzza08@gmail.com', '2019-01-01', 'ugy');
+(1, 'admin', 'admin', 'baloghbencefacebook@gmail.com', '2001-01-01', 'admin');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -65,7 +62,7 @@ ALTER TABLE `deskusers`
 -- AUTO_INCREMENT a táblához `deskusers`
 --
 ALTER TABLE `deskusers`
-  MODIFY `azon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `azon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -41,7 +41,7 @@ variableChecker uc;
             u = new us(); ;
 
             connectionManager cnt = new connectionManager();
-          string REGISTRY_KEY = @"HKEY_CURRENT_USER\MyApplication";
+          string REGISTRY_KEY = @"HKEY_CURRENT_USER\GastroKer";
             string REGISTRY_VALUE = cnt.keyValue;
             if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTRY_VALUE, 0)) == 0)
             {

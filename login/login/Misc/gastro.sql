@@ -65,11 +65,6 @@ CREATE TABLE `bej` (
 -- A tábla adatainak kiíratása `bej`
 --
 
-INSERT INTO `bej` (`IntAzon`, `Tkod`, `Tmenny`, `Bdate`) VALUES
-(2000, 3, 0, '0000-00-00'),
-(2000, 4, 0, '0000-00-00'),
-(2001, 1, 0, '0000-00-00'),
-(2001, 2, 0, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -91,7 +86,7 @@ CREATE TABLE `besz` (
 
 INSERT INTO `besz` (`azon`, `nev`, `tel`, `email`, `kapcsnev`) VALUES
 (2000, 'Hertz', 63333333, 'apacshelikopter1998@gmail.com', 'Lakatos Roz?lia'),
-(2001, 'Fagyok kft', 64444444, 'apacshelikopter1998@gmail.com', 'Z?ld Istv?n');
+(2001, 'Fagyok kft', 64444444, 'apacshelikopter1998@gmail.com', 'Zöld István');
 
 -- --------------------------------------------------------
 
@@ -130,9 +125,9 @@ CREATE TABLE `kat` (
 --
 
 INSERT INTO `kat` (`Tkatkod`, `Tkatnev`) VALUES
-(1, 'kolb?sz'),
+(1, 'kolbász'),
 (2, 'tej'),
-(3, 'csirkeh?s');
+(3, 'csirkehús');
 
 -- --------------------------------------------------------
 
@@ -157,7 +152,7 @@ CREATE TABLE `regitermekek` (
 --
 
 INSERT INTO `regitermekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tvonkod`, `Tszavido`, `Tegalizalte`) VALUES
-(1, 'kolbi', 500, 350, 'kg', 1, 132784678, '0000-00-00', 0);
+(1, 'kolbi', 500, 350, 'kg', 1, 132784678, '0001-01-01', 0);
 
 -- --------------------------------------------------------
 
@@ -211,12 +206,7 @@ CREATE TABLE `szamla` (
 -- A tábla adatainak kiíratása `szamla`
 --
 
-INSERT INTO `szamla` (`nyugtaszam`, `datum`, `Vkod`, `osszeg`) VALUES
-(1, '2019-03-16', 1000, 9900),
-(2, '2019-03-16', 1000, 9900),
-(3, '2019-03-16', 1000, 9900),
-(4, '2019-03-16', 1000, 9900),
-(5, '2019-03-16', 1001, 8200);
+
 
 -- --------------------------------------------------------
 
@@ -237,37 +227,6 @@ CREATE TABLE `szamlatetel` (
 -- A tábla adatainak kiíratása `szamlatetel`
 --
 
-INSERT INTO `szamlatetel` (`szamlakivonat`, `nyugtaszam`, `Tkod`, `menny`, `nyomtatvae`, `vevo`) VALUES
-(1, 1, 1, 1, 1, 'KissJozsef'),
-(2, 1, 2, 2, 1, 'KissJozsef'),
-(3, 1, 3, 3, 1, 'KissJozsef'),
-(4, 1, 4, 4, 1, 'KissJozsef'),
-(5, 1, 5, 5, 1, 'KissJozsef'),
-(6, 1, 6, 7, 1, 'KissJozsef'),
-(7, 2, 1, 1, 1, 'KissJozsef'),
-(8, 2, 2, 2, 1, 'KissJozsef'),
-(9, 2, 3, 3, 1, 'KissJozsef'),
-(10, 2, 4, 4, 1, 'KissJozsef'),
-(11, 2, 5, 5, 1, 'KissJozsef'),
-(12, 2, 6, 7, 1, 'KissJozsef'),
-(13, 3, 1, 1, 1, 'KissJozsef'),
-(14, 3, 2, 2, 1, 'KissJozsef'),
-(15, 3, 3, 3, 1, 'KissJozsef'),
-(16, 3, 4, 4, 1, 'KissJozsef'),
-(17, 3, 5, 5, 1, 'KissJozsef'),
-(18, 3, 6, 7, 1, 'KissJozsef'),
-(19, 4, 1, 1, 1, 'KissJozsef'),
-(20, 4, 2, 2, 1, 'KissJozsef'),
-(21, 4, 3, 3, 1, 'KissJozsef'),
-(22, 4, 4, 4, 1, 'KissJozsef'),
-(23, 4, 5, 5, 1, 'KissJozsef'),
-(24, 4, 6, 7, 1, 'KissJozsef'),
-(25, 5, 1, 1, 1, 'NagyBela'),
-(26, 5, 2, 4, 1, 'NagyBela'),
-(27, 5, 3, 3, 1, 'NagyBela'),
-(28, 5, 4, 2, 1, 'NagyBela'),
-(29, 5, 5, 2, 1, 'NagyBela'),
-(30, 5, 6, 5, 1, 'NagyBela');
 
 -- --------------------------------------------------------
 
@@ -295,7 +254,7 @@ INSERT INTO `termekek` (`Tkod`, `Tnev`, `Tar`, `Tkeszl`, `Tmert`, `Tkatkod`, `Tv
 (1, 'kolbi', 300, 350, 'kg', 1, 121234, '2018-02-03', 1),
 (2, 'kolbika', 400, 450, 'kg', 1, 3456633, '2018-11-01', 1),
 (3, 'fagyos csirkecomb', 900, 300, 'kb', 3, 3452622, '2019-11-01', 1),
-(4, 'f?lzs?ros tej', 150, 20, 'li', 2, 287364, '2019-11-01', 1),
+(4, 'félzsíros tej', 150, 20, 'li', 2, 287364, '2019-11-01', 1),
 (5, 'pulyka vörös apróhús', 400, 450, 'kg', 3, 4526222, '2019-11-01', 0),
 (6, 'joghurt', 500, 400, 'l', 2, 3452456, '2019-11-01', 1);
 
@@ -325,8 +284,8 @@ CREATE TABLE `vevok` (
 --
 
 INSERT INTO `vevok` (`azon`, `nev`, `adoazon`, `banksz`, `tel`, `dolg`, `torzs`, `vasmenny`, `felh`, `jelsz`, `email`, `uj`) VALUES
-(1000, 'Kiss G?za', 87623498, 9843716298654585, 701111111, 0, 1, 44, 'KissJozsef', '123456', 'apacshelikopter1998@gmail.com', 1),
-(1001, 'Nagy B?la', 29832749, 8297465738977561, 302222222, 1, 1, 17, 'NagyBela', '123456', 'apacshelikopter1998@gmail.com', 1);
+(1000, 'Kiss Géza', 87623498, 9843716298654585, 701111111, 0, 1, 44, 'KissJozsef', '123456', 'apacshelikopter1998@gmail.com', 1),
+(1001, 'Nagy Béla', 29832749, 8297465738977561, 302222222, 1, 1, 17, 'NagyBela', '123456', 'apacshelikopter1998@gmail.com', 1);
 
 --
 -- Indexek a kiírt táblákhoz
