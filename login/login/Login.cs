@@ -48,6 +48,7 @@ variableChecker uc;
                 if (textBox1.Text == "admin" && textBox2.Text == "admin")
                 {
                     Rakt rkt = new Rakt("admin");
+                    return;
                 }
             }
 

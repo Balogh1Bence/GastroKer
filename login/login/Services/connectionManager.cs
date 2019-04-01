@@ -42,17 +42,20 @@ namespace login.Services
         /// set = a server értékét átállítja 
         /// </summary>
         public void write()
-        {          
+        {
+           // System.Diagnostics.Process.Start("/Misc/Gconn.txt");
             System.IO.File.WriteAllText(pathG, Gconnection);
             System.IO.File.WriteAllText(pathF, FConnection);
+           
         }
         public string pathG
         {
-            get=> Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) + "\\Misc\\Gconn.txt";
+            
+            get=> /*Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()))+ */"Misc\\Gconn.txt";
         }
         public string pathF
         {
-            get => Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) + "\\Misc\\Fconn.txt";
+            get =>/* Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) +*/ "Misc\\Fconn.txt";
         }
     
         public string readG()
@@ -69,7 +72,9 @@ namespace login.Services
                   + "PORT=\"3306\";";
                     }
             else*/
-                return File.ReadAllText(pathG);
+            System.Windows.Forms.MessageBox.Show(pathG);
+            System.Windows.Forms.MessageBox.Show(pathF);
+            return File.ReadAllText(pathG);
             
         }
         public string readF()
@@ -90,7 +95,7 @@ namespace login.Services
         }
         public  string keyValue
         {
-            get => "tizenketto";
+            get => "tizenk";
         }
         
     }

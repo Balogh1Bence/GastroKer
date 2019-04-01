@@ -47,8 +47,7 @@ namespace login
 
                 aru = new addRktUser(true);
                 
-                if (user.getRights(uname) == "admin")
-                {
+              
                     /*aru.ShowDialog();
                     if (aru.DialogResult == DialogResult.OK)
                     {*/
@@ -77,8 +76,7 @@ namespace login
 
                         
                    /* }*/
-                }
-                else { return; }
+             
                 
             }
 

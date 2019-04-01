@@ -133,9 +133,9 @@ $_SESSION['name']="";
 		
 			location.reload();
 		}
-            function felhNevEllenorzes()
+            function checkUsername()
             {
-                if($('#felhNevMezo').val().length < 4)
+                if(document.getElementById('felhNevMezo').value.length < 4)
                 {
                     document.getElementById('hibaFelh').innerHTML = "Felhasználónév hossza nem megfelelő!";
                     return false;
@@ -147,9 +147,9 @@ $_SESSION['name']="";
                 }  
             }
             
-            function jelszoEllenorzes()
+            function checkPassword()
             {
-                if($('#jelszo').val().length < 4)
+                if(document.getElementById('jelszo').value.length < 4)
                 {
                     document.getElementById('hibaJelszo').innerHTML = "A jelszó nem megfelelő hosszúságú!";
                     return false;
@@ -181,7 +181,7 @@ $_SESSION['name']="";
 			}
             function ellenorzes()
             {
-                if(felhNevEllenorzes() && jelszoEllenorzes())
+                if(checkUsername() && checkPassword())
                 {
                     $('#gombMehet').prop('disabled', false);
                 }
