@@ -42,7 +42,7 @@ CREATE TABLE `deskusers` (
 --
 
 INSERT INTO `deskusers` (`azon`, `username`, `password`, `email`, `utols`, `jog`) VALUES
-(1, 'admin', 'admin', 'baloghbencefacebook@gmail.com', '2001-01-01', 'admin');
+(1, 'admin', '123456', 'baloghbencefacebook@gmail.com', '2001-01-01', 'admin');
 
 --
 -- Indexek a kiírt táblákhoz
