@@ -108,7 +108,7 @@ namespace login.Reporitorys.Rakt
                 i++;
             }
 
-            return ops.getPrdcts(); 
+            return ops.getFullDt("termekek"); 
         }
 
         public DataTable editDataSrc( int id,MdTermekek termekek)
@@ -171,7 +171,7 @@ namespace login.Reporitorys.Rakt
         private void fillProductListFromDataTable()
         {
             ops = new DBOperation();
-            dtCustomer= ops.getAllProduct("termekek");
+            dtCustomer= ops.getFullDt("termekek");
              
           
             foreach (DataRow row in dtCustomer.Rows)

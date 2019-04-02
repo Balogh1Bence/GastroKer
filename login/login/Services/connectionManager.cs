@@ -50,11 +50,12 @@ namespace login.Services
         }
         public string pathG
         {
-            
+            set => pathG = value;   
             get=> /*Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()))+ */"..\\..\\Misc\\Gconn.txt";
         }
         public string pathF
         {
+            set => pathF = value;
             get =>/* Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) +*/ "..\\..\\Misc\\Fconn.txt";
         }
     
@@ -72,9 +73,13 @@ namespace login.Services
                   + "PORT=\"3306\";";
                     }
             else*/
-            System.Windows.Forms.MessageBox.Show(pathG);
-            System.Windows.Forms.MessageBox.Show(pathF);
-            return File.ReadAllText(pathG);
+            try
+            {
+                return File.ReadAllText(pathG);
+            }
+            catch { return File.ReadAllText("Misc\\Gconn.txt"); }
+   
+         
             
         }
         public string readF()
@@ -91,11 +96,16 @@ namespace login.Services
                   + "PORT=\"3306\";";
             }
             else*/
+            try
+            {
                 return File.ReadAllText(pathF);
+            }
+            catch { return File.ReadAllText("Misc\\Fconn.txt"); }
+
         }
         public  string keyValue
         {
-            get => "tizenk";
+            get => "tizenkasdd";
         }
         
     }

@@ -168,9 +168,9 @@ namespace login.Services.DatabaseOperations
             }
         }
 
-        internal DataTable getPrdcts()
+        internal DataTable getFullDt(string table)
         {
-            string query = "select * from termekek";
+            string query = "select * from "+table+"";
             MySqlConnection con = new MySqlConnection(conG);
             con.Open();
             MySqlCommand cmd = new MySqlCommand(query, con);
@@ -180,11 +180,7 @@ namespace login.Services.DatabaseOperations
             return dt;
         }
 
-        internal DataTable getAllProduct(string v)
-        {
-            //a v a tábla neve, amelyikből az összes kell
-            throw new NotImplementedException();
-        }
+      
 
         public void increaseVasMenny(string vevoNev)
         {

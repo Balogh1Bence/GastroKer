@@ -67,6 +67,8 @@ namespace login.Services.fleh
                + "UID=\"root\";"
                + "PASSWORD=\"\";"
                + "PORT=\"3306\";";
+            connectionManager cm = new connectionManager();
+            con = cm.readF();
             MySqlConnection connect = new MySqlConnection(con);
             try
             {
