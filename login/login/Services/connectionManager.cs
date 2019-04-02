@@ -51,11 +51,11 @@ namespace login.Services
         public string pathG
         {
             
-            get=> /*Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()))+ */"Misc\\Gconn.txt";
+            get=> /*Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()))+ */"..\\..\\Misc\\Gconn.txt";
         }
         public string pathF
         {
-            get =>/* Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) +*/ "Misc\\Fconn.txt";
+            get =>/* Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) +*/ "..\\..\\Misc\\Fconn.txt";
         }
     
         public string readG()

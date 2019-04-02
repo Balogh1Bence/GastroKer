@@ -75,7 +75,9 @@ namespace login
                 cnG.Open();
                 MessageBox.Show("cnG mukszik");
             }
-            catch {
+            catch(Exception e) {
+                MessageBox.Show(e.Message);
+
                 return 0;
             }
 
@@ -85,7 +87,8 @@ namespace login
                 cnF.Open();
                 MessageBox.Show("cnF mukszik");
             }
-            catch {
+            catch(Exception e) {
+                MessageBox.Show(e.Message);
                 return 0;
             }
             return 1;
