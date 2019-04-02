@@ -171,7 +171,7 @@ namespace login.Reporitorys.Rakt
         private void fillProductListFromDataTable()
         {
             ops = new DBOperation();
-            dtCustomer= ops.getAllProduct();
+            dtCustomer= ops.getAllProduct("termekek");
              
           
             foreach (DataRow row in dtCustomer.Rows)

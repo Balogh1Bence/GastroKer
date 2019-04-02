@@ -180,6 +180,12 @@ namespace login.Services.DatabaseOperations
             return dt;
         }
 
+        internal DataTable getAllProduct(string v)
+        {
+            //a v a tábla neve, amelyikből az összes kell
+            throw new NotImplementedException();
+        }
+
         public void increaseVasMenny(string vevoNev)
         {
             try
