@@ -11,24 +11,26 @@ if (isset($_POST['vevo'])){
 	$dat = $_POST['date'];	
 	$i=0;
 	$sql="select * from rend where Vnev='".$vnev."'";
-	echo $sql;
+
 	$result = $connect->query($sql);
+	$sql="select * from termekek";
+	$res = $connect->query($sql);
 	$rowcount = mysqli_num_rows($result);
+	$rowc = mysqli_num_rows($res);
 	
 	/*
 	$cnt = $result->mysql_num_rows;*/
+
 	
-	
-	
-if ($rowcount==0) {  $sql="INSERT INTO `rend` (`Tkod`, `Tmenny`, `Vnev`, `Vdate`) VALUES ('$id', '$ertek', '$vnev', '$dat')";
-	echo $sql;
+if ($rowcount!=$rowc) {  $sql="INSERT INTO `rend` (`Tkod`, `Tmenny`, `Vnev`, `Vdate`) VALUES ('$id', '$ertek', '$vnev', '$dat')";
+
 	$connect->query($sql);
 	echo "sikeresen leadva a rendelés";
 	}  
 	else {
 	$sql="UPDATE `rend` SET `Tmenny`=".$ertek." WHERE Vnev='".$vnev."' and Tkod=".$id."";
 		$connect->query($sql);
-		echo $sql;
+
 	echo "sikeresen hozzáadva a rendeléshez";
 	}
 	

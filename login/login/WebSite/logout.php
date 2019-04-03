@@ -1,5 +1,11 @@
 ﻿<?php
 session_start();
-session_unset(); 
-	session_destroy();
+
+echo $_SESSION['name'];
+$_SESSION['name']="";
+echo $_SESSION['name'];
+
+unset($_SESSION['name']);
+echo $_SESSION['name'];
+	
 ?>

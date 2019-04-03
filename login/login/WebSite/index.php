@@ -129,9 +129,9 @@ $_SESSION['name']="";
 		{
 
 			
-			$.get("logout.php");
+			$.get("logout.php",  function(){location.reload();});
 		
-			location.reload();
+			
 		}
             function checkUsername()
             {
@@ -163,12 +163,12 @@ $_SESSION['name']="";
             
             function unloadconten()
 			{
-			console.log("valami");
+		
 			document.getElementById('tartalom').innerHTML = "";
 			}
 			function loadNewContent(kategoria)
 			{
-			console.log("valami");
+		
 				unloadconten();
 				$.post("szur.php",
   {
@@ -204,6 +204,7 @@ $_SESSION['name']="";
 							
 							if(data=="sikertelen bejelentkezés")
 							{
+								alert(data);
 								window.location.replace("index.php");
 							}
 							if(data=="0")
@@ -333,7 +334,7 @@ var output = d.getFullYear() + '-' +
 	while(i<a.length)
 	{
 
-	
+	var eredmeny;
 	 $.post("send.php",
 			{
 				id: Number(i+1),
@@ -343,7 +344,8 @@ var output = d.getFullYear() + '-' +
 
 
 			},
-				function(eredmeny){
+				function(_eredmeny){
+					eredmeny=_eredmeny;
 				if(eredmeny=="jo")
 					console.log(" ");
 				}
@@ -351,7 +353,16 @@ var output = d.getFullYear() + '-' +
 				i++;
 			}
 		
-			alert(eredmeny);
+			if(eredmeny=="sikeresen leadva a rendelés")
+			{
+				alert("sikeres vásárlás");
+				
+			}
+			else if(eredmeny=="sikeresen hozzáadva a rendeléshez")
+				alert("vásárlás sikeresen frissítve");
+			else
+				alert("vásárlás sikertelen");
+			
 	
 
 	}
