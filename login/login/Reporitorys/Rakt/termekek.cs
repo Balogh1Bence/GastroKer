@@ -93,7 +93,7 @@ namespace login.Reporitorys.Rakt
             {
                 if (termekek.getTkod() == productsList[i].getTkod())
                 {
-                    MessageBox.Show("Test");
+      
 
                     var selected = termekek;
 
@@ -125,7 +125,7 @@ namespace login.Reporitorys.Rakt
                 if (product.getTkod() == id)
                 {
 
-                    MessageBox.Show("Test");
+           
 
                     product.setTkod(id);
                     product.setTnev(termekek.getTNev());
@@ -177,25 +177,30 @@ namespace login.Reporitorys.Rakt
             string query = "SELECT * FROM termekek ";
             dtCustomer = mdi.getToDataTable(query);
             mdi.close();
-
-
-            foreach (DataRow row in dtCustomer.Rows)
+            dtCustomer = ops.getFullDt("termekek");
+            try
             {
-                
-                int Tkod=Convert.ToInt32(row["Tkod"].ToString());
-                string Tnev=row["Tnev"].ToString();
-                int Tar= Convert.ToInt32(row["Tar"].ToString());
-                int Tkeszl= Convert.ToInt32(row["Tkeszl"].ToString());
-                string Tmert = row["Tmert"].ToString();
-                int Tkatkod= Convert.ToInt32(row["Tkatkod"].ToString());
-                int Tvonkod=Convert.ToInt32(row["Tvonkod"].ToString());
-               
-                DateTime Tszavido= Convert.ToDateTime(row["Tszavido"].ToString());
-                
-                
-                bool Tegalizalte=Convert.ToBoolean(row["Tegalizalte"].ToString());
-                MdTermekek c = new MdTermekek(Tkod, Tnev, Tar, Tkeszl, Tmert, Tkatkod, Tvonkod, Tszavido, Tegalizalte);
-                productsList.Add(c);
+
+                foreach (DataRow row in dtCustomer.Rows)
+                {
+
+                    int Tkod = Convert.ToInt32(row["Tkod"].ToString());
+                    string Tnev = row["Tnev"].ToString();
+                    int Tar = Convert.ToInt32(row["Tar"].ToString());
+                    int Tkeszl = Convert.ToInt32(row["Tkeszl"].ToString());
+                    string Tmert = row["Tmert"].ToString();
+                    int Tkatkod = Convert.ToInt32(row["Tkatkod"].ToString());
+                    int Tvonkod = Convert.ToInt32(row["Tvonkod"].ToString());
+
+                    DateTime Tszavido = Convert.ToDateTime(row["Tszavido"].ToString());
+
+
+                    bool Tegalizalte = Convert.ToBoolean(row["Tegalizalte"].ToString());
+                    MdTermekek c = new MdTermekek(Tkod, Tnev, Tar, Tkeszl, Tmert, Tkatkod, Tvonkod, Tszavido, Tegalizalte);
+                    productsList.Add(c);
+                }
+            }
+            catch {
             }
 
         }

@@ -1,0 +1,1 @@
+SERVER ="10.0.128.111";DATABASE="zarodolgozat_2018balben";UID="zarodolgozat";PASSWORD="zarodolgozat";PORT="3306";

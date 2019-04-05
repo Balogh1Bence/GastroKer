@@ -44,7 +44,7 @@ namespace login.Misc
             string text = System.IO.File.ReadAllText(path);
       
             string text2 = System.IO.File.ReadAllText(path2);
-            System.Windows.Forms.MessageBox.Show(text);
+
          
             System.Threading.Thread.Sleep(5000);
 

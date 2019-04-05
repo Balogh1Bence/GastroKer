@@ -241,10 +241,10 @@ namespace login.Services.DatabaseOperations
 
                 if (has550BoughtItems(vevoNev))
                 {
-                    MessageBox.Show("Test2");
+                   
                     query = "UPDATE `vevok` SET `torzs`=true WHERE felh=" + vevoNev + "";
                 }
-                MessageBox.Show("Test3");
+     
                 
 
             /*}
@@ -317,7 +317,7 @@ namespace login.Services.DatabaseOperations
         }
         public void update(int id, MdTermekek t)
         {
-            MessageBox.Show(conG);
+           
             MySqlConnection connect = new MySqlConnection(conG);
          
                 connect.Open();
@@ -371,7 +371,7 @@ namespace login.Services.DatabaseOperations
             
             
             MySqlDataAdapter da = new MySqlDataAdapter(cm);
-            MessageBox.Show(connect.ConnectionString);
+         
             da.Fill(dt);
             connect.Close();
             

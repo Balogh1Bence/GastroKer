@@ -71,24 +71,24 @@ namespace login
             MySqlConnection cnF = new MySqlConnection(cm.readF());
             try
             {
-                MessageBox.Show(cnG.ConnectionString);
+          
                 cnG.Open();
-                MessageBox.Show("cnG mukszik");
+      
             }
             catch(Exception e) {
-                MessageBox.Show(e.Message);
+    
 
                 return 0;
             }
 
             try
             {
-                MessageBox.Show(cnF.ConnectionString);
+
                 cnF.Open();
-                MessageBox.Show("cnF mukszik");
+             
             }
             catch(Exception e) {
-                MessageBox.Show(e.Message);
+
                 return 0;
             }
             return 1;
