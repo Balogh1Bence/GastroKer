@@ -19,8 +19,8 @@ namespace login
     public partial class Rakt : Form
     {
         us user;
-        RktServ rs = new RktServ();
-        CustomerService cs = new CustomerService();
+        RktServ rs;
+        CustomerService cs;
         Carriers c;
         Customers ct;
         addRktUser aru;
@@ -31,6 +31,7 @@ namespace login
 
         public Rakt(string uname)
         {
+            MessageBox.Show("Test");
             connectionManager cnt = new connectionManager();
             user = new us();
             InitializeComponent();
@@ -39,7 +40,8 @@ namespace login
             this.uname = uname;
             dataGridView1.MultiSelect = false;
             placeHolderTextBox1.setPlaceHolder("keresés név alapján");
-      string REGISTRY_KEY = @"HKEY_CURRENT_USER\GastroKer";
+            MessageBox.Show("Test");
+            string REGISTRY_KEY = @"HKEY_CURRENT_USER\GastroKer";
         string REGISTRY_VALUE = cnt.keyValue;
             if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTRY_VALUE, 0)) == 0)
             {
@@ -82,12 +84,13 @@ namespace login
 
             if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTRY_VALUE, 0)) == 0)
                 this.Close();
-
+            MessageBox.Show("Test");
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            rs = new RktServ();
             dataGridView1.DataSource= rs.feltolt();
         }
 

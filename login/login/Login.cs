@@ -15,7 +15,7 @@ namespace login
 {
     public partial class bejelentkezés : Form
     {
-        SetProperties sp;
+  
         ErrorProvider uname = new ErrorProvider();
         ErrorProvider pw = new ErrorProvider();
         Rakt rakt;
@@ -25,11 +25,15 @@ variableChecker uc;
         {
             InitializeComponent();
             button3.Hide();
-            sp = new SetProperties();
-        
-            uc = new variableChecker();
-          
 
+        /*
+            uc = new variableChecker();
+            metroButton1.BackColor = System.Drawing.Color.Blue;
+            metroButton1.ForeColor = System.Drawing.Color.Blue;
+            metroButton1.UseCustomForeColor = true;
+            metroButton1.UseCustomBackColor = true;
+           
+    */
 
               
         }
@@ -39,7 +43,7 @@ variableChecker uc;
         private void button1_Click(object sender, EventArgs e)
         {
             u = new us(); ;
-
+            MessageBox.Show("Test");
             connectionManager cnt = new connectionManager();
           string REGISTRY_KEY = @"HKEY_CURRENT_USER\GastroKer";
             string REGISTRY_VALUE = cnt.keyValue;
@@ -47,7 +51,9 @@ variableChecker uc;
             {
                 if (textBox1.Text == "admin" && textBox2.Text == "admin")
                 {
+                    MessageBox.Show("Test");
                     Rakt rkt = new Rakt("admin");
+       
                     return;
                 }
             }
@@ -121,13 +127,15 @@ variableChecker uc;
 
         private void button3_Click(object sender, EventArgs e)
         {
-            sp.Copy();
-           /* MessageBox.Show( uc.getOne("int")+"");
-            MessageBox.Show(uc.getOne("long") + "");
-            MessageBox.Show(uc.getOne("string") + "");
-            MessageBox.Show(uc.getOne("var") + "");*/
+         
+   
 
             
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
