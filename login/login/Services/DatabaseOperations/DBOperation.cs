@@ -168,9 +168,9 @@ namespace login.Services.DatabaseOperations
             }
         }
 
-        internal DataTable getFullDt(string table)
+        internal DataTable getPrdcts()
         {
-            string query = "select * from "+table+"";
+            string query = "select * from termekek";
             MySqlConnection con = new MySqlConnection(conG);
             con.Open();
             MySqlCommand cmd = new MySqlCommand(query, con);
@@ -179,8 +179,6 @@ namespace login.Services.DatabaseOperations
                 dp.Fill(dt);
             return dt;
         }
-
-      
 
         public void increaseVasMenny(string vevoNev)
         {
