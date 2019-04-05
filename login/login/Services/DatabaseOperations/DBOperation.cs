@@ -51,6 +51,21 @@ namespace login.Services.DatabaseOperations
                 conF = cm.readF();
             }
         }
+        internal DataTable getFullDt(string table)
+        {
+            try
+            {
+                string query = "select * from " + table + "";
+                MySqlConnection con = new MySqlConnection(conG);
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                MySqlDataAdapter dp = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                dp.Fill(dt);
+                return dt;
+            }
+            catch { return null; };
+        }
         public void createTaxbill(string vevoNev, DataTable items)
         {
             List<int> arak = getPriceOfItems(vevoNev);

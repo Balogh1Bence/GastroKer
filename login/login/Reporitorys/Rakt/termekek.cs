@@ -171,9 +171,14 @@ namespace login.Reporitorys.Rakt
         private void fillProductListFromDataTable()
         {
             ops = new DBOperation();
-            dtCustomer= ops.getAllProduct();
-             
-          
+            Adatbazis a = new Adatbazis();
+            MySQLDatabaseInterface mdi = a.kapcsolodas();
+            mdi.open();
+            string query = "SELECT * FROM termekek ";
+            dtCustomer = mdi.getToDataTable(query);
+            mdi.close();
+
+
             foreach (DataRow row in dtCustomer.Rows)
             {
                 

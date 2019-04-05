@@ -19,7 +19,7 @@ namespace login
     public partial class Rakt : Form
     {
         us user;
-        RktServ rs;
+        RktServ rs= new RktServ();
         CustomerService cs;
         Carriers c;
         Customers ct;
