@@ -192,9 +192,10 @@ namespace login
 
         private void newPartnerToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            cs = new CustomerService();
             int id = cs.getLastId();
             au = new AddUsers(id);
-            if (user.getRights(uname) == "ugy")
+            if (user.getRights(uname) == "ugy" || user.getRights(uname)=="admin")
             {
                 au.ShowDialog();
                 if (au.DialogResult == DialogResult.OK)
@@ -246,7 +247,7 @@ namespace login
         {
             ct = new Customers();
 
-            if (user.getRights(uname) == "rak")
+            if (user.getRights(uname) == "rak" || user.getRights(uname)=="admin")
                 ct.Show();
             else
             {

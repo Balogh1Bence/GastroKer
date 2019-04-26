@@ -67,11 +67,14 @@ namespace login.Reporitorys
 
                 cDT.Rows.Add(c.Azon, c.Nev, c.Tel, c.Email, c.Kapcsnev);
             }
-
-            cDT = cDT.Rows
-    .Cast<DataRow>()
-    .Where(row => !row.ItemArray.All(field => field is DBNull || string.IsNullOrWhiteSpace(field as string)))
-    .CopyToDataTable();
+           /* try
+            {
+                cDT = cDT.Rows
+        .Cast<DataRow>()
+        .Where(row => !row.ItemArray.All(field => field is DBNull || string.IsNullOrWhiteSpace(field as string)))
+        .CopyToDataTable();
+            }
+            catch { };*/
             return cDT;
         }
 
