@@ -36,6 +36,7 @@ namespace login
 
         private void changer(object sender, EventArgs e)
         {
+           
             try
             {
                 if (dataGridView1 != null)
@@ -59,8 +60,8 @@ namespace login
                 }
                 else return;
             }
-            catch
-            { return; }
+            catch(Exception a)
+            { MessageBox.Show(a.Message); }
 
         }
 
@@ -73,7 +74,7 @@ namespace login
         {
            
             dataGridView1.ClearSelection();
-          
+      
             dataGridView1.SelectionChanged += changer;
            
         }

@@ -6,6 +6,9 @@ using System.Text;
 using login.models;
 using login.Services.DatabaseOperations;
 using login.Services.ConnectToMysqlDatabase;
+using login.Services;
+using MySql.Data.MySqlClient;
+
 namespace Gastro
 {
     
@@ -66,14 +69,22 @@ namespace Gastro
 
         private void fillCustomersListFromDatabase()
         {
-            d = new DBOperation();
+            connectionManager cm = new connectionManager();
+            /*d = new DBOperation();
             Adatbazis a = new Adatbazis();
             MySQLDatabaseInterface mdi = a.kapcsolodas();
             mdi.open();
             string query = "SELECT * FROM vevok ";
-            DataTable dtCustomer = mdi.getToDataTable(query);
-            mdi.close();
-
+             = mdi.getToDataTable(query);
+            mdi.close();*/
+            string query = "select * from vevok";
+            MySqlConnection con = new MySqlConnection(cm.readG());
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            MySqlDataAdapter dp = new MySqlDataAdapter(cmd);
+            DataTable dtCustomer = new DataTable();
+            dp.Fill(dtCustomer);
+           
             foreach (DataRow row in dtCustomer.Rows)
             {
 

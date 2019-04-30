@@ -12,7 +12,7 @@ namespace login.Services
     class CustomerService
     {
         vevo v= new vevo();
-        DBOperation db;
+        DBOperation db= new DBOperation();
      
       
 
