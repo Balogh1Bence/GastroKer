@@ -63,7 +63,14 @@ namespace login
             {
                 placeHolderTextBox7.setText("");
             }
-
+            if (placeHolderTextBox5.Text == placeHolderTextBox5.PlaceHolderText)
+            {
+                placeHolderTextBox5.setText("root");
+            }
+            if (placeHolderTextBox6.Text == placeHolderTextBox6.PlaceHolderText)
+            {
+                placeHolderTextBox6.setText("root");
+            }
             cm.connectServerF (placeHolderTextBox1.Text,placeHolderTextBox3.Text,placeHolderTextBox5.Text, placeHolderTextBox7.Text);
             cm.connectServerG (placeHolderTextBox2.Text,placeHolderTextBox4.Text,placeHolderTextBox6.Text,placeHolderTextBox8.Text);
             cm.write();
