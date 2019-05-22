@@ -44,42 +44,19 @@ namespace login
             string REGISTRY_KEY = @"HKEY_CURRENT_USER\GastroKer";
         string REGISTRY_VALUE = cnt.keyValue;
             if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTRY_VALUE, 0)) == 0)
-            {
-           
-
-                aru = new addRktUser(true);
-                
-              
-                    /*aru.ShowDialog();
-                    if (aru.DialogResult == DialogResult.OK)
-                    {*/
-                       
-
+            {          
+                aru = new addRktUser(true);               
                         cst = new connectionSetter();
                         cst.ShowDialog();
                         if (cst.DialogResult == DialogResult.OK)
                         {
                             if (cst.setCons() == 1)
                             {
-
-                                Microsoft.Win32.Registry.SetValue(REGISTRY_KEY, REGISTRY_VALUE, 1, Microsoft.Win32.RegistryValueKind.DWord);
-                               
+                                Microsoft.Win32.Registry.SetValue(REGISTRY_KEY, REGISTRY_VALUE,
+                                    1, Microsoft.Win32.RegistryValueKind.DWord);                             
                             }
-                            else
-                            {
-                                
-                            }
-                        }
-                     
-
-                          
-
-
-
                         
-                   /* }*/
-             
-                
+                        }   
             }
 
             if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTRY_VALUE, 0)) == 0)

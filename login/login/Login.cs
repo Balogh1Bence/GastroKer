@@ -26,14 +26,15 @@ variableChecker uc;
             InitializeComponent();
             button3.Hide();
 
-        /*
-            uc = new variableChecker();
-            metroButton1.BackColor = System.Drawing.Color.Blue;
-            metroButton1.ForeColor = System.Drawing.Color.Blue;
-            metroButton1.UseCustomForeColor = true;
-            metroButton1.UseCustomBackColor = true;
-           
-    */
+            /*
+                uc = new variableChecker();
+                metroButton1.BackColor = System.Drawing.Color.Blue;
+                metroButton1.ForeColor = System.Drawing.Color.Blue;
+                metroButton1.UseCustomForeColor = true;
+                metroButton1.UseCustomBackColor = true;
+
+        */
+            
 
               
         }
