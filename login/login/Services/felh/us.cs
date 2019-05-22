@@ -123,7 +123,7 @@ namespace login.Services.fleh
             connectionManager cm = new connectionManager();
           
             con = cm.readF();
-            MessageBox.Show(cm.readF()+", "+cm.readG());
+           
             MySqlConnection connect = new MySqlConnection(con);
             try
             {

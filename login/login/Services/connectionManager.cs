@@ -51,28 +51,17 @@ namespace login.Services
         public string pathG
         {
             set => pathG = value;   
-            get=> /*Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()))+ */"..\\..\\Misc\\Gconn.txt";
+            get=> "..\\..\\Misc\\Gconn.txt";
         }
         public string pathF
         {
             set => pathF = value;
-            get =>/* Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) +*/ "..\\..\\Misc\\Fconn.txt";
+            get => "..\\..\\Misc\\Fconn.txt";
         }
     
         public string readG()
         {
-            /*string REGISTRY_KEY = @"HKEY_CURRENT_USER\GastroKer";
-             string REGISTY_VALUE = keyValue;
-            if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
-            {
-
-                return "SERVER =\"localhost\";"
-                  + "DATABASE=\"gastro\";"
-                  + "UID=\"root\";"
-                  + "PASSWORD=\"\";"
-                  + "PORT=\"3306\";";
-                    }
-            else*/
+          
             try
             {
                 return File.ReadAllText(pathG);
@@ -84,18 +73,7 @@ namespace login.Services
         }
         public string readF()
         {
-            /*string REGISTRY_KEY = @"HKEY_CURRENT_USER\GastroKer";
-            string REGISTY_VALUE = keyValue;
-            if (Convert.ToInt32(Microsoft.Win32.Registry.GetValue(REGISTRY_KEY, REGISTY_VALUE, 0)) == 0)
-            {
-
-                return "SERVER =\"localhost\";"
-                  + "DATABASE=\"felh\";"
-                  + "UID=\"root\";"
-                  + "PASSWORD=\"\";"
-                  + "PORT=\"3306\";";
-            }
-            else*/
+           
             try
             {
                 return File.ReadAllText(pathF);
@@ -105,7 +83,7 @@ namespace login.Services
         }
         public  string keyValue
         {
-            get => "tizenkasdghjasasdadsddasd";
+            get => "GK";
         }
         
     }

@@ -81,10 +81,6 @@ namespace login.Misc
             
         }
 
-
-       
-
-        
         /// <summary>
         /// ha a szülőosztálytól örökölt Text tulajdonság üres, akkor a Textet beállítja a placeholderben megadott értékre.
         /// a Text stílusát beállítja szürkére és döltre.
